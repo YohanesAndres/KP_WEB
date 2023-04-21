@@ -16,3 +16,76 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/data_tonase', [App\Http\Controllers\Data_tonase_Controller::class, 'index'])->name('data_tonase.index');
+Route::get('/data_tonase/create', [App\Http\Controllers\Data_tonase_Controller::class, 'create'])->name('data_tonase.create');
+Route::post('/data_tonase/store', [App\Http\Controllers\Data_tonase_Controller::class, 'store'])->name('data_tonase.store');
+Route::get('/data_tonase/edit/{id}', [App\Http\Controllers\Data_tonase_Controller::class, 'edit'])->name('data_tonase.edit');
+Route::patch('/data_tonase/update/{id}', [App\Http\Controllers\Data_tonase_Controller::class, 'update'])->name('data_tonase.update');
+Route::delete('/data_tonase/delete/{id}', [App\Http\Controllers\Data_tonase_Controller::class, 'delete'])->name('data_tonase.delete');
+
+Route::get('/kas_uj', [App\Http\Controllers\Kas_uj_Controller::class, 'index'])->name('kas_uj.index');
+Route::get('/kas_uj/create', [App\Http\Controllers\Kas_uj_Controller::class, 'create'])->name('kas_uj.create');
+Route::post('/kas_uj/store', [App\Http\Controllers\Kas_uj_Controller::class, 'store'])->name('kas_uj.store');
+Route::get('/kas_uj/edit/{id}', [App\Http\Controllers\Kas_uj_Controller::class, 'edit'])->name('kas_uj.edit');
+Route::patch('/kas_uj/update/{id}', [App\Http\Controllers\Kas_uj_Controller::class, 'update'])->name('kas_uj.update');
+Route::delete('/kas_uj/delete/{id}', [App\Http\Controllers\Kas_uj_Controller::class, 'delete'])->name('kas_uj.delete');
+
+Route::get('/kategori', [App\Http\Controllers\Kategori_Controller::class, 'index'])->name('kategori.index');
+Route::get('/kategori/create', [App\Http\Controllers\Kategori_Controller::class, 'create'])->name('kategori.create');
+Route::post('/kategori/store', [App\Http\Controllers\Kategori_Controller::class, 'store'])->name('kategori.store');
+Route::get('/kategori/edit/{id}', [App\Http\Controllers\Kategori_Controller::class, 'edit'])->name('kategori.edit');
+Route::patch('/kategori/update/{id}', [App\Http\Controllers\Kategori_Controller::class, 'update'])->name('kategori.update');
+Route::delete('/kategori/delete/{id}', [App\Http\Controllers\Kategori_Controller::class, 'delete'])->name('kategori.delete');
+
+Route::get('/kendaraan', [App\Http\Controllers\Kendaraan_Controller::class, 'index'])->name('kendaraan.index');
+Route::get('/kendaraan/create', [App\Http\Controllers\Kendaraan_Controller::class, 'create'])->name('kendaraan.create');
+Route::post('/kendaraan/store', [App\Http\Controllers\Kendaraan_Controller::class, 'store'])->name('kendaraan.store');
+Route::get('/kendaraan/edit/{id}', [App\Http\Controllers\Kendaraan_Controller::class, 'edit'])->name('kendaraan.edit');
+Route::patch('/kendaraan/update/{id}', [App\Http\Controllers\Kendaraan_Controller::class, 'update'])->name('kendaraan.update');
+Route::delete('/kendaraan/delete/{id}', [App\Http\Controllers\Kendaraan_Controller::class, 'delete'])->name('kendaraan.delete');
+
+Route::get('/muat_bongkar', [App\Http\Controllers\Muat_bongkar_Controller::class, 'index'])->name('muat_bongkar.index');
+Route::get('/muat_bongkar/create', [App\Http\Controllers\Muat_bongkar_Controller::class, 'create'])->name('muat_bongkar.create');
+Route::post('/muat_bongkar/store', [App\Http\Controllers\Muat_bongkar_Controller::class, 'store'])->name('muat_bongkar.store');
+Route::get('/muat_bongkar/edit/{id}', [App\Http\Controllers\Muat_bongkar_Controller::class, 'edit'])->name('muat_bongkar.edit');
+Route::patch('/muat_bongkar/update/{id}', [App\Http\Controllers\Muat_bongkar_Controller::class, 'update'])->name('muat_bongkar.update');
+Route::delete('/muat_bongkar/delete/{id}', [App\Http\Controllers\Muat_bongkar_Controller::class, 'delete'])->name('muat_bongkar.delete');
+
+Route::get('/namasopir', [App\Http\Controllers\Namasopir_Controller::class, 'index'])->name('namasopir.index');
+Route::get('/namasopir/create', [App\Http\Controllers\Namasopir_Controller::class, 'create'])->name('namasopir.create');
+Route::post('/namasopir/store', [App\Http\Controllers\Namasopir_Controller::class, 'store'])->name('namasopir.store');
+Route::get('/namasopir/edit/{id}', [App\Http\Controllers\Namasopir_Controller::class, 'edit'])->name('namasopir.edit');
+Route::patch('/namasopir/update/{id}', [App\Http\Controllers\Namasopir_Controller::class, 'update'])->name('namasopir.update');
+Route::delete('/namasopir/delete/{id}', [App\Http\Controllers\Namasopir_Controller::class, 'delete'])->name('namasopir.delete');
+
+Route::get('/rekap', [App\Http\Controllers\Rekap_Controller::class, 'index'])->name('rekap.index');
+Route::get('/rekap/create', [App\Http\Controllers\Rekap_Controller::class, 'create'])->name('rekap.create');
+Route::post('/rekap/store', [App\Http\Controllers\Rekap_Controller::class, 'store'])->name('rekap.store');
+Route::get('/rekap/edit/{id}', [App\Http\Controllers\Rekap_Controller::class, 'edit'])->name('rekap.edit');
+Route::patch('/rekap/update/{id}', [App\Http\Controllers\Rekap_Controller::class, 'update'])->name('rekap.update');
+Route::delete('/rekap/delete/{id}', [App\Http\Controllers\Rekap_Controller::class, 'delete'])->name('rekap.delete');
+
+Route::get('/rekap_fuso', [App\Http\Controllers\Rekap_fuso_Controller::class, 'index'])->name('rekap_fuso.index');
+Route::get('/rekap_fuso/create', [App\Http\Controllers\Rekap_fuso_Controller::class, 'create'])->name('rekap_fuso.create');
+Route::post('/rekap_fuso/store', [App\Http\Controllers\Rekap_fuso_Controller::class, 'store'])->name('rekap_fuso.store');
+Route::get('/rekap_fuso/edit/{id}', [App\Http\Controllers\Rekap_fuso_Controller::class, 'edit'])->name('rekap_fuso.edit');
+Route::patch('/rekap_fuso/update/{id}', [App\Http\Controllers\Rekap_fuso_Controller::class, 'update'])->name('rekap_fuso.update');
+Route::delete('/rekap_fuso/delete/{id}', [App\Http\Controllers\Rekap_fuso_Controller::class, 'delete'])->name('rekap_fuso.delete');
+
+Route::get('/uang_jalan', [App\Http\Controllers\Uang_jalan_Controller::class, 'index'])->name('uang_jalan.index');
+Route::get('/uang_jalan/create', [App\Http\Controllers\Uang_jalan_Controller::class, 'create'])->name('uang_jalan.create');
+Route::post('/uang_jalan/store', [App\Http\Controllers\Uang_jalan_Controller::class, 'store'])->name('uang_jalan.store');
+Route::get('/uang_jalan/edit/{id}', [App\Http\Controllers\Uang_jalan_Controller::class, 'edit'])->name('uang_jalan.edit');
+Route::patch('/uang_jalan/update/{id}', [App\Http\Controllers\Uang_jalan_Controller::class, 'update'])->name('uang_jalan.update');
+Route::delete('/uang_jalan/delete/{id}', [App\Http\Controllers\Uang_jalan_Controller::class, 'delete'])->name('uang_jalan.delete');
+
+Route::get('/update_mobil', [App\Http\Controllers\Update_mobil_Controller::class, 'index'])->name('update_mobil.index');
+Route::get('/update_mobil/create', [App\Http\Controllers\Update_mobil_Controller::class, 'create'])->name('update_mobil.create');
+Route::post('/update_mobil/store', [App\Http\Controllers\Update_mobil_Controller::class, 'store'])->name('update_mobil.store');
+Route::get('/update_mobil/edit/{id}', [App\Http\Controllers\Update_mobil_Controller::class, 'edit'])->name('update_mobil.edit');
+Route::patch('/update_mobil/update/{id}', [App\Http\Controllers\Update_mobil_Controller::class, 'update'])->name('update_mobil.update');
+Route::delete('/update_mobil/delete/{id}', [App\Http\Controllers\Update_mobil_Controller::class, 'delete'])->name('update_mobil.delete');
+
+
+

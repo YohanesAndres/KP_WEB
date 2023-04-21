@@ -22,6 +22,8 @@ return new class extends Migration
             $table->foreign('id_uang_jalan')->references('id')->on('uang_jalan')->onDelete('cascade');
             $table->unsignedBigInteger('id_kendaraan');
             $table->foreign('id_kendaraan')->references('id')->on('kendaraan')->onDelete('cascade');
+            $table->unsignedBigInteger('id_rekap');
+            $table->foreign('id_rekap')->references('id')->on('rekap')->onDelete('cascade');
             $table->integer('kirim_kebun');
             $table->integer('terima_bulking');
             $table->timestamps();

@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('no_do');
             $table->unsignedBigInteger('id_kendaraan');
             $table->foreign('id_kendaraan')->references('id')->on('kendaraan')->onDelete('cascade');
+            $table->unsignedBigInteger('id_rekap_fuso');
+            $table->foreign('id_rekap_fuso')->references('id')->on('rekap_fuso')->onDelete('cascade');
             $table->string('nama_sopir');
             $table->integer('estimasi_tonase');
             $table->unsignedBigInteger('id_uang_jalan');
