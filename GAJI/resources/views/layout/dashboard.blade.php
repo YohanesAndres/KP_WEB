@@ -1,143 +1,72 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head >
-    
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}"
-                style="color:blue">SportLine</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-
-      <ul class="navbar-nav" class="navbar-nav mr-auto text-center">
-        <li class="nav-item"
-        >
-        
-          <a class="nav-link active" aria-current="page" href="/home"
-          style="color:black;">Home
-          
-        </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="/lapangan"
-          style="color:black;">Lapangan</a>
-        </li>
-        </ul>
-
-        <ul class="navbar-nav mr-auto text-center">
-            <li class="nav-item">
-                <a class="nav-link" href="/pelanggan"
-                style="color:black;">Pelanggan</a>
-            </li>
-        </ul>
-
-        <ul class="navbar-nav mr-auto text-center">
-            <li class="nav-item">
-                <a class="nav-link" href="/booking"
-                style="color:black;">Booking</a>
-            </li>
-        </ul>
-
-        <ul class="navbar-nav mr-auto text-center">
-            <li class="nav-item">
-                <a class="nav-link" href="/transaksi"
-                style="color:black;">Transaksi</a>
-            </li>
-        </ul>
-       
-        <ul class="navbar-nav mr-auto text-center">
-            <li class="nav-item">
-                <a class="nav-link" href="/rules"
-                style="color:black;">Rules</a>
-            </li>
-        </ul>
-
-        <ul class="navbar-nav mr-auto text-center">
-            <li class="nav-item">
-                <a class="nav-link" href="/contact"
-                style="color:Tomato;">Contact US</a>
-            </li>
-        </ul> 
-
-    </div>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
+<div class="row d-flex justify-content-between">
+<link href="{{ asset('/css/dashboard.css') }}" rel="stylesheet">
+    <div class="col-md-3">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Admin Dashboard</h3>
             </div>
-        </nav>
-</head>
-<body style="background-image:url(img/bg-lapngan-PW.jpg);background-size:cover; background-attachment:fixed; backgroud-repeat:no-repeat">
-    <div id="app"  >
-    
-        
-
-        <main>
-            @yield('content')
-        </main>
+            <ul class="sidebar-menu">
+                <li class="{{ Request::is('home') ? 'active' : '' }}">
+                    <a href="{{ route('home') }}">
+                        <i class="fa fa-home"></i> <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="{{ Request::is('/data_tonase*') ? 'active' : '' }}">
+                    <a href="{{ route('data_tonase.index') }}">
+                        <i class="fa fa-database"></i> <span>Data Tonase</span>
+                    </a>
+                </li>
+                <li class="{{ Request::is('kas_uj*') ? 'active' : '' }}">
+                    <a href="{{ route('kas_uj.index') }}">
+                        <i class="fa fa-uang"></i> <span>Kas Uang Jalan</span>
+                    </a>
+                </li>
+                <li class="{{ Request::is('kategori*') ? 'active' : '' }}">
+                    <a href="{{ route('kategori.index') }}">
+                        <i class="fa fa-kategori"></i> <span>Kategori</span>
+                    </a>
+                </li>
+                <li class="{{ Request::is('kendaraan*') ? 'active' : '' }}">
+                    <a href="{{ route('kendaraan.index') }}">
+                        <i class="fa fa-kendaraan"></i> <span>Kendaraan</span>
+                    </a>
+                </li>
+                <li class="{{ Request::is('muat_bongkar*') ? 'active' : '' }}">
+                    <a href="{{ route('muat_bongkar.index') }}">
+                        <i class="fa fa-muat_bongkar"></i> <span>Muat Bongkar</span>
+                    </a>
+                </li>
+                <li class="{{ Request::is('namasopir*') ? 'active' : '' }}">
+                    <a href="{{ route('namasopir.index') }}">
+                        <i class="fa fa-namasopir"></i> <span>Daftar Sopir</span>
+                    </a>
+                </li>
+                <li class="{{ Request::is('rekap*') ? 'active' : '' }}">
+                    <a href="{{ route('rekap.index') }}">
+                        <i class="fa fa-rekap"></i> <span>Rekap Mobil Kecil</span>
+                    </a>
+                </li>
+                <li class="{{ Request::is('rekap_fuso*') ? 'active' : '' }}">
+                    <a href="{{ route('rekap_fuso.index') }}">
+                        <i class="fa fa-rekap_fuso"></i> <span>Rekap Fuso</span>
+                    </a>
+                </li>
+                <li class="{{ Request::is('uang_jalan*') ? 'active' : '' }}">
+                    <a href="{{ route('uang_jalan.index') }}">
+                        <i class="fa fa-uang_jalan"></i> <span>Uang Jalan</span>
+                    </a>
+                </li>
+                <li class="{{ Request::is('update_mobil*') ? 'active' : '' }}">
+                    <a href="{{ route('update_mobil.index') }}">
+                        <i class="fa fa-update_mobil"></i> <span>Update Mobil</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
     </div>
-    <!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-</body>
-
-</html>
+    <div class="col-md-9">
+        <div class="ml-3">
+            @yield('content')
+        </div>
+    </div>
+</div>
