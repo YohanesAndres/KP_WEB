@@ -4,7 +4,7 @@
 <h1 class="text-white text-center">Daftar namasopir</h1>
 
 <div class="d-flex justify-content-center">
-<a href="/namasopir/create" class="btn btn-primary btn-lg text-center">Tambah</a>
+<a href="/namasopir/create" class="btn btn-blue btn-lg text-center">Tambah</a>
 </div>
 
 <table class="table text-white table-dark table-bordered container mt-4">

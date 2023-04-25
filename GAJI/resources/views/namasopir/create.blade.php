@@ -1,6 +1,7 @@
 @extends('layout.dashboard')
 @section('content')
-<h1 class="text-black text-center">Tambah Booking</h1>
+<link href="{{ asset('/css/style.css') }}" rel="stylesheet">
+<h1 class="text-black text-center">Tambah Daftar Sopir</h1>
 <br>
 </br>
 <div class="form-group row offset-sm-1 col-sm-2">
