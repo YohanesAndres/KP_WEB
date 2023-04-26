@@ -1,4 +1,7 @@
-<h2>Edit Pelanggan</h2>
+@extends('layout.dashboard')
+@section('content')
+
+<h2>Edit Kategori</h2>
 @if (session()->has('info'))
         {{ session()->get('info') }}
 @endif
@@ -15,3 +18,4 @@
    
     <input type="submit" value="Simpan Data">
 </form>
+@endsection

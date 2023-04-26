@@ -27,8 +27,7 @@ class Kategori_Controller extends Controller
        
         $kategori->nama = $request->nama; 
         $kategori->save();
-        $request->session()->flash("info", "Data baru berhasil ditambahkan");
-        return redirect()->back();
+        return redirect('/kategori')->with('info', 'Data sopir berhasil disimpan');
     }
 
     public function edit(Request $request, $id)
@@ -50,7 +49,7 @@ class Kategori_Controller extends Controller
         return redirect()->route("kategori.index");
     }
 
-    public function destroy(Request $request, $id)
+    public function delete(Request $request, $id)
     {
         $kategori = Kategori::find($id);
         $kategori->delete();

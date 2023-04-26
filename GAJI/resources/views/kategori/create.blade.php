@@ -1,6 +1,6 @@
 @extends('layout.dashboard')
 @section('content')
-<h1 class="text-black text-center">Tambah Booking</h1>
+<h1 class="text-black text-center">Tambah Kategori</h1>
 <br>
 </br>
 <div class="form-group row offset-sm-1 col-sm-2">
@@ -16,7 +16,7 @@
 
 
     <div class="form-group row">
-        <label for="nama" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Nama</label>
+        <label for="nama" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Kategori</label>
         <div class="col-sm-8">
         <input type="text" name="nama" id="nama" class="form-control" placeholder="Masukkan nama">
         </div>

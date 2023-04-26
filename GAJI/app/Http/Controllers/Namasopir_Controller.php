@@ -27,8 +27,7 @@ class Namasopir_Controller extends Controller
        
         $namasopir->nama_sopir = $request->nama_sopir; 
         $namasopir->save();
-        $request->session()->flash("info", "Data baru berhasil ditambahkan");
-        return redirect()->back();
+        return redirect('/namasopir')->with('info', 'Data sopir berhasil disimpan');
     }
 
     public function edit(Request $request, $id)
@@ -50,7 +49,7 @@ class Namasopir_Controller extends Controller
         return redirect()->route("namasopir.index");
     }
 
-    public function destroy(Request $request, $id)
+    public function delete(Request $request, $id)
     {
         $namasopir = Namasopir::find($id);
         $namasopir->delete();
@@ -58,4 +57,6 @@ class Namasopir_Controller extends Controller
         $request->session()->flash("info", "Data namasopir berhasil dihapus!");
         return redirect()->back();
     }
+
+    
 }
