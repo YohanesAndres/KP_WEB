@@ -1,6 +1,7 @@
 @extends('layout.dashboard')
 @section('content')
 
+<link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 <h1 class="text-white text-center">Daftar update_mobil</h1>
 
 <div class="d-flex justify-content-center">
@@ -11,10 +12,10 @@
   <thead>
     <tr>
     <th scope="col">No</th>
-      <th scope="col">ID update_mobil</th>
-      <th scope="col">Tanggal Waktu</th>
-      <th scope="col">ID Lapangan</th>
-      <th scope="col">ID Pelanggan</th>
+      <th scope="col">tanggal</th>
+      <th scope="col">status</th>
+      <th scope="col">id_kendaraan</th>
+      <th scope="col">keterangan</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -22,10 +23,10 @@
       @foreach($update_mobil as $key => $update_mobilData)
     <tr>
         <td>{{ ++$key }}</td>
-            <td>{{ $update_mobilData->id_update_mobil }}</td>
-            <td>{{ $update_mobilData->tanggal_waktu }}</td>
-            <td>{{ $update_mobilData->id_lapangan }}</td>
-            <td>{{ $update_mobilData->id_pelanggan }}</td>
+            <td>{{ $update_mobilData->tanggal }}</td>
+            <td>{{ $update_mobilData->status }}</td>
+            <td>{{ $update_mobilData->id_kendaraan }}</td>
+            <td>{{ $update_mobilData->keterangan }}</td>
             <td>
             @can('create', App\Models\update_mobil::class)
                 <a href="/update_mobil/edit/{{ $update_mobilData->id }}">Edit</a>
@@ -45,4 +46,10 @@
     @endforeach
   </tbody>
 </table>
+<style>
+  table th,
+  table td {
+    padding: 30px;
+  }
+</style>  
 @endsection

@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('muat_cpo');
             $table->string('tujuan_bongkar');
-            $table->string('no_spk/tanggal');
-            $table->string('no_kontrak/tanggal');
-            $table->string('no/tanggal_do_besar');
-            $table->string('quantity_do(ton)');
+            $table->string('no_spk_tanggal');
+            $table->string('no_kontrak_tanggal');
+            $table->string('no_tanggal_do_besar');
+            $table->string('quantity_do_ton');
             $table->timestamps();
         });
     }

@@ -1,6 +1,7 @@
 @extends('layout.dashboard')
 @section('content')
 
+<link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 <h1 class="text-white text-center">Daftar kas_uj</h1>
 
 <div class="d-flex justify-content-center">
@@ -11,10 +12,9 @@
   <thead>
     <tr>
     <th scope="col">No</th>
-      <th scope="col">ID kas_uj</th>
-      <th scope="col">Tanggal Waktu</th>
-      <th scope="col">ID Lapangan</th>
-      <th scope="col">ID Pelanggan</th>
+      <th scope="col">tanggal</th>
+      <th scope="col">jumlah uang</th>
+      <th scope="col">expenses</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -22,10 +22,9 @@
       @foreach($kas_uj as $key => $kas_ujData)
     <tr>
         <td>{{ ++$key }}</td>
-            <td>{{ $kas_ujData->id_kas_uj }}</td>
-            <td>{{ $kas_ujData->tanggal_waktu }}</td>
-            <td>{{ $kas_ujData->id_lapangan }}</td>
-            <td>{{ $kas_ujData->id_pelanggan }}</td>
+            <td>{{ $kas_ujData->tanggal }}</td>
+            <td>{{ $kas_ujData->jumlah_uang }}</td>
+            <td>{{ $kas_ujData->expenses }}</td>
             <td>
             @can('create', App\Models\kas_uj::class)
                 <a href="/kas_uj/edit/{{ $kas_ujData->id }}">Edit</a>
@@ -45,4 +44,10 @@
     @endforeach
   </tbody>
 </table>
+<style>
+  table th,
+  table td {
+    padding: 30px;
+  }
+</style>  
 @endsection
