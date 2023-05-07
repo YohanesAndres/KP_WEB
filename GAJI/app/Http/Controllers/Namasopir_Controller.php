@@ -16,7 +16,6 @@ class Namasopir_Controller extends Controller
 
     public function create()
     {
-        
         return view('namasopir.create');
     }
 

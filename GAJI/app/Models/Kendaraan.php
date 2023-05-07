@@ -9,4 +9,14 @@ class Kendaraan extends Model
 {
     use HasFactory;
     protected $table = "kendaraan";
+
+    public function namasopir()
+    {
+        return $this->belongsTo(Namasopir::class, 'id_namasopir', 'id');
+    }
+
+    public function kategori()
+    {
+        return $this->belongsTo(Kategori::class, 'id_kategori', 'id');
+    }
 }

@@ -5,7 +5,6 @@
 
 <div class="d-flex justify-content-center">
 <button class="btn btn-blue btn-lg text-center" onclick="location.href='/namasopir/create'">Tambah</button>
-
 </div>
 
 <table class="table text-white table-dark table-bordered container mt-4">

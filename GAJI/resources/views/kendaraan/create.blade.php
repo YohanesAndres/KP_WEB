@@ -1,8 +1,7 @@
 @extends('layout.dashboard')
 @section('content')
 <h1 class="text-black text-center">Tambah Booking</h1>
-<br>
-</br>
+<br></br>
 <div class="form-group row offset-sm-1 col-sm-2">
 @if (session()->has('info'))
         {{ session()->get('info') }}
@@ -15,7 +14,7 @@
     @csrf
 
     <div class="form-group row">
-        <label for="plat" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >plat</label>
+        <label for="plat" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Plat</label>
         <div class="col-sm-8">
         <input type="text" name="plat" id="plat" class="form-control" placeholder="Masukkan plat">
         </div>
@@ -25,7 +24,7 @@
     @enderror <br>
 
     <div class="form-group row">
-        <label for="tonase" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >tonase</label>
+        <label for="tonase" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Tonase</label>
         <div class="col-sm-8">
         <input type="text" name="tonase" id="tonase" class="form-control" placeholder="Masukkan tonase">
         </div>
@@ -35,9 +34,13 @@
     @enderror <br>
 
     <div class="form-group row">
-        <label for="id_namasopir" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >id_namasopir</label>
+        <label for="id_namasopir" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Nama Sopir</label>
         <div class="col-sm-8">
-        <input type="text" name="id_namasopir" id="id_namasopir" class="form-control" placeholder="Masukkan id_namasopir">
+            <select name="id_namasopir" id="id_namasopir" class="form-control">
+                @foreach ($tablenamasopirData as $item)
+                    <option value="{{ $item->id }}">{{ $item->nama_sopir }}</option>
+                @endforeach
+            </select>
         </div>
     </div>
     @error('id_namasopir')
@@ -46,9 +49,13 @@
    
 
     <div class="form-group row">
-        <label for="id_kategori" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >id_kategori</label>
+        <label for="id_kategori" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Kategori</label>
         <div class="col-sm-8">
-        <input type="text" name="id_kategori" id="id_kategori" class="form-control" placeholder="Masukkan id_kategori">
+            <select name="id_kategori" id="id_kategori" class="form-control">
+                @foreach ($tablekategoriData as $item)
+                    <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                @endforeach
+            </select>
         </div>
     </div>
     @error('id_kategori')

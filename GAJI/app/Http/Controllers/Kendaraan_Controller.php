@@ -4,20 +4,27 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Kendaraan;
+use App\Models\Namasopir;
+use App\Models\Kategori;
 
 class Kendaraan_Controller extends Controller
 {
     public function index()
     {
-     
-        $kendaraan = Kendaraan::all();
+        $kendaraan = Kendaraan::with('namasopir', 'kategori')->get();
+    
         return view('kendaraan.index', compact('kendaraan'));
     }
 
     public function create()
     {
-        
-        return view('kendaraan.create');
+        $tablekategoriData = Kategori::all();
+        $tablenamasopirData = Namasopir::all();
+
+        return view('kendaraan.create', [
+            'tablekategoriData' => $tablekategoriData,
+            'tablenamasopirData' => $tablenamasopirData,
+        ]);
     }
 
     public function store(Request $request)
@@ -30,15 +37,21 @@ class Kendaraan_Controller extends Controller
         $kendaraan->id_namasopir = $request->id_namasopir; 
         $kendaraan->id_kategori = $request->id_kategori; 
         $kendaraan->save();
-        $request->session()->flash("info", "Data baru berhasil ditambahkan");
-        return redirect()->back();
+        return redirect('/kendaraan')->with('info', 'Data sopir berhasil disimpan');
     }
 
     public function edit(Request $request, $id)
     {
        
         $kendaraan = Kendaraan::find($id);
-        return view("kendaraan.edit", compact('kendaraan'));
+        $tablekategoriData = Kategori::all();
+        $tablenamasopirData = Namasopir::all();
+
+        return view('kendaraan.edit', [
+            'kendaraan' => $kendaraan,
+            'tablekategoriData' => $tablekategoriData,
+            'tablenamasopirData' => $tablenamasopirData,
+        ]);
     }
 
     public function update(Request $request, $id)
@@ -56,7 +69,7 @@ class Kendaraan_Controller extends Controller
         return redirect()->route("kendaraan.index");
     }
 
-    public function destroy(Request $request, $id)
+    public function delete(Request $request, $id)
     {
         $kendaraan = Kendaraan::find($id);
         $kendaraan->delete();

@@ -1,11 +1,10 @@
 @extends('layout.dashboard')
 @section('content')
-
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 <h1 class="text-white text-center">Daftar Kendaraan</h1>
 
 <div class="d-flex justify-content-center">
-<a href="/Kendaraan/create" class="btn btn-primary btn-lg text-center">Tambah</a>
+<button class="btn btn-blue btn-lg text-center" onclick="location.href='/kendaraan/create'">Tambah</button>
 </div>
 
 <table class="table text-white table-dark table-bordered container mt-4">
@@ -25,22 +24,17 @@
         <td>{{ ++$key }}</td>
             <td>{{ $kendaraanData->plat }}</td>
             <td>{{ $kendaraanData->tonase }}</td>
-            <td>{{ $kendaraanData->id_namasopir }}</td>
-            <td>{{ $kendaraanData->id_kategori}}</td>
+            <td>{{ $kendaraanData->namasopir->nama_sopir }}</td>
+            <td>{{ $kendaraanData->kategori->nama}}</td>
             <td>
-            @can('create', App\Models\kendaraan::class)
                 <a href="/kendaraan/edit/{{ $kendaraanData->id }}">Edit</a>
-                @endcan
 
-                @can('create', App\Models\kendaraan::class)
                 <form action="{{ url('/kendaraan/delete/'.$kendaraanData->id) }}" method="post">
                     @csrf
                     @method('delete')
                     <input type="hidden" name="_method" value="delete">
                     <button type="submit" class="btn btn-danger">Hapus</button>
                 </form>
-                @endcan
-
             </td>
     </tr>
     @endforeach
