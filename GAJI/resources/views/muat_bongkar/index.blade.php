@@ -2,7 +2,7 @@
 @section('content')
 
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
-<h1 class="text-white text-center">Daftar muat_bongkar</h1>
+<h1 class="text-white text-center">Daftar Muat Bongkar</h1>
 
 <div class="d-flex justify-content-center">
 <a href="/muat_bongkar/create" class="btn btn-primary btn-lg text-center">Tambah</a>
@@ -12,8 +12,8 @@
   <thead>
     <tr>
     <th scope="col">No</th>
-      <th scope="col">uang jalan</th>
-      <th scope="col">muat-bongkar</th>
+      <th scope="col">Muat Bongkar</th>
+      <th scope="col">Uang Jalan</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -21,21 +21,17 @@
       @foreach($muat_bongkar as $key => $muat_bongkarData)
     <tr>
         <td>{{ ++$key }}</td>
-            <td>{{ $muat_bongkarData->uang_jalan }}</td>
             <td>{{ $muat_bongkarData->muatBongkar }}</td>
+            <td>{{ $muat_bongkarData->uang_jalan }}</td>
             <td>
-            @can('create', App\Models\muat_bongkar::class)
                 <a href="/muat_bongkar/edit/{{ $muat_bongkarData->id }}">Edit</a>
-                @endcan
 
-                @can('create', App\Models\muat_bongkar::class)
                 <form action="{{ url('/muat_bongkar/delete/'.$muat_bongkarData->id) }}" method="post">
                     @csrf
                     @method('delete')
                     <input type="hidden" name="_method" value="delete">
                     <button type="submit" class="btn btn-danger">Hapus</button>
                 </form>
-                @endcan
 
             </td>
     </tr>

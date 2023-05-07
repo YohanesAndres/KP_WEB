@@ -28,8 +28,7 @@ class Muat_bongkar_Controller extends Controller
         $muat_bongkar->uang_jalan = $request->uang_jalan; 
         $muat_bongkar->muatBongkar = $request->muatBongkar; 
         $muat_bongkar->save();
-        $request->session()->flash("info", "Data baru berhasil ditambahkan");
-        return redirect()->back();
+        return redirect('/muat_bongkar')->with('info', 'Data sopir berhasil disimpan');
     }
 
     public function edit(Request $request, $id)
@@ -52,7 +51,7 @@ class Muat_bongkar_Controller extends Controller
         return redirect()->route("muat_bongkar.index");
     }
 
-    public function destroy(Request $request, $id)
+    public function delete(Request $request, $id)
     {
         $muat_bongkar = Muat_bongkar::find($id);
         $muat_bongkar->delete();
