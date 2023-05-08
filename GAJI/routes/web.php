@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KendaraanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,6 +79,9 @@ Route::post('/uang_jalan/store', [App\Http\Controllers\Uang_jalan_Controller::cl
 Route::get('/uang_jalan/edit/{id}', [App\Http\Controllers\Uang_jalan_Controller::class, 'edit'])->name('uang_jalan.edit');
 Route::patch('/uang_jalan/update/{id}', [App\Http\Controllers\Uang_jalan_Controller::class, 'update'])->name('uang_jalan.update');
 Route::delete('/uang_jalan/delete/{id}', [App\Http\Controllers\Uang_jalan_Controller::class, 'delete'])->name('uang_jalan.delete');
+
+Route::get('/kendaraan/get-kategori/{id}', [App\Http\Controllers\Kendaraan_Controller::class, 'getKategori']);
+Route::get('/muat_bongkar/get-uang_jalan/{id}', [App\Http\Controllers\Muat_bongkar_Controller::class, 'getUangjalan']);
 
 Route::get('/update_mobil', [App\Http\Controllers\Update_mobil_Controller::class, 'index'])->name('update_mobil.index');
 Route::get('/update_mobil/create', [App\Http\Controllers\Update_mobil_Controller::class, 'create'])->name('update_mobil.create');

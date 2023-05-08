@@ -1,4 +1,7 @@
-<h2>Edit Pelanggan</h2>
+@extends('layout.dashboard')
+@section('content')
+
+<h2>Edit Uang Jalan</h2>
 @if (session()->has('info'))
         {{ session()->get('info') }}
 @endif
@@ -7,41 +10,103 @@
     @method('patch')
 
 
-    tanggal <br>
-    <input type="text" name="tanggal" id="tanggal" value="{{$tanggal->id_tanggal}}">
+    Tanggal <br>
+        <input type="text" name="tanggal" id="tanggal" class="form-control datepicker" value="{{ old('tanggal', $uang_jalan->tanggal) }}">
     @error('tanggal')
     {{ $message }}
     @enderror <br>
 
-    id_kendaraan <br>
-    <input type="text" name="id_kendaraan" id="id_kendaraan" value="{{$id_kendaraan->id_id_kendaraan}}">
+    Plat <br>
+    <select name="id_kendaraan" id="id_kendaraan" class="form-control">
+        <option value="">Pilih Plat</option>
+        @foreach ($tablekendaraanData as $item)
+            <option value="{{ $item->id }}" {{ $item->id == $uang_jalan->id_kendaraan ? 'selected' : '' }}>{{ $item->plat }}</option>
+        @endforeach
+    </select>
     @error('id_kendaraan')
     {{ $message }}
     @enderror <br>
     
-    barcode <br>
-    <input type="text" name="barcode" id="barcode" value="{{$barcode->id_barcode}}">
-    @error('barcode')
+    Kategori <br>
+        <input type="text" name="kategori" id="kategori" value="{{ old('kategori', $uang_jalan->kendaraan->kategori->nama) }}" readonly>
+    @error('kategori')
     {{ $message }}
     @enderror <br>
 
-    id_muat_bongkar <br>
-    <input type="text" name="id_muat_bongkar" id="id_muat_bongkar" value="{{$id_muat_bongkar->id_id_muat_bongkar}}">
+    Barcode <br>
+    <input type="text" name="barcode" id="barcode" value="{{$uang_jalan->barcode}}">
     @error('id_muat_bongkar')
     {{ $message }}
     @enderror <br>
 
-    jumlah_uang_jalan <br>
-    <input type="text" name="jumlah_uang_jalan" id="jumlah_uang_jalan" value="{{$jumlah_uang_jalan->id_jumlah_uang_jalan}}">
+    Tujuan <br>
+    <select name="id_muat_bongkar" id="id_muat_bongkar" class="form-control">
+        <option value="">Pilih Tujuan</option>
+        @foreach ($tablemuatbongkarData as $item)
+            <option value="{{ $item->id }}" {{ $item->id == $uang_jalan->id_muat_bongkar ? 'selected' : '' }}>{{ $item->muatBongkar }}</option>
+        @endforeach
+    </select>
     @error('jumlah_uang_jalan')
     {{ $message }}
     @enderror <br>
 
-    cek <br>
-    <input type="text" name="cek" id="cek" value="{{$cek->id_cek}}">
+    Uang Jalan <br>
+        <input type="text" name="uang_jalan" id="uang_jalan" value="{{ old('uang_jalan', $uang_jalan->muatBongkar->uang_jalan) }}" readonly>
+    @error('cek')
+    {{ $message }}
+    @enderror <br>
+
+    Keterangan <br>
+        <input type="text" name="keterangan" id="keterangan" value="{{$uang_jalan->keterangan}}">
     @error('cek')
     {{ $message }}
     @enderror <br>
    
     <input type="submit" value="Simpan Data">
 </form>
+@endsection
+
+@section('script')
+<script>
+    $(document).ready(function() {
+        $('#id_kendaraan').change(function() {
+            var kendaraanId = $(this).val();
+
+            // Menggunakan AJAX untuk mengambil data kategori kendaraan
+            $.ajax({
+                url: '/kendaraan/get-kategori/' + kendaraanId,
+                type: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    $('#kategori').val(response.kategori.nama);
+                }
+            });
+        });
+
+        $('#id_muat_bongkar').change(function() {
+            var muatbongkarId = $(this).val();
+
+            // Menggunakan AJAX untuk mengambil data kategori muat bongkar
+            $.ajax({
+                url: '/muat_bongkar/get-uang_jalan/' + muatbongkarId,
+                type: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    console.log(response.UangJalan.uang_jalan);
+                    $('#uang_jalan').val(response.UangJalan.uang_jalan);
+                }
+            });
+        });
+    });
+    
+</script>
+<script>
+    $(document).ready(function() {
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true,
+            todayHighlight: true
+        });
+    });
+</script>
+@endsection

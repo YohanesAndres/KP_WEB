@@ -20,6 +20,15 @@ class Muat_bongkar_Controller extends Controller
         return view('muat_bongkar.create');
     }
 
+    public function getUangjalan($id)
+    {
+        $muat_bongkar = Muat_bongkar::find($id);
+
+        return response()->json([
+            'UangJalan' => $muat_bongkar
+        ]);
+    }
+
     public function store(Request $request)
     {
         

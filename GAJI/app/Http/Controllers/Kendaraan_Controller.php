@@ -27,6 +27,16 @@ class Kendaraan_Controller extends Controller
         ]);
     }
 
+    public function getKategori($id)
+    {
+        $kendaraan = Kendaraan::find($id);
+        $kategori = $kendaraan->kategori;
+
+        return response()->json([
+            'kategori' => $kategori
+        ]);
+    }
+
     public function store(Request $request)
     {
         

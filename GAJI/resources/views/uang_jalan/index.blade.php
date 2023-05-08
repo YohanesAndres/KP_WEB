@@ -13,11 +13,12 @@
     <tr>
     <th scope="col">No</th>
       <th scope="col">tanggal</th>
-      <th scope="col">id_kendaraan</th>
-      <th scope="col">barcode</th>
-      <th scope="col">id_muat_bongkar</th>
-      <th scope="col">jumlah_uang_jalan</th>
-      <th scope="col">cek</th>
+      <th scope="col">Plat (id_kendaraan)</th>
+      <th scope="col">Kategori (id_kendaraan)</th>
+      <th scope="col">Barcode</th>
+      <th scope="col">Tujuan (id_muatbongkar)</th>
+      <th scope="col">Uang Jalan (id_muatbongkar)</th>
+      <th scope="col">Keterangan</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -26,24 +27,22 @@
     <tr>
         <td>{{ ++$key }}</td>
             <td>{{ $uang_jalanData->tanggal }}</td>
-            <td>{{ $uang_jalanData->id_kendaraan }}</td>
+            <td>{{ $uang_jalanData->kendaraan->plat }}</td>
+            <td>{{ $uang_jalanData->kendaraan->kategori->nama }}</td>
             <td>{{ $uang_jalanData->barcode }}</td>
-            <td>{{ $uang_jalanData->id_muat_bongkar }}</td>
-            <td>{{ $uang_jalanData->jumlah_uang_jalan }}</td>
-            <td>{{ $uang_jalanData->cek }}</td>
+            <td>{{ $uang_jalanData->muatbongkar->muatBongkar }}</td>
+            <td>{{ $uang_jalanData->muatbongkar->uang_jalan }}</td>
+            <td>{{ $uang_jalanData->keterangan }}</td>
             <td>
-            @can('create', App\Models\uang_jalan::class)
+              
                 <a href="/uang_jalan/edit/{{ $uang_jalanData->id }}">Edit</a>
-                @endcan
 
-                @can('create', App\Models\uang_jalan::class)
                 <form action="{{ url('/uang_jalan/delete/'.$uang_jalanData->id) }}" method="post">
                     @csrf
                     @method('delete')
                     <input type="hidden" name="_method" value="delete">
                     <button type="submit" class="btn btn-danger">Hapus</button>
                 </form>
-                @endcan
 
             </td>
     </tr>
