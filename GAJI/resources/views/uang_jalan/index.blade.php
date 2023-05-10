@@ -49,10 +49,21 @@
     @endforeach
   </tbody>
 </table>
+
 <style>
-  table th,
-  table td {
-    padding: 30px;
-  }
-</style>  
+table {
+  border: 1.5px solid #ccc;
+  border-collapse: collapse;
+  width: 100%;
+}
+th, td {
+  border: 1.5px solid #ccc;
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1.5px solid #ddd;
+}
+table th {
+  background-color: #f2f2f2;
+}
+</style>   
 @endsection
