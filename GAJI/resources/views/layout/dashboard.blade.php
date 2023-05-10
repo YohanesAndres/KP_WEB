@@ -76,10 +76,8 @@
             </ul>
         </aside>
     </div>
-    <div class="col-md-9">
-        <div class="ml-3">
+    <div class="pl-5">
             @yield('content')
-        </div>
     </div>
 </div>
 </body>
