@@ -1,6 +1,7 @@
 @extends('layout.dashboard')
 @section('content')
-<h1 class="text-black text-center">Tambah Booking</h1>
+<a href="/kendaraan"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center">Form Tambah Kendaraan</h1>
+
 <br></br>
 <div class="form-group row offset-sm-1 col-sm-2">
 @if (session()->has('info'))

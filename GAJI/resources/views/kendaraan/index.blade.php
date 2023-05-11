@@ -1,7 +1,8 @@
 @extends('layout.dashboard')
 @section('content')
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
-<h1 class="text-white text-center">Daftar Kendaraan</h1>
+<a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center"> Kendaraan</h1>
+
 
 <div class="d-flex justify-content-center">
 <button class="btn btn-blue btn-lg text-center" onclick="location.href='/kendaraan/create'">Tambah</button>

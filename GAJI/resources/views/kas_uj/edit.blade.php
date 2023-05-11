@@ -1,4 +1,7 @@
-<h2>Edit Pelanggan</h2>
+@extends('layout.dashboard')
+@section('content')
+<a href="/kas_uj"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center"> Form Edit Kas Uang Jalan</h1>
+
 @if (session()->has('info'))
         {{ session()->get('info') }}
 @endif
@@ -30,8 +33,6 @@
     {{ $message }}
     @enderror <br>
    
-   
-   
-   
     <input type="submit" value="Simpan Data">
 </form>
+@endsection

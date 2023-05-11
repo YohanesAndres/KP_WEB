@@ -1,6 +1,7 @@
 @extends('layout.dashboard')
 @section('content')
-<h1 class="text-black text-center">Tambah data tonase</h1>
+<a href="/data_tonase"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center">Form Tambah Data Tonase</h1>
+
 <br>
 </br>
 <div class="form-group row offset-sm-1 col-sm-2">

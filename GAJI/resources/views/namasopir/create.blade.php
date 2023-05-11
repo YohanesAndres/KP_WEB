@@ -1,7 +1,7 @@
 @extends('layout.dashboard')
 @section('content')
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
-<h1 class="text-black text-center">Tambah Daftar Sopir</h1>
+<a href="/namasopir"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center">Form Tambah Daftar Sopir</h1>
 <br>
 </br>
 <div class="form-group row offset-sm-1 col-sm-2">

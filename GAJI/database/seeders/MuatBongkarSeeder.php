@@ -83,11 +83,11 @@ class MuatBongkarSeeder extends Seeder
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   2150000,
-            'muatBongkar' => 'GTA-TAIPAN TRONTON PLG',
+            'muatBongkar' => 'GTA-TAIPAN FUSO PLG',
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   1950000,
-            'muatBongkar' => 'GTA-TAIPAN TRONTON LMPG',
+            'muatBongkar' => 'GTA-TAIPAN FUSO LMPG',
         ]);
 
         Muat_bongkar::create([
@@ -100,11 +100,11 @@ class MuatBongkarSeeder extends Seeder
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   2150000,
-            'muatBongkar' => 'GTA-LDC TRONTON PLG',
+            'muatBongkar' => 'GTA-LDC FUSO PLG',
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   1950000,
-            'muatBongkar' => 'GTA-LDC TRONTON LMPG',
+            'muatBongkar' => 'GTA-LDC FUSO LMPG',
         ]);
 
         Muat_bongkar::create([
@@ -117,11 +117,11 @@ class MuatBongkarSeeder extends Seeder
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   2150000,
-            'muatBongkar' => 'GTA-SIP TRONTON PLG',
+            'muatBongkar' => 'GTA-SIP FUSO PLG',
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   1950000,
-            'muatBongkar' => 'GTA-SIP TRONTON LMPG',
+            'muatBongkar' => 'GTA-SIP FUSO LMPG',
         ]);
 
         Muat_bongkar::create([
@@ -134,11 +134,11 @@ class MuatBongkarSeeder extends Seeder
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   2150000,
-            'muatBongkar' => 'GTA-TBL TRONTON PLG',
+            'muatBongkar' => 'GTA-TBL FUSO PLG',
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   1950000,
-            'muatBongkar' => 'GTA-TBL TRONTON LMPG',
+            'muatBongkar' => 'GTA-TBL FUSO LMPG',
         ]);
 
         Muat_bongkar::create([
@@ -151,11 +151,11 @@ class MuatBongkarSeeder extends Seeder
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   2150000,
-            'muatBongkar' => 'GTA-DJ TRONTON PLG',
+            'muatBongkar' => 'GTA-DJ FUSO PLG',
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   1950000,
-            'muatBongkar' => 'GTA-DJ TRONTON LMPG',
+            'muatBongkar' => 'GTA-DJ FUSO LMPG',
         ]);
 
         Muat_bongkar::create([
@@ -168,11 +168,11 @@ class MuatBongkarSeeder extends Seeder
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   2150000,
-            'muatBongkar' => 'SAG-LDC TRONTON PLG',
+            'muatBongkar' => 'SAG-LDC FUSO PLG',
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   1950000,
-            'muatBongkar' => 'SAG-LDC TRONTON LMPG',
+            'muatBongkar' => 'SAG-LDC FUSO LMPG',
         ]);
 
         Muat_bongkar::create([
@@ -185,11 +185,11 @@ class MuatBongkarSeeder extends Seeder
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   2150000,
-            'muatBongkar' => 'SAG-SIP TRONTON PLG',
+            'muatBongkar' => 'SAG-SIP FUSO PLG',
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   1950000,
-            'muatBongkar' => 'SAG-SIP TRONTON LMPG',
+            'muatBongkar' => 'SAG-SIP FUSO LMPG',
         ]);
 
         Muat_bongkar::create([
@@ -202,11 +202,11 @@ class MuatBongkarSeeder extends Seeder
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   2150000,
-            'muatBongkar' => 'SAG-TBL TRONTON PLG',
+            'muatBongkar' => 'SAG-TBL FUSO PLG',
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   1950000,
-            'muatBongkar' => 'SAG-TBL TRONTON LMPG',
+            'muatBongkar' => 'SAG-TBL FUSO LMPG',
         ]);
 
         Muat_bongkar::create([
@@ -219,11 +219,11 @@ class MuatBongkarSeeder extends Seeder
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   2150000,
-            'muatBongkar' => 'SAG-DJ TRONTON PLG',
+            'muatBongkar' => 'SAG-DJ FUSO PLG',
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   1950000,
-            'muatBongkar' => 'SAG-DJ TRONTON LMPG',
+            'muatBongkar' => 'SAG-DJ FUSO LMPG',
         ]);
 
         Muat_bongkar::create([
@@ -236,11 +236,11 @@ class MuatBongkarSeeder extends Seeder
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   2000000,
-            'muatBongkar' => 'AT-LDC TRONTON PLG',
+            'muatBongkar' => 'AT-LDC FUSO PLG',
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   1800000,
-            'muatBongkar' => 'AT-LDC TRONTON LMPG',
+            'muatBongkar' => 'AT-LDC FUSO LMPG',
         ]);
 
         Muat_bongkar::create([
@@ -253,11 +253,11 @@ class MuatBongkarSeeder extends Seeder
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   2000000,
-            'muatBongkar' => 'AT-SIP TRONTON PLG',
+            'muatBongkar' => 'AT-SIP FUSO PLG',
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   1800000,
-            'muatBongkar' => 'AT-SIP TRONTON LMPG',
+            'muatBongkar' => 'AT-SIP FUSO LMPG',
         ]);
 
         Muat_bongkar::create([
@@ -270,11 +270,11 @@ class MuatBongkarSeeder extends Seeder
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   2000000,
-            'muatBongkar' => 'AT-TBL TRONTON PLG',
+            'muatBongkar' => 'AT-TBL FUSO PLG',
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   1800000,
-            'muatBongkar' => 'AT-TBL TRONTON LMPG',
+            'muatBongkar' => 'AT-TBL FUSO LMPG',
         ]);
 
         Muat_bongkar::create([
@@ -287,11 +287,11 @@ class MuatBongkarSeeder extends Seeder
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   2000000,
-            'muatBongkar' => 'AT-DJ TRONTON PLG',
+            'muatBongkar' => 'AT-DJ FUSO PLG',
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   1800000,
-            'muatBongkar' => 'AT-DJ TRONTON LMPG',
+            'muatBongkar' => 'AT-DJ FUSO LMPG',
         ]);
 
         Muat_bongkar::create([
@@ -304,11 +304,11 @@ class MuatBongkarSeeder extends Seeder
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   1950000,
-            'muatBongkar' => 'MBJ-LDC TRONTON PLG',
+            'muatBongkar' => 'MBJ-LDC FUSO PLG',
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   1750000,
-            'muatBongkar' => 'MBJ-LDC TRONTON LMPG',
+            'muatBongkar' => 'MBJ-LDC FUSO LMPG',
         ]);
 
         Muat_bongkar::create([
@@ -321,11 +321,11 @@ class MuatBongkarSeeder extends Seeder
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   1950000,
-            'muatBongkar' => 'MBJ-SIP TRONTON PLG',
+            'muatBongkar' => 'MBJ-SIP FUSO PLG',
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   1750000,
-            'muatBongkar' => 'MBJ-SIP TRONTON LMPG',
+            'muatBongkar' => 'MBJ-SIP FUSO LMPG',
         ]);
 
         Muat_bongkar::create([
@@ -338,11 +338,11 @@ class MuatBongkarSeeder extends Seeder
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   1950000,
-            'muatBongkar' => 'MBJ-TBL TRONTON PLG',
+            'muatBongkar' => 'MBJ-TBL FUSO PLG',
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   1750000,
-            'muatBongkar' => 'MBJ-TBL TRONTON LMPG',
+            'muatBongkar' => 'MBJ-TBL FUSO LMPG',
         ]);
 
         Muat_bongkar::create([
@@ -355,11 +355,11 @@ class MuatBongkarSeeder extends Seeder
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   1950000,
-            'muatBongkar' => 'MBJ-DJ TRONTON PLG',
+            'muatBongkar' => 'MBJ-DJ FUSO PLG',
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   1750000,
-            'muatBongkar' => 'MBJ-DJ TRONTON LMPG',
+            'muatBongkar' => 'MBJ-DJ FUSO LMPG',
         ]);
 
         Muat_bongkar::create([
@@ -372,11 +372,11 @@ class MuatBongkarSeeder extends Seeder
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   1950000,
-            'muatBongkar' => 'MBJ-LAIS TRONTON PLG',
+            'muatBongkar' => 'MBJ-LAIS FUSO PLG',
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   1750000,
-            'muatBongkar' => 'MBJ-LAIS TRONTON LMPG',
+            'muatBongkar' => 'MBJ-LAIS FUSO LMPG',
         ]);
 
         Muat_bongkar::create([
@@ -389,11 +389,11 @@ class MuatBongkarSeeder extends Seeder
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   2200000,
-            'muatBongkar' => 'TH-LDC TRONTON PLG',
+            'muatBongkar' => 'TH-LDC FUSO PLG',
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   2000000,
-            'muatBongkar' => 'TH-LDC TRONTON LMPG',
+            'muatBongkar' => 'TH-LDC FUSO LMPG',
         ]);
 
         Muat_bongkar::create([
@@ -406,11 +406,11 @@ class MuatBongkarSeeder extends Seeder
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   2200000,
-            'muatBongkar' => 'TH-TBL TRONTON PLG',
+            'muatBongkar' => 'TH-TBL FUSO PLG',
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   2000000,
-            'muatBongkar' => 'TH-TBL TRONTON LMPG',
+            'muatBongkar' => 'TH-TBL FUSO LMPG',
         ]);
 
         Muat_bongkar::create([
@@ -423,11 +423,11 @@ class MuatBongkarSeeder extends Seeder
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   2200000,
-            'muatBongkar' => 'TH-SIP TRONTON PLG',
+            'muatBongkar' => 'TH-SIP FUSO PLG',
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   2000000,
-            'muatBongkar' => 'TH-SIP TRONTON LMPG',
+            'muatBongkar' => 'TH-SIP FUSO LMPG',
         ]);
 
         Muat_bongkar::create([
@@ -440,11 +440,11 @@ class MuatBongkarSeeder extends Seeder
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   2200000,
-            'muatBongkar' => 'TH-DJ TRONTON PLG',
+            'muatBongkar' => 'TH-DJ FUSO PLG',
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   2000000,
-            'muatBongkar' => 'TH-DJ TRONTON LMPG',
+            'muatBongkar' => 'TH-DJ FUSO LMPG',
         ]);
 
         Muat_bongkar::create([
@@ -457,11 +457,11 @@ class MuatBongkarSeeder extends Seeder
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   2200000,
-            'muatBongkar' => 'TH-TAIPAN TRONTON PLG',
+            'muatBongkar' => 'TH-TAIPAN FUSO PLG',
         ]);
         Muat_bongkar::create([
             'uang_jalan' =>   2000000,
-            'muatBongkar' => 'TH-TAIPAN TRONTON LMPG',
+            'muatBongkar' => 'TH-TAIPAN FUSO LMPG',
         ]);
     }
 }

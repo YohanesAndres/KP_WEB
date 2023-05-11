@@ -1,6 +1,7 @@
 @extends('layout.dashboard')
 @section('content')
-<h2>Edit Sopir</h2>
+<a href="/namasopir"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center">Form Edit Daftar Sopir</h1>
+
 @if (session()->has('info'))
         {{ session()->get('info') }}
 @endif

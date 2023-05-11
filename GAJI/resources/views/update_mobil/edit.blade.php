@@ -1,4 +1,7 @@
-<h2>Edit Pelanggan</h2>
+@extends('layout.dashboard')
+@section('content')
+<a href="/update_mobil"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center"> Form Edit Update Mobil</h1>
+
 @if (session()->has('info'))
         {{ session()->get('info') }}
 @endif
@@ -27,3 +30,4 @@
    
     <input type="submit" value="Simpan Data">
 </form>
+@endsection

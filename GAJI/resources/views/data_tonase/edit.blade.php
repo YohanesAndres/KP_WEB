@@ -1,4 +1,7 @@
-<h2>Edit Pelanggan</h2>
+@extends('layout.dashboard')
+@section('content')
+<a href="/data_tonase"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center"> Form Edit Data Tonase</h1>
+
 @if (session()->has('info'))
         {{ session()->get('info') }}
 @endif
@@ -37,3 +40,4 @@
    
     <input type="submit" value="Simpan Data">
 </form>
+@endsection

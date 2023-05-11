@@ -2,7 +2,7 @@
 @section('content')
 
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
-<a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center"> Daftar data_tonase</h1>
+<a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center"> Data Tonase</h1>
 
 
 

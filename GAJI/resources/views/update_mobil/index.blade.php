@@ -2,7 +2,8 @@
 @section('content')
 
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
-<h1 class="text-white text-center">Daftar update_mobil</h1>
+<a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center"> Update Mobil</h1>
+
 
 <table class="table text-white table-dark table-bordered container mt-4">
   <thead>

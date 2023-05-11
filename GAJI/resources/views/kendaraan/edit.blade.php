@@ -1,7 +1,8 @@
 @extends('layout.dashboard')
 @section('content')
 
-<h2>Edit Kendaraan</h2>
+<a href="/kendaraan"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center">Form Edit Kendaraan</h1>
+
 @if (session()->has('info'))
         {{ session()->get('info') }}
 @endif
