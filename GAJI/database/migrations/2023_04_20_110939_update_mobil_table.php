@@ -15,11 +15,10 @@ return new class extends Migration
     {
         Schema::create('update_mobil', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('tanggal');
+            $table->unsignedBigInteger('id_uang_jalan');
+            $table->foreign('id_uang_jalan')->references('id')->on('uang_jalan')->onDelete('cascade');
             $table->string('status');
-            $table->unsignedBigInteger('id_kendaraan');
-            $table->foreign('id_kendaraan')->references('id')->on('kendaraan')->onDelete('cascade');
-            $table->string('keterangan');
+            $table->string('keterangan')->nullable();
             $table->timestamps();
         });
     }

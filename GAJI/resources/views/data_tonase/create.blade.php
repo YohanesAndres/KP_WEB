@@ -1,6 +1,6 @@
 @extends('layout.dashboard')
 @section('content')
-<h1 class="text-black text-center">Tambah Booking</h1>
+<h1 class="text-black text-center">Tambah data tonase</h1>
 <br>
 </br>
 <div class="form-group row offset-sm-1 col-sm-2">
@@ -11,7 +11,7 @@
 <br>
 </br>
 
-<form action="{{ url('booking/store/') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ url('data_tonase/store/') }}" method="POST" enctype="multipart/form-data">
     @csrf
 
     <div class="form-group row">
@@ -31,6 +31,31 @@
         </div>
     </div>
     @error('no_do')
+    {{ $message }}
+    @enderror <br>
+
+    <div class="form-group row">
+        <label for="tonase_actual" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >tonase actual</label>
+        <div class="col-sm-8">
+        <input type="text" name="tonase_actual" id="tonase_actual" class="form-control" placeholder="Masukkan tonase_actual">
+        </div>
+    </div>
+    @error('tonase_actual')
+    {{ $message }}
+    @enderror <br>
+
+    <div class="form-group row">
+        <label for="id_muat_bongkar" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Tujuan</label>
+        <div class="col-sm-8">
+            <select name="id_muat_bongkar" id="id_muat_bongkar" class="form-control">
+                <option value="">Pilih Tujuan</option>
+                @foreach ($tablemuatbongkarData as $item)
+                    <option value="{{ $item->id }}">{{ $item->muatBongkar }}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+    @error('id_muat_bongkar')
     {{ $message }}
     @enderror <br>
 

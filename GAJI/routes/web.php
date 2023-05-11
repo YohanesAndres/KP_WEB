@@ -26,7 +26,13 @@ Route::delete('/data_tonase/delete/{id}', [App\Http\Controllers\Data_tonase_Cont
 
 Route::get('/kas_uj', [App\Http\Controllers\Kas_uj_Controller::class, 'index'])->name('kas_uj.index');
 Route::get('/kas_uj/create', [App\Http\Controllers\Kas_uj_Controller::class, 'create'])->name('kas_uj.create');
+Route::get('/kas_uj/create_daribos', [App\Http\Controllers\Kas_uj_Controller::class, 'create_daribos'])->name('kas_uj.create_daribos');
+Route::get('/kas_uj/create_credit', [App\Http\Controllers\Kas_uj_Controller::class, 'create_credit'])->name('kas_uj.create_credit');
+Route::get('/kas_uj/create_debit', [App\Http\Controllers\Kas_uj_Controller::class, 'create_debit'])->name('kas_uj.create_debit');
 Route::post('/kas_uj/store', [App\Http\Controllers\Kas_uj_Controller::class, 'store'])->name('kas_uj.store');
+Route::post('/kas_uj/store_daribos', [App\Http\Controllers\Kas_uj_Controller::class, 'store_daribos'])->name('kas_uj.store_daribos');
+Route::post('/kas_uj/store_credit', [App\Http\Controllers\Kas_uj_Controller::class, 'store_credit'])->name('kas_uj.store_credit');
+Route::post('/kas_uj/store_debit', [App\Http\Controllers\Kas_uj_Controller::class, 'store_debit'])->name('kas_uj.store_debit');
 Route::get('/kas_uj/edit/{id}', [App\Http\Controllers\Kas_uj_Controller::class, 'edit'])->name('kas_uj.edit');
 Route::patch('/kas_uj/update/{id}', [App\Http\Controllers\Kas_uj_Controller::class, 'update'])->name('kas_uj.update');
 Route::delete('/kas_uj/delete/{id}', [App\Http\Controllers\Kas_uj_Controller::class, 'delete'])->name('kas_uj.delete');

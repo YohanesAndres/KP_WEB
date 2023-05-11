@@ -18,6 +18,7 @@ return new class extends Migration
             $table->dateTime('tanggal');
             $table->integer('jumlah_uang');
             $table->string('expenses', 100);
+            $table->boolean('dari_bos');
             $table->timestamps();
         });
     }

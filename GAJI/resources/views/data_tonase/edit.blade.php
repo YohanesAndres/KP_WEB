@@ -17,7 +17,22 @@
     @error('no_do')
     {{ $message }}
     @enderror <br>
-   
+
+    tonase actual <br>
+    <input type="text" name="tonase_actual" id="tonase_actual" value="{{$data_tonase->id_data_tonase}}">
+    @error('tonase_actual')
+    {{ $message }}
+    @enderror <br>
+
+    Tujuan <br>
+    <select name="id_muat_bongkar" id="id_muat_bongkar" class="form-control">
+        @foreach ($tablemuatbongkarData as $item)
+            <option value="{{ $item->id }}" {{ $item->id == $data_tonase->id_muat_bongkar ? 'selected' : '' }}>{{ $item->muatBongkar }}</option>
+        @endforeach
+    </select>
+    @error('jumlah_uang_jalan')
+    {{ $message }}
+    @enderror <br>
    
    
     <input type="submit" value="Simpan Data">

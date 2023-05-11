@@ -75,9 +75,9 @@
     @enderror <br>
 
     <div class="form-group row">
-        <label for="uang_jalan" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Uang Jalan</label>
+        <label for="uang_Jalan" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Uang Jalan</label>
         <div class="col-sm-8">
-            <input type="text" name="uang_jalan" id="uang_jalan" class="form-control" placeholder="Masukkan Uang Jalan" readonly>
+            <input type="text" name="uang_Jalan" id="uang_Jalan" class="form-control" placeholder="Masukkan Uang Jalan" readonly>
         </div>
     </div>
     @error('id_muat_bongkar')
@@ -128,7 +128,7 @@
                 dataType: 'json',
                 success: function(response) {
                     console.log(response.UangJalan.uang_jalan);
-                    $('#uang_jalan').val(response.UangJalan.uang_jalan);
+                    $('#uang_Jalan').val(response.UangJalan.uang_jalan);
                 }
             });
         });

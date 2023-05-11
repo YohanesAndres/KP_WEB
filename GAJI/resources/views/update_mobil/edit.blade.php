@@ -7,27 +7,19 @@
     @method('patch')
 
 
-    tanggal <br>
-    <input type="text" name="tanggal" id="tanggal" value="{{$tanggal->id_tanggal}}">
-    @error('tanggal')
-    {{ $message }}
-    @enderror <br>
-
     status <br>
-    <input type="text" name="status" id="status" value="{{$status->id_status}}">
-    @error('status')
+    <select name="status" id="status" class="form-control">
+        <option value="sedang dijalan" {{ 'sedang dijalan' == $update_mobil->status ? 'selected' : '' }}>sedang dijalan</option>
+        <option value="selesai" {{ 'selesai' == $update_mobil->status ? 'selected' : '' }}>selesai</option>
+        <option value="accident" {{ 'accident' == $update_mobil->status ? 'selected' : '' }}>accident</option>
+    </select>
+    @error('jumlah_uang_jalan')
     {{ $message }}
     @enderror <br>
 
-    id_kendaraan <br>
-    <input type="text" name="id_kendaraan" id="id_kendaraan" value="{{$id_kendaraan->id_id_kendaraan}}">
-    @error('id_kendaraan')
-    {{ $message }}
-    @enderror <br>
-    
 
     keterangan <br>
-    <input type="text" name="keterangan" id="keterangan" value="{{$keterangan->id_keterangan}}">
+    <input type="text" name="keterangan" id="keterangan" value="{{$update_mobil->keterangan}}">
     @error('keterangan')
     {{ $message }}
     @enderror <br>

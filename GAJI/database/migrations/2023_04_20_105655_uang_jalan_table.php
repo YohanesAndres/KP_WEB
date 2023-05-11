@@ -21,7 +21,8 @@ return new class extends Migration
             $table->string('barcode', 50);
             $table->unsignedBigInteger('id_muat_bongkar');
             $table->foreign('id_muat_bongkar')->references('id')->on('muat_bongkar')->onDelete('cascade');
-            $table->string('keterangan');
+            $table->integer('uang_Jalan');
+            $table->string('keterangan')->nullable();
             $table->timestamps();
         });
     }

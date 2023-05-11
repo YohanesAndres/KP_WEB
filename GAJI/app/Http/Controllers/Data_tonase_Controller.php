@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Data_tonase;
+use App\Models\Muat_bongkar;
+
 
 class Data_tonase_Controller extends Controller
 {
@@ -16,8 +18,10 @@ class Data_tonase_Controller extends Controller
 
     public function create()
     {
-        
-        return view('data_tonase.create');
+        $tablemuatbongkarData = Muat_bongkar::all();
+        return view('data_tonase.create', [
+            'tablemuatbongkarData' => $tablemuatbongkarData,
+        ]);
     }
 
     public function store(Request $request)
@@ -27,6 +31,8 @@ class Data_tonase_Controller extends Controller
        
         $data_tonase->no_spk = $request->no_spk; 
         $data_tonase->no_do = $request->no_do; 
+        $data_tonase->tonase_actual = $request->tonase_actual; 
+        $data_tonase->id_muat_bongkar = $request->id_muat_bongkar; 
         $data_tonase->save();
         $request->session()->flash("info", "Data baru berhasil ditambahkan");
         return redirect()->back();
@@ -34,9 +40,14 @@ class Data_tonase_Controller extends Controller
 
     public function edit(Request $request, $id)
     {
-       
-        $data_tonase = Data_tonase::find($id);
-        return view(".data_tonase.edit", compact('data_tonase'));
+
+        $tablemuatbongkarData = Muat_bongkar::all();
+        $data_tonase = data_tonase::find($id);
+
+        return view('data_tonase.edit', [
+            'data_tonase' => $data_tonase,
+            'tablemuatbongkarData' => $tablemuatbongkarData,
+        ]);
     }
 
     public function update(Request $request, $id)
@@ -46,6 +57,8 @@ class Data_tonase_Controller extends Controller
     
         $data_tonase->no_spk = $request->no_spk; 
         $data_tonase->no_do = $request->no_do; 
+        $data_tonase->tonase_actual = $request->tonase_actual; 
+        $data_tonase->id_muat_bongkar = $request->id_muat_bongkar; 
        
         $data_tonase->save();
 
@@ -53,7 +66,7 @@ class Data_tonase_Controller extends Controller
         return redirect()->route("data_tonase.index");
     }
 
-    public function destroy(Request $request, $id)
+    public function delete(Request $request, $id)
     {
         $data_tonase = Data_tonase::find($id);
         $data_tonase->delete();

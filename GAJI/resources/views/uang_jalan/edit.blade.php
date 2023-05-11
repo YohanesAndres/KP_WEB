@@ -51,7 +51,7 @@
     @enderror <br>
 
     Uang Jalan <br>
-        <input type="text" name="uang_jalan" id="uang_jalan" value="{{ old('uang_jalan', $uang_jalan->muatBongkar->uang_jalan) }}" readonly>
+        <input type="text" name="uang_Jalan" id="uang_Jalan" value="{{$uang_jalan->uang_Jalan }}" readonly>
     @error('cek')
     {{ $message }}
     @enderror <br>

@@ -11,7 +11,7 @@
 <br>
 </br>
 
-<form action="{{ url('update_mobil/store/') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ url('kas_uj/store_daribos/') }}" method="POST" enctype="multipart/form-data">
     @csrf
 
     <div class="form-group row">
@@ -24,35 +24,24 @@
     {{ $message }}
     @enderror <br>
 
-    
     <div class="form-group row">
-        <label for="status" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >status</label>
+        <label for="expenses" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >expenses</label>
         <div class="col-sm-8">
-        <input type="text" name="status" id="status" class="form-control" placeholder="Masukkan status">
+        <input type="text" name="expenses" id="expenses" class="form-control" placeholder="Masukkan expenses">
         </div>
     </div>
-    @error('status')
+    @error('expenses')
     {{ $message }}
     @enderror <br>
 
 
     <div class="form-group row">
-        <label for="id_kendaraan" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >id_kendaraan</label>
+        <label for="jumlah_uang" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >jumlah uang</label>
         <div class="col-sm-8">
-        <input type="text" name="id_kendaraan" id="id_kendaraan" class="form-control" placeholder="Masukkan id_kendaraan">
+        <input type="text" name="jumlah_uang" id="jumlah_uang" class="form-control" placeholder="Masukkan jumlah_uang">
         </div>
     </div>
-    @error('id_kendaraan')
-    {{ $message }}
-    @enderror <br>
-
-    <div class="form-group row">
-        <label for="keterangan" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >keterangan</label>
-        <div class="col-sm-8">
-        <input type="text" name="keterangan" id="keterangan" class="form-control" placeholder="Masukkan keterangan">
-        </div>
-    </div>
-    @error('keterangan')
+    @error('jumlah_uang')
     {{ $message }}
     @enderror <br>
    

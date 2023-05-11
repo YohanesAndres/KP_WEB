@@ -8,6 +8,8 @@ use App\Models\Kendaraan;
 use App\Models\Namasopir;
 use App\Models\Kategori;
 use App\Models\Muat_bongkar;
+use App\Models\Update_mobil;
+use DB;
 
 class Uang_jalan_Controller extends Controller
 {
@@ -34,13 +36,22 @@ class Uang_jalan_Controller extends Controller
     {
         
         $uang_jalan = new Uang_jalan;
+        $increment = DB::select("SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA ='" . env('DB_DATABASE') . "' AND TABLE_NAME ='" . $uang_jalan->getTable() . "'")[0]->AUTO_INCREMENT;
        
         $uang_jalan->tanggal = $request->tanggal; 
         $uang_jalan->id_kendaraan = $request->id_kendaraan; 
         $uang_jalan->barcode = $request->barcode; 
         $uang_jalan->id_muat_bongkar = $request->id_muat_bongkar; 
+        $uang_jalan->uang_Jalan = $request->uang_Jalan; 
         $uang_jalan->keterangan = $request->keterangan; 
         $uang_jalan->save();
+        $update_mobil=new Update_mobil; 
+        $update_mobil->id_uang_jalan=$increment;
+        $update_mobil->status = "sedang dijalan"; 
+        $update_mobil->keterangan = $request->keterangan; 
+        $update_mobil->save();
+        
+
         return redirect('/uang_jalan')->with('info', 'Data sopir berhasil disimpan');
     }
 

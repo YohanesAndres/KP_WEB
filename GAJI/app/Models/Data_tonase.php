@@ -9,4 +9,9 @@ class Data_tonase extends Model
 {
     use HasFactory;
     protected $table = "data_tonase";
+
+    public function muatbongkar()
+    {
+        return $this->belongsTo(Muat_bongkar::class, 'id_muat_bongkar');
+    }
 }

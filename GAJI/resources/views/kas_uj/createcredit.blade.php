@@ -11,7 +11,7 @@
 <br>
 </br>
 
-<form action="{{ url('kas_uj/store/') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ url('kas_uj/store_credit/') }}" method="POST" enctype="multipart/form-data">
     @csrf
 
     <div class="form-group row">
@@ -35,7 +35,7 @@
     @enderror <br>
 
 
-    <!-- <div class="form-group row">
+    <div class="form-group row">
         <label for="jumlah_uang" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >jumlah uang</label>
         <div class="col-sm-8">
         <input type="text" name="jumlah_uang" id="jumlah_uang" class="form-control" placeholder="Masukkan jumlah_uang">
@@ -43,18 +43,7 @@
     </div>
     @error('jumlah_uang')
     {{ $message }}
-    @enderror <br> -->
-
-
-    <!-- <div class="form-group row">
-        <label for="dari_bos" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >dari_bos</label>
-        <div class="col-sm-8">
-        <input type="checkbox" name="dari_bos" id="dari_bos" class="form-control" placeholder="Masukkan dari_bos">
-        </div>
-    </div>
-    @error('dari_bos')
-    {{ $message }}
-    @enderror <br> -->
+    @enderror <br>
 
    
     <div class="form-group row">

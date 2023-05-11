@@ -46,16 +46,14 @@ class Update_mobil_Controller extends Controller
         
         $update_mobil =Update_mobil::findOrFail($id);
     
-        $update_mobil->tanggal = $request->tanggal; 
         $update_mobil->status = $request->status; 
-        $update_mobil->id_kendaraan = $request->id_kendaraan; 
         $update_mobil->keterangan = $request->keterangan; 
         $update_mobil->save();
         $request->session()->flash("info", "Data update_mobil berhasil diupdate!");
         return redirect()->route("update_mobil.index");
     }
 
-    public function destroy(Request $request, $id)
+    public function delete(Request $request, $id)
     {
         $update_mobil = Update_mobil::find($id);
         $update_mobil->delete();

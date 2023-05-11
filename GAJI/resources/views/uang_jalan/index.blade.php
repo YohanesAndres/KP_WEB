@@ -31,7 +31,7 @@
             <td>{{ $uang_jalanData->kendaraan->kategori->nama }}</td>
             <td>{{ $uang_jalanData->barcode }}</td>
             <td>{{ $uang_jalanData->muatbongkar->muatBongkar }}</td>
-            <td>{{ $uang_jalanData->muatbongkar->uang_jalan }}</td>
+            <td>{{ $uang_jalanData->uang_Jalan }}</td>
             <td>{{ $uang_jalanData->keterangan }}</td>
             <td>
               
