@@ -1,6 +1,8 @@
 @extends('layout.dashboard')
 @section('content')
-<a href="/data_tonase"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center">Form Tambah Data Tonase</h1>
+
+<link href="{{ asset('/css/form.css') }}" rel="stylesheet">
+<a href="/data_tonase"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-center">Form Tambah Data Tonase</h1>
 
 <br>
 </br>
@@ -36,7 +38,7 @@
     @enderror <br>
 
     <div class="form-group row">
-        <label for="tonase_actual" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >tonase actual</label>
+        <label for="tonase_actual" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Tonase Aktual</label>
         <div class="col-sm-8">
         <input type="text" name="tonase_actual" id="tonase_actual" class="form-control" placeholder="Masukkan tonase_actual">
         </div>

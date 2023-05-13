@@ -1,43 +1,71 @@
 @extends('layout.dashboard')
 @section('content')
-<a href="/data_tonase"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center"> Form Edit Data Tonase</h1>
 
+<link href="{{ asset('/css/form.css') }}" rel="stylesheet">
+<a href="/data_tonase"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-center"> Form Edit Data Tonase</h1>
+
+<br>
+</br>
+<div class="form-group row offset-sm-1 col-sm-2">
 @if (session()->has('info'))
         {{ session()->get('info') }}
 @endif
+</div>
+<br>
+</br>
+
 <form action="{{ url('data_tonase/update/'.$data_tonase->id) }}" method="POST">
     @csrf
     @method('patch')
 
-    no spk <br>
-    <input type="text" name="no_spk" id="no_spk" value="{{$data_tonase->id_data_tonase}}">
+    <div class="form-group row">
+        <label for="no_spk" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Nomor SPK</label>
+        <div class="col-sm-8">
+        <input type="text" name="no_spk" id="no_spk" value="{{$data_tonase->no_spk}}">
+        </div>
+    </div>
     @error('no_spk')
     {{ $message }}
     @enderror <br>
 
-    no do <br>
-    <input type="text" name="no_do" id="no_do" value="{{$data_tonase->id_data_tonase}}">
+    <div class="form-group row">
+        <label for="no_do" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Nomor DO</label>
+        <div class="col-sm-8">
+        <input type="text" name="no_do" id="no_do" value="{{$data_tonase->no_do}}">
+        </div>
+    </div>
     @error('no_do')
     {{ $message }}
     @enderror <br>
 
-    tonase actual <br>
-    <input type="text" name="tonase_actual" id="tonase_actual" value="{{$data_tonase->id_data_tonase}}">
+    <div class="form-group row">
+        <label for="tonase_actual" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Tonase Aktual</label>
+        <div class="col-sm-8">
+        <input type="text" name="tonase_actual" id="tonase_actual" value="{{$data_tonase->tonase_actual}}">
+        </div>
+    </div>
     @error('tonase_actual')
     {{ $message }}
     @enderror <br>
 
-    Tujuan <br>
-    <select name="id_muat_bongkar" id="id_muat_bongkar" class="form-control">
-        @foreach ($tablemuatbongkarData as $item)
-            <option value="{{ $item->id }}" {{ $item->id == $data_tonase->id_muat_bongkar ? 'selected' : '' }}>{{ $item->muatBongkar }}</option>
-        @endforeach
-    </select>
-    @error('jumlah_uang_jalan')
+    <div class="form-group row">
+        <label for="id_muat_bongkar" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Tujuan</label>
+        <div class="col-sm-8">
+            <select name="id_muat_bongkar" id="id_muat_bongkar" class="form-control">
+                @foreach ($tablemuatbongkarData as $item)
+                    <option value="{{ $item->id }}" {{ $item->id == $data_tonase->id_muat_bongkar ? 'selected' : '' }}>{{ $item->muatBongkar }}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+    @error('id_muat_bongkar')
     {{ $message }}
     @enderror <br>
    
-   
-    <input type="submit" value="Simpan Data">
+    <div class="form-group row">
+        <div class="offset-sm-3 col-sm-9" >
+            <button type="submit" class="btn btn-primary">Simpan Data</button>
+        </div>
+    </div>
 </form>
 @endsection

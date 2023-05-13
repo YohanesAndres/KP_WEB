@@ -1,6 +1,8 @@
 @extends('layout.dashboard')
 @section('content')
-<a href="/muat_bongkar"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center">Form Tambah Muat-Bongkar</h1>
+
+<link href="{{ asset('/css/form.css') }}" rel="stylesheet">
+<a href="/muat_bongkar"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-center">Form Tambah Muat-Bongkar</h1>
 
 <br>
 </br>

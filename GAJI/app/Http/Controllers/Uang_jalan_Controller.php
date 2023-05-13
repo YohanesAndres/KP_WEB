@@ -77,6 +77,7 @@ class Uang_jalan_Controller extends Controller
         $uang_jalan->id_kendaraan = $request->id_kendaraan; 
         $uang_jalan->barcode = $request->barcode; 
         $uang_jalan->id_muat_bongkar = $request->id_muat_bongkar; 
+        $uang_jalan->uang_Jalan = $request->uang_Jalan; 
         $uang_jalan->keterangan = $request->keterangan;  
         $uang_jalan->save();
 

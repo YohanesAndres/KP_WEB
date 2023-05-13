@@ -1,69 +1,109 @@
 @extends('layout.dashboard')
 @section('content')
 
-<a href="/uang_jalan"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center">Form Edit Uang Jalan</h1>
+<link href="{{ asset('/css/form.css') }}" rel="stylesheet">
+<a href="/uang_jalan"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-center">Form Edit Uang Jalan</h1>
+
+<br>
+</br>
+<div class="form-group row offset-sm-1 col-sm-2">
 
 @if (session()->has('info'))
         {{ session()->get('info') }}
 @endif
+</div>
+<br>
+</br>
+
 <form action="{{ url('uang_jalan/update/'.$uang_jalan->id) }}" method="POST">
     @csrf
     @method('patch')
 
+    <div class="form-group row">
+        <label for="tanggal" class="col-sm-3 col-form-label">Tanggal</label>
+        <div class="col-sm-9">
+            <input type="text" name="tanggal" id="tanggal" class="form-control datepicker" value="{{ old('tanggal', $uang_jalan->tanggal) }}">
+            @error('tanggal')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+    </div>
 
-    Tanggal <br>
-        <input type="text" name="tanggal" id="tanggal" class="form-control datepicker" value="{{ old('tanggal', $uang_jalan->tanggal) }}">
-    @error('tanggal')
-    {{ $message }}
-    @enderror <br>
+    <div class="form-group row">
+        <label for="id_kendaraan" class="col-sm-3 col-form-label">Plat</label>
+        <div class="col-sm-9">
+            <select name="id_kendaraan" id="id_kendaraan" class="form-control">
+                <option value="">Pilih Plat</option>
+                @foreach ($tablekendaraanData as $item)
+                <option value="{{ $item->id }}" {{ $item->id == $uang_jalan->id_kendaraan ? 'selected' : '' }}>{{ $item->plat }}</option>
+                @endforeach
+            </select>
+            @error('id_kendaraan')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+    </div>
 
-    Plat <br>
-    <select name="id_kendaraan" id="id_kendaraan" class="form-control">
-        <option value="">Pilih Plat</option>
-        @foreach ($tablekendaraanData as $item)
-            <option value="{{ $item->id }}" {{ $item->id == $uang_jalan->id_kendaraan ? 'selected' : '' }}>{{ $item->plat }}</option>
-        @endforeach
-    </select>
-    @error('id_kendaraan')
-    {{ $message }}
-    @enderror <br>
-    
-    Kategori <br>
-        <input type="text" name="kategori" id="kategori" value="{{ old('kategori', $uang_jalan->kendaraan->kategori->nama) }}" readonly>
-    @error('kategori')
-    {{ $message }}
-    @enderror <br>
+    <div class="form-group row">
+        <label for="kategori" class="col-sm-3 col-form-label">Kategori</label>
+        <div class="col-sm-9">
+            <input type="text" name="kategori" id="kategori" class="form-control" value="{{ old('kategori', $uang_jalan->kendaraan->kategori->nama) }}" readonly>
+            @error('id_kendaraan')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+    </div>
 
-    Barcode <br>
-    <input type="text" name="barcode" id="barcode" value="{{$uang_jalan->barcode}}">
-    @error('id_muat_bongkar')
-    {{ $message }}
-    @enderror <br>
+    <div class="form-group row">
+        <label for="barcode" class="col-sm-3 col-form-label">Barcode</label>
+        <div class="col-sm-9">
+            <input type="text" name="barcode" id="barcode" class="form-control" value="{{$uang_jalan->barcode}}">
+            @error('barcode')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+    </div>
 
-    Tujuan <br>
-    <select name="id_muat_bongkar" id="id_muat_bongkar" class="form-control">
-        <option value="">Pilih Tujuan</option>
-        @foreach ($tablemuatbongkarData as $item)
-            <option value="{{ $item->id }}" {{ $item->id == $uang_jalan->id_muat_bongkar ? 'selected' : '' }}>{{ $item->muatBongkar }}</option>
-        @endforeach
-    </select>
-    @error('jumlah_uang_jalan')
-    {{ $message }}
-    @enderror <br>
+    <div class="form-group row">
+        <label for="id_muat_bongkar" class="col-sm-3 col-form-label">Tujuan</label>
+        <div class="col-sm-9">
+            <select name="id_muat_bongkar" id="id_muat_bongkar" class="form-control">
+                <option value="">Pilih Tujuan</option>
+                @foreach ($tablemuatbongkarData as $item)
+                <option value="{{ $item->id }}" {{ $item->id == $uang_jalan->id_muat_bongkar ? 'selected' : '' }}>{{ $item->muatBongkar }}</option>
+                @endforeach
+            </select>
+            @error('id_muat_bongkar')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+    </div>
 
-    Uang Jalan <br>
-        <input type="text" name="uang_Jalan" id="uang_Jalan" value="{{$uang_jalan->uang_Jalan }}" readonly>
-    @error('cek')
-    {{ $message }}
-    @enderror <br>
+    <div class="form-group row">
+        <label for="uang_Jalan" class="col-sm-3 col-form-label">Uang Jalan</label>
+        <div class="col-sm-9">
+            <input type="text" name="uang_Jalan" id="uang_Jalan" class="form-control" value="{{ old('uang_jalan', $uang_jalan->uang_Jalan) }}" readonly>
+            @error('uang_Jalan')
+            <span class="text-danger">{{ $uang_Jalan }}</span>
+            @enderror
+        </div>
+    </div>
 
-    Keterangan <br>
-        <input type="text" name="keterangan" id="keterangan" value="{{$uang_jalan->keterangan}}">
-    @error('cek')
-    {{ $message }}
-    @enderror <br>
+    <div class="form-group row">
+        <label for="keterangan" class="col-sm-3 col-form-label">Keterangan</label>
+        <div class="col-sm-9">
+            <input type="text" name="keterangan" id="keterangan" value="{{$uang_jalan->keterangan}}">
+            @error('keterangan')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+    </div>
    
-    <input type="submit" value="Simpan Data">
+    <div class="form-group row">
+        <div class="offset-sm-3 col-sm-9" >
+            <button type="submit" class="btn btn-primary">Simpan Data</button>
+        </div>
+    </div>
 </form>
 @endsection
 
@@ -94,7 +134,7 @@
                 dataType: 'json',
                 success: function(response) {
                     console.log(response.UangJalan.uang_jalan);
-                    $('#uang_jalan').val(response.UangJalan.uang_jalan);
+                    $('#uang_Jalan').val(response.UangJalan.uang_jalan);
                 }
             });
         });
