@@ -36,8 +36,8 @@ class Uang_jalan_Controller extends Controller
     {
         
         $uang_jalan = new Uang_jalan;
-        $increment = DB::select("SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA ='" . env('DB_DATABASE') . "' AND TABLE_NAME ='" . $uang_jalan->getTable() . "'")[0]->AUTO_INCREMENT;
-       
+        #$increment = DB::select("SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'db_kp' AND TABLE_NAME = 'uang_jalan'")[0]->AUTO_INCREMENT;
+        $increment = DB::select("SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA ='". env('DB_DATABASE') . "' AND TABLE_NAME ='" . $uang_jalan->getTable() . "'")[0]->AUTO_INCREMENT;
         $uang_jalan->tanggal = $request->tanggal; 
         $uang_jalan->id_kendaraan = $request->id_kendaraan; 
         $uang_jalan->barcode = $request->barcode; 
@@ -50,7 +50,6 @@ class Uang_jalan_Controller extends Controller
         $update_mobil->status = "sedang dijalan"; 
         $update_mobil->keterangan = $request->keterangan; 
         $update_mobil->save();
-        
 
         return redirect('/uang_jalan')->with('info', 'Data sopir berhasil disimpan');
     }
@@ -67,7 +66,7 @@ class Uang_jalan_Controller extends Controller
             'tablemuatbongkarData' => $tablemuatbongkarData,
         ]);
     }
-
+    
     public function update(Request $request, $id)
     {
         
@@ -83,6 +82,7 @@ class Uang_jalan_Controller extends Controller
 
         $request->session()->flash("info", "Data uang_jalan berhasil diupdate!");
         return redirect()->route("uang_jalan.index");
+        
     }
 
     public function delete(Request $request, $id)
