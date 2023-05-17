@@ -9,7 +9,7 @@
 <a href="/muat_bongkar/create" class="btn btn-primary btn-lg text-center">Tambah</a>
 </div>
 
-<table class="table text-white table-dark table-bordered container mt-4">
+<table class="table text-white table-dark table-bordered container mt-4"style="width:100%">
   <thead>
     <tr>
     <th scope="col">No</th>

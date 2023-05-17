@@ -21,7 +21,7 @@
     <div class="form-group row">
         <label for="nama" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Kategori</label>
         <div class="col-sm-8">
-        <input type="text" name="nama" id="nama" class="form-control" placeholder="Masukkan nama">
+        <input type="text" name="nama" id="nama" class="form-control" placeholder="Masukkan Nama Kategori">
         </div>
     </div>
     @error('nama')

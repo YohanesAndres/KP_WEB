@@ -19,7 +19,7 @@
     <div class="form-group row">
         <label for="plat" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Plat</label>
         <div class="col-sm-8">
-        <input type="text" name="plat" id="plat" class="form-control" placeholder="Masukkan plat">
+        <input type="text" name="plat" id="plat" class="form-control" placeholder="Masukkan No Plat">
         </div>
     </div>
     @error('plat')
@@ -29,7 +29,7 @@
     <div class="form-group row">
         <label for="tonase" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Tonase</label>
         <div class="col-sm-8">
-        <input type="text" name="tonase" id="tonase" class="form-control" placeholder="Masukkan tonase">
+        <input type="text" name="tonase" id="tonase" class="form-control" placeholder="Masukkan Tonase">
         </div>
     </div>
     @error('tonase')

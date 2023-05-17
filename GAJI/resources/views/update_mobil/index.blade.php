@@ -5,7 +5,7 @@
 <a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center"> Update Mobil</h1>
 
 
-<table class="table text-white table-dark table-bordered container mt-4">
+<table class="table text-white table-dark table-bordered container mt-4"style="width:110%">
   <thead>
     <tr>
     <th scope="col">No</th>

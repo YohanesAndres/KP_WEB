@@ -11,14 +11,14 @@
 
 </div>
 
-<table class="table text-white table-dark table-bordered container mt-4">
+<table class="table text-white table-dark table-bordered container mt-4"style="width:135%">
   <thead>
     <tr>
     <th scope="col">No</th>
       <th scope="col">NO.SPK</th>
       <th scope="col">NO.DO</th>
-      <th scope="col">tonase actual</th>
-      <th scope="col">pks id_muat_bongkar</th>
+      <th scope="col">Tonase Actual</th>
+      <th scope="col">PKS</th>
       <th scope="col">Action</th>
     </tr>
   </thead>

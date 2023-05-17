@@ -18,9 +18,9 @@
     @csrf
 
     <div class="form-group row">
-        <label for="no_spk" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >no spk</label>
+        <label for="no_spk" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >NO SPK</label>
         <div class="col-sm-8">
-        <input type="text" name="no_spk" id="no_spk" class="form-control" placeholder="Masukkan no_spk">
+        <input type="text" name="no_spk" id="no_spk" class="form-control" placeholder="Masukkan NO SPK">
         </div>
     </div>
     @error('no_spk')
@@ -28,9 +28,9 @@
     @enderror <br>
 
     <div class="form-group row">
-        <label for="no_do" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >no do</label>
+        <label for="no_do" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >NO DO</label>
         <div class="col-sm-8">
-        <input type="text" name="no_do" id="no_do" class="form-control" placeholder="Masukkan no_do">
+        <input type="text" name="no_do" id="no_do" class="form-control" placeholder="Masukkan NO DO">
         </div>
     </div>
     @error('no_do')
@@ -40,7 +40,7 @@
     <div class="form-group row">
         <label for="tonase_actual" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Tonase Aktual</label>
         <div class="col-sm-8">
-        <input type="text" name="tonase_actual" id="tonase_actual" class="form-control" placeholder="Masukkan tonase_actual">
+        <input type="text" name="tonase_actual" id="tonase_actual" class="form-control" placeholder="Masukkan Tonase Aktual">
         </div>
     </div>
     @error('tonase_actual')

@@ -9,7 +9,7 @@
 <a href="/uang_jalan/create" class="btn btn-primary btn-lg text-center">Tambah</a>
 </div>
 
-<table class="table text-white table-dark table-bordered container mt-4">
+<table class="table text-white table-dark table-bordered container mt-4" style="width:136%">
   <thead>
     <tr>
     <th scope="col">No</th>

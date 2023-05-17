@@ -19,7 +19,7 @@
 <a href="/kas_uj/create_debit" class="btn btn-primary btn-lg text-center">tambah debit</a>
 </div>
 
-<table class="table text-white table-dark table-bordered container mt-4">
+<table class="table text-white table-dark table-bordered container mt-4"style="width:100%">
   <thead>
     <tr>
     <th scope="col">No</th>
