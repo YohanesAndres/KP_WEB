@@ -22,7 +22,7 @@
     <div class="form-group row">
         <label for="nama" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Kategori</label>
         <div class="col-sm-8">
-        <input type="text" name="nama" id="nama" value="{{$kategori->id_kategori}}"placeholder="Edit Nama Kategori">
+        <input type="text" name="nama" id="nama" value="{{$kategori->nama}}"placeholder="Edit Nama Kategori">
         </div>
     </div>
     @error('nama')

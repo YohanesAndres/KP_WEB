@@ -2,8 +2,9 @@
 @section('content')
 
 <link href="{{ asset('/css/form.css') }}" rel="stylesheet">
+<div class="top-title">
 <a href="/data_tonase"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-center">Form Tambah Data Tonase</h1>
-
+</div>
 <br>
 </br>
 <div class="form-group row offset-sm-1 col-sm-2">

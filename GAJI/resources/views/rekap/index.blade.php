@@ -2,8 +2,9 @@
 @section('content')
 
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
+<div class="top-title">
 <a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center"> Rekap Truck Kecil</h1>
-
+</div>
 
 <div class="d-flex justify-content-center">
 <a href="/rekap/create" class="btn btn-primary btn-lg text-center">Tambah</a>

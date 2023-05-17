@@ -2,8 +2,9 @@
 @section('content')
 
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
+<div class="top-title">
 <a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center"> Data Tonase</h1>
-
+</div>
 
 
 <div class="d-flex justify-content-center">
@@ -28,7 +29,7 @@
         <td>{{ ++$key }}</td>
             <td>{{ $data_tonaseData->no_spk }}</td>
             <td>{{ $data_tonaseData->no_do }}</td>
-            <td>{{ $data_tonaseData->tonase_actual }}</td>
+            <td>{{ number_format($data_tonaseData->tonase_actual,0,",",".");  }}</td>
             <td>{{ $data_tonaseData->muatbongkar->muatBongkar }}</td>
             <td>
                 <a href="/data_tonase/edit/{{ $data_tonaseData->id }}">Edit</a>

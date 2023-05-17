@@ -20,13 +20,12 @@
     <div class="form-group row">
         <label for="tanggal" class="col-sm-3 col-form-label">Tanggal</label>
         <div class="col-sm-9">
-            <input type="date" name="tanggal" id="tanggal" class="form-control">
+            <input type="date" name="tanggal" id="tanggal" class="form-control" min="{{date('Y-m-d')}}">
             @error('tanggal')
             <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
     </div>
-
     <div class="form-group row">
         <label for="id_kendaraan" class="col-sm-3 col-form-label">Plat</label>
         <div class="col-sm-9">

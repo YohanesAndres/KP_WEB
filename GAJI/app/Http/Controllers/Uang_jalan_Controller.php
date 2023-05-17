@@ -23,8 +23,9 @@ class Uang_jalan_Controller extends Controller
     public function create()
     {
         
-        $tablekendaraanData = Kendaraan::all();
+        $tablekendaraanData = Kendaraan::where('selesai','=',1)->get();
         $tablemuatbongkarData = Muat_bongkar::all();
+        #$tableuangjalan= Uang_jalan::where('tanggal','=',)
 
         return view('uang_jalan.create', [
             'tablekendaraanData' => $tablekendaraanData,
@@ -50,6 +51,9 @@ class Uang_jalan_Controller extends Controller
         $update_mobil->status = "sedang dijalan"; 
         $update_mobil->keterangan = $request->keterangan; 
         $update_mobil->save();
+        $kendaraan= kendaraan::find($request->id_kendaraan);
+        $kendaraan->selesai=0;
+        $kendaraan->save();
 
         return redirect('/uang_jalan')->with('info', 'Data sopir berhasil disimpan');
     }
@@ -89,6 +93,9 @@ class Uang_jalan_Controller extends Controller
     {
         $uang_jalan = Uang_jalan::find($id);
         $uang_jalan->delete();
+        $kendaraan= kendaraan::find($uang_jalan->id_kendaraan);
+        $kendaraan->selesai=1;
+        $kendaraan->save();
 
         $request->session()->flash("info", "Data uang_jalan berhasil dihapus!");
         return redirect()->back();

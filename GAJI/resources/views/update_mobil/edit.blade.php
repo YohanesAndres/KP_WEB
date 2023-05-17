@@ -24,9 +24,9 @@
         <label for="status" class="col-sm-3 col-form-label">Status</label>
         <div class="col-sm-9">
             <select name="status" id="status" class="form-control">
-                <option value="sedang dijalan" {{ 'sedang dijalan' == $update_mobil->status ? 'selected' : '' }}>sedang dijalan</option>
-                <option value="selesai" {{ 'selesai' == $update_mobil->status ? 'selected' : '' }}>selesai</option>
-                <option value="accident" {{ 'accident' == $update_mobil->status ? 'selected' : '' }}>accident</option>
+                <option value="sedang dijalan" {{ 'sedang dijalan' == $update_mobil->status ? 'selected' : '' }}>Sedang dijalan</option>
+                <option value="selesai" {{ 'selesai' == $update_mobil->status ? 'selected' : '' }}>Selesai</option>
+                <option value="accident" {{ 'accident' == $update_mobil->status ? 'selected' : '' }}>Accident</option>
             </select>   
             @error('jumlah_uang_jalan')
             <span class="text-danger">{{ $message }}</span>

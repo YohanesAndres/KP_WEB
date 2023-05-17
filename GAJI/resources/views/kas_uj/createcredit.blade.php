@@ -1,7 +1,8 @@
 @extends('layout.dashboard')
 @section('content')
+<div class="top-title">
 <a href="/kas_uj"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center">Form Tambah Kas Uang Jalan ETC</h1>
-
+</div>
 <br>
 </br>
 <div class="form-group row offset-sm-1 col-sm-2">
@@ -18,7 +19,7 @@
     <div class="form-group row">
         <label for="tanggal" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Tanggal</label>
         <div class="col-sm-8">
-        <input type="date" name="tanggal" id="tanggal" class="form-control">
+        <input type="date" name="tanggal" id="tanggal" class="form-control" min="{{date('Y-m-d')}}">
         </div>
     </div>
     @error('tanggal')

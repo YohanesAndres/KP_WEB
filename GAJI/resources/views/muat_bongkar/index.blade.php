@@ -2,8 +2,9 @@
 @section('content')
 
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
+<div class="top-title">
 <a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center"> Muat-Bongkar</h1>
-
+</div>
 
 <div class="d-flex justify-content-center">
 <a href="/muat_bongkar/create" class="btn btn-primary btn-lg text-center">Tambah</a>
@@ -23,7 +24,7 @@
     <tr>
         <td>{{ ++$key }}</td>
             <td>{{ $muat_bongkarData->muatBongkar }}</td>
-            <td>{{ $muat_bongkarData->uang_jalan }}</td>
+            <td>{{  number_format($muat_bongkarData->uang_jalan,0,",","."); }}</td>
             <td>
                 <a href="/muat_bongkar/edit/{{ $muat_bongkarData->id }}">Edit</a>
 

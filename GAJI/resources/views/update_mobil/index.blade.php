@@ -2,17 +2,18 @@
 @section('content')
 
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
+<div class="top-title">
 <a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center"> Update Mobil</h1>
+</div>
 
-
-<table class="table text-white table-dark table-bordered container mt-4"style="width:110%">
+<table class="table text-white table-dark table-bordered container mt-4"style="width:110%;margin-top:20px">
   <thead>
     <tr>
     <th scope="col">No</th>
-      <th scope="col">tanggal</th>
-      <th scope="col">status</th>
-      <th scope="col">id_kendaraan</th>
-      <th scope="col">keterangan</th>
+      <th scope="col">Tanggal</th>
+      <th scope="col">Status</th>
+      <th scope="col">Plat</th>
+      <th scope="col">Keterangan</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -20,7 +21,7 @@
       @foreach($update_mobil as $key => $update_mobilData)
     <tr>
         <td>{{ ++$key }}</td>
-            <td>{{ $update_mobilData->uangjalan->tanggal }}</td>
+            <td>{{ date('Y-m-d',strtotime($update_mobilData->uangjalan->tanggal)) }}</td>
             <td>{{ $update_mobilData->status }}</td>
             <td>{{ $update_mobilData->uangjalan->kendaraan->plat }}</td>
             <td>{{ $update_mobilData->keterangan }}</td>

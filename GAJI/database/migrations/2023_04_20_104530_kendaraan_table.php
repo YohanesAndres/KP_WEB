@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreign('id_namasopir')->references('id')->on('namasopir')->onDelete('cascade');
             $table->unsignedBigInteger('id_kategori');
             $table->foreign('id_kategori')->references('id')->on('kategori')->onDelete('cascade');
+            $table->boolean('selesai')->default(1);
             $table->timestamps();
         });
     }

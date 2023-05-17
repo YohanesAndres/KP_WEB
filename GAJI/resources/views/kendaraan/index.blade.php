@@ -1,8 +1,9 @@
 @extends('layout.dashboard')
 @section('content')
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
+<div class="top-title">
 <a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center"> Kendaraan</h1>
-
+</div>
 
 <div class="d-flex justify-content-center">
 <button class="btn btn-blue btn-lg text-center" onclick="location.href='/kendaraan/create'">Tambah</button>
@@ -24,7 +25,7 @@
     <tr>
         <td>{{ ++$key }}</td>
             <td>{{ $kendaraanData->plat }}</td>
-            <td>{{ $kendaraanData->tonase }}</td>
+            <td>{{ number_format($kendaraanData->tonase,0,",","."); }}</td>
             <td>{{ $kendaraanData->namasopir->nama_sopir }}</td>
             <td>{{ $kendaraanData->kategori->nama}}</td>
             <td>
