@@ -65,7 +65,7 @@
     </div>
 
     <div class="form-group row">
-        <label for="id_muat_bongkar" class="col-sm-3 col-form-label">Tujuan</label>
+        <label for="id_muat_bongkar" class="col-sm-3 col-form-label">Muat Bongkar</label>
         <div class="col-sm-9">
             <select name="id_muat_bongkar" id="id_muat_bongkar" class="form-control">
                 <option value="">Pilih Tujuan</option>
@@ -75,6 +75,16 @@
             </select>
             @error('id_muat_bongkar')
             <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="tujuan" class="col-sm-3 col-form-label">Tujuan</label>
+        <div class="col-sm-9">
+            <input type="text" name="tujuan" id="tujuan" class="form-control" value="{{ old('tujuan', $uang_jalan->tujuan) }}" readonly>
+            @error('tujuan')
+            <span class="text-danger">{{ $tujuan }}</span>
             @enderror
         </div>
     </div>
@@ -133,8 +143,23 @@
                 type: 'GET',
                 dataType: 'json',
                 success: function(response) {
-                    console.log(response.UangJalan.uang_jalan);
+                    console.log(response)
                     $('#uang_Jalan').val(response.UangJalan.uang_jalan);
+                }
+            });
+        });
+
+        $('#id_muat_bongkar').change(function() {
+            var muatbongkarId = $(this).val();
+
+            // Menggunakan AJAX untuk mengambil data kategori muat bongkar
+            $.ajax({
+                url: '/muat_bongkar/get-tujuan/' + muatbongkarId,
+                type: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    console.log(response)
+                    $('#tujuan').val(response.Tujuan.tujuan);
                 }
             });
         });

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_uang_jalan');
             $table->foreign('id_uang_jalan')->references('id')->on('uang_jalan')->onDelete('cascade');
             $table->string('status');
+            $table->date('tanggal_bongkar')->nullable();
             $table->string('keterangan')->nullable();
             $table->timestamps();
         });

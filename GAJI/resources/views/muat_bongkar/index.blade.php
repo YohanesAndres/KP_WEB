@@ -15,6 +15,7 @@
     <tr>
     <th scope="col">No</th>
       <th scope="col">Muat Bongkar</th>
+      <th scope="col">Tujuan</th>
       <th scope="col">Uang Jalan</th>
       <th scope="col">Action</th>
     </tr>
@@ -24,6 +25,7 @@
     <tr>
         <td>{{ ++$key }}</td>
             <td>{{ $muat_bongkarData->muatBongkar }}</td>
+            <td>{{ $muat_bongkarData->tujuan }}</td>
             <td>{{  number_format($muat_bongkarData->uang_jalan,0,",","."); }}</td>
             <td>
                 <a href="/muat_bongkar/edit/{{ $muat_bongkarData->id }}">Edit</a>

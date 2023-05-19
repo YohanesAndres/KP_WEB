@@ -28,6 +28,16 @@
     @enderror <br>
 
     <div class="form-group row">
+        <label for="tujuan" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Tujuan</label>
+        <div class="col-sm-8">
+        <input type="text" name="tujuan" id="tujuan" class="form-control" placeholder="Masukkan Tujuan">
+        </div>
+    </div>
+    @error('tujuan')
+    {{ $message }}
+    @enderror <br>
+
+    <div class="form-group row">
         <label for="uang_jalan" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Uang Jalan</label>
         <div class="col-sm-8">
         <input type="text" name="uang_jalan" id="uang_jalan" class="form-control" placeholder="Masukkan Uang Jalan">

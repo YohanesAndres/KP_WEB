@@ -30,7 +30,7 @@
             <td>{{ $data_tonaseData->no_spk }}</td>
             <td>{{ $data_tonaseData->no_do }}</td>
             <td>{{ number_format($data_tonaseData->tonase_actual,0,",",".");  }}</td>
-            <td>{{ $data_tonaseData->muatbongkar->muatBongkar }}</td>
+            <td>{{ $data_tonaseData->muatbongkar->tujuan }}</td>
             <td>
                 <a href="/data_tonase/edit/{{ $data_tonaseData->id }}">Edit</a>
                 <form action="{{ url('/data_tonase/delete/'.$data_tonaseData->id) }}" method="post">

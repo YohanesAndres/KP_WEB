@@ -54,7 +54,7 @@
             <select name="id_muat_bongkar" id="id_muat_bongkar" class="form-control">
                 <option value="">Pilih Tujuan</option>
                 @foreach ($tablemuatbongkarData as $item)
-                    <option value="{{ $item->id }}">{{ $item->muatBongkar }}</option>
+                    <option value="{{ $item->id }}">{{ $item->tujuan }}</option>
                 @endforeach
             </select>
         </div>

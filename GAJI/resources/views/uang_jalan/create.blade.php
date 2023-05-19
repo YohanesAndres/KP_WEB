@@ -62,15 +62,25 @@
     </div>
 
     <div class="form-group row">
-        <label for="id_muat_bongkar" class="col-sm-3 col-form-label">Tujuan</label>
+        <label for="id_muat_bongkar" class="col-sm-3 col-form-label">Muat Bongkar</label>
         <div class="col-sm-9">
             <select name="id_muat_bongkar" id="id_muat_bongkar" class="form-control">
-                <option value="">Pilih Tujuan</option>
+                <option value="">Pilih Muat Bongkar</option>
                 @foreach ($tablemuatbongkarData as $item)
                     <option value="{{ $item->id }}">{{ $item->muatBongkar }}</option>
                 @endforeach
             </select>
             @error('id_muat_bongkar')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="tujuan" class="col-sm-3 col-form-label">Tujuan</label>
+        <div class="col-sm-9">
+            <input type="text" name="tujuan" id="tujuan" class="form-control" placeholder="Masukkan Tujuan" readonly>
+            @error('tujuan')
             <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
@@ -129,7 +139,7 @@
                 type: 'GET',
                 dataType: 'json',
                 success: function(response) {
-                    console.log(response.UangJalan.uang_jalan);
+                    $('#tujuan').val(response.UangJalan.tujuan);
                     $('#uang_Jalan').val(response.UangJalan.uang_jalan);
                 }
             });

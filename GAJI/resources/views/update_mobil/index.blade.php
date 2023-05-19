@@ -10,9 +10,10 @@
   <thead>
     <tr>
     <th scope="col">No</th>
-      <th scope="col">Tanggal</th>
+      <th scope="col">Tanggal Muat</th>
       <th scope="col">Status</th>
       <th scope="col">Plat</th>
+      <th scope="col">Tanggal Bongkar</th>
       <th scope="col">Keterangan</th>
       <th scope="col">Action</th>
     </tr>
@@ -24,6 +25,13 @@
             <td>{{ date('Y-m-d',strtotime($update_mobilData->uangjalan->tanggal)) }}</td>
             <td>{{ $update_mobilData->status }}</td>
             <td>{{ $update_mobilData->uangjalan->kendaraan->plat }}</td>
+            <td>
+              @if ($update_mobilData->status == 'selesai')
+                {{$update_mobilData->tanggal_bongkar}}
+              @else
+                  
+              @endif
+            </td>
             <td>{{ $update_mobilData->keterangan }}</td>
             <td>
                 <a href="/update_mobil/edit/{{ $update_mobilData->id }}">Edit</a>

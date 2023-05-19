@@ -54,7 +54,7 @@
         <div class="col-sm-8">
             <select name="id_muat_bongkar" id="id_muat_bongkar" class="form-control">
                 @foreach ($tablemuatbongkarData as $item)
-                    <option value="{{ $item->id }}" {{ $item->id == $data_tonase->id_muat_bongkar ? 'selected' : '' }}>{{ $item->muatBongkar }}</option>
+                    <option value="{{ $item->id }}" {{ $item->id == $data_tonase->id_muat_bongkar ? 'selected' : '' }}>{{ $item->tujuan }}</option>
                 @endforeach
             </select>
         </div>

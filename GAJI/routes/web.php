@@ -89,6 +89,12 @@ Route::get('/rekap_fuso/edit/{id}', [App\Http\Controllers\Rekap_fuso_Controller:
 Route::patch('/rekap_fuso/update/{id}', [App\Http\Controllers\Rekap_fuso_Controller::class, 'update'])->name('rekap_fuso.update');
 Route::delete('/rekap_fuso/delete/{id}', [App\Http\Controllers\Rekap_fuso_Controller::class, 'delete'])->name('rekap_fuso.delete');
 
+Route::get('/rekap_fusoDetail/create', [App\Http\Controllers\Rekap_fuso_Controller::class, 'createDetail'])->name('rekap_fuso_detail.create');
+Route::post('/rekap_fusoDetail/store', [App\Http\Controllers\Rekap_fuso_Controller::class, 'storeDetail'])->name('rekap_fuso_detail.store');
+Route::get('/rekap_fusoDetail/edit/{id}', [App\Http\Controllers\Rekap_fuso_Controller::class, 'edit'])->name('rekap_fuso_detail.edit');
+Route::patch('/rekap_fusoDetail/update/{id}', [App\Http\Controllers\Rekap_fuso_Controller::class, 'update'])->name('rekap_fuso_detail.update');
+Route::delete('/rekap_fusoDetail/delete/{id}', [App\Http\Controllers\Rekap_fuso_Controller::class, 'delete'])->name('rekap_fuso_detail.delete');
+
 Route::get('/uang_jalan', [App\Http\Controllers\Uang_jalan_Controller::class, 'index'])->name('uang_jalan.index');
 Route::get('/uang_jalan/create', [App\Http\Controllers\Uang_jalan_Controller::class, 'create'])->name('uang_jalan.create');
 Route::post('/uang_jalan/store', [App\Http\Controllers\Uang_jalan_Controller::class, 'store'])->name('uang_jalan.store');
@@ -98,6 +104,7 @@ Route::delete('/uang_jalan/delete/{id}', [App\Http\Controllers\Uang_jalan_Contro
 
 Route::get('/kendaraan/get-kategori/{id}', [App\Http\Controllers\Kendaraan_Controller::class, 'getKategori']);
 Route::get('/muat_bongkar/get-uang_jalan/{id}', [App\Http\Controllers\Muat_bongkar_Controller::class, 'getUangjalan']);
+Route::get('/muat_bongkar/get-tujuan/{id}', [App\Http\Controllers\Muat_bongkar_Controller::class, 'getTujuan']);
 
 Route::get('/update_mobil', [App\Http\Controllers\Update_mobil_Controller::class, 'index'])->name('update_mobil.index');
 Route::get('/update_mobil/create', [App\Http\Controllers\Update_mobil_Controller::class, 'create'])->name('update_mobil.create');

@@ -43,6 +43,7 @@ class Update_mobil_Controller extends Controller
         }
         
         $update_mobil->status = $request->status; 
+        $update_mobil->tanggal_bongkar = $request->tanggal_bongkar; 
         $update_mobil->keterangan = $request->keterangan; 
         $update_mobil->save();
         $request->session()->flash("info", "Data update_mobil berhasil diupdate!");

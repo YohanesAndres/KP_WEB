@@ -29,6 +29,15 @@ class Muat_bongkar_Controller extends Controller
         ]);
     }
 
+    public function getTujuan($id)
+    {
+        $muat_bongkar = Muat_bongkar::find($id);
+
+        return response()->json([
+            'Tujuan' => $muat_bongkar
+        ]);
+    }
+
     public function store(Request $request)
     {
         
@@ -36,6 +45,7 @@ class Muat_bongkar_Controller extends Controller
        
         $muat_bongkar->uang_jalan = $request->uang_jalan; 
         $muat_bongkar->muatBongkar = $request->muatBongkar; 
+        $muat_bongkar->tujuan = $request->tujuan; 
         $muat_bongkar->save();
         return redirect('/muat_bongkar')->with('info', 'Data sopir berhasil disimpan');
     }
@@ -54,6 +64,7 @@ class Muat_bongkar_Controller extends Controller
     
         $muat_bongkar->uang_jalan = $request->uang_jalan; 
         $muat_bongkar->muatBongkar = $request->muatBongkar; 
+        $muat_bongkar->tujuan = $request->tujuan; 
         $muat_bongkar->save();
 
         $request->session()->flash("info", "Data muat_bongkar berhasil diupdate!");
