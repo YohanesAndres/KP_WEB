@@ -14,7 +14,7 @@ use App\Http\Controllers\KendaraanController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-// Route::middleware(['auth', 'auth.session'])->group(function () {
+Route::middleware(['auth', 'auth.session'])->group(function () {
 
     Route::get('/', function () {
        return view('welcome');
@@ -121,7 +121,7 @@ use App\Http\Controllers\KendaraanController;
     Route::patch('/tujuan/update/{id}', [App\Http\Controllers\tujuan_Controller::class, 'update'])->name('tujuan.update');
     Route::delete('/tujuan/delete/{id}', [App\Http\Controllers\tujuan_Controller::class, 'delete'])->name('tujuan.delete');
     
-// });
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
