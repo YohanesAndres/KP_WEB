@@ -35,16 +35,6 @@
     </div>
 
     <div class="form-group row">
-        <label for="tanggal_bongkar" class="col-sm-3 col-form-label">Tanggal Bongkar</label>
-        <div class="col-sm-9">
-            <input type="date" name="tanggal_bongkar" id="tanggal_bongkar" class="form-control" min="{{date('Y-m-d')}}">
-            @error('tanggal_bongkar')
-            <span class="text-danger">{{ $message }}</span>
-            @enderror
-        </div>
-    </div>
-
-    <div class="form-group row">
         <label for="keterangan" class="col-sm-3 col-form-label">Keterangan</label>
         <div class="col-sm-9">
             <input type="text" name="keterangan" id="keterangan" value="{{$update_mobil->keterangan}}">

@@ -26,15 +26,14 @@
             <td>{{ $update_mobilData->status }}</td>
             <td>{{ $update_mobilData->uangjalan->kendaraan->plat }}</td>
             <td>
-              @if ($update_mobilData->status == 'selesai')
-                {{$update_mobilData->tanggal_bongkar}}
-              @else
-                  
-              @endif
+              {{$update_mobilData->tanggal_bongkar}}
+
             </td>
             <td>{{ $update_mobilData->keterangan }}</td>
             <td>
-                <a href="/update_mobil/edit/{{ $update_mobilData->id }}">Edit</a>
+            @if (!($update_mobilData->status == 'selesai'))
+            <a href="/update_mobil/edit/{{ $update_mobilData->id }}">Edit</a>
+              @endif
                 <!-- <form action="{{ url('/update_mobil/delete/'.$update_mobilData->id) }}" method="post">
                     @csrf
                     @method('delete')

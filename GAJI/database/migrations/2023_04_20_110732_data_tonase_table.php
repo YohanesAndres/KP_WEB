@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('no_spk');
             $table->string('no_do');
             $table->integer('tonase_actual');
-            $table->unsignedBigInteger('id_muat_bongkar');
-            $table->foreign('id_muat_bongkar')->references('id')->on('muat_bongkar')->onDelete('cascade');
+            $table->unsignedBigInteger('id_tujuan');
+            $table->foreign('id_tujuan')->references('id')->on('tujuan')->onDelete('cascade');
             $table->timestamps();
         });
     }

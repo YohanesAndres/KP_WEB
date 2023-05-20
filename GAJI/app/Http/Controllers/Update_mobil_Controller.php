@@ -38,12 +38,27 @@ class Update_mobil_Controller extends Controller
             $uang_jalan=uang_jalan::find($update_mobil->id_uang_jalan);
             $kendaraan=kendaraan::find($uang_jalan->id_kendaraan);
             $kendaraan->selesai =1;
+            
+            #dd($kendaraan);
+            $kendaraan->save();
+        } else {
+            $uang_jalan=uang_jalan::find($update_mobil->id_uang_jalan);
+            $kendaraan=kendaraan::find($uang_jalan->id_kendaraan);
+            $kendaraan->selesai =0;
+            
             #dd($kendaraan);
             $kendaraan->save();
         }
         
-        $update_mobil->status = $request->status; 
-        $update_mobil->tanggal_bongkar = $request->tanggal_bongkar; 
+        $update_mobil->status = $request->status;
+        if ($request->status=="selesai"){
+
+            $update_mobil->tanggal_bongkar = date('Y-m-d'); 
+        }
+        else{
+
+            $update_mobil->tanggal_bongkar = null; 
+        }
         $update_mobil->keterangan = $request->keterangan; 
         $update_mobil->save();
         $request->session()->flash("info", "Data update_mobil berhasil diupdate!");

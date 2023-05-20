@@ -73,6 +73,11 @@
                         <i class="fa fa-kategori"></i> <span>Kategori</span>
                     </a>
                 </li> 
+                <li class="{{ Request::is('tujuan*') ? 'active' : '' }}">
+                    <a href="{{ route('tujuan.index') }}">
+                        <i class="fa fa-tujuan"></i> <span>Tujuan</span>
+                    </a>
+                </li> 
             </ul>
         </aside>
     </div>

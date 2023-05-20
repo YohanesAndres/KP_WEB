@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Rekap_fuso;
 use App\Models\Rekap_fuso_detail;
+use App\Models\uang_jalan;
 
 class Rekap_fuso_Controller extends Controller
 {
@@ -36,6 +37,9 @@ class Rekap_fuso_Controller extends Controller
         $rekap_fuso->alamat = $request->alamat; 
         $rekap_fuso->muat_cpo = $request->muat_cpo; 
         $rekap_fuso->tujuan_bongkar = $request->tujuan_bongkar; 
+
+        // $data_sebulan = uang_jalan::where('tujuan')
+
         $rekap_fuso->no_spk_tanggal = $request->no_spk_tanggal; 
         $rekap_fuso->no_kontrak_tanggal = $request->no_kontrak_tanggal; 
         $rekap_fuso->no_tanggal_do_besar = $request->no_tanggal_do_besar; 

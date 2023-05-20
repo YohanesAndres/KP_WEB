@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Data_tonase;
 use App\Models\Muat_bongkar;
-
+use App\Models\tujuan;
 
 class Data_tonase_Controller extends Controller
 {
@@ -18,9 +18,11 @@ class Data_tonase_Controller extends Controller
 
     public function create()
     {
-        $tablemuatbongkarData = Muat_bongkar::all();
+
+        $tujuanData = tujuan::all();
+
         return view('data_tonase.create', [
-            'tablemuatbongkarData' => $tablemuatbongkarData,
+            'tujuanData' => $tujuanData,
         ]);
     }
 
@@ -41,12 +43,12 @@ class Data_tonase_Controller extends Controller
     public function edit(Request $request, $id)
     {
 
-        $tablemuatbongkarData = Muat_bongkar::all();
+        $tujuanData = tujuan::all();
         $data_tonase = data_tonase::find($id);
 
         return view('data_tonase.edit', [
             'data_tonase' => $data_tonase,
-            'tablemuatbongkarData' => $tablemuatbongkarData,
+            'tujuanData' => $tujuanData,
         ]);
     }
 

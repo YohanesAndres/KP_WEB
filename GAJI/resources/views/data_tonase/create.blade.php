@@ -53,7 +53,7 @@
         <div class="col-sm-8">
             <select name="id_muat_bongkar" id="id_muat_bongkar" class="form-control">
                 <option value="">Pilih Tujuan</option>
-                @foreach ($tablemuatbongkarData as $item)
+                @foreach ($tujuanData as $item)
                     <option value="{{ $item->id }}">{{ $item->tujuan }}</option>
                 @endforeach
             </select>
