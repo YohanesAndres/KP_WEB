@@ -90,7 +90,7 @@ class MuatBongkarSeeder extends Seeder
             [2600000,'TH-TAIPAN TRONTON PLG',30],
             [2300000,'TH-TAIPAN TRONTON LMPG',30],
             [2200000,'TH-TAIPAN FUSO PLG',30],
-            [2000000,'TH-TAIPAN FUSO LMPG',30],
+            [2000000,'TH-TAIPAN FUSO LMPG',30]
             
         ];
 
