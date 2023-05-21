@@ -16,7 +16,7 @@
         <aside class="sidebar">
             
             <div class="logo">
-                <img src="logo.png" alt="">
+                    <img src = "{{ asset('images/LOGO.png') }}" alt="Logo">
                     <div class="bold-text" >Kas Uang Jalan</div>
                     <div>PT. Alam Wijaya Logistik</div>
             </div>

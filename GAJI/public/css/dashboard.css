@@ -109,6 +109,7 @@ body{
     margin-bottom: 10px; 
     padding: 20px;
     margin-bottom: 20px;
+    background-image: url('images/LOGO.png');
 }
 .logo img {
     width: 57px;
