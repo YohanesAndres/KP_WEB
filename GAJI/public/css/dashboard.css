@@ -31,7 +31,7 @@ body{
 }
 
 .sidebar>ul>li{
-    margin-bottom: 20px;
+    margin-bottom: 12px;
 }
 
 .sidebar>ul>li>a{
@@ -137,6 +137,7 @@ body{
     width: 17px;
     margin-right: 10px;
     float: left;
-    
-
+}
+.top-title{
+    padding-top: 10px;
 }
