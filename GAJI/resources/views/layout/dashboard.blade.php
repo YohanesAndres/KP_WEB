@@ -14,9 +14,13 @@
 <div class="row d-flex justify-content-between">
     <div class="col-md-3">
         <aside class="sidebar">
-            <div class="sidebar-header">
-                <h3>Admin Dashboard</h3>
+            
+            <div class="logo">
+                <img src="logo.png" alt="">
+                    <div class="bold-text" >Kas Uang Jalan</div>
+                    <div>PT. Alam Wijaya Logistik</div>
             </div>
+                    
             <ul class="sidebar-menu">
                 <li class="{{ Request::is('home') ? 'active' : '' }}">
                     <a href="{{ route('home') }}">

@@ -12,25 +12,29 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="login-container">
-                    <h3 class="text-center mb-4">Login</h3>
-
+                    <div class="logo">
+                        <img src="logo.png" alt="">
+                        <div class="bold-text" >Kas Uang Jalan</div>
+                        <div>PT. Alam Wijaya Logistik</div>
+                    </div>
+                    
                     <!-- Session Status -->
                     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('login') }}" style="margin-top:35px">
                         @csrf
 
                         <!-- Email Address -->
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input id="email" class="form-control" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                            <input id="email" class="form-control" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" placeholder="Masukkan Email"/>
                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
                         </div>
 
                         <!-- Password -->
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <input id="password" class="form-control" type="password" name="password" required autocomplete="current-password" />
+                            <input id="password" class="form-control" type="password" name="password" required autocomplete="current-password" placeholder="Masukkan Password"/>
                             <x-input-error :messages="$errors->get('password')" class="mt-2" />
                         </div>
 
