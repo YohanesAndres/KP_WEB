@@ -9,4 +9,9 @@ class Rekap_fuso extends Model
 {
     use HasFactory;
     protected $table = "rekap_fuso";
+
+    public function dataTonase()
+    {
+        return $this->belongsTo(Data_tonase::class, 'id_dataTonase');
+    }
 }

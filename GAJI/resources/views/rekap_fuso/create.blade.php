@@ -26,67 +26,62 @@
     </div>
     @error('alamat')
     {{ $message }}
-    @enderror <br>
+    @enderror
 
     <div class="form-group row">
-        <label for="muat_cpo" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Muat CPO</label>
+        <label for="id_dataTonase" class="offset-sm-1 col-sm-2 col-form-label justify-content-center">NO DO</label>
         <div class="col-sm-8">
-        <input type="text" name="muat_cpo" id="muat_cpo" class="form-control" placeholder="Masukkan Muat CPO">
+            <select name="id_dataTonase" id="id_dataTonase" class="form-control">
+                <option value="">Pilih Nomor DO</option>
+                @foreach ($tableDatatonase as $item)
+                    <option value="{{ $item->id }}">{{ $item->no_do }}</option>
+                @endforeach
+            </select>
+            @error('id_kendaraan')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
         </div>
     </div>
-    @error('muat_cpo')
-    {{ $message }}
-    @enderror <br>
 
     <div class="form-group row">
-        <label for="tujuan_bongkar" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Tujuan Bongkar</label>
+        <label for="no_spk" class="offset-sm-1 col-sm-2 col-form-label justify-content-center">NO SPK</label>
         <div class="col-sm-8">
-        <input type="text" name="tujuan_bongkar" id="tujuan_bongkar" class="form-control" placeholder="Masukkan Tujuan">
+            <input type="text" name="no_spk" id="no_spk" class="form-control" placeholder="NO SPK" readonly>
+            @error('id_dataTonase')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
         </div>
     </div>
-    @error('tujuan_bongkar')
-    {{ $message }}
-    @enderror <br>
 
     <div class="form-group row">
-        <label for="no_spk_tanggal" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >No SPK Tanggal</label>
+        <label for="tujuan" class="offset-sm-1 col-sm-2 col-form-label justify-content-center">Tujuan</label>
         <div class="col-sm-8">
-        <input type="text" name="no_spk_tanggal" id="no_spk_tanggal" class="form-control" placeholder="Masukkan No SPK">
+            <input type="text" name="tujuan" id="tujuan" class="form-control" placeholder="Tujuan" readonly>
+            @error('id_dataTonase')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
         </div>
     </div>
-    @error('no_spk_tanggal')
-    {{ $message }}
-    @enderror <br>
 
     <div class="form-group row">
-        <label for="no_kontrak_tanggal" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >No Kontrak Tanggal</label>
+        <label for="no_kontrak" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >NO Kontrak</label>
         <div class="col-sm-8">
-        <input type="text" name="no_kontrak_tanggal" id="no_kontrak_tanggal" class="form-control" placeholder="Masukkan No Kontrak">
+        <input type="text" name="no_kontrak" id="no_kontrak" class="form-control" placeholder="Masukkan No Kontrak">
         </div>
     </div>
-    @error('no_kontrak_tanggal')
+    @error('no_kontrak')
     {{ $message }}
-    @enderror <br>
+    @enderror
 
     <div class="form-group row">
-        <label for="no_tanggal_do_besar" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >No DO Besar</label>
+        <label for="tonase_actual" class="offset-sm-1 col-sm-2 col-form-label justify-content-center">Quantity Do (Ton)</label>
         <div class="col-sm-8">
-        <input type="text" name="no_tanggal_do_besar" id="no_tanggal_do_besar" class="form-control" placeholder="Masukkan NO DO Besar">
+            <input type="text" name="tonase_actual" id="tonase_actual" class="form-control" placeholder="Quantity DO (Ton)" readonly>
+            @error('id_dataTonase')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
         </div>
     </div>
-    @error('no_tanggal_do_besar')
-    {{ $message }}
-    @enderror <br>
-
-    <div class="form-group row">
-        <label for="quantity_do_ton" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Quantity DO</label>
-        <div class="col-sm-8">
-        <input type="text" name="quantity_do_ton" id="quantity_do_ton" class="form-control" placeholder="Masukkan Quantity DO">
-        </div>
-    </div>
-    @error('quantity_do_ton')
-    {{ $message }}
-    @enderror <br>
 
 
     <div class="form-group row">
@@ -95,4 +90,29 @@
         </div>
     </div>
 </form>
+@endsection
+@section('script')
+<script>
+    $(document).ready(function() {
+        $('#id_dataTonase').change(function() {
+            var dataTonaseId = $(this).val();
+
+            $.ajax({
+                url: '/data_tonase/get-tonase/' + dataTonaseId,
+                type: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    //console.log(response);
+                    //alert(JSON.stringify(response));
+                    //dd(response);
+                    $('#no_spk').val(response.Tonase.no_spk);
+                    $('#tujuan').val(response.Tonase.id_tujuan);
+                    $('#tonase_actual').val(response.Tonase.tonase_actual);
+                }
+            });
+        });
+    });
+
+</script>
+
 @endsection

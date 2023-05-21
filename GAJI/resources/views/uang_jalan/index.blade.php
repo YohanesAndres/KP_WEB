@@ -35,7 +35,7 @@
             <td>{{ $uang_jalanData->kendaraan->kategori->nama }}</td>
             <td>{{ $uang_jalanData->barcode }}</td>
             <td>{{ $uang_jalanData->muatbongkar->muatBongkar }}</td>
-            <td>{{ $uang_jalanData->muatbongkar->tujuan }}</td>
+            <td>{{ $uang_jalanData->muatbongkar->tujuan->tujuan }}</td>
             <td>{{ number_format($uang_jalanData->uang_Jalan,0,",","."); }}</td>
             <td>
               @if ($uang_jalanData->status_selesai)

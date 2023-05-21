@@ -14,4 +14,9 @@ class Data_tonase extends Model
     {
         return $this->belongsTo(Muat_bongkar::class, 'id_muat_bongkar');
     }
+
+    public function tujuan()
+    {
+        return $this->belongsTo(tujuan::class, 'id_tujuan');
+    }
 }

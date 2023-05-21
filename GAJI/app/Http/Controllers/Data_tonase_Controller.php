@@ -22,7 +22,16 @@ class Data_tonase_Controller extends Controller
         $tujuanData = tujuan::all();
 
         return view('data_tonase.create', [
-            'tujuanData' => $tujuanData,
+            'tujuanData' => $tujuanData
+        ]);
+    }
+
+    public function getTonase($id)
+    {
+        $data_tonase = Data_tonase::find($id);
+
+        return response()->json([
+            'Tonase' => $data_tonase
         ]);
     }
 
@@ -34,7 +43,7 @@ class Data_tonase_Controller extends Controller
         $data_tonase->no_spk = $request->no_spk; 
         $data_tonase->no_do = $request->no_do; 
         $data_tonase->tonase_actual = $request->tonase_actual; 
-        $data_tonase->id_muat_bongkar = $request->id_muat_bongkar; 
+        $data_tonase->id_tujuan = $request->id_tujuan; 
         $data_tonase->save();
         $request->session()->flash("info", "Data baru berhasil ditambahkan");
         return redirect()->back();
@@ -60,7 +69,7 @@ class Data_tonase_Controller extends Controller
         $data_tonase->no_spk = $request->no_spk; 
         $data_tonase->no_do = $request->no_do; 
         $data_tonase->tonase_actual = $request->tonase_actual; 
-        $data_tonase->id_muat_bongkar = $request->id_muat_bongkar; 
+        $data_tonase->id_tujuan = $request->id_tujuan; 
        
         $data_tonase->save();
 

@@ -25,7 +25,7 @@
     <tr>
         <td>{{ ++$key }}</td>
             <td>{{ $muat_bongkarData->muatBongkar }}</td>
-            <td>{{ $muat_bongkarData->tujuan }}</td>
+            <td>{{ $muat_bongkarData->tujuan->tujuan }}</td>
             <td>{{  number_format($muat_bongkarData->uang_jalan,0,",","."); }}</td>
             <td>
                 <a href="/muat_bongkar/edit/{{ $muat_bongkarData->id }}">Edit</a>

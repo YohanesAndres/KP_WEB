@@ -103,10 +103,6 @@ use App\Http\Controllers\KendaraanController;
     Route::patch('/uang_jalan/update/{id}', [App\Http\Controllers\Uang_jalan_Controller::class, 'update'])->name('uang_jalan.update');
     Route::delete('/uang_jalan/delete/{id}', [App\Http\Controllers\Uang_jalan_Controller::class, 'delete'])->name('uang_jalan.delete');
     
-    Route::get('/kendaraan/get-kategori/{id}', [App\Http\Controllers\Kendaraan_Controller::class, 'getKategori']);
-    Route::get('/muat_bongkar/get-uang_jalan/{id}', [App\Http\Controllers\Muat_bongkar_Controller::class, 'getUangjalan']);
-    Route::get('/muat_bongkar/get-tujuan/{id}', [App\Http\Controllers\Muat_bongkar_Controller::class, 'getTujuan']);
-    
     Route::get('/update_mobil', [App\Http\Controllers\Update_mobil_Controller::class, 'index'])->name('update_mobil.index');
     Route::get('/update_mobil/create', [App\Http\Controllers\Update_mobil_Controller::class, 'create'])->name('update_mobil.create');
     Route::post('/update_mobil/store', [App\Http\Controllers\Update_mobil_Controller::class, 'store'])->name('update_mobil.store');
@@ -121,6 +117,12 @@ use App\Http\Controllers\KendaraanController;
     Route::patch('/tujuan/update/{id}', [App\Http\Controllers\tujuan_Controller::class, 'update'])->name('tujuan.update');
     Route::delete('/tujuan/delete/{id}', [App\Http\Controllers\tujuan_Controller::class, 'delete'])->name('tujuan.delete');
     
+    Route::get('/kendaraan/get-kategori/{id}', [App\Http\Controllers\Kendaraan_Controller::class, 'getKategori']);
+    Route::get('/muat_bongkar/get-uang_jalan/{id}', [App\Http\Controllers\Muat_bongkar_Controller::class, 'getUangjalan']);
+    Route::get('/muat_bongkar/get-tujuan/{id}', [App\Http\Controllers\Muat_bongkar_Controller::class, 'getTujuan']);
+    Route::get('/data_tonase/get-tonase/{id}', [App\Http\Controllers\Data_tonase_Controller::class, 'getTonase']);
+
+
 // });
 
 Route::get('/dashboard', function () {

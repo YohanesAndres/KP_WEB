@@ -3,7 +3,7 @@
 
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 <div class="top-title">
-    <a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center"> Rekap Truck Kecil</h1>
+    <a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center"> Rekap Truck</h1>
 </div>
 
 <div class="d-flex justify-content-center">
@@ -14,14 +14,13 @@
     @foreach($rekap_fuso as $key => $rekap_fusoData)
     <div class="row">
         <div class="col">
-            <h3>No : {{ ++$key }}</h3>
-            <p>Alamat : {{ $rekap_fusoData->alamat }}</p>
-            <p>Muat CPO : {{ $rekap_fusoData->muat_cpo }}</p>
-            <p>Tujuan Bongkar : {{ $rekap_fusoData->tujuan_bongkar }}</p>
-            <p>NO SPK : {{ $rekap_fusoData->no_spk_tanggal }}</p>
-            <p>NO Kontrak : {{ $rekap_fusoData->no_kontrak_tanggal }}</p>
-            <p>NO DO : {{ $rekap_fusoData->no_tanggal_do_besar }}</p>
-            <p>Quantity DO (ton): {{ $rekap_fusoData->quantity_do_ton }}</p>
+            <h3>No :            {{ ++$key }}</h3>
+            <p>Alamat :         {{ $rekap_fusoData->alamat }}</p>
+            <p>NO DO :          {{ $rekap_fusoData->dataTonase->no_do }}</p>
+            <p>NO SPK :         {{ $rekap_fusoData->dataTonase->no_spk }}</p>
+            <p>Tujuan :         {{ $rekap_fusoData->dataTonase->tujuan->tujuan }}</p>
+            <p>NO Kontrak :     {{ $rekap_fusoData->no_kontrak }}</p>
+            <p>Quantity DO (ton): {{ $rekap_fusoData->dataTonase->tonase_actual}}</p>
             <div>
                 <a href="/rekap_fuso/edit/{{ $rekap_fusoData->id }}" class="btn btn-primary">Edit</a>
                 <form action="{{ url('/rekap_fuso/delete/'.$rekap_fusoData->id) }}" method="post">
@@ -35,7 +34,7 @@
             <br></br>
 
             <div class="d-flex justify-content-center">
-              <a href="/rekap_fuso_detail/create" class="btn btn-primary btn-lg text-center">Tambah</a>
+                <a href="/rekap_fusoDetail/create" class="btn btn-primary btn-lg text-center">Tambah</a>
             </div>
 
             <table class="table text-white table-dark table-bordered mt-4">

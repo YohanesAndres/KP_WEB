@@ -30,14 +30,19 @@
     @enderror <br>
 
     <div class="form-group row">
-        <label for="tujuan" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Tujuan</label>
+        <label for="id_tujuan" class="offset-sm-1 col-sm-2 col-form-label justify-content-center">Tujuan</label>
         <div class="col-sm-8">
-            <input type="text" name="tujuan" id="tujuan" value="{{$muat_bongkar->tujuan}}">
+            <select name="id_tujuan" id="id_tujuan" class="form-control">
+                <option value="">Pilih Tujuan</option>
+                @foreach ($tabletujuanData as $item)
+                    <option value="{{ $item->id }}" {{ $item->id == $muat_bongkar->id_tujuan ? 'selected' : '' }}>{{ $item->tujuan }}</option>
+                @endforeach
+            </select>
+            @error('id_tujuan')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
         </div>
     </div>
-    @error('tujuan')
-    {{ $message }}
-    @enderror <br>
 
     <div class="form-group row">
         <label for="uang_jalan" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Uang Jalan</label>

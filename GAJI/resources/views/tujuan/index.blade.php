@@ -2,7 +2,7 @@
 @section('content')
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 <div class="top-title">
-<a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center"> Daftar Sopir</h1>
+<a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center"> Daftar Tujuan</h1>
 </div>
 
 <div class="d-flex justify-content-center">
@@ -13,7 +13,7 @@
   <thead>
     <tr>
     <th scope="col">No</th>
-      <th scope="col">Nama Sopir</th>
+      <th scope="col">Tujuan</th>
       <th scope="col">Action</th>
     </tr>
   </thead>

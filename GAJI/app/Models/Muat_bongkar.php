@@ -15,4 +15,9 @@ class Muat_bongkar extends Model
         return $this->belongsTo(Uang_jalan::class, 'id_muat_bongkar');
     }
 
+    public function tujuan()
+    {
+        return $this->belongsTo(tujuan::class, 'id_tujuan');
+    }
+
 }

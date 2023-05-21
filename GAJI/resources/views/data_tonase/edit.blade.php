@@ -50,13 +50,17 @@
     @enderror <br>
 
     <div class="form-group row">
-        <label for="id_muat_bongkar" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Tujuan</label>
+        <label for="id_tujuan" class="offset-sm-1 col-sm-2 col-form-label justify-content-center">Tujuan</label>
         <div class="col-sm-8">
-            <select name="id_muat_bongkar" id="id_muat_bongkar" class="form-control">
-                @foreach ($tablemuatbongkarData as $item)
-                    <option value="{{ $item->id }}" {{ $item->id == $data_tonase->id_muat_bongkar ? 'selected' : '' }}>{{ $item->tujuan }}</option>
+            <select name="id_tujuan" id="id_tujuan" class="form-control">
+                <option value="">Pilih Tujuan</option>
+                @foreach ($tujuanData as $item)
+                    <option value="{{ $item->id }}" {{ $item->id == $data_tonase->id_tujuan ? 'selected' : '' }}>{{ $item->tujuan }}</option>
                 @endforeach
             </select>
+            @error('id_tujuan')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
         </div>
     </div>
     @error('id_muat_bongkar')

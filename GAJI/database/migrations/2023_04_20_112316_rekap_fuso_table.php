@@ -16,12 +16,9 @@ return new class extends Migration
         Schema::create('rekap_fuso', function (Blueprint $table) {
             $table->id();
             $table->string('alamat');
-            $table->string('muat_cpo');
-            $table->string('tujuan_bongkar');
-            $table->string('no_spk_tanggal');
-            $table->string('no_kontrak_tanggal');
-            $table->string('no_tanggal_do_besar');
-            $table->string('quantity_do_ton');
+            $table->unsignedBigInteger('id_dataTonase');
+            $table->foreign('id_dataTonase')->references('id')->on('data_tonase')->onDelete('cascade');
+            $table->string('no_kontrak');
             $table->timestamps();
         });
     }

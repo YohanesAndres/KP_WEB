@@ -18,7 +18,7 @@
     @csrf
 
     <div class="form-group row">
-        <label for="tujuan" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Nama Sopir</label>
+        <label for="tujuan" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Tujuan</label>
         <div class="col-sm-8">
         <input type="text" name="tujuan" id="tujuan" class="form-control" placeholder="Masukkan Nama Sopir">
         </div>

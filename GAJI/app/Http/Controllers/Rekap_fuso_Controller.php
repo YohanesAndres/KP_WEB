@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Rekap_fuso;
 use App\Models\Rekap_fuso_detail;
 use App\Models\uang_jalan;
+use App\Models\Data_tonase;
 
 class Rekap_fuso_Controller extends Controller
 {
@@ -19,8 +20,10 @@ class Rekap_fuso_Controller extends Controller
 
     public function create()
     {
-        
-        return view('rekap_fuso.create');
+        $tableDatatonase = Data_tonase::all();
+        return view('rekap_fuso.create', [
+            'tableDatatonase' => $tableDatatonase,
+        ]);
     }
 
     public function createDetail()
@@ -35,15 +38,9 @@ class Rekap_fuso_Controller extends Controller
         $rekap_fuso = new Rekap_fuso;
        
         $rekap_fuso->alamat = $request->alamat; 
-        $rekap_fuso->muat_cpo = $request->muat_cpo; 
-        $rekap_fuso->tujuan_bongkar = $request->tujuan_bongkar; 
-
+        $rekap_fuso->id_dataTonase = $request->id_dataTonase;
+        $rekap_fuso->no_kontrak = $request->no_kontrak;  
         // $data_sebulan = uang_jalan::where('tujuan')
-
-        $rekap_fuso->no_spk_tanggal = $request->no_spk_tanggal; 
-        $rekap_fuso->no_kontrak_tanggal = $request->no_kontrak_tanggal; 
-        $rekap_fuso->no_tanggal_do_besar = $request->no_tanggal_do_besar; 
-        $rekap_fuso->quantity_do_ton = $request->quantity_do_ton; 
         $rekap_fuso->save();
 
 
@@ -80,9 +77,11 @@ class Rekap_fuso_Controller extends Controller
 
     public function edit(Request $request, $id)
     {
-       
+        $tableDatatonase = Data_tonase::all();
         $rekap_fuso = Rekap_fuso::find($id);
-        return view("rekap_fuso.edit", compact('rekap_fuso'));
+        return view("rekap_fuso.edit", compact('rekap_fuso'), [
+            'tableDatatonase' => $tableDatatonase,
+        ]);
     }
 
     public function update(Request $request, $id)

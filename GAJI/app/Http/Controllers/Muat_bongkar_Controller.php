@@ -4,20 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Muat_bongkar;
+use App\Models\tujuan;
 
 class Muat_bongkar_Controller extends Controller
 {
     public function index()
     {
-     
         $muat_bongkar = Muat_bongkar::all();
         return view('muat_bongkar.index', compact('muat_bongkar'));
     }
 
     public function create()
     {
-        
-        return view('muat_bongkar.create');
+        $tabletujuanData = tujuan::all();
+
+        return view('muat_bongkar.create', [
+            'tabletujuanData' => $tabletujuanData
+        ]);
     }
 
     public function getUangjalan($id)
@@ -45,7 +48,7 @@ class Muat_bongkar_Controller extends Controller
        
         $muat_bongkar->uang_jalan = $request->uang_jalan; 
         $muat_bongkar->muatBongkar = $request->muatBongkar; 
-        $muat_bongkar->tujuan = $request->tujuan; 
+        $muat_bongkar->id_tujuan = $request->id_tujuan;
         $muat_bongkar->save();
         return redirect('/muat_bongkar')->with('info', 'Data sopir berhasil disimpan');
     }
@@ -54,7 +57,10 @@ class Muat_bongkar_Controller extends Controller
     {
        
         $muat_bongkar = Muat_bongkar::find($id);
-        return view("muat_bongkar.edit", compact('muat_bongkar'));
+        $tabletujuanData = tujuan::all();
+        return view("muat_bongkar.edit", compact('muat_bongkar'), [
+            'tabletujuanData' => $tabletujuanData
+        ]);
     }
 
     public function update(Request $request, $id)
@@ -64,7 +70,7 @@ class Muat_bongkar_Controller extends Controller
     
         $muat_bongkar->uang_jalan = $request->uang_jalan; 
         $muat_bongkar->muatBongkar = $request->muatBongkar; 
-        $muat_bongkar->tujuan = $request->tujuan; 
+        $muat_bongkar->id_tujuan = $request->id_tujuan; 
         $muat_bongkar->save();
 
         $request->session()->flash("info", "Data muat_bongkar berhasil diupdate!");

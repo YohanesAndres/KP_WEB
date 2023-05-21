@@ -82,9 +82,9 @@
     <div class="form-group row">
         <label for="tujuan" class="col-sm-3 col-form-label">Tujuan</label>
         <div class="col-sm-9">
-            <input type="text" name="tujuan" id="tujuan" class="form-control" value="{{ old('tujuan', $uang_jalan->tujuan) }}" readonly>
+            <input type="text" name="tujuan" id="tujuan" class="form-control" value="{{ old('tujuan', $uang_jalan->muatBongkar->tujuan->tujuan) }}" readonly>
             @error('tujuan')
-            <span class="text-danger">{{ $tujuan }}</span>
+            <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
     </div>
@@ -143,26 +143,29 @@
                 type: 'GET',
                 dataType: 'json',
                 success: function(response) {
-                    console.log(response)
+                    console.log(response);
+                    // alert(JSON.stringify(response));
+                    // dd(response);
                     $('#uang_Jalan').val(response.UangJalan.uang_jalan);
+                    $('#tujuan').val(response.UangJalan.id_tujuan);
                 }
             });
         });
 
-        $('#id_muat_bongkar').change(function() {
-            var muatbongkarId = $(this).val();
+        // $('#id_muat_bongkar').change(function() {
+        //     var muatbongkarId = $(this).val();
 
-            // Menggunakan AJAX untuk mengambil data kategori muat bongkar
-            $.ajax({
-                url: '/muat_bongkar/get-tujuan/' + muatbongkarId,
-                type: 'GET',
-                dataType: 'json',
-                success: function(response) {
-                    console.log(response)
-                    $('#tujuan').val(response.Tujuan.tujuan);
-                }
-            });
-        });
+        //     // Menggunakan AJAX untuk mengambil data kategori muat bongkar
+        //     $.ajax({
+        //         url: '/muat_bongkar/get-tujuan/' + muatbongkarId,
+        //         type: 'GET',
+        //         dataType: 'json',
+        //         success: function(response) {
+        //             console.log(response)
+        //             $('#tujuan').val(response.Tujuan.tujuan);
+        //         }
+        //     });
+        // });
     });
     
 </script>

@@ -43,14 +43,14 @@
                         <i class="fa fa-database"></i> <span>Data Tonase</span>
                     </a>
                 </li>
-                <li class="{{ Request::is('rekap*') ? 'active' : '' }}">
+                <!-- <li class="{{ Request::is('rekap*') ? 'active' : '' }}">
                     <a href="{{ route('rekap.index') }}">
                         <i class="fa fa-rekap"></i> <span>Rekap Truk Kecil</span>
                     </a>
-                </li>
+                </li> -->
                 <li class="{{ Request::is('rekap_fuso*') ? 'active' : '' }}">
                     <a href="{{ route('rekap_fuso.index') }}">
-                        <i class="fa fa-rekap_fuso"></i> <span>Rekap Truk Besar</span>
+                        <i class="fa fa-rekap_fuso"></i> <span>Rekap Truk</span>
                     </a>
                 </li>
                 <li class="{{ Request::is('namasopir*') ? 'active' : '' }}">
@@ -88,10 +88,4 @@
 </body>
 @yield('script')
 </html>
-<style>
-    .pl-5 {
-        margin-left: 50px; /* Atur margin kiri sesuai kebutuhan */
-        margin-right: 50px; /* Atur margin kanan sesuai kebutuhan */
-    }
-</style>
 
