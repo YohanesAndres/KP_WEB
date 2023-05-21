@@ -6,7 +6,7 @@
 }
 
 body{
-    background-color: #ffffff;
+    background-color: #E9E9E9;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -66,7 +66,6 @@ body{
     padding: 0;
     margin: 0;
     margin-right: 20px;
-    border-radius: 100px;
 }
 
 .sidebar-menu li a {
@@ -79,10 +78,14 @@ body{
 
 .sidebar-menu li a:hover {
     background-color: #34495e;
+    border-radius: 6px;
+    color:#ffffff;
 }
 
 .active {
     background-color: #34495e;
+    border-radius: 6px;
+    
 }
 
 .row {
@@ -121,3 +124,18 @@ body{
     padding: 4px;
     margin-top: 10px;
   }
+
+.text-right {
+    margin-left: 40px;
+    font-size: 14px;
+    margin-top: 40px;
+    padding-bottom: 15px;
+  }
+.text-right img {
+    height: 17px;
+    width: 17px;
+    margin-right: 10px;
+    float: left;
+    
+
+}

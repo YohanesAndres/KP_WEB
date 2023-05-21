@@ -82,6 +82,9 @@
                         <i class="fa fa-tujuan"></i> <span>Tujuan</span>
                     </a>
                 </li> 
+                <div class="text-right">
+                    <a href="/login"><img src="{{ asset('Icon-LogOut.png')}}" alt="">Logout</a>
+                </div>
             </ul>
         </aside>
     </div>
