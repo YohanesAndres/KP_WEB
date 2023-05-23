@@ -20,7 +20,6 @@
                     <div class="bold-text" >Kas Uang Jalan</div>
                     <div>PT. Alam Wijaya Logistik</div>
             </div>
-            <img src = "{{ asset('/line.png') }}" alt="">
             <ul class="sidebar-menu">
                 <li class="{{ Request::is('home') ? 'active' : '' }}">
                     <a href="{{ route('home') }}">
@@ -82,7 +81,7 @@
                         <i class="fa fa-tujuan"></i> <span>Tujuan</span>
                     </a>
                 </li> 
-                <img src = "{{ asset('/line.png') }}" alt="">
+
                 <div class="text-right">
                     <a href="/login"><img src="{{ asset('Icon-LogOut.png')}}" alt="">Logout</a>
                 </div>
