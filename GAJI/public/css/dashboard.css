@@ -98,8 +98,8 @@ body{
 }
 
 .pl-5 {
-    margin-left: 250px; /* Sesuaikan margin kiri dengan lebar sidebar */
-    margin-right: 50px; /* Atur margin kanan sesuai kebutuhan */
+    margin-left: 210px; /* Sesuaikan margin kiri dengan lebar sidebar */
+    margin-right: 20px; /* Atur margin kanan sesuai kebutuhan */
     padding-left: 60px;
 }
 
@@ -141,3 +141,14 @@ body{
 .top-title{
     padding-top: 10px;
 }
+
+/* .table-container{
+    background-color: #c62121;
+    padding: 30px;
+    padding-right: 1px;
+    padding-left: 1px;
+    margin-top: 10px;
+    width: auto;
+    height: 500px; ;
+    border-radius: 10px;
+} */

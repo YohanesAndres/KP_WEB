@@ -9,7 +9,7 @@
 <button class="btn btn-blue btn-lg text-center" onclick="location.href='/kendaraan/create'">Tambah</button>
 </div>
 
-<table class="table text-white table-dark table-bordered container mt-4"style="width:100%">
+<table id="tabel-data" class="table table-striped table-bordered" width="100%" cellspacing="0">
   <thead>
     <tr>
     <th scope="col">No</th>

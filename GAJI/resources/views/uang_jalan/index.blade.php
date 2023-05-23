@@ -10,7 +10,8 @@
 <a href="/uang_jalan/create" class="btn btn-primary btn-lg text-center">Tambah</a>
 </div>
 
-<table class="table text-white table-dark table-bordered container mt-4" style="width:140%">
+
+<table id="tabel-data" class="table table-striped table-bordered" width="100%" cellspacing="0">
   <thead>
     <tr>
     <th scope="col">No</th>
@@ -60,6 +61,5 @@
     @endforeach
   </tbody>
 </table>
-
 
 @endsection
