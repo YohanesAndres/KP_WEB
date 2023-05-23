@@ -9,4 +9,9 @@ class Rekap_fuso_detail extends Model
 {
     use HasFactory;
     protected $table = "rekap_fuso_detail";
+
+    public function UangJalan()
+    {
+        return $this->belongsTo(Uang_jalan::class, 'id_uang_jalan');
+    }
 }

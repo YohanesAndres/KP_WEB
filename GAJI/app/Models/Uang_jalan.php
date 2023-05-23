@@ -19,4 +19,9 @@ class Uang_jalan extends Model
     {
         return $this->belongsTo(Muat_bongkar::class, 'id_muat_bongkar');
     }
+
+    public function namaSopir()
+    {
+        return $this->hasOneThrough(Namasopir::class, Kendaraan::class, 'id', 'id', 'id_kendaraan', 'id_namasopir');
+    }
 }

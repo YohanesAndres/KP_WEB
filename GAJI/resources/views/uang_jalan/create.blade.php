@@ -125,6 +125,9 @@
                 type: 'GET',
                 dataType: 'json',
                 success: function(response) {
+                    //console.log(response);
+                    //alert(JSON.stringify(response));
+                    //dd(response);
                     $('#kategori').val(response.kategori.nama);
                 }
             });

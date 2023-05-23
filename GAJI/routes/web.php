@@ -94,7 +94,7 @@ use App\Http\Controllers\KendaraanController;
     Route::post('/rekap_fusoDetail/store', [App\Http\Controllers\Rekap_fuso_Controller::class, 'storeDetail'])->name('rekap_fuso_detail.store');
     Route::get('/rekap_fusoDetail/edit/{id}', [App\Http\Controllers\Rekap_fuso_Controller::class, 'edit'])->name('rekap_fuso_detail.edit');
     Route::patch('/rekap_fusoDetail/update/{id}', [App\Http\Controllers\Rekap_fuso_Controller::class, 'update'])->name('rekap_fuso_detail.update');
-    Route::delete('/rekap_fusoDetail/delete/{id}', [App\Http\Controllers\Rekap_fuso_Controller::class, 'delete'])->name('rekap_fuso_detail.delete');
+    Route::delete('/rekap_fusoDetail/delete/{id}', [App\Http\Controllers\Rekap_fuso_Controller::class, 'deleteDetail'])->name('rekap_fuso_detail.delete');
     
     Route::get('/uang_jalan', [App\Http\Controllers\Uang_jalan_Controller::class, 'index'])->name('uang_jalan.index');
     Route::get('/uang_jalan/create', [App\Http\Controllers\Uang_jalan_Controller::class, 'create'])->name('uang_jalan.create');
@@ -121,7 +121,7 @@ use App\Http\Controllers\KendaraanController;
     Route::get('/muat_bongkar/get-uang_jalan/{id}', [App\Http\Controllers\Muat_bongkar_Controller::class, 'getUangjalan']);
     Route::get('/muat_bongkar/get-tujuan/{id}', [App\Http\Controllers\Muat_bongkar_Controller::class, 'getTujuan']);
     Route::get('/data_tonase/get-tonase/{id}', [App\Http\Controllers\Data_tonase_Controller::class, 'getTonase']);
-
+    Route::get('/uang_jalan/get-dataJalan/{id}', [App\Http\Controllers\Uang_jalan_Controller::class, 'getDatajalan']);
 
 // });
 
