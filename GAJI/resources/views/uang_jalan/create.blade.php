@@ -97,6 +97,16 @@
     </div>
 
     <div class="form-group row">
+        <label for="tanggal_bongkar" class="col-sm-3 col-form-label">Tanggal Bongkar</label>
+        <div class="col-sm-9">
+            <input type="text" name="tanggal_bongkar" id="tanggal_bongkar" class="form-control" placeholder="Tanggal Bongkar" readonly>
+            @error('id_muat_bongkar')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+    </div>
+
+    <div class="form-group row">
         <label for="keterangan" class="col-sm-3 col-form-label">Keterangan</label>
         <div class="col-sm-9">
             <input type="text" name="keterangan" id="keterangan" class="form-control" placeholder="Masukkan Keterangan">

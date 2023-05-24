@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_uang_jalan');
             $table->foreign('id_uang_jalan')->references('id')->on('uang_jalan')->onDelete('cascade');
+            $table->unsignedBigInteger('rekap_fuso_id');
+            $table->foreign('rekap_fuso_id')->references('id')->on('rekap_fuso')->onDelete('cascade');
             $table->integer('quantity_muat_pks_bruto');
             $table->integer('quantity_muat_pks_tarra');
             $table->integer('quantity_bongkar_bruto');

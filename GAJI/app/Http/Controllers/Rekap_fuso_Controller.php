@@ -15,6 +15,7 @@ class Rekap_fuso_Controller extends Controller
      
         $rekap_fuso = Rekap_fuso::all();
         $rekap_fusoDetail = Rekap_fuso_detail::all();
+        
         return view('rekap_fuso.index', compact('rekap_fuso', 'rekap_fusoDetail'));
     }
 
@@ -29,8 +30,10 @@ class Rekap_fuso_Controller extends Controller
     public function createDetail()
     {
         $tableUangJalan = Uang_jalan::all();
+        $rekap_fuso_id = $_GET['rekap_fuso_id'] ?? null;
         return view('rekap_fuso_detail.create',[
             'tableUangJalan' => $tableUangJalan,
+            'rekap_fuso_id' => $rekap_fuso_id,
         ]);
     }
 
@@ -54,7 +57,8 @@ class Rekap_fuso_Controller extends Controller
     {
         
         $rekap_fusoDetail = new Rekap_fuso_detail;
-
+        
+        $rekap_fusoDetail->rekap_fuso_id = $request->rekap_fuso_id;
         $rekap_fusoDetail->id_uang_jalan = $request->id_uang_jalan;
         $rekap_fusoDetail->quantity_muat_pks_bruto = $request->quantity_muat_pks_bruto; 
         $rekap_fusoDetail->quantity_muat_pks_tarra = $request->quantity_muat_pks_tarra; 

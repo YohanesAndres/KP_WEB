@@ -19,6 +19,8 @@
 <form action="{{ url('rekap_fusoDetail/store') }}" method="POST" enctype="multipart/form-data">
     @csrf
 
+    <input type="hidden" name="rekap_fuso_id" value="{{ $rekap_fuso_id }}">
+
     <div class="form-group row">
         <label for="id_uang_jalan" class="offset-sm-1 col-sm-2 col-form-label justify-content-center">Tanggal Muat</label>
         <div class="col-sm-8">

@@ -35,7 +35,7 @@
             <br></br>
 
             <div class="d-flex justify-content-center">
-                <a href="/rekap_fusoDetail/create" class="btn btn-primary btn-lg text-center">Tambah</a>
+                <a href="/rekap_fusoDetail/create?rekap_fuso_id={{  $rekap_fusoData->id  }}" class="btn btn-primary btn-lg text-center">Tambah</a>
             </div>
 
             <table class="table text-white table-dark table-bordered mt-4">
@@ -64,38 +64,81 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @php
+                        $totalTonase = 0;
+                        $totalNettoPKS = 0;
+                        $totalNettoBongkar = 0;
+                        $totalSusut = 0;
+                        $totalUangJalan = 0;
+                    @endphp
                     @foreach($rekap_fusoDetail as $key => $rekap_fuso_detailData)
-                    <tr>
-                        <td>{{ ++$key }}</td>
-                        <td>{{ $rekap_fuso_detailData->UangJalan->tanggal }}</td>
-                        <td></td>
-                        <td>{{ $rekap_fuso_detailData->UangJalan->kendaraan->plat }}</td>
-                        <td>{{ $rekap_fuso_detailData->UangJalan->namaSopir->nama_sopir }}</td>
-                        <td>{{ $rekap_fuso_detailData->UangJalan->kendaraan->tonase }}</td>
-                        <td>{{ $rekap_fuso_detailData->quantity_muat_pks_bruto }}</td>
-                        <td>{{ $rekap_fuso_detailData->quantity_muat_pks_tarra }}</td>
-                        <td></td>
-                        <td>{{ $rekap_fuso_detailData->quantity_bongkar_bruto }}</td>
-                        <td>{{ $rekap_fuso_detailData->quantity_bongkar_tarra }}</td>
-                        <td></td>
-                        <td></td>
-                        <td>{{ $rekap_fuso_detailData->mutu_pks_ffa_alb }}</td>
-                        <td>{{ $rekap_fuso_detailData->mutu_pks_ka }}</td>
-                        <td>{{ $rekap_fuso_detailData->mutu_bongkar_ffa_alb }}</td>
-                        <td>{{ $rekap_fuso_detailData->mutu_bongkar_ka }}</td>
-                        <td></td>
-                        <td>{{ number_format($rekap_fuso_detailData->UangJalan->uang_Jalan,0,",","."); }}</td>
-                        <td>
-                            <a href="/rekap_fusoDetail/edit/{{ $rekap_fuso_detailData->id }}" class="btn btn-primary">Edit</a>
-                            <form action="{{ url('/rekap_fusoDetail/delete/'.$rekap_fuso_detailData->id) }}" method="post">
-                                @csrf
-                                @method('delete')
-                                <input type="hidden" name="_method" value="delete">
-                                <button type="submit" class="btn btn-danger">Hapus</button>
-                            </form>
-                        </td>
-                    </tr>
+                        @if($rekap_fuso_detailData->rekap_fuso_id == $rekap_fusoData->id)
+                            <tr>
+                                <td>{{ ++$key }}</td>
+                                <td>{{ $rekap_fuso_detailData->UangJalan->tanggal }}</td>
+                                <td></td>
+                                <td>{{ $rekap_fuso_detailData->UangJalan->kendaraan->plat }}</td>
+                                <td>{{ $rekap_fuso_detailData->UangJalan->namaSopir->nama_sopir }}</td>
+                                <td>{{ $rekap_fuso_detailData->UangJalan->kendaraan->tonase }}</td>
+                                <td>{{ $rekap_fuso_detailData->quantity_muat_pks_bruto }}</td>
+                                <td>{{ $rekap_fuso_detailData->quantity_muat_pks_tarra }}</td>
+                                <td>{{ $rekap_fuso_detailData->quantity_muat_pks_bruto - $rekap_fuso_detailData->quantity_muat_pks_tarra }}</td>
+                                <td>{{ $rekap_fuso_detailData->quantity_bongkar_bruto }}</td>
+                                <td>{{ $rekap_fuso_detailData->quantity_bongkar_tarra }}</td>
+                                <td>{{ $rekap_fuso_detailData->quantity_bongkar_bruto - $rekap_fuso_detailData->quantity_bongkar_tarra }}</td>
+                                <td>
+                                    @php
+                                        $result = ($rekap_fuso_detailData->quantity_muat_pks_bruto - $rekap_fuso_detailData->quantity_muat_pks_tarra) - ($rekap_fuso_detailData->quantity_bongkar_bruto - $rekap_fuso_detailData->quantity_bongkar_tarra);
+                                        if ($result < 0) {
+                                            $result = 0;
+                                        }
+                                    @endphp
+                                    {{ $result }}
+                                </td>
+                                <td>{{ $rekap_fuso_detailData->mutu_pks_ffa_alb }}</td>
+                                <td>{{ $rekap_fuso_detailData->mutu_pks_ka }}</td>
+                                <td>{{ $rekap_fuso_detailData->mutu_bongkar_ffa_alb }}</td>
+                                <td>{{ $rekap_fuso_detailData->mutu_bongkar_ka }}</td>
+                                <td></td>
+                                <td>{{ number_format($rekap_fuso_detailData->UangJalan->uang_Jalan,0,",",".") }}</td>
+                                <td>
+                                    <a href="/rekap_fusoDetail/edit/{{ $rekap_fuso_detailData->id }}" class="btn btn-primary">Edit</a>
+                                    <form action="{{ url('/rekap_fusoDetail/delete/'.$rekap_fuso_detailData->id) }}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <input type="hidden" name="_method" value="delete">
+                                        <button type="submit" class="btn btn-danger">Hapus</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @php
+                                $totalTonase += $rekap_fuso_detailData->UangJalan->kendaraan->tonase;
+                                $totalNettoPKS += ($rekap_fuso_detailData->quantity_muat_pks_bruto - $rekap_fuso_detailData->quantity_muat_pks_tarra);
+                                $totalNettoBongkar += ($rekap_fuso_detailData->quantity_bongkar_bruto - $rekap_fuso_detailData->quantity_bongkar_tarra);
+                                $totalSusut += $result;
+                                $totalUangJalan += $rekap_fuso_detailData->UangJalan->uang_Jalan;
+                            @endphp
+                        @endif
                     @endforeach
+                    <tr>
+                        <td>TOTAL</td>
+                        <td colspan="4"></td>
+                        <td>{{ number_format($totalTonase,0,",",".") }}</td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ number_format($totalNettoPKS,0,",",".") }}</td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ number_format($totalNettoBongkar,0,",",".") }}</td>
+                        <td>{{ number_format($totalSusut,0,",",".") }}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ number_format($totalUangJalan,0,",",".") }}</td>
+                        <td></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
