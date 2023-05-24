@@ -9,6 +9,8 @@
 <button class="btn btn-blue btn-lg text-center" onclick="location.href='/tujuan/create'">Tambah</button>
 </div>
 
+<div class="bgtbl">
+
 <table id="tabel-data" class="table table-striped table-bordered" width="100%" cellspacing="0">
   <thead>
     <tr>
@@ -38,5 +40,6 @@
     @endforeach
   </tbody>
 </table>
+</div>
 
 @endsection

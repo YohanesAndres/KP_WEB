@@ -10,7 +10,7 @@
 <a href="/uang_jalan/create" class="btn btn-primary btn-lg text-center">Tambah</a>
 </div>
 
-
+<div class="bgtbl">
 <table id="tabel-data" class="table table-striped table-bordered" width="100%" cellspacing="0">
   <thead>
     <tr>
@@ -61,5 +61,5 @@
     @endforeach
   </tbody>
 </table>
-
+</div>
 @endsection

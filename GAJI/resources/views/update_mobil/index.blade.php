@@ -6,6 +6,7 @@
 <a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center"> Update Mobil</h1>
 </div>
 
+<div class="bgtbl">
 <!-- id data table -->
 <table id="tabel-data" class="table table-striped table-bordered" width="100%" cellspacing="0">
   <thead>
@@ -46,5 +47,5 @@
     @endforeach
   </tbody>
 </table>
-
+</div>
 @endsection

@@ -21,6 +21,7 @@
 </div>
 </div>
 
+<div class="bgtbl">
 <table id="tabel-data" class="table table-striped table-bordered" width="100%" cellspacing="0">
   <thead>
     <tr>
@@ -72,5 +73,5 @@
     @endforeach
   </tbody>
 </table>
-
+</div>
 @endsection
