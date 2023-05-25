@@ -7,8 +7,10 @@
   <a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center"> Update Mobil</h1>
 </div>
 
-<div class="bgtbl">
+<div class="bgtbl" >
 <!-- id data table -->
+  <div class="row" >
+  <div class = "col-12" style="width: 100%">
   <table id="tabel-data" class="table table-striped table-bordered" width="100%" cellspacing="0">
     <thead>
       <tr>
@@ -45,5 +47,9 @@
         @endforeach
       </tbody>
   </table>
+  </div>
+  </div>
+  
+  
 </div>
 @endsection

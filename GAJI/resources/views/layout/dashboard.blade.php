@@ -110,7 +110,7 @@
 @yield('script')
 </html>
 
-<!-- scirpt data tabel -->
+<!-- script data tabel -->
 <script>
     $(document).ready(function(){
         $('#tabel-data').DataTable();

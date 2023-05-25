@@ -1,6 +1,5 @@
 @extends('layout.dashboard')
 @section('content')
-
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 <div class="top-title">
     <a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> 
@@ -8,7 +7,7 @@
 </div>
 
 <div class="d-flex justify-content-center">
-    <a href="/rekap_fuso/create" class="btn btn-primary btn-lg text-center">Tambah</a>
+    <a href="/rekap_fuso/create" class="btn btn-tambah btn-lg text-center">Tambah</a>
 </div>
 
 <div class="container mt-4">
@@ -23,7 +22,7 @@
             <p>NO Kontrak :     {{ $rekap_fusoData->no_kontrak }}</p>
             <p>Quantity DO (ton): {{ $rekap_fusoData->dataTonase->tonase_actual}}</p>
             <div>
-                <a href="/rekap_fuso/edit/{{ $rekap_fusoData->id }}" class="btn btn-primary">Edit</a>
+                <a href="/rekap_fuso/edit/{{ $rekap_fusoData->id }}" class="btn btn-edit">Edit</a>
                 <form action="{{ url('/rekap_fuso/delete/'.$rekap_fusoData->id) }}" method="post">
                     @csrf
                     @method('delete')
@@ -35,7 +34,7 @@
             <br></br>
 
             <div class="d-flex justify-content-center">
-                <a href="/rekap_fusoDetail/create?rekap_fuso_id={{  $rekap_fusoData->id  }}" class="btn btn-primary btn-lg text-center">Tambah</a>
+                <a href="/rekap_fusoDetail/create?rekap_fuso_id={{  $rekap_fusoData->id  }}" class="btn btn-tambah btn-lg text-center">Tambah</a>
             </div>
 
             <table class="table text-white table-dark table-bordered mt-4">
