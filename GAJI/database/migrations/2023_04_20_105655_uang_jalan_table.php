@@ -18,7 +18,7 @@ return new class extends Migration
             $table->dateTime('tanggal');
             $table->unsignedBigInteger('id_kendaraan');
             $table->foreign('id_kendaraan')->references('id')->on('kendaraan')->onDelete('cascade');
-            $table->string('barcode', 50);
+            // $table->string('barcode', 50);
             $table->unsignedBigInteger('id_muat_bongkar');
             $table->foreign('id_muat_bongkar')->references('id')->on('muat_bongkar')->onDelete('cascade');
             $table->integer('uang_Jalan');

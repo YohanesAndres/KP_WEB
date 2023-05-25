@@ -5,13 +5,14 @@
 <a href="/kendaraan"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-center">Form Tambah Kendaraan</h1>
 
 <br></br>
+
 <div class="form-group row offset-sm-1 col-sm-2">
-@if (session()->has('info'))
-        {{ session()->get('info') }}
-@endif
+    @if (session()->has('info'))
+            {{ session()->get('info') }}
+    @endif
 </div>
-<br>
-</br>
+
+<br></br>
 
 <form action="{{ url('kendaraan/store/') }}" method="POST" enctype="multipart/form-data">
     @csrf
@@ -19,7 +20,7 @@
     <div class="form-group row">
         <label for="plat" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Plat</label>
         <div class="col-sm-8">
-        <input type="text" name="plat" id="plat" class="form-control" placeholder="Masukkan No Plat">
+            <input type="text" name="plat" id="plat" class="form-control" placeholder="Masukkan No Plat">
         </div>
     </div>
     @error('plat')
@@ -29,7 +30,7 @@
     <div class="form-group row">
         <label for="tonase" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Tonase</label>
         <div class="col-sm-8">
-        <input type="text" name="tonase" id="tonase" class="form-control" placeholder="Masukkan Tonase">
+            <input type="text" name="tonase" id="tonase" class="form-control" placeholder="Masukkan Tonase">
         </div>
     </div>
     @error('tonase')
@@ -42,7 +43,7 @@
             <select name="id_namasopir" id="id_namasopir" class="form-control">
                 <option value="">Pilih Nama Sopir</option>
                 @foreach ($tablenamasopirData as $item)
-                    <option value="{{ $item->id }}">{{ $item->nama_sopir }}</option>
+                <option value="{{ $item->id }}">{{ $item->nama_sopir }}</option>
                 @endforeach
             </select>
         </div>
@@ -58,7 +59,7 @@
             <select name="id_kategori" id="id_kategori" class="form-control">
                 <option value="">Pilih Kategori</option>
                 @foreach ($tablekategoriData as $item)
-                    <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                <option value="{{ $item->id }}">{{ $item->nama }}</option>
                 @endforeach
             </select>
         </div>

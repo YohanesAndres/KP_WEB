@@ -18,7 +18,7 @@
       <th scope="col">Tanggal Muat</th>
       <th scope="col">Plat </th>
       <th scope="col">Kategori </th>
-      <th scope="col">Barcode</th>
+      <!-- <th scope="col">Barcode</th> -->
       <th scope="col">Muat Bongkar </th>
       <th scope="col">Tujuan </th>
       <th scope="col">Uang Jalan </th>
@@ -34,7 +34,7 @@
             <td>{{ date('Y-m-d',strtotime($uang_jalanData->tanggal)) }}</td>
             <td>{{ $uang_jalanData->kendaraan->plat }}</td>
             <td>{{ $uang_jalanData->kendaraan->kategori->nama }}</td>
-            <td>{{ $uang_jalanData->barcode }}</td>
+            <!-- <td>{{ $uang_jalanData->barcode }}</td> -->
             <td>{{ $uang_jalanData->muatbongkar->muatBongkar }}</td>
             <td>{{ $uang_jalanData->muatbongkar->tujuan->tujuan }}</td>
             <td>{{ number_format($uang_jalanData->uang_Jalan,0,",","."); }}</td>

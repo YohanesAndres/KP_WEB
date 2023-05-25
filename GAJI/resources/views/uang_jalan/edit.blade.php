@@ -46,15 +46,15 @@
 
     <div class="form-group row">
         <label for="kategori" class="col-sm-3 col-form-label">Kategori</label>
-        <div class="col-sm-9">
-            <input type="text" name="kategori" id="kategori" class="form-control" value="{{ old('kategori', $uang_jalan->kendaraan->kategori->nama) }}" readonly>
-            @error('id_kendaraan')
-            <span class="text-danger">{{ $message }}</span>
-            @enderror
-        </div>
+            <div class="col-sm-9">
+                <input type="text" name="kategori" id="kategori" class="form-control" value="{{ old('kategori', $uang_jalan->kendaraan->kategori->nama) }}" readonly>
+                @error('id_kendaraan')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
     </div>
 
-    <div class="form-group row">
+    <!-- <div class="form-group row">
         <label for="barcode" class="col-sm-3 col-form-label">Barcode</label>
         <div class="col-sm-9">
             <input type="text" name="barcode" id="barcode" class="form-control" value="{{$uang_jalan->barcode}}">
@@ -62,7 +62,7 @@
             <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
-    </div>
+    </div> -->
 
     <div class="form-group row">
         <label for="id_muat_bongkar" class="col-sm-3 col-form-label">Muat Bongkar</label>

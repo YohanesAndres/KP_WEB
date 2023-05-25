@@ -18,8 +18,6 @@
 <form action="{{ url('update_mobil/update/'.$update_mobil->id) }}" method="POST">
     @csrf
     @method('patch')
-
-
     <div class="form-group row">
         <label for="status" class="col-sm-3 col-form-label">Status</label>
         <div class="col-sm-9">

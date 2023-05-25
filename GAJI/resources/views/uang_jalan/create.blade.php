@@ -51,7 +51,7 @@
         </div>
     </div>
 
-    <div class="form-group row">
+    <!-- <div class="form-group row">
         <label for="barcode" class="col-sm-3 col-form-label">Barcode</label>
         <div class="col-sm-9">
             <input type="text" name="barcode" id="barcode" class="form-control" placeholder="Masukkan barcode">
@@ -59,7 +59,7 @@
             <span class="text-danger">{{ $message }}</span>
             @enderror
         </div>
-    </div>
+    </div> -->
 
     <div class="form-group row">
         <label for="id_muat_bongkar" class="col-sm-3 col-form-label">Muat Bongkar</label>

@@ -1,11 +1,14 @@
 @extends('layout.dashboard')
 @section('content')
+
 <div class="top-title">
-<a href="/kas_uj"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center"> Form Edit Kas Uang Jalan</h1>
+    <a href="/kas_uj"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center"> Form Edit Kas Uang Jalan</h1>
 </div>
+
 @if (session()->has('info'))
         {{ session()->get('info') }}
 @endif
+
 <form action="{{ url('kas_uj/update/'.$kas_uj->id) }}" method="POST">
     @csrf
     @method('patch')
