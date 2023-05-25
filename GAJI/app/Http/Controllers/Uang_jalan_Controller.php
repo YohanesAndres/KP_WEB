@@ -50,7 +50,7 @@ class Uang_jalan_Controller extends Controller
         $increment = DB::select("SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA ='". env('DB_DATABASE') . "' AND TABLE_NAME ='" . $uang_jalan->getTable() . "'")[0]->AUTO_INCREMENT;
         $uang_jalan->tanggal = $request->tanggal; 
         $uang_jalan->id_kendaraan = $request->id_kendaraan; 
-        $uang_jalan->barcode = $request->barcode; 
+        // $uang_jalan->barcode = $request->barcode; 
         $uang_jalan->id_muat_bongkar = $request->id_muat_bongkar; 
         $uang_jalan->uang_Jalan = $request->uang_Jalan; 
         $uang_jalan->keterangan = $request->keterangan; 
@@ -87,7 +87,7 @@ class Uang_jalan_Controller extends Controller
     
         $uang_jalan->tanggal = $request->tanggal; 
         $uang_jalan->id_kendaraan = $request->id_kendaraan; 
-        $uang_jalan->barcode = $request->barcode; 
+        // $uang_jalan->barcode = $request->barcode; 
         $uang_jalan->id_muat_bongkar = $request->id_muat_bongkar; 
         $uang_jalan->uang_Jalan = $request->uang_Jalan; 
         $uang_jalan->keterangan = $request->keterangan;  
