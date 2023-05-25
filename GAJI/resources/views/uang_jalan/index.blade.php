@@ -39,10 +39,8 @@
             <td>{{ $uang_jalanData->muatbongkar->tujuan->tujuan }}</td>
             <td>{{ number_format($uang_jalanData->uang_Jalan,0,",","."); }}</td>
             <td>
-              @if ($uang_jalanData->status_selesai)
+              @if ($uang_jalanData->update_mobil->status == 'selesai')
                 {{ $uang_jalanData->update_mobil->tanggal_bongkar ?? '' }}
-              @else
-                {{ $uang_jalanData->tanggal_bongkar ?? '' }}
               @endif
             <td>{{ $uang_jalanData->keterangan }}</td>
             <td>

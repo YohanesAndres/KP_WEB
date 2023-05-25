@@ -15,6 +15,11 @@ class Uang_jalan extends Model
         return $this->belongsTo(Kendaraan::class, 'id_kendaraan');
     }
 
+    public function update_mobil()
+    {
+        return $this->hasOne(update_mobil::class, 'id_uang_jalan',"id");
+    }
+
     public function muatbongkar()
     {
         return $this->belongsTo(Muat_bongkar::class, 'id_muat_bongkar');
