@@ -116,6 +116,8 @@ use App\Http\Controllers\KendaraanController;
     Route::get('/tujuan/edit/{id}', [App\Http\Controllers\tujuan_Controller::class, 'edit'])->name('tujuan.edit');
     Route::patch('/tujuan/update/{id}', [App\Http\Controllers\tujuan_Controller::class, 'update'])->name('tujuan.update');
     Route::delete('/tujuan/delete/{id}', [App\Http\Controllers\tujuan_Controller::class, 'delete'])->name('tujuan.delete');
+
+    Route::get('/hasil', [App\Http\Controllers\Rekap_fuso_Controller::class, 'hasil'])->name('hasil.index');
     
     Route::get('/kendaraan/get-kategori/{id}', [App\Http\Controllers\Kendaraan_Controller::class, 'getKategori']);
     Route::get('/muat_bongkar/get-uang_jalan/{id}', [App\Http\Controllers\Muat_bongkar_Controller::class, 'getUangjalan']);

@@ -70,12 +70,13 @@
                         $totalNettoBongkar = 0;
                         $totalSusut = 0;
                         $totalUangJalan = 0;
+                        $overToleransi = 0;
                     @endphp
                     @foreach($rekap_fusoDetail as $key => $rekap_fuso_detailData)
                         @if($rekap_fuso_detailData->rekap_fuso_id == $rekap_fusoData->id)
                             <tr>
                                 <td>{{ ++$key }}</td>
-                                <td>{{ $rekap_fuso_detailData->UangJalan->tanggal }}</td>
+                                <td>{{ date('Y-m-d',strtotime($rekap_fuso_detailData->UangJalan->tanggal)) }}</td>
                                 <td></td>
                                 <td>{{ $rekap_fuso_detailData->UangJalan->kendaraan->plat }}</td>
                                 <td>{{ $rekap_fuso_detailData->UangJalan->namaSopir->nama_sopir }}</td>
@@ -99,7 +100,27 @@
                                 <td>{{ $rekap_fuso_detailData->mutu_pks_ka }}</td>
                                 <td>{{ $rekap_fuso_detailData->mutu_bongkar_ffa_alb }}</td>
                                 <td>{{ $rekap_fuso_detailData->mutu_bongkar_ka }}</td>
-                                <td></td>
+                                <td>
+                                    @php
+                                        $uangjalans = ($rekap_fuso_detailData->UangJalan->uang_Jalan);
+                                        if ($uangjalans < 0){
+                                            $uangjalans = 0;
+                                        }
+                                        elseif ($uangjalans < 200000) {
+                                            $uangjalans = 0.002*($rekap_fuso_detailData->quantity_muat_pks_bruto - $rekap_fuso_detailData->quantity_muat_pks_tarra);
+                                        }
+                                        elseif ($uangjalans >= 200001 && $uangjalans <= 1000000) {
+                                            $uangjalans = 0.003*($rekap_fuso_detailData->quantity_muat_pks_bruto - $rekap_fuso_detailData->quantity_muat_pks_tarra);
+                                        }
+                                        elseif ($uangjalans >= 1000001 && $uangjalans <= 2999999) {
+                                            $uangjalans = 0.003*($rekap_fuso_detailData->quantity_muat_pks_bruto - $rekap_fuso_detailData->quantity_muat_pks_tarra);
+                                        }
+                                        else {
+                                            $uangjalans = 0.002*($rekap_fuso_detailData->quantity_muat_pks_bruto - $rekap_fuso_detailData->quantity_muat_pks_tarra);
+                                        }
+                                    @endphp
+                                    {{ number_format(ceil($uangjalans), 0, ",", "." ) }}
+                                </td>
                                 <td>{{ number_format($rekap_fuso_detailData->UangJalan->uang_Jalan,0,",",".") }}</td>
                                 <td>
                                     <a href="/rekap_fusoDetail/edit/{{ $rekap_fuso_detailData->id }}" class="btn btn-primary">Edit</a>
@@ -117,6 +138,7 @@
                                 $totalNettoBongkar += ($rekap_fuso_detailData->quantity_bongkar_bruto - $rekap_fuso_detailData->quantity_bongkar_tarra);
                                 $totalSusut += $result;
                                 $totalUangJalan += $rekap_fuso_detailData->UangJalan->uang_Jalan;
+                                $overToleransi += (ceil($uangjalans));
                             @endphp
                         @endif
                     @endforeach
@@ -135,7 +157,7 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td></td>
+                        <td>{{ number_format($overToleransi,0,",",".") }}</td>
                         <td>{{ number_format($totalUangJalan,0,",",".") }}</td>
                         <td></td>
                     </tr>

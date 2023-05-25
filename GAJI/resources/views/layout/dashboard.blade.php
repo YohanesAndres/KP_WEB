@@ -65,6 +65,11 @@
                         <i class="fa fa-rekap_fuso"></i> <span>Rekap Truk</span>
                     </a>
                 </li>
+                <li class="{{ Request::is('hasil*') ? 'active' : '' }}">
+                    <a href="{{ route('hasil.index') }}">
+                        <i class="fa fa-hasil"></i> <span>Hasil</span>
+                    </a>
+                </li>
                 <li class="{{ Request::is('namasopir*') ? 'active' : '' }}">
                     <a href="{{ route('namasopir.index') }}">
                         <i class="fa fa-namasopir"></i> <span>Daftar Sopir</span>

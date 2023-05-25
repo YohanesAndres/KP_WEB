@@ -19,6 +19,14 @@ class Rekap_fuso_Controller extends Controller
         return view('rekap_fuso.index', compact('rekap_fuso', 'rekap_fusoDetail'));
     }
 
+    public function hasil()
+    {
+     
+        $hasil = Rekap_fuso_detail::all();
+        
+        return view('hasil.index', compact('hasil'));
+    }
+
     public function create()
     {
         $tableDatatonase = Data_tonase::all();
