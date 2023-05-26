@@ -76,7 +76,12 @@
                             <tr>
                                 <td>{{ ++$key }}</td>
                                 <td>{{ date('Y-m-d',strtotime($rekap_fuso_detailData->UangJalan->tanggal)) }}</td>
-                                <td></td>
+                                <td>
+                                    @if ($rekap_fuso_detailData->UangJalan->update_mobil->status == 'selesai')
+                                        {{ $rekap_fuso_detailData->UangJalan->update_mobil->tanggal_bongkar ?? '' }}
+                                    @endif
+                                </td>
+                                
                                 <td>{{ $rekap_fuso_detailData->UangJalan->kendaraan->plat }}</td>
                                 <td>{{ $rekap_fuso_detailData->UangJalan->namaSopir->nama_sopir }}</td>
                                 <td>{{ $rekap_fuso_detailData->UangJalan->kendaraan->tonase }}</td>

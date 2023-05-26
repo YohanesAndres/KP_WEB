@@ -37,8 +37,8 @@ class Rekap_fuso_Controller extends Controller
 
     public function createDetail()
     {
-        $tableUangJalan = Uang_jalan::all();
         $rekap_fuso_id = $_GET['rekap_fuso_id'] ?? null;
+        $tableUangJalan = Uang_jalan::all();
         return view('rekap_fuso_detail.create',[
             'tableUangJalan' => $tableUangJalan,
             'rekap_fuso_id' => $rekap_fuso_id,

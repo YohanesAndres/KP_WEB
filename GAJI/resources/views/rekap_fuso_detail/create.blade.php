@@ -27,7 +27,7 @@
             <select name="id_uang_jalan" id="id_uang_jalan" class="form-control">
                 <option value="">Pilih Tanggal Muat</option>
                 @foreach ($tableUangJalan as $item)
-                    <option value="{{ $item->id }}">{{ $item->tanggal }}</option>
+                    <option value="{{ $item->id }}">{{ $item->tanggal }} ({{$item->id}})</option>
                 @endforeach
             </select>
             @error('id_uang_jalan')
