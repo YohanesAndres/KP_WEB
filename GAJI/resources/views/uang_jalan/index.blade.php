@@ -2,15 +2,21 @@
 @section('content')
 
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
-<div class="top-title">
-<a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center"> Uang Jalan</h1>
+<div class="top-title no-space" style="margin-bottom:-15px">
+  <div>
+    <a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> 
+  </div>
+  <div >
+    <div class="text-white text-center text-title"> Uang Jalan</div>
+  </div>
+</div>
+<hr>
+
+<div style="align-content:right">
+  <a href="/uang_jalan/create" class="btn btn-primary btn-lg text-center" style="align-self:right">Tambah</a>
 </div>
 
-<div class="d-flex justify-content-center">
-<a href="/uang_jalan/create" class="btn btn-primary btn-lg text-center">Tambah</a>
-</div>
-
-<div class="bgtbl">
+<div class="bgtbl" style="margin-top:10px; margin-bottom:20px">
 <table id="tabel-data" class="table table-striped table-bordered" width="100%" cellspacing="0">
   <thead>
     <tr>
@@ -43,7 +49,7 @@
                 {{ $uang_jalanData->update_mobil->tanggal_bongkar ?? '' }}
               @endif
             <td>{{ $uang_jalanData->keterangan }}</td>
-            <td>
+            <td style="display:flex">
               
                 <a href="/uang_jalan/edit/{{ $uang_jalanData->id }}">Edit</a>
 

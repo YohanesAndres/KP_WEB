@@ -2,12 +2,17 @@
 @section('content')
 
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
-
-<div class="top-title">
-  <a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center"> Update Mobil</h1>
+<div class="top-title no-space" style="margin-bottom:-15px">
+  <div>
+    <a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> 
+  </div>
+  <div>
+    <div class="text-white text-center text-title"> Update Mobil</div>
+  </div>
 </div>
+<hr>
 
-<div class="bgtbl" >
+<div class="bgtbl"style="margin-top:10px; margin-bottom:20px" >
 <!-- id data table -->
   <div class="row" >
   <div class = "col-12" style="width: 100%">
@@ -32,7 +37,7 @@
             <td>{{ $update_mobilData->uangjalan->kendaraan->plat }}</td>
             <td>{{$update_mobilData->tanggal_bongkar}}</td>
             <td>{{ $update_mobilData->keterangan }}</td>
-            <td>
+            <td style="display:flex">
               @if (!($update_mobilData->status == 'selesai'))
                 <a href="/update_mobil/edit/{{ $update_mobilData->id }}">Edit</a>
                   @endif

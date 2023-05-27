@@ -29,7 +29,7 @@
                     <div class="bold-text" >Kas Uang Jalan</div>
                     <div>PT. Alam Wijaya Logistik</div>
             </div>
-            <ul class="sidebar-menu">
+            <ul class="sidebar-menu" style="overflow-y: scroll">
                 <li class="{{ Request::is('home') ? 'active' : '' }}">
                     <a href="{{ route('home') }}">
                         <i class="fa fa-home"></i> <span>Dashboard</span>
@@ -96,13 +96,13 @@
                     </a>
                 </li> 
 
-                <div class="text-right">
-                    <a href="/login"><img src="{{ asset('Icon-LogOut.png')}}" alt="">Logout</a>
-                </div>
             </ul>
+            <div class="text-right" style="padding-bottom:25px">
+                <a href="/login"><img src="{{ asset('Icon-LogOut.png')}}" alt="">Logout</a>
+            </div>
         </aside>
     </div>
-    <div class="pl-5">
+    <div class="body" style="padding-left: 40px">
             @yield('content')
     </div>
 </div>

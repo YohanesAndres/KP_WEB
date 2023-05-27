@@ -1,10 +1,18 @@
 @extends('layout.dashboard')
 @section('content')
 
+
+
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
-<div class="top-title">
-  <a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center"> Kas Uang Jalan</h1>
+<div class="top-title no-space" style="margin-bottom:-15px">
+  <div>
+    <a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> 
+  </div>
+  <div>
+    <div class="text-white text-center text-title"> Kas Uang Jalan</div>
+  </div>
 </div>
+<hr>
 
 <div style="display:flex;gap:10px">
   <div class="d-flex justify-content-center">
@@ -25,8 +33,8 @@
 
 </div>
 
-<div class="bgtbl">
-  <table id="tabel-data" class="table table-striped table-bordered" width="100%" cellspacing="0">
+<div class="bgtbl" style="margin-top:10px; margin-bottom:20px">
+  <table id="tabel-data" class="table table-striped table-bordered overf" width="100%" cellspacing="0">
     <thead>
       <tr>
         <th scope="col">No</th>
@@ -63,7 +71,7 @@
                 echo number_format($hasil,0,",",".");
             @endphp
           </td>
-          <td>
+          <td style="display:flex">
               <a href="/kas_uj/edit/{{ $kas_ujData->id }}">Edit</a>
               <form action="{{ url('/kas_uj/delete/'.$kas_ujData->id) }}" method="post">
                   @csrf

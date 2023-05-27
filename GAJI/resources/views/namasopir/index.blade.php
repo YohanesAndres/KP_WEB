@@ -1,15 +1,22 @@
 @extends('layout.dashboard')
 @section('content')
+
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
-<div class="top-title">
-  <a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-white text-center"> Daftar Sopir</h1>
+<div class="top-title no-space" style="margin-bottom:-15px">
+  <div>
+    <a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> 
+  </div>
+  <div>
+    <div class="text-white text-center text-title"> Daftar Sopir</div>
+  </div>
 </div>
+<hr>
 
 <div class="d-flex justify-content-center">
   <button class="btn btn-blue btn-lg text-center" onclick="location.href='/namasopir/create'">Tambah</button>
 </div>
 
-<div class="bgtbl">
+<div class="bgtbl" style="margin-top:10px; margin-bottom:20px">
   <table id="tabel-data" class="table table-striped table-bordered" width="100%" cellspacing="0">
     <thead>
       <tr>
@@ -23,7 +30,7 @@
       <tr>
           <td>{{ ++$key }}</td>
           <td>{{ $namasopirData->nama_sopir }}</td>
-          <td>
+          <td style="display:flex">
               <a href="/namasopir/edit/{{ $namasopirData->id }}">Edit</a>
               <form action="{{ url('/namasopir/delete/'.$namasopirData->id) }}" method="post">
                   @csrf
