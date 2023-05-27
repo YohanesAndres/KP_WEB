@@ -20,7 +20,17 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        // Membuat akun boss
+        $user = User::create([
+            'name' => 'Boss',
+            'email' => 'boss@gmail.com',
+            'password' => Hash::make('bossboss'),
+            'role' => 'boss',
+            
+        ]);
+
+        return redirect()->route('/uang_jalan')->with('Akun boss berhasil dibuat');
+
     }
 
     /**

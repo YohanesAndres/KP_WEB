@@ -30,11 +30,11 @@
                     <div>PT. Alam Wijaya Logistik</div>
             </div>
             <ul class="sidebar-menu" style="overflow-y: scroll">
-                <li class="{{ Request::is('home') ? 'active' : '' }}">
+                <!-- <li class="{{ Request::is('home') ? 'active' : '' }}">
                     <a href="{{ route('home') }}">
                         <i class="fa fa-home"></i> <span>Dashboard</span>
                     </a>
-                </li>
+                </li> -->
                 <li class="{{ Request::is('uang_jalan*') ? 'active' : '' }}">
                     <a href="{{ route('uang_jalan.index') }}">
                         <i class="fa fa-uang_jalan"></i> <span>Uang Jalan</span>
@@ -50,7 +50,7 @@
                         <i class="fa fa-update_mobil"></i> <span>Update Mobil</span>
                     </a>
                 </li>
-                <li class="{{ Request::is('/data_tonase*') ? 'active' : '' }}">
+                <li class="{{ Request::is('data_tonase*') ? 'active' : '' }}">
                     <a href="{{ route('data_tonase.index') }}">
                         <i class="fa fa-database"></i> <span>Data Tonase</span>
                     </a>
@@ -95,11 +95,19 @@
                         <i class="fa fa-tujuan"></i> <span>Tujuan</span>
                     </a>
                 </li> 
+                @can('viewAny', App\Models\User::class)
+                <li class="{{ Request::is('user*') ? 'active' : '' }}">
+                    <a href="{{ route('user.index') }}">
+                        <i class="fa fa-user"></i> <span>Daftar Akun</span>
+                    </a>
+                </li> 
+                @endcan
 
             </ul>
-            <div class="text-right" style="padding-bottom:25px">
-                <a href="/login"><img src="{{ asset('Icon-LogOut.png')}}" alt="">Logout</a>
-            </div>
+            <form method ="POST" action = "{{  route('logout')  }}" class="text-right" style="padding-bottom:25px">
+                @csrf
+                <button type="submit" ><img src="{{ asset('Icon-LogOut.png')}}" alt="">Logout</button>
+            </form>
         </aside>
     </div>
     <div class="body" style="padding-left: 40px">

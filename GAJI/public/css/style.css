@@ -233,6 +233,7 @@ footer{
 .btn-edit {
     background-color: #f9ca24;
     color: #FFF;
+    margin-right: 5px;
 }
 
 .btn-danger {

@@ -14,7 +14,7 @@ use App\Http\Controllers\KendaraanController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-// Route::middleware(['auth', 'auth.session'])->group(function () {
+Route::middleware(['auth', 'auth.session'])->group(function () {
 
     Route::get('/', function () {
        return view('welcome');
@@ -92,8 +92,8 @@ use App\Http\Controllers\KendaraanController;
     
     Route::get('/rekap_fusoDetail/create', [App\Http\Controllers\Rekap_fuso_Controller::class, 'createDetail'])->name('rekap_fuso_detail.create');
     Route::post('/rekap_fusoDetail/store', [App\Http\Controllers\Rekap_fuso_Controller::class, 'storeDetail'])->name('rekap_fuso_detail.store');
-    Route::get('/rekap_fusoDetail/edit/{id}', [App\Http\Controllers\Rekap_fuso_Controller::class, 'edit'])->name('rekap_fuso_detail.edit');
-    Route::patch('/rekap_fusoDetail/update/{id}', [App\Http\Controllers\Rekap_fuso_Controller::class, 'update'])->name('rekap_fuso_detail.update');
+    Route::get('/rekap_fusoDetail/edit/{id}', [App\Http\Controllers\Rekap_fuso_Controller::class, 'editDetail'])->name('rekap_fuso_detail.edit');
+    Route::patch('/rekap_fusoDetail/update/{id}', [App\Http\Controllers\Rekap_fuso_Controller::class, 'updateDetail'])->name('rekap_fuso_detail.update');
     Route::delete('/rekap_fusoDetail/delete/{id}', [App\Http\Controllers\Rekap_fuso_Controller::class, 'deleteDetail'])->name('rekap_fuso_detail.delete');
     
     Route::get('/uang_jalan', [App\Http\Controllers\Uang_jalan_Controller::class, 'index'])->name('uang_jalan.index');
@@ -118,6 +118,14 @@ use App\Http\Controllers\KendaraanController;
     Route::delete('/tujuan/delete/{id}', [App\Http\Controllers\tujuan_Controller::class, 'delete'])->name('tujuan.delete');
 
     Route::get('/hasil', [App\Http\Controllers\Rekap_fuso_Controller::class, 'hasil'])->name('hasil.index');
+    Route::post('/logout', [User_Controller::class, 'logout'])->name('logout');
+
+    Route::get('/user', [App\Http\Controllers\User_Controller::class, 'index'])->name('user.index');
+    Route::get('/user/create', [App\Http\Controllers\User_Controller::class, 'create'])->name('user.create');
+    Route::post('/user/store', [App\Http\Controllers\User_Controller::class, 'store'])->name('user.store');
+    Route::get('/user/edit/{id}', [App\Http\Controllers\User_Controller::class, 'edit'])->name('user.edit');
+    Route::patch('/user/update/{id}', [App\Http\Controllers\User_Controller::class, 'update'])->name('user.update');
+    Route::delete('/user/delete/{id}', [App\Http\Controllers\User_Controller::class, 'delete'])->name('user.delete');
     
     Route::get('/kendaraan/get-kategori/{id}', [App\Http\Controllers\Kendaraan_Controller::class, 'getKategori']);
     Route::get('/muat_bongkar/get-uang_jalan/{id}', [App\Http\Controllers\Muat_bongkar_Controller::class, 'getUangjalan']);
@@ -125,13 +133,14 @@ use App\Http\Controllers\KendaraanController;
     Route::get('/data_tonase/get-tonase/{id}', [App\Http\Controllers\Data_tonase_Controller::class, 'getTonase']);
     Route::get('/uang_jalan/get-dataJalan/{id}', [App\Http\Controllers\Uang_jalan_Controller::class, 'getDatajalan']);
 
-// });
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth', 'auth.session')->group(function () {
+    
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

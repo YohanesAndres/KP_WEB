@@ -37,7 +37,7 @@
           <td>{{ number_format($data_tonaseData->tonase_actual,0,",",".");  }}</td>
           <td>{{ $data_tonaseData->tujuan->tujuan }}</td>
           <td style="display:flex">
-              <a href="/data_tonase/edit/{{ $data_tonaseData->id }}">Edit</a>
+              <a href="/data_tonase/edit/{{ $data_tonaseData->id }}" class="btn btn-edit">Edit</a>
               <form action="{{ url('/data_tonase/delete/'.$data_tonaseData->id) }}" method="post">
                   @csrf
                   @method('delete')

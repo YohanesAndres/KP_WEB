@@ -7,7 +7,7 @@
     <a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> 
   </div>
   <div>
-    <div class="text-white text-center text-title"> kategori</div>
+    <div class="text-white text-center text-title"> Kategori</div>
   </div>
 </div>
 <hr>
@@ -31,7 +31,7 @@
           <td>{{ ++$key }}</td>
           <td>{{ $kategoriData->nama }}</td>
           <td style="display:flex">
-              <a href="/kategori/edit/{{ $kategoriData->id }}">Edit</a>
+              <a href="/kategori/edit/{{ $kategoriData->id }}" class="btn btn-edit">Edit</a>
               <form action="{{ url('/kategori/delete/'.$kategoriData->id) }}" method="post">
                   @csrf
                   @method('delete')

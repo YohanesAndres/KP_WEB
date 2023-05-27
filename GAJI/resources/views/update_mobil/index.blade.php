@@ -39,7 +39,7 @@
             <td>{{ $update_mobilData->keterangan }}</td>
             <td style="display:flex">
               @if (!($update_mobilData->status == 'selesai'))
-                <a href="/update_mobil/edit/{{ $update_mobilData->id }}">Edit</a>
+                <a href="/update_mobil/edit/{{ $update_mobilData->id }}" >Edit</a>
                   @endif
                     <!-- <form action="{{ url('/update_mobil/delete/'.$update_mobilData->id) }}" method="post">
                         @csrf

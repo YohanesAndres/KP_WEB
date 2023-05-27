@@ -13,7 +13,7 @@
 <hr>
 
 <div class="d-flex justify-content-center">
-  <button class="btn btn-blue btn-lg text-center" onclick="location.href='/kendaraan/create'">Tambah</button>
+  <button class="btn btn-primary btn-lg text-center" onclick="location.href='/kendaraan/create'">Tambah</button>
 </div>
 
 <div class="bgtbl" style="margin-top:10px; margin-bottom:20px">
@@ -37,7 +37,7 @@
           <td>{{ $kendaraanData->namasopir->nama_sopir }}</td>
           <td>{{ $kendaraanData->kategori->nama}}</td>
           <td style="display:flex">
-              <a href="/kendaraan/edit/{{ $kendaraanData->id }}">Edit</a>
+              <a href="/kendaraan/edit/{{ $kendaraanData->id }}" class="btn btn-edit">Edit</a>
               <form action="{{ url('/kendaraan/delete/'.$kendaraanData->id) }}" method="post">
                   @csrf
                   @method('delete')

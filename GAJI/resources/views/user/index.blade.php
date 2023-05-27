@@ -7,12 +7,12 @@
     <a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> 
   </div>
   <div>
-    <div class="text-white text-center text-title"> Daftar Tujuan</div>
+    <div class="text-white text-center text-title"> Daftar Akun</div>
   </div>
 </div>
 <hr>
 <div class="d-flex justify-content-center">
-  <button class="btn btn-primary btn-lg text-center" onclick="location.href='/tujuan/create'">Tambah</button>
+  <button class="btn btn-primary btn-lg text-center" onclick="location.href='/user/create'">Tambah</button>
 </div>
 
 <div class="bgtbl" style="margin-top:10px; margin-bottom:20px">
@@ -20,19 +20,19 @@
 <table id="tabel-data" class="table table-striped table-bordered" width="100%" cellspacing="0">
   <thead>
     <tr>
-      <th scope="col">No</th>
-      <th scope="col">Tujuan</th>
+      <th scope="col">Nama</th>
+      <th scope="col">Email</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
-      @foreach($tujuan as $key => $tujuanData)
+      @foreach($akun as $account)
     <tr>
-        <td>{{ ++$key }}</td>
-        <td>{{ $tujuanData->tujuan }}</td>
+        <td>{{ $account->name }}</td>
+        <td>{{ $account->email }}</td>
         <td style="display:flex">   
-          <a href="/tujuan/edit/{{ $tujuanData->id }}" class="btn btn-edit">Edit</a>
-            <form action="{{ url('/tujuan/delete/'.$tujuanData->id) }}" method="post">
+          <a href="/user/edit/{{ $account->id }}" class="btn btn-edit">Edit</a>
+            <form action="{{ url('/user/delete/'.$account->id) }}" method="post">
                 @csrf
                 @method('delete')
                 <input type="hidden" name="_method" value="delete">

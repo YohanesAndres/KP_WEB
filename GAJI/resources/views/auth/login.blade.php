@@ -6,6 +6,10 @@
     <title>Login</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css">
     <link href="{{ asset('/css/login.css') }}" rel="stylesheet">
+    <!--agar pengguna tidak bisa masuk lagi setelah log out -->
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
 </head>
 <body>
     <div class="container">
@@ -54,6 +58,16 @@
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.bundle.min.js">
+        // // Hapus cache
+        // window.onunload = function () {};
+
+        // // Pengalihan halaman setelah logout
+        // setTimeout(function () {
+        //     location.replace('/login');
+        // }, 0);
+    </script>
 </body>
 </html>
+
+

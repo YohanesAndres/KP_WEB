@@ -51,7 +51,7 @@
             <td>{{ $uang_jalanData->keterangan }}</td>
             <td style="display:flex">
               
-                <a href="/uang_jalan/edit/{{ $uang_jalanData->id }}">Edit</a>
+                <a href="/uang_jalan/edit/{{ $uang_jalanData->id }}" class="btn btn-edit">Edit</a>
 
                 <form action="{{ url('/uang_jalan/delete/'.$uang_jalanData->id) }}" method="post">
                     @csrf
