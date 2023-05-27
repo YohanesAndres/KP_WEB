@@ -1,10 +1,16 @@
 @extends('layout.dashboard')
 @section('content')
+
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
-<div class="top-title">
-    <a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> 
-    <h1 style="display:inline;" class="text-white text-center"> Rekap Truck</h1>
+<div class="top-title no-space" style="margin-bottom:-15px">
+  <div>
+    <a href="/uang_jalan"><img src="{{ asset('back.svg')}}" alt=""></a> 
+  </div>
+  <div >
+    <div class="text-white text-center text-title">Rekap Truck</div>
+  </div>
 </div>
+<hr>
 
 <div class="d-flex justify-content-center">
     <a href="/rekap_fuso/create" class="btn btn-tambah btn-lg text-center">Tambah</a>
@@ -36,6 +42,8 @@
             <div class="d-flex justify-content-center">
                 <a href="/rekap_fusoDetail/create?rekap_fuso_id={{  $rekap_fusoData->id  }}" class="btn btn-tambah btn-lg text-center">Tambah</a>
             </div>
+
+            <table id="tabel-data" class="table table-striped table-bordered" width="100%" cellspacing="0">
 
             <table class="table text-white table-dark table-bordered mt-4">
                 <thead>

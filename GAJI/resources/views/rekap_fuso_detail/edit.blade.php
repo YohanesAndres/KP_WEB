@@ -1,12 +1,17 @@
 @extends('layout.dashboard')
 @section('content')
 
-<link href="{{ asset('/css/form.css') }}" rel="stylesheet">
-<div class="top-title">
-<a href="/rekap_fuso"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-center">Form Tambah</h1>
+<link href="{{ asset('/css/style.css') }}" rel="stylesheet">
+<div class="top-title no-space" style="margin-bottom:-15px">
+  <div>
+    <a href="/rekap_fuso"><img src="{{ asset('back.svg')}}" alt=""></a> 
+  </div>
+  <div >
+    <div class="text-white text-center text-title">Form Edit</div>
+  </div>
 </div>
-<br>
-</br>
+<hr>
+
 <div class="form-group row offset-sm-1 col-sm-2">
 @if (session()->has('info'))
         {{ session()->get('info') }}

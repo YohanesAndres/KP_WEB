@@ -1,10 +1,17 @@
 @extends('layout.dashboard')
 @section('content')
 
-<link href="{{ asset('/css/form.css') }}" rel="stylesheet">
-<a href="/kendaraan"><img src="{{ asset('back.svg')}}" alt=""></a> <h1 style="display:inline;" class="text-center">Form Tambah Kendaraan</h1>
+<link href="{{ asset('/css/style.css') }}" rel="stylesheet">
+<div class="top-title no-space" style="margin-bottom:-15px">
+  <div>
+    <a href="/kendaraan"><img src="{{ asset('back.svg')}}" alt=""></a> 
+  </div>
+  <div >
+    <div class="text-white text-center text-title">Form Tambah Kendaraan</div>
+  </div>
+</div>
+<hr>
 
-<br></br>
 
 <div class="form-group row offset-sm-1 col-sm-2">
     @if (session()->has('info'))
@@ -14,59 +21,60 @@
 
 <br></br>
 
-<form action="{{ url('kendaraan/store/') }}" method="POST" enctype="multipart/form-data">
-    @csrf
+<div class=formmarg>
+    <form action="{{ url('kendaraan/store/') }}" method="POST" enctype="multipart/form-data">
+        @csrf
 
-    <div class="form-group row">
-        <label for="plat" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Plat</label>
-        <div class="col-sm-8">
-            <input type="text" name="plat" id="plat" class="form-control" placeholder="Masukkan No Plat">
+        <div class="form-group row">
+            <label for="plat" class="col-sm-3 col-form-label">Plat</label>
+            <div class="col-sm-9">
+                <input type="text" name="plat" id="plat" class="form-control" placeholder="Masukkan No plat " >
+                @error('plat')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
         </div>
-    </div>
-    @error('plat')
-    {{ $message }}
-    @enderror <br>
 
-    <div class="form-group row">
-        <label for="tonase" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Tonase</label>
-        <div class="col-sm-8">
-            <input type="text" name="tonase" id="tonase" class="form-control" placeholder="Masukkan Tonase">
+        <div class="form-group row">
+            <label for="tonase" class="col-sm-3 col-form-label">Tonase</label>
+            <div class="col-sm-9">
+                <input type="text" name="tonase" id="tonase" class="form-control" placeholder="Masukkan Tonase" >
+                @error('tonase')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
         </div>
-    </div>
-    @error('tonase')
-    {{ $message }}
-    @enderror <br>
 
-    <div class="form-group row">
-        <label for="id_namasopir" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Nama Sopir</label>
-        <div class="col-sm-8">
-            <select name="id_namasopir" id="id_namasopir" class="form-control">
-                <option value="">Pilih Nama Sopir</option>
-                @foreach ($tablenamasopirData as $item)
-                <option value="{{ $item->id }}">{{ $item->nama_sopir }}</option>
-                @endforeach
-            </select>
+        <div class="form-group row">
+            <label for="id_namasopir" class="col-sm-3 col-form-label">Nama Sopir</label>
+            <div class="col-sm-9">
+                <select name="id_namasopir" id="id_namasopir" class="form-control">
+                    <option value="">Pilih Nama Sopir</option>
+                    @foreach ($tablenamasopirData as $item)
+                    <option value="{{ $item->id }}">{{ $item->nama_sopir }}</option>
+                    @endforeach
+                </select>
+                @error('id_namasopir')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
         </div>
-    </div>
-    @error('id_namasopir')
-    {{ $message }}
-    @enderror <br>
-   
 
-    <div class="form-group row">
-        <label for="id_kategori" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Kategori</label>
-        <div class="col-sm-8">
-            <select name="id_kategori" id="id_kategori" class="form-control">
-                <option value="">Pilih Kategori</option>
-                @foreach ($tablekategoriData as $item)
-                <option value="{{ $item->id }}">{{ $item->nama }}</option>
-                @endforeach
-            </select>
+        <div class="form-group row">
+            <label for="id_kategori" class="col-sm-3 col-form-label">Kategori</label>
+            <div class="col-sm-9">
+                <select name="id_kategori" id="id_kategori" class="form-control">
+                    <option value="">Pilih Kategori</option>
+                    @foreach ($tablekategoriData as $item)
+                    <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                    @endforeach
+                </select>
+                @error('id_kategori')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
         </div>
-    </div>
-    @error('id_kategori')
-    {{ $message }}
-    @enderror <br>
+</div>
 
     <div class="form-group row">
         <div class="offset-sm-3 col-sm-9" >

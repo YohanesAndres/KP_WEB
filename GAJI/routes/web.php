@@ -14,7 +14,7 @@ use App\Http\Controllers\KendaraanController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::middleware(['auth', 'auth.session'])->group(function () {
+// Route::middleware(['auth', 'auth.session'])->group(function () {
 
     Route::get('/', function () {
        return view('welcome');
@@ -133,7 +133,7 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
     Route::get('/data_tonase/get-tonase/{id}', [App\Http\Controllers\Data_tonase_Controller::class, 'getTonase']);
     Route::get('/uang_jalan/get-dataJalan/{id}', [App\Http\Controllers\Uang_jalan_Controller::class, 'getDatajalan']);
 
-});
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
