@@ -70,7 +70,7 @@
             </div>
 
 
-            <div class="bgtbl-container" style="margin-top:10px; margin-bottom:20px ;width:850px">
+            <div class="bgtbl-container" style="margin-top:10px; margin-bottom:20px ;width:940px">
             <!-- <table id="tabel-data" class="table table-striped table-bordered" width="100%" cellspacing="0"> -->
 
             <table class="table text-white table-dark table-bordered mt-4">
