@@ -23,7 +23,7 @@
     <div class="form-group row">
         <label for="name" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Nama</label>
         <div class="col-sm-8">
-            <input type="text" name="name" id="name" class="form-control" placeholder="Masukkan Nama Akun">
+            <input type="text" name="name" id="name" class="form-control" value="{{ old('name', $user->name)}}" placeholder="Masukkan Nama Akun">
         </div>
     </div>
     @error('name')
@@ -33,7 +33,7 @@
     <div class="form-group row">
         <label for="email" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Email</label>
         <div class="col-sm-8">
-            <input type="text" name="email" id="email" class="form-control" placeholder="Masukkan Nama Akun">
+            <input type="text" name="email" id="email" class="form-control" value="{{ old('email', $user->email)}}" placeholder="Masukkan Email">
         </div>
     </div>
     @error('email')
@@ -43,7 +43,7 @@
     <div class="form-group row">
         <label for="password" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Password</label>
         <div class="col-sm-8">
-            <input type="text" name="password" id="password" class="form-control" placeholder="Masukkan Nama Akun">
+            <input type="password" name="password" id="password" class="form-control" placeholder="Masukkan Password">
         </div>
     </div>
     @error('password')

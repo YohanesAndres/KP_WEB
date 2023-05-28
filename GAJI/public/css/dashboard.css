@@ -190,3 +190,37 @@
     height: 500px; ;
     border-radius: 10px;
 } */
+.logout-icon {
+    height: 20px;
+    width: 20px;
+    margin-right: 5px;
+}
+
+
+.btn-link {
+    background: none; 
+    border: none; 
+    padding: 0;
+    color: #0C2A58;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    margin-left: 15px;
+}
+
+.btn-link:hover {
+    background-color: red;
+    border-color: #0062cc;
+}
+
+.text-logout {
+    padding-bottom: 15px;
+}
+
+.logout-text {
+    color: #0C2A58;
+}
+
+.btn-logout:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+    outline: none;
+}

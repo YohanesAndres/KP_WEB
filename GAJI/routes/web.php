@@ -3,6 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KendaraanController;
+use App\Models\User;
+use App\Policies\UserPolicy;
+use App\Http\Controllers\User_Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +17,7 @@ use App\Http\Controllers\KendaraanController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-// Route::middleware(['auth', 'auth.session'])->group(function () {
+Route::middleware(['auth', 'auth.session'])->group(function () {
 
     Route::get('/', function () {
        return view('welcome');
@@ -120,12 +123,17 @@ use App\Http\Controllers\KendaraanController;
     Route::get('/hasil', [App\Http\Controllers\Rekap_fuso_Controller::class, 'hasil'])->name('hasil.index');
     Route::post('/logout', [User_Controller::class, 'logout'])->name('logout');
 
-    Route::get('/user', [App\Http\Controllers\User_Controller::class, 'index'])->name('user.index');
-    Route::get('/user/create', [App\Http\Controllers\User_Controller::class, 'create'])->name('user.create');
-    Route::post('/user/store', [App\Http\Controllers\User_Controller::class, 'store'])->name('user.store');
-    Route::get('/user/edit/{id}', [App\Http\Controllers\User_Controller::class, 'edit'])->name('user.edit');
-    Route::patch('/user/update/{id}', [App\Http\Controllers\User_Controller::class, 'update'])->name('user.update');
-    Route::delete('/user/delete/{id}', [App\Http\Controllers\User_Controller::class, 'delete'])->name('user.delete');
+    Gate::define('view-user', [UserPolicy::class, 'viewAny']);
+
+    Route::middleware('can:view-user')->group(function () {
+        Route::get('/user', [App\Http\Controllers\User_Controller::class, 'index'])->name('user.index');
+        Route::get('/user/create', [App\Http\Controllers\User_Controller::class, 'create'])->name('user.create');
+        Route::post('/user/store', [App\Http\Controllers\User_Controller::class, 'store'])->name('user.store');
+        Route::get('/user/edit/{id}', [App\Http\Controllers\User_Controller::class, 'edit'])->name('user.edit');
+        Route::patch('/user/update/{id}', [App\Http\Controllers\User_Controller::class, 'update'])->name('user.update');
+        Route::delete('/user/delete/{id}', [App\Http\Controllers\User_Controller::class, 'delete'])->name('user.delete');
+    });
+    
     
     Route::get('/kendaraan/get-kategori/{id}', [App\Http\Controllers\Kendaraan_Controller::class, 'getKategori']);
     Route::get('/muat_bongkar/get-uang_jalan/{id}', [App\Http\Controllers\Muat_bongkar_Controller::class, 'getUangjalan']);
@@ -133,7 +141,7 @@ use App\Http\Controllers\KendaraanController;
     Route::get('/data_tonase/get-tonase/{id}', [App\Http\Controllers\Data_tonase_Controller::class, 'getTonase']);
     Route::get('/uang_jalan/get-dataJalan/{id}', [App\Http\Controllers\Uang_jalan_Controller::class, 'getDatajalan']);
 
-// });
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');

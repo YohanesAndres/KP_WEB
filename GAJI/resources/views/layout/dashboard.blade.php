@@ -104,9 +104,12 @@
                 @endcan
 
             </ul>
-            <form method ="POST" action = "{{  route('logout')  }}" class="text-right" style="padding-bottom:25px">
+            <form method="POST" action="{{ route('logout') }}" class="text-logout">
                 @csrf
-                <button type="submit" ><img src="{{ asset('Icon-LogOut.png')}}" alt="">Logout</button>
+                <button type="submit" class="btn-link">
+                    <img src="{{ asset('Icon-LogOut.png') }}" alt="Logout" class="logout-icon">
+                    <span class="logout-text">Logout</span>
+                </button>
             </form>
         </aside>
     </div>
