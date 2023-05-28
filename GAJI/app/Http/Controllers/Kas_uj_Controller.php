@@ -114,7 +114,7 @@ class Kas_uj_Controller extends Controller
         $kas_uj->tanggal = $request->tanggal; 
         $kas_uj->expenses = $request->expenses; 
         $kas_uj->jumlah_uang = $request->jumlah_uang; 
-        $kas_uj->dari_bos = $request->dari_bos; 
+        $kas_uj->dari_bos = $request->dari_bos ?? 0; 
 
 
         $kas_uj->save();

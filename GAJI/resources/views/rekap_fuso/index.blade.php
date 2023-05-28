@@ -43,7 +43,9 @@
                 <a href="/rekap_fusoDetail/create?rekap_fuso_id={{  $rekap_fusoData->id  }}" class="btn btn-tambah btn-lg text-center">Tambah</a>
             </div>
 
-            <table id="tabel-data" class="table table-striped table-bordered" width="100%" cellspacing="0">
+
+            <div class="bgtbl-container" style="margin-top:10px; margin-bottom:20px ;width:850px">
+            <!-- <table id="tabel-data" class="table table-striped table-bordered" width="100%" cellspacing="0"> -->
 
             <table class="table text-white table-dark table-bordered mt-4">
                 <thead>
@@ -175,6 +177,7 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
         </div>
     </div>
     @endforeach
