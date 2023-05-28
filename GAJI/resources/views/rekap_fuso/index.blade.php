@@ -13,7 +13,7 @@
 <hr>
 
 <div class="d-flex justify-content-center">
-    <a href="/rekap_fuso/create" class="btn btn-tambah btn-lg text-center">Tambah</a>
+    <a href="/rekap_fuso/create" class="btn btn-primary btn-lg text-center">Tambah</a>
 </div>
 
 <div class="container mt-4">

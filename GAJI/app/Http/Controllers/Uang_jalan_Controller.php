@@ -39,7 +39,7 @@ class Uang_jalan_Controller extends Controller
         $uangJalan = Uang_jalan::with('kendaraan.namasopir')->findOrFail($id);
 
         return response()->json([
-            'Datajalan' => $uangJalan
+            'Datajalan' => $uangJalan,
         ]);
     }
 
