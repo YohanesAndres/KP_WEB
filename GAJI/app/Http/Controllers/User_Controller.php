@@ -45,14 +45,13 @@ class User_Controller extends Controller
         $user = User::findOrFail($id);
         
 
-        if ($user->role === 'boss' && auth()->user()->role === 'boss') {
-            $user->name = $request->input('name');
-            $user->email = $request->input('email');
-            $user->password = bcrypt($request->input('password'));
-            $user->save();
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = bcrypt($request->input('password'));
+        $user->save();
             
-            return redirect()->route('user.index')->with('success', 'Akun berhasil diperbarui'); // Ganti 'dashboard' dengan rute yang sesuai
-        }
+        return redirect()->route('user.index')->with('success', 'Akun berhasil diperbarui'); // Ganti 'dashboard' dengan rute yang sesuai
+        
     }
 
     public function delete($id)
