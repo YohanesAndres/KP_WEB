@@ -31,6 +31,7 @@ class Uang_jalan_Controller extends Controller
             'tablekendaraanData' => $tablekendaraanData,
             'tablemuatbongkarData' => $tablemuatbongkarData,
         ]);
+        
     }
 
     public function getDatajalan($id)
@@ -64,7 +65,8 @@ class Uang_jalan_Controller extends Controller
         $kendaraan->selesai=0;
         $kendaraan->save();
 
-        return redirect('/uang_jalan')->with('info', 'Data sopir berhasil disimpan');
+        $request->session()->flash("info", "Data Uang Jalan berhasil ditambahkan");
+        return redirect()->route("uang_jalan.create");
     }
 
     public function edit(Request $request, $id)

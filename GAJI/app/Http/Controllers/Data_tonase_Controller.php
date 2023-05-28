@@ -45,7 +45,7 @@ class Data_tonase_Controller extends Controller
         $data_tonase->tonase_actual = $request->tonase_actual; 
         $data_tonase->id_tujuan = $request->id_tujuan; 
         $data_tonase->save();
-        $request->session()->flash("info", "Data baru berhasil ditambahkan");
+        $request->session()->flash("info", "Data Tonase berhasil ditambahkan");
         return redirect()->back();
     }
 

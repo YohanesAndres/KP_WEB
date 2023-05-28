@@ -26,7 +26,10 @@ class Namasopir_Controller extends Controller
        
         $namasopir->nama_sopir = $request->nama_sopir; 
         $namasopir->save();
-        return redirect('/namasopir')->with('info', 'Data sopir berhasil disimpan');
+
+        $request->session()->flash("info", "Data Sopir berhasil ditambahkan");
+        return redirect()->route("namasopir.create");
+        
     }
 
     public function edit(Request $request, $id)

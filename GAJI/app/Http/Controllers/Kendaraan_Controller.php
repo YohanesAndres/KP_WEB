@@ -47,7 +47,10 @@ class Kendaraan_Controller extends Controller
         $kendaraan->id_namasopir = $request->id_namasopir; 
         $kendaraan->id_kategori = $request->id_kategori; 
         $kendaraan->save();
-        return redirect('/kendaraan')->with('info', 'Data sopir berhasil disimpan');
+
+        $request->session()->flash("info", "Data Kendaraan berhasil ditambahkan");
+        return redirect()->route("kendaraan.create");
+
     }
 
     public function edit(Request $request, $id)

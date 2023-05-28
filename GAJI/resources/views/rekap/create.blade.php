@@ -7,7 +7,7 @@
 </div>
 <br>
 </br>
-<div class="form-group row offset-sm-1 col-sm-2">
+<div class="form-group row offset-sm-1 col-sm-4">
 @if (session()->has('info'))
         {{ session()->get('info') }}
 @endif

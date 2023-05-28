@@ -84,7 +84,7 @@ body::-webkit-scrollbar {
     padding: 0;
     margin: 0;
     flex: 1;
-    margin-right: 20px;
+    margin-right: 25px;
 }
 
 .sidebar-menu li a {
@@ -229,6 +229,7 @@ body::-webkit-scrollbar {
 
 .text-logout {
     padding-bottom: 15px;
+    margin-left: 65px;
 }
 
 .logout-text {

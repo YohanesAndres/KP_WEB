@@ -11,6 +11,7 @@
   </div>
 </div>
 <hr>
+
 <div class="d-flex justify-content-center">
   <button class="btn btn-primary btn-lg text-center" onclick="location.href='/user/create'">Tambah</button>
 </div>

@@ -27,7 +27,9 @@ class Kategori_Controller extends Controller
        
         $kategori->nama = $request->nama; 
         $kategori->save();
-        return redirect('/kategori')->with('info', 'Data sopir berhasil disimpan');
+
+        $request->session()->flash("info", "Data Kategori berhasil ditambahkan");
+        return redirect()->route("kategori.create");
     }
 
     public function edit(Request $request, $id)

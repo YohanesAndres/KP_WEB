@@ -50,7 +50,10 @@ class Muat_bongkar_Controller extends Controller
         $muat_bongkar->muatBongkar = $request->muatBongkar; 
         $muat_bongkar->id_tujuan = $request->id_tujuan;
         $muat_bongkar->save();
-        return redirect('/muat_bongkar')->with('info', 'Data sopir berhasil disimpan');
+
+        $request->session()->flash("info", "Data Muat-Bongkar berhasil ditambahkan");
+        return redirect()->route("muat_bongkar.create");
+
     }
 
     public function edit(Request $request, $id)

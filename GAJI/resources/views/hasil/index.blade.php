@@ -12,8 +12,8 @@
 </div>
 <hr>
 
-<div class="bgtbl-container" style="margin-top:10px; margin-bottom:20px" >
-  <table id="tabel-data" class="table table-striped table-bordered" width="100%" cellspacing="0">
+<div class="bgtbl-container" style="margin-top:10px; margin-bottom:20px " >
+  <table id="tabel-data"  width="100%" cellspacing="0" style=margin-right:200px>
     <thead>
       <tr>
         <th scope="col">No</th>

@@ -26,7 +26,10 @@ class Tujuan_Controller extends Controller
        
         $tujuan->tujuan = $request->tujuan; 
         $tujuan->save();
-        return redirect('/tujuan')->with('info', 'Data sopir berhasil disimpan');
+
+        $request->session()->flash("info", "Data Tujuan berhasil ditambahkan");
+        return redirect()->route("tujuan.create");
+
     }
 
     public function edit(Request $request, $id)
