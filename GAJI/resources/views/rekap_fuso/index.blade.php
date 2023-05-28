@@ -7,7 +7,7 @@
     <a href="/uang_jalan"><img src="{{ asset('back.svg')}}" alt=""></a> 
   </div>
   <div >
-    <div class="text-white text-center text-title">Rekap Truck</div>
+    <div class="text-white text-center text-title">Rekap Truk</div>
   </div>
 </div>
 <hr>
@@ -20,6 +20,26 @@
     @foreach($rekap_fuso as $key  => $rekap_fusoData)
     <div class="row">
         <div class="col">
+        <!-- <table>
+            <tr>
+                <th>No:</th>
+                <th>Alamat:</th>
+                <th>NO DO:</th>
+                <th>NO SPK:</th>
+                <th>Tujuan:</th>
+                <th>NO Kontrak: </th>
+                <th>Quantity DO (ton): </th>
+            </tr>
+            <tr>
+                <td>{{ ++$key }}</td>
+                <td>{{ $rekap_fusoData->alamat }}</td>
+                <td>{{ $rekap_fusoData->dataTonase->no_do }}</td>
+                <td>{{ $rekap_fusoData->dataTonase->no_spk }}</td>
+                <td>{{ $rekap_fusoData->dataTonase->tujuan->tujuan }}</td>
+                <td>{{ $rekap_fusoData->no_kontrak }}</td>
+                <td>{{ $rekap_fusoData->dataTonase->tonase_actual}}</td>
+            </tr>
+        </table> -->
             <h3>No              :            {{ ++$key }}</h3>
             <p>Alamat           :         {{ $rekap_fusoData->alamat }}</p>
             <p>NO DO            :          {{ $rekap_fusoData->dataTonase->no_do }}</p>
@@ -27,9 +47,9 @@
             <p>Tujuan           :         {{ $rekap_fusoData->dataTonase->tujuan->tujuan }}</p>
             <p>NO Kontrak       :     {{ $rekap_fusoData->no_kontrak }}</p>
             <p>Quantity DO (ton): {{ $rekap_fusoData->dataTonase->tonase_actual}}</p>
-            <div>
+        <div>
 
-            <div style="display:flex;gap:10px">
+            <div style="display:flex;gap:10px;margin-top:20px">
                 <div class="d-flex justify-content-center">
                     <a href="/rekap_fuso/edit/{{ $rekap_fusoData->id }}" class="btn btn-edit btn-lg text-center">Edit</a>
                 </div>
