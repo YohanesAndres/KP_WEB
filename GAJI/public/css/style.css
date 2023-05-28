@@ -152,6 +152,10 @@ footer{
     background-color: #007aff;
     color: #ffff;
 }
+.label2{
+    display: inline-block;
+    width: 150px;
+}
 .box .col-4 p {
     text-align: center;
 }

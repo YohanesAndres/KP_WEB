@@ -20,21 +20,27 @@
     @foreach($rekap_fuso as $key  => $rekap_fusoData)
     <div class="row">
         <div class="col">
-            <h3>No :            {{ ++$key }}</h3>
-            <p>Alamat :         {{ $rekap_fusoData->alamat }}</p>
-            <p>NO DO :          {{ $rekap_fusoData->dataTonase->no_do }}</p>
-            <p>NO SPK :         {{ $rekap_fusoData->dataTonase->no_spk }}</p>
-            <p>Tujuan :         {{ $rekap_fusoData->dataTonase->tujuan->tujuan }}</p>
-            <p>NO Kontrak :     {{ $rekap_fusoData->no_kontrak }}</p>
+            <h3>No              :            {{ ++$key }}</h3>
+            <p>Alamat           :         {{ $rekap_fusoData->alamat }}</p>
+            <p>NO DO            :          {{ $rekap_fusoData->dataTonase->no_do }}</p>
+            <p>NO SPK           :         {{ $rekap_fusoData->dataTonase->no_spk }}</p>
+            <p>Tujuan           :         {{ $rekap_fusoData->dataTonase->tujuan->tujuan }}</p>
+            <p>NO Kontrak       :     {{ $rekap_fusoData->no_kontrak }}</p>
             <p>Quantity DO (ton): {{ $rekap_fusoData->dataTonase->tonase_actual}}</p>
             <div>
-                <a href="/rekap_fuso/edit/{{ $rekap_fusoData->id }}" class="btn btn-edit">Edit</a>
-                <form action="{{ url('/rekap_fuso/delete/'.$rekap_fusoData->id) }}" method="post">
+
+            <div style="display:flex;gap:10px">
+                <div class="d-flex justify-content-center">
+                    <a href="/rekap_fuso/edit/{{ $rekap_fusoData->id }}" class="btn btn-edit btn-lg text-center">Edit</a>
+                </div>
+
+                <form action="{{ url('/rekap_fuso/delete/'.$rekap_fusoData->id) }}" method="post" class = "d-flex justify-content-center">
                     @csrf
                     @method('delete')
                     <input type="hidden" name="_method" value="delete">
                     <button type="submit" class="btn btn-danger">Hapus</button>
                 </form>
+            </div>
             </div>
 
             <br></br>
