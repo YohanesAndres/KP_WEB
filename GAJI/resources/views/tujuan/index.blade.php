@@ -32,12 +32,6 @@
         <td>{{ $tujuanData->tujuan }}</td>
         <td style="display:flex">   
           <a href="/tujuan/edit/{{ $tujuanData->id }}" class="btn btn-edit">Edit</a>
-            <form action="{{ url('/tujuan/delete/'.$tujuanData->id) }}" method="post">
-                @csrf
-                @method('delete')
-                <input type="hidden" name="_method" value="delete">
-                <button type="submit" class="btn btn-danger">Hapus</button>
-            </form>
         </td>
     </tr>
     @endforeach
