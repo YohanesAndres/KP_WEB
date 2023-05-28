@@ -7,7 +7,7 @@
     <a href="/kas_uj"><img src="{{ asset('back.svg')}}" alt=""></a> 
   </div>
   <div >
-    <div class="text-white text-center text-title"> Form Kas Uang Jalan</div>
+    <div class="text-white text-center text-title"> Form Debit Kas Uang Jalan</div>
   </div>
 </div>
 <hr>
