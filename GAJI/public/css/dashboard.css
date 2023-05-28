@@ -178,7 +178,7 @@ body::-webkit-scrollbar {
 }
 
 .bgtbl-container{
-    overflow: scroll;
+    overflow-x: scroll;
     position: relative;
     height: fit-content;
     padding: 20px;

@@ -136,7 +136,7 @@
                                     {{ number_format(ceil($uangjalans), 0, ",", "." ) }}
                                 </td>
                                 <td>{{ number_format($rekap_fuso_detailData->UangJalan->uang_Jalan,0,",",".") }}</td>
-                                <td>
+                                <td >
                                     <a href="/rekap_fusoDetail/edit/{{ $rekap_fuso_detailData->id }}" class="btn btn-edit">Edit</a>
                                     <form action="{{ url('/rekap_fusoDetail/delete/'.$rekap_fuso_detailData->id) }}" method="post">
                                         @csrf

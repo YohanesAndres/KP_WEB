@@ -16,8 +16,9 @@
   <a href="/uang_jalan/create" class="btn btn-primary btn-lg text-center" style="align-self:right">Tambah</a>
 </div>
 
-<div class="bgtbl" style="margin-top:10px; margin-bottom:20px">
-<table id="tabel-data" class="table table-striped table-bordered" width="100%" cellspacing="0">
+<div class="bgtbl-container" style="margin-top:10px; margin-bottom:20px ">
+<table id="tabel-data" class="table table-striped table-bordered " width="100%" cellspacing="0">
+
   <thead>
     <tr>
     <th scope="col">No</th>

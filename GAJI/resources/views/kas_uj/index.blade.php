@@ -30,7 +30,6 @@
   <div class="d-flex justify-content-center">
     <a href="/kas_uj/create_debit" class="btn btn-primary btn-lg text-center">Tambah Debit</a>
   </div>
-
 </div>
 
 <div class="bgtbl" style="margin-top:10px; margin-bottom:20px">
@@ -72,7 +71,9 @@
             @endphp
           </td>
           <td style="display:flex">
-              <a href="/kas_uj/edit/{{ $kas_ujData->id }}">Edit</a>
+          
+
+              <a href="/kas_uj/edit/{{ $kas_ujData->id }}" class="btn btn-edit">Edit</a>
               <form action="{{ url('/kas_uj/delete/'.$kas_ujData->id) }}" method="post">
                   @csrf
                   @method('delete')

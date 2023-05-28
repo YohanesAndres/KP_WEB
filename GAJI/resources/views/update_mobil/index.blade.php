@@ -12,7 +12,7 @@
 </div>
 <hr>
 
-<div class="bgtbl"style="margin-top:10px; margin-bottom:20px" >
+<div class="bgtbl"style="margin-top:10px; margin-bottom:20px ;padding:35px" >
 <!-- id data table -->
   <div class="row" >
   <div class = "col-12" style="width: 100%">
