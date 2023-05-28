@@ -42,7 +42,7 @@
     <div class="form-group row">
         <label for="password" class="offset-sm-1 col-sm-2 col-form-label justify-content-center" >Password</label>
         <div class="col-sm-8">
-            <input type="text" name="password" id="password" class="form-control" placeholder="Masukkan Nama Akun">
+            <input type="password" name="password" id="password" class="form-control" placeholder="Masukkan Nama Akun">
         </div>
     </div>
     @error('password')

@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             KendaraanSeeder::class,
             TujuanSeeder::class,
             MuatBongkarSeeder::class,
+            BossUserSeeder::class,
         ]);
     }
 }

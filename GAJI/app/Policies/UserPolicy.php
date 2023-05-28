@@ -20,7 +20,7 @@ class UserPolicy
 
     public function viewAny(User $user)
     {
-        return $user->isAdmin() || $user->isBoss();
+        return $user->role === 'boss';
     }
 
     /**
@@ -33,7 +33,6 @@ class UserPolicy
     public function view(User $user, User $model)
     {
         //
-        return in_array($user->email, ['boss@gmail.com']);
     }
 
     /**
@@ -56,7 +55,9 @@ class UserPolicy
      */
     public function update(User $user, User $model)
     {
-        //
+        if($user->role == 'boss'){
+            return true;
+        }
     }
 
     /**

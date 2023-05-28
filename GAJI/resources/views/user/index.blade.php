@@ -32,12 +32,14 @@
         <td>{{ $account->email }}</td>
         <td style="display:flex">   
           <a href="/user/edit/{{ $account->id }}" class="btn btn-edit">Edit</a>
+          @if(auth()->user()->id !== $account->id || auth()->user()->role !== 'boss')
             <form action="{{ url('/user/delete/'.$account->id) }}" method="post">
                 @csrf
                 @method('delete')
                 <input type="hidden" name="_method" value="delete">
                 <button type="submit" class="btn btn-danger">Hapus</button>
             </form>
+          @endif
         </td>
     </tr>
     @endforeach

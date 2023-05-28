@@ -25,6 +25,8 @@ class User_Controller extends Controller
         $user = new User();
         $user->name = $request->input('name');
         $user->email = $request->input('email');
+        $user->role = $request->input('role');
+        $user->role = isset($role) && !empty($role) ? $role : 'admin';
         $user->password = bcrypt($request->input('password'));
         $user->save();
 
@@ -34,18 +36,23 @@ class User_Controller extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
+    
         return view('user.edit', compact('user'));
     }
 
     public function update(Request $request, $id)
     {
         $user = User::findOrFail($id);
-        $user->name = $request->input('name');
-        $user->email = $request->input('email');
-        $user->password = bcrypt($request->input('password'));
-        $user->save();
+        
 
-        return redirect()->route('user.index')->with('success', 'Akun berhasil diperbarui');
+        if ($user->role === 'boss' && auth()->user()->role === 'boss') {
+            $user->name = $request->input('name');
+            $user->email = $request->input('email');
+            $user->password = bcrypt($request->input('password'));
+            $user->save();
+            
+            return redirect()->route('user.index')->with('success', 'Akun berhasil diperbarui'); // Ganti 'dashboard' dengan rute yang sesuai
+        }
     }
 
     public function delete($id)
