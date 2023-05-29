@@ -40,13 +40,13 @@
                 <td>{{ $rekap_fusoData->dataTonase->tonase_actual}}</td>
             </tr>
         </table> -->
-            <h3>No              :            {{ ++$key }}</h3>
-            <p>Alamat           :         {{ $rekap_fusoData->alamat }}</p>
-            <p>NO DO            :          {{ $rekap_fusoData->dataTonase->no_do }}</p>
-            <p>NO SPK           :         {{ $rekap_fusoData->dataTonase->no_spk }}</p>
-            <p>Tujuan           :         {{ $rekap_fusoData->dataTonase->tujuan->tujuan }}</p>
-            <p>NO Kontrak       :     {{ $rekap_fusoData->no_kontrak }}</p>
-            <p>Quantity DO (ton): {{ $rekap_fusoData->dataTonase->tonase_actual}}</p>
+            <h3>No              :{{ ++$key }}</h3>
+            <p>Alamat&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $rekap_fusoData->alamat }}</p>
+            <p>NO DO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $rekap_fusoData->dataTonase->no_do }}</p>
+            <p>NO SPK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $rekap_fusoData->dataTonase->no_spk }}</p>
+            <p>Tujuan&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $rekap_fusoData->dataTonase->tujuan->tujuan }}</p>
+            <p>NO Kontrak&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $rekap_fusoData->no_kontrak }}</p>
+            <p>Quantity DO (ton)&nbsp;:&nbsp;{{ $rekap_fusoData->dataTonase->tonase_actual}}</p>
         <div>
 
             <div style="display:flex;gap:10px;margin-top:20px">
@@ -163,13 +163,21 @@
                                 </td>
                                 <td>{{ number_format($rekap_fuso_detailData->UangJalan->uang_Jalan,0,",",".") }}</td>
                                 <td >
-                                    <a href="/rekap_fusoDetail/edit/{{ $rekap_fuso_detailData->id }}" class="btn btn-edit">Edit</a>
-                                    <form action="{{ url('/rekap_fusoDetail/delete/'.$rekap_fuso_detailData->id) }}" method="post">
-                                        @csrf
-                                        @method('delete')
-                                        <input type="hidden" name="_method" value="delete">
-                                        <button type="submit" class="btn btn-danger">Hapus</button>
-                                    </form>
+
+                                <div>
+                                    <div style="display:flex;gap:10px;margin-top:10px">
+                                        <div class="d-flex justify-content-center">
+                                            <a href="/rekap_fusoDetail/edit/{{ $rekap_fuso_detailData->id }}" class="btn btn-edit btn-lg text-center">Edit</a>
+                                        </div>
+
+                                        <form action="{{ url('/rekap_fusoDetail/delete/'.$rekap_fuso_detailData->id) }}" method="post" class = "d-flex justify-content-center">
+                                            @csrf
+                                            @method('delete')
+                                            <input type="hidden" name="_method" value="delete">
+                                            <button type="submit" class="btn btn-danger">Hapus</button>
+                                        </form>
+                                    </div>
+                                </div>
                                 </td>
                             </tr>
                             @php

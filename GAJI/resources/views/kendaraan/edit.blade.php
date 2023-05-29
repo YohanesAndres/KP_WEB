@@ -39,7 +39,7 @@
         <div class="form-group row">
             <label for="tonase" class="col-sm-3 col-form-label">Tonase</label>
             <div class="col-sm-9">
-                <input type="text" name="tonase" id="tonase" class="form-control" value="{{$kendaraan->tonase}}" >
+                <input type="number" name="tonase" id="tonase" class="form-control" value="{{$kendaraan->tonase}}" >
                 @error('tonase')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror

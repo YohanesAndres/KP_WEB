@@ -47,7 +47,7 @@
         <div class="form-group row">
             <label for="tonase_actual" class="col-sm-3 col-form-label">Tonase Aktual</label>
             <div class="col-sm-9">
-                <input type="text" name="tonase_actual" id="tonase_actual" class="form-control" placeholder="Masukkan Tonase Aktual">
+                <input type="number" name="tonase_actual" id="tonase_actual" class="form-control" placeholder="Masukkan Tonase Aktual">
                 @error('tonase_actual')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\Rekap_fuso;
 use App\Models\Rekap_fuso_detail;
@@ -64,8 +64,20 @@ class Rekap_fuso_Controller extends Controller
     public function storeDetail(Request $request)
     {
         
-        $rekap_fusoDetail = new Rekap_fuso_detail;
+        $validatedData = $request->validate([
+            'rekap_fuso_id' => 'required',
+            'id_uang_jalan' => 'required',
+            'quantity_muat_pks_bruto' => 'required',
+            'quantity_muat_pks_tarra' => 'required',
+            'quantity_bongkar_bruto' => 'required',
+            'quantity_bongkar_tarra' => 'required',
+            'mutu_pks_ffa_alb' => 'required',
+            'mutu_pks_ka' => 'required',
+            'mutu_bongkar_ffa_alb' => 'required',
+            'mutu_bongkar_ka' => 'required',
+        ]);
         
+        $rekap_fusoDetail = new Rekap_fuso_detail;
         $rekap_fusoDetail->rekap_fuso_id = $request->rekap_fuso_id;
         $rekap_fusoDetail->id_uang_jalan = $request->id_uang_jalan;
         $rekap_fusoDetail->quantity_muat_pks_bruto = $request->quantity_muat_pks_bruto; 

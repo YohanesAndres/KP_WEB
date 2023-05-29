@@ -47,7 +47,7 @@
         <div class="form-group row">
             <label for="jumlah_uang" class="offset-sm-1 col-sm-3 col-form-label justify-content-center" >Jumlah Uang</label>
             <div class="col-sm-9">
-                <input type="text" name="jumlah_uang" id="jumlah_uang" class="form-control" placeholder="Masukkan Jumlah Uang">
+                <input type="number" name="jumlah_uang" id="jumlah_uang" class="form-control" placeholder="Masukkan Jumlah Uang">
                 @error('jumlah_uang')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror

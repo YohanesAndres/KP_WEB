@@ -55,7 +55,7 @@
         <div class="form-group row">
             <label for="uang_jalan" class="col-sm-3 col-form-label">Uang Jalan</label>
             <div class="col-sm-9">
-                <input type="text" name="uang_jalan" id="uang_jalan" class="form-control" value="{{$muat_bongkar->uang_jalan}}">
+                <input type="number" name="uang_jalan" id="uang_jalan" class="form-control" value="{{$muat_bongkar->uang_jalan}}">
                 @error('uang_jalan')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror

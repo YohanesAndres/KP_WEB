@@ -54,7 +54,7 @@
         <div class="form-group row">
             <label for="uang_jalan" class="col-sm-3 col-form-label">Uang Jalan</label>
             <div class="col-sm-9">
-                <input type="text" name="uang_jalan" id="uang_jalan" class="form-control" placeholder="Masukkan Uang Jalan">
+                <input type="number" name="uang_jalan" id="uang_jalan" class="form-control" placeholder="Masukkan Uang Jalan">
                 @error('uang_jalan')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror

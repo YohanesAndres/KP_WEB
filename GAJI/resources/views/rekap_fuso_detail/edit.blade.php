@@ -83,7 +83,7 @@
         <div class="form-group row">
             <label for="quantity_muat_pks_bruto" class="offset-sm-1 col-sm-3 col-form-label justify-content-center">BRUTO PKS</label>
             <div class="col-sm-9">
-                <input type="text" name="quantity_muat_pks_bruto" id="quantity_muat_pks_bruto" class="form-control" value="{{ $rekap_fusoDetail->quantity_muat_pks_bruto }}" placeholder="isi BRUTO PKS">
+                <input type="number" name="quantity_muat_pks_bruto" id="quantity_muat_pks_bruto" class="form-control" value="{{ $rekap_fusoDetail->quantity_muat_pks_bruto }}" placeholder="isi BRUTO PKS">
                 @error('quantity_muat_pks_bruto')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -93,7 +93,7 @@
         <div class="form-group row">
             <label for="quantity_muat_pks_tarra" class="offset-sm-1 col-sm-3 col-form-label justify-content-center">TARRA PKS</label>
             <div class="col-sm-9">
-                <input type="text" name="quantity_muat_pks_tarra" id="quantity_muat_pks_tarra" class="form-control" value="{{ $rekap_fusoDetail->quantity_muat_pks_tarra }}" placeholder="isi TARRA PKS">
+                <input type="number" name="quantity_muat_pks_tarra" id="quantity_muat_pks_tarra" class="form-control" value="{{ $rekap_fusoDetail->quantity_muat_pks_tarra }}" placeholder="isi TARRA PKS">
                 @error('quantity_muat_pks_bruto')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -103,7 +103,7 @@
         <div class="form-group row">
             <label for="quantity_bongkar_bruto" class="offset-sm-1 col-sm-3 col-form-label justify-content-center">BRUTO BONGKAR</label>
             <div class="col-sm-9">
-                <input type="text" name="quantity_bongkar_bruto" id="quantity_bongkar_bruto" class="form-control" value="{{ $rekap_fusoDetail->quantity_bongkar_bruto }}" placeholder="isi BRUTO BONGKAR">
+                <input type="number" name="quantity_bongkar_bruto" id="quantity_bongkar_bruto" class="form-control" value="{{ $rekap_fusoDetail->quantity_bongkar_bruto }}" placeholder="isi BRUTO BONGKAR">
                 @error('quantity_muat_pks_bruto')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -113,7 +113,7 @@
         <div class="form-group row">
             <label for="quantity_bongkar_tarra" class="offset-sm-1 col-sm-3 col-form-label justify-content-center">TARRA BONGKAR</label>
             <div class="col-sm-9">
-                <input type="text" name="quantity_bongkar_tarra" id="quantity_bongkar_tarra" class="form-control" value="{{ $rekap_fusoDetail->quantity_bongkar_tarra }}" placeholder="isi TARRA BONGKAR">
+                <input type="number" name="quantity_bongkar_tarra" id="quantity_bongkar_tarra" class="form-control" value="{{ $rekap_fusoDetail->quantity_bongkar_tarra }}" placeholder="isi TARRA BONGKAR">
                 @error('quantity_muat_pks_bruto')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -123,7 +123,7 @@
         <div class="form-group row">
             <label for="mutu_pks_ffa_alb" class="offset-sm-1 col-sm-3 col-form-label justify-content-center">MUTU PKS (FFA/ALB)</label>
             <div class="col-sm-9">
-                <input type="text" name="mutu_pks_ffa_alb" id="mutu_pks_ffa_alb" class="form-control" value="{{ $rekap_fusoDetail->mutu_pks_ffa_alb }}" placeholder="isi MUTU PKS (FFA/ALB)">
+                <input type="number" step=0.01 name="mutu_pks_ffa_alb" id="mutu_pks_ffa_alb" class="form-control" value="{{ $rekap_fusoDetail->mutu_pks_ffa_alb }}" placeholder="isi MUTU PKS (FFA/ALB)">
                 @error('mutu_pks_ffa/alb')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -133,7 +133,7 @@
         <div class="form-group row">
             <label for="mutu_pks_ka" class="offset-sm-1 col-sm-3 col-form-label justify-content-center">MUTU PKS (KA)</label>
             <div class="col-sm-9">
-                <input type="text" name="mutu_pks_ka" id="mutu_pks_ka" class="form-control" value="{{ $rekap_fusoDetail->mutu_pks_ka }}" placeholder="isi MUTU PKS (KA)">
+                <input type="number" step=0.01 name="mutu_pks_ka" id="mutu_pks_ka" class="form-control" value="{{ $rekap_fusoDetail->mutu_pks_ka }}" placeholder="isi MUTU PKS (KA)">
                 @error('mutu_pks_ka')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -143,7 +143,7 @@
         <div class="form-group row">
             <label for="mutu_bongkar_ffa_alb" class="offset-sm-1 col-sm-3 col-form-label justify-content-center">MUTU BONGKAR (FFA/ALB)</label>
             <div class="col-sm-9">
-                <input type="text" name="mutu_bongkar_ffa_alb" id="mutu_bongkar_ffa_alb" class="form-control" value="{{ $rekap_fusoDetail->mutu_bongkar_ffa_alb }}" placeholder="isi MUTU BONGKAR (FFA/ALB)">
+                <input type="number" step=0.01 name="mutu_bongkar_ffa_alb" id="mutu_bongkar_ffa_alb" class="form-control" value="{{ $rekap_fusoDetail->mutu_bongkar_ffa_alb }}" placeholder="isi MUTU BONGKAR (FFA/ALB)">
                 @error('mutu_bongkar_ffa/alb')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -153,7 +153,7 @@
         <div class="form-group row">
             <label for="mutu_bongkar_ka" class="offset-sm-1 col-sm-3 col-form-label justify-content-center">MUTU BONGKAR (KA)</label>
             <div class="col-sm-9">
-                <input type="text" name="mutu_bongkar_ka" id="mutu_bongkar_ka" class="form-control" value="{{ $rekap_fusoDetail->mutu_bongkar_ka }}" placeholder="isi MUTU BONGKAR (KA)">
+                <input type="number" step=0.01 name="mutu_bongkar_ka" id="mutu_bongkar_ka" class="form-control" value="{{ $rekap_fusoDetail->mutu_bongkar_ka }}" placeholder="isi MUTU BONGKAR (KA)">
                 @error('mutu_bongkar_ka')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
