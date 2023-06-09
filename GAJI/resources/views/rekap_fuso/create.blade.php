@@ -62,7 +62,8 @@
         <div class="form-group row">
             <label for="tujuan" class="col-sm-3 col-form-label">Tujuan</label>
             <div class="col-sm-9">
-                <input type="text" name="tujuan" id="tujuan" class="form-control" placeholder="Tujuan" readonly>
+                <input type="text" name="tujuan_fake" id="tujuan_fake" class="form-control" placeholder="Tujuan" readonly>
+                <input type="hidden" name="tujuan" id="tujuan" class="form-control" placeholder="Tujuan" readonly>
                 @error('id_dataTonase')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -109,11 +110,12 @@
                 type: 'GET',
                 dataType: 'json',
                 success: function(response) {
-                    //console.log(response);
-                    //alert(JSON.stringify(response));
+                    console.log(response);
+                    // alert(JSON.stringify(response));
                     //dd(response);
                     $('#no_spk').val(response.Tonase.no_spk);
                     $('#tujuan').val(response.Tonase.id_tujuan);
+                    $('#tujuan_fake').val(response.Tonase.tujuan.tujuan);
                     $('#tonase_actual').val(response.Tonase.tonase_actual);
                 }
             });

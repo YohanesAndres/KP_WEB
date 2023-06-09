@@ -25,7 +25,7 @@
 <div class=formmarg>
     <form action="{{ url('rekap_fuso/update/'.$rekap_fuso->id) }}" method="POST">
         @csrf
-
+        @method('patch')
         <div class="form-group row">
             <label for="alamat" class="col-sm-3 col-form-label">Alamat</label>
             <div class="col-sm-9">

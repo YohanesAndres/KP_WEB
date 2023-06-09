@@ -12,6 +12,6 @@ class Update_mobil extends Model
 
     public function uangjalan()
     {
-        return $this->belongsTo(Uang_jalan::class, 'id_uang_jalan');
+        return $this->belongsTo(Uang_jalan::class, 'id_uang_jalan','id');
     }
 }

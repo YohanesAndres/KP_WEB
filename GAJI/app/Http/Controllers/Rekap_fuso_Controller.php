@@ -7,6 +7,7 @@ use App\Models\Rekap_fuso;
 use App\Models\Rekap_fuso_detail;
 use App\Models\Uang_jalan;
 use App\Models\Data_tonase;
+use App\Models\Update_mobil;
 
 class Rekap_fuso_Controller extends Controller
 {
@@ -15,6 +16,7 @@ class Rekap_fuso_Controller extends Controller
      
         $rekap_fuso = Rekap_fuso::all();
         $rekap_fusoDetail = Rekap_fuso_detail::all();
+
         
         return view('rekap_fuso.index', compact('rekap_fuso', 'rekap_fusoDetail'));
     }
@@ -38,10 +40,14 @@ class Rekap_fuso_Controller extends Controller
     public function createDetail()
     {
         $rekap_fuso_id = $_GET['rekap_fuso_id'] ?? null;
+        $rekap_fuso = Rekap_fuso::find($rekap_fuso_id);
         $tableUangJalan = Uang_jalan::all();
+        $update_mobil= update_mobil::where('tanggal_bongkar','<>','')->with('uangjalan')->get();
         return view('rekap_fuso_detail.create',[
             'tableUangJalan' => $tableUangJalan,
             'rekap_fuso_id' => $rekap_fuso_id,
+            'update_mobil' =>$update_mobil,
+            'rekap_fuso' =>$rekap_fuso,
         ]);
     }
 

@@ -28,7 +28,7 @@ class Data_tonase_Controller extends Controller
 
     public function getTonase($id)
     {
-        $data_tonase = Data_tonase::find($id);
+        $data_tonase = Data_tonase::with('tujuan')->where('id',$id)->first();
 
         return response()->json([
             'Tonase' => $data_tonase

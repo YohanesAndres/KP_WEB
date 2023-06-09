@@ -26,7 +26,7 @@ class User_Controller extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->role = $request->input('role');
-        $user->role = isset($role) && !empty($role) ? $role : 'admin';
+        $user->role = isset($role) && !empty($role) ? $role : 'Administrator';
         $user->password = bcrypt($request->input('password'));
         $user->save();
 

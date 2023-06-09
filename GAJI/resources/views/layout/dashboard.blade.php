@@ -30,11 +30,11 @@
                     <div>PT. Alam Wijaya Logistik</div>
             </div>
             <ul class="sidebar-menu" style="overflow-y: scroll">
-                <!-- <li class="{{ Request::is('home') ? 'active' : '' }}">
+                <li class="{{ Request::is('home') ? 'active' : '' }}">
                     <a href="{{ route('home') }}">
                         <i class="fa fa-home"></i> <span>Dashboard</span>
                     </a>
-                </li> -->
+                </li>
                 <li class="{{ Request::is('uang_jalan*') ? 'active' : '' }}">
                     <a href="{{ route('uang_jalan.index') }}">
                         <i class="fa fa-uang_jalan"></i> <span>Uang Jalan</span>

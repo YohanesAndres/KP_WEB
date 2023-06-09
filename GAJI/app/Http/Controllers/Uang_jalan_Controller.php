@@ -36,8 +36,10 @@ class Uang_jalan_Controller extends Controller
 
     public function getDatajalan($id)
     {
-        $uangJalan = Uang_jalan::with('kendaraan.namasopir')->findOrFail($id);
-
+        $uangJalan = update_mobil::with(['uangjalan.kendaraan.namasopir', 'uangjalan.muatbongkar'])
+        ->findOrFail($id);
+    
+       
         return response()->json([
             'Datajalan' => $uangJalan,
         ]);

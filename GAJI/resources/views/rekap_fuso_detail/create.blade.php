@@ -32,8 +32,10 @@
             <div class="col-sm-9">
                 <select name="id_uang_jalan" id="id_uang_jalan" class="form-control">
                     <option value="">Pilih Tanggal Muat</option>
-                    @foreach ($tableUangJalan as $item)
-                        <option value="{{ $item->id }}">{{ $item->tanggal }} ({{$item->id}})</option>
+                    @foreach ($update_mobil as $item)
+                        @if($rekap_fuso->DataTonase->tujuan->tujuan == $item->uangjalan->muatbongkar->tujuan->tujuan)
+                        <option value="{{ $item->id }}">{{ substr($item->uangjalan->tanggal,0,10) }} ({{$item->id}}#{{$item->uangjalan->muatbongkar->tujuan->tujuan}})</option>
+                        @endif
                     @endforeach
                 </select>
                 @error('id_uang_jalan')
@@ -184,6 +186,11 @@
 @endsection
 @section('script')
 <script>
+
+function renderinput() {
+    
+}
+
 $(document).ready(function() {
     $('#id_uang_jalan').change(function() {
         var uang_jalanId = $(this).val();
@@ -196,12 +203,15 @@ $(document).ready(function() {
                 //console.log(response);
                 //alert(JSON.stringify(response));
                 //dd(response);
-                var muatBongkar = response.Datajalan.uang_Jalan;
-                var kendaraan = response.Datajalan.kendaraan;
-                var namaSopir = response.Datajalan.kendaraan.namasopir.nama_sopir;
+                var muatBongkar = response.Datajalan.uangjalan.uang_Jalan;
+                var kendaraan = response.Datajalan.uangjalan.kendaraan;
+                var namaSopir = response.Datajalan.uangjalan.kendaraan.namasopir.nama_sopir;
+                const tanggal = response.Datajalan.tanggal_bongkar;
 
                 //console.log(namaSopir);
+                console.log(response);
 
+                $('#tanggal_bongkar').val(tanggal);
                 $('#plat').val(kendaraan.plat);
                 $('#tonase').val(kendaraan.tonase);
                 $('#nama_sopir').val(namaSopir);

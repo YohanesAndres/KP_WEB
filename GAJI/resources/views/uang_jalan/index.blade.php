@@ -4,7 +4,7 @@
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 <div class="top-title no-space" style="margin-bottom:-15px">
   <div>
-    <a href="/home"><img src="{{ asset('back.svg')}}" alt=""></a> 
+    <a href="{{ route('home') }}"><img src="{{ asset('back.svg')}}" alt=""></a> 
   </div>
   <div >
     <div class="text-white text-center text-title"> Uang Jalan</div>

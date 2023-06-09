@@ -16,10 +16,10 @@ class BossUserSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name' => 'Boss',
-            'email' => 'boss@gmail.com',
+            'name' => 'Bos',
+            'email' => 'bos@gmail.com',
             'password' => bcrypt('bossboss'), // Ganti 'password' dengan password yang diinginkan
-            'role' => 'boss',
+            'role' => 'Owner',
         ]);
 
 

@@ -17,13 +17,12 @@ use App\Http\Controllers\User_Controller;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-// Route::middleware(['auth', 'auth.session'])->group(function () {
+Route::middleware(['auth', 'auth.session'])->group(function () {
 
     Route::get('/', function () {
        return view('welcome');
     });
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     
     Route::get('/data_tonase', [App\Http\Controllers\Data_tonase_Controller::class, 'index'])->name('data_tonase.index');
     Route::get('/data_tonase/create', [App\Http\Controllers\Data_tonase_Controller::class, 'create'])->name('data_tonase.create');
@@ -141,7 +140,7 @@ use App\Http\Controllers\User_Controller;
     Route::get('/data_tonase/get-tonase/{id}', [App\Http\Controllers\Data_tonase_Controller::class, 'getTonase']);
     Route::get('/uang_jalan/get-dataJalan/{id}', [App\Http\Controllers\Uang_jalan_Controller::class, 'getDatajalan']);
 
-// });
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
