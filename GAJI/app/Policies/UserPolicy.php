@@ -20,7 +20,7 @@ class UserPolicy
 
     public function viewAny(User $user)
     {
-        return $user->role === 'Owner';
+        return $user->role === 'boss';
     }
 
     /**
@@ -55,7 +55,7 @@ class UserPolicy
      */
     public function update(User $user, User $model)
     {
-        if($user->role == 'Owner'){
+        if($user->role == 'boss'){
             return true;
         }
     }

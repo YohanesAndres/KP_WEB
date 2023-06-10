@@ -24,6 +24,7 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
     });
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     
+
     Route::get('/data_tonase', [App\Http\Controllers\Data_tonase_Controller::class, 'index'])->name('data_tonase.index');
     Route::get('/data_tonase/create', [App\Http\Controllers\Data_tonase_Controller::class, 'create'])->name('data_tonase.create');
     Route::post('/data_tonase/store', [App\Http\Controllers\Data_tonase_Controller::class, 'store'])->name('data_tonase.store');

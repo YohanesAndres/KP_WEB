@@ -19,7 +19,7 @@ class BossUserSeeder extends Seeder
             'name' => 'Bos',
             'email' => 'bos@gmail.com',
             'password' => bcrypt('bossboss'), // Ganti 'password' dengan password yang diinginkan
-            'role' => 'Owner',
+            'role' => 'boss',
         ]);
 
 
