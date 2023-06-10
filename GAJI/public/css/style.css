@@ -324,6 +324,7 @@ table th {
     margin-left: -50px;
     justify-content: space-between;
     border-right:35px solid #0069d9;
+    font-weight: bold;
   }
 
   /* .header::before{
@@ -360,6 +361,7 @@ table th {
     flex-direction: column;
     gap: 5px;
     font-size: 13px;
+    font-weight: bold;
   }
   
   .subb2{
@@ -375,19 +377,25 @@ table th {
   }
   
   .border-green{
-    border: 1px solid green;
+    border: 1.4px solid green;
   }
-  
+
+  .sour{
+    width: 23px;
+    display: flex;
+    margin: 8px;
+  }
+
   .border-blue{
-    border: 1px solid #162C78;
+    border: 1.4px solid #162C78;
   }
   
   .border-red{
-    border: 1px solid #AC2525;
+    border: 1.4px solid #AC2525;
   }
   
   .border-ungu{
-    border: 1px solid #8125AC;
+    border: 1.4px solid #8125AC;
   }
   
   .content-dash{

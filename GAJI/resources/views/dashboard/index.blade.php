@@ -41,8 +41,8 @@ foreach ($rekap_fusoDetail as $rekap_fuso_detailData) {
     <div style="margin-left:-35px">
     <div class="content-dash">
         <div class="sub-content"> 
-            <div class="lingkaran border-blue">
-                <img src="" alt="">
+            <div class="lingkaran border-green">
+                <img class="sour" src="Profit.png" alt="">
             </div>
             <div class="subb">
                 <div>Fee Perusahaan</div>
@@ -51,7 +51,9 @@ foreach ($rekap_fusoDetail as $rekap_fuso_detailData) {
         </div>
         
         <div class="sub-content">
-            <div class="lingkaran border-green"></div>
+            <div class="lingkaran border-ungu">
+                <img class="sour" src="locate.png" alt="">
+            </div>
             <div class="subb">
                 <div>Update Mobil</div>
                 <div class="subb2">{{count($update_mobil)}}</div>
@@ -59,7 +61,9 @@ foreach ($rekap_fusoDetail as $rekap_fuso_detailData) {
         </div>
 
         <div class="sub-content">
-            <div class="lingkaran border-red"></div>
+            <div class="lingkaran border-red">
+                <img class="sour" src="truk.png" alt="">
+            </div>
             <div class="subb">
                 <div>Kendaraan</div>
                 <div class="subb2">{{count($kendaraan)}}</div>
@@ -67,9 +71,11 @@ foreach ($rekap_fusoDetail as $rekap_fuso_detailData) {
         </div>
 
         <div class="sub-content">
-            <div class="lingkaran border-ungu "></div>
+            <div class="lingkaran border-blue ">
+                <img class="sour" src="money.png" alt="">
+            </div>
             <div class="subb">
-                <div>Sisa Kas Uang jalan</div>
+                <div>Sisa Kas Uang Jalan</div>
                 <div class="subb2">{{number_format($hasil,0,",",".");}}</div>
             </div>
         </div>
