@@ -43,7 +43,7 @@
         <div class="form-group row">
             <label for="tanggal_bongkar" class="offset-sm-1 col-sm-3 col-form-label justify-content-center">Tanggal Bongkar</label>
             <div class="col-sm-9">
-                <input type="text" name="tanggal_bongkar" id="tanggal_bongkar" class="form-control" value="{{ old('tanggal_bongkar', $rekap_fusoDetail->UangJalan->update_mobil->tanggal_bongkar) }}" placeholder="Tanggal Bongkar" readonly>
+                <input type="text" name="tanggal_bongkar" id="tanggal_bongkar" class="form-control" value="{{ old('tanggal_bongkar', date('Y-m-d',strtotime ($rekap_fusoDetail->UangJalan->update_mobil->tanggal_bongkar))) }}" placeholder="Tanggal Bongkar" readonly>
                 @error('tanggal_bongkar')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror

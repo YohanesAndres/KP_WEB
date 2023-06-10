@@ -25,6 +25,7 @@ class Tujuan_Controller extends Controller
         $tujuan = new tujuan;
        
         $tujuan->tujuan = $request->tujuan; 
+        $tujuan->alamat = $request->alamat; 
         $tujuan->save();
 
         $request->session()->flash("info", "Data Tujuan berhasil ditambahkan");
@@ -45,6 +46,7 @@ class Tujuan_Controller extends Controller
         $tujuan = tujuan::findOrFail($id);
     
         $tujuan->tujuan = $request->tujuan; 
+        $tujuan->alamat = $request->alamat; 
         $tujuan->save();
 
         $request->session()->flash("info", "Data tujuan berhasil diupdate!");

@@ -29,7 +29,7 @@
         <div class="form-group row">
             <label for="tanggal" class="col-sm-3 col-form-label">Tanggal</label>
             <div class="col-sm-9">
-                <input type="date" name="tanggal" id="tanggal" class="form-control datepicker" value="{{ old('tanggal', $uang_jalan->tanggal) }}">
+                <input type="text" name="tanggal" id="tanggal" class="form-control " value="{{ old('tanggal', date('Y-m-d',strtotime ($uang_jalan->tanggal))) }}" readonly>
                 @error('tanggal')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror

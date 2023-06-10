@@ -34,6 +34,16 @@
               @enderror
           </div>
       </div>
+
+      <div class="form-group row">
+          <label for="alamat" class="col-sm-3 col-form-label">Alamat</label>
+          <div class="col-sm-9">
+              <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Masukkan Alamat">
+              @error('alamat')
+              <span class="text-danger">{{ $message }}</span>
+              @enderror
+          </div>
+      </div>
 </div>
 
     <div class="form-group row">

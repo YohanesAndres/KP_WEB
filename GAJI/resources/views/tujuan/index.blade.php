@@ -22,6 +22,7 @@
     <tr>
       <th scope="col">No</th>
       <th scope="col">Tujuan</th>
+      <th scope="col">Alamat</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -30,6 +31,7 @@
     <tr>
         <td>{{ ++$key }}</td>
         <td>{{ $tujuanData->tujuan }}</td>
+        <td>{{ $tujuanData->alamat }}</td>
         <td style="display:flex">   
           <a href="/tujuan/edit/{{ $tujuanData->id }}" class="btn btn-edit">Edit</a>
         </td>

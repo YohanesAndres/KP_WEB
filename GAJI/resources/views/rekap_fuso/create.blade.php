@@ -25,16 +25,6 @@
         @csrf
 
         <div class="form-group row">
-            <label for="alamat" class="col-sm-3 col-form-label">Alamat</label>
-            <div class="col-sm-9">
-                <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Masukkan Alamat">
-                @error('alamat')
-                <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
-        </div>
-
-        <div class="form-group row">
             <label for="id_dataTonase" class="col-sm-3 col-form-label">NO DO</label>
             <div class="col-sm-9">
                 <select name="id_dataTonase" id="id_dataTonase" class="form-control">
@@ -48,6 +38,17 @@
                 @enderror
             </div>
         </div>
+
+        <div class="form-group row">
+            <label for="alamat" class="col-sm-3 col-form-label">Alamat</label>
+            <div class="col-sm-9">
+                <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Masukkan Alamat" readonly>
+                @error('alamat')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+        </div>
+
 
         <div class="form-group row">
             <label for="no_spk" class="col-sm-3 col-form-label">NO SPK</label>
@@ -110,12 +111,13 @@
                 type: 'GET',
                 dataType: 'json',
                 success: function(response) {
-                    console.log(response);
-                    // alert(JSON.stringify(response));
+                    //console.log(response);
+                    //alert(JSON.stringify(response));
                     //dd(response);
                     $('#no_spk').val(response.Tonase.no_spk);
                     $('#tujuan').val(response.Tonase.id_tujuan);
                     $('#tujuan_fake').val(response.Tonase.tujuan.tujuan);
+                    $('#alamat').val(response.Tonase.tujuan.alamat);
                     $('#tonase_actual').val(response.Tonase.tonase_actual);
                 }
             });
