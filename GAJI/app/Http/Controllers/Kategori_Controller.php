@@ -22,6 +22,12 @@ class Kategori_Controller extends Controller
 
     public function store(Request $request)
     {
+        $validation = $request->validate([
+            'nama' => 'required',
+        ],
+        [
+            'nama.required' => 'Data tidak boleh kosong !', 
+        ]);
         
         $kategori = new Kategori;
        
@@ -41,6 +47,12 @@ class Kategori_Controller extends Controller
 
     public function update(Request $request, $id)
     {
+        $validation = $request->validate([
+            'nama' => 'required',
+        ],
+        [
+            'nama.required' => 'Data tidak boleh kosong !', 
+        ]);
         
         $kategori = Kategori::findOrFail($id);
     

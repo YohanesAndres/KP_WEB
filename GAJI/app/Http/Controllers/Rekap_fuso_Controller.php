@@ -31,7 +31,10 @@ class Rekap_fuso_Controller extends Controller
 
     public function create()
     {
-        $tableDatatonase = Data_tonase::all();
+        // Mendapatkan ID nomor DO yang sudah dipilih sebelumnya
+        $selectedDoIds = Rekap_fuso::pluck('id_dataTonase')->toArray();
+        // Memfilter nomor DO yang belum dipilih
+        $tableDatatonase = Data_tonase::whereNotIn('id', $selectedDoIds)->get();
         return view('rekap_fuso.create', [
             'tableDatatonase' => $tableDatatonase,
         ]);
@@ -40,9 +43,10 @@ class Rekap_fuso_Controller extends Controller
     public function createDetail()
     {
         $rekap_fuso_id = $_GET['rekap_fuso_id'] ?? null;
+        $selectedUangJalanIds = Rekap_fuso_detail::pluck('id_uang_jalan')->toArray();
         $rekap_fuso = Rekap_fuso::find($rekap_fuso_id);
         $tableUangJalan = Uang_jalan::all();
-        $update_mobil= update_mobil::where('tanggal_bongkar','<>','')->with('uangjalan')->get();
+        $update_mobil= update_mobil::where('tanggal_bongkar','<>','')->with('uangjalan')->whereNotIn('id', $selectedUangJalanIds)->get();
         return view('rekap_fuso_detail.create',[
             'tableUangJalan' => $tableUangJalan,
             'rekap_fuso_id' => $rekap_fuso_id,
@@ -53,9 +57,17 @@ class Rekap_fuso_Controller extends Controller
 
     public function store(Request $request)
     {
+        $validation = $request->validate([
+            'id_dataTonase' => 'required',
+            'no_kontrak' => 'required',
+        ],
+        [
+            'no_kontrak.required' => 'Data tidak boleh kosong !',
+            'id_dataTonase.required' => 'Silahkan pilih No DO !',
+        ]);
         
         $rekap_fuso = new Rekap_fuso;
-       
+        
         $rekap_fuso->alamat = $request->alamat; 
         $rekap_fuso->id_dataTonase = $request->id_dataTonase;
         $rekap_fuso->no_kontrak = $request->no_kontrak;  
@@ -68,10 +80,8 @@ class Rekap_fuso_Controller extends Controller
     }
 
     public function storeDetail(Request $request)
-    {
-        
+    {   
         $validatedData = $request->validate([
-            'rekap_fuso_id' => 'required',
             'id_uang_jalan' => 'required',
             'quantity_muat_pks_bruto' => 'required',
             'quantity_muat_pks_tarra' => 'required',
@@ -81,6 +91,17 @@ class Rekap_fuso_Controller extends Controller
             'mutu_pks_ka' => 'required',
             'mutu_bongkar_ffa_alb' => 'required',
             'mutu_bongkar_ka' => 'required',
+        ],
+        [
+            'id_uang_jalan.required' => 'Silahkan pilih tanggal muat !',
+            'quantity_muat_pks_bruto.required' => 'Data tidak boleh kosong !',
+            'quantity_muat_pks_tarra.required' => 'Data tidak boleh kosong !',
+            'quantity_bongkar_bruto.required' => 'Data tidak boleh kosong !',
+            'quantity_bongkar_tarra.required' => 'Data tidak boleh kosong !',
+            'mutu_pks_ffa_alb.required' => 'Data tidak boleh kosong !',
+            'mutu_pks_ka.required' => 'Data tidak boleh kosong !',
+            'mutu_bongkar_ffa_alb.required' => 'Data tidak boleh kosong !',
+            'mutu_bongkar_ka.required' => 'Data tidak boleh kosong !',
         ]);
         
         $rekap_fusoDetail = new Rekap_fuso_detail;
@@ -120,6 +141,14 @@ class Rekap_fuso_Controller extends Controller
 
     public function update(Request $request, $id)
     {
+        $validation = $request->validate([
+            'id_dataTonase' => 'required',
+            'no_kontrak' => 'required',
+        ],
+        [
+            'no_kontrak.required' => 'Data tidak boleh kosong !',
+            'id_dataTonase.required' => 'Silahkan pilih No DO !',
+        ]);
         $rekap_fuso =Rekap_fuso::findOrFail($id);
     
         $rekap_fuso->alamat = $request->alamat; 
@@ -133,6 +162,28 @@ class Rekap_fuso_Controller extends Controller
 
     public function updateDetail(Request $request, $id)
     {
+        $validatedData = $request->validate([
+            'id_uang_jalan' => 'required',
+            'quantity_muat_pks_bruto' => 'required',
+            'quantity_muat_pks_tarra' => 'required',
+            'quantity_bongkar_bruto' => 'required',
+            'quantity_bongkar_tarra' => 'required',
+            'mutu_pks_ffa_alb' => 'required',
+            'mutu_pks_ka' => 'required',
+            'mutu_bongkar_ffa_alb' => 'required',
+            'mutu_bongkar_ka' => 'required',
+        ],
+        [
+            'id_uang_jalan.required' => 'Silahkan pilih tanggal muat !',
+            'quantity_muat_pks_bruto.required' => 'Data tidak boleh kosong !',
+            'quantity_muat_pks_tarra.required' => 'Data tidak boleh kosong !',
+            'quantity_bongkar_bruto.required' => 'Data tidak boleh kosong !',
+            'quantity_bongkar_tarra.required' => 'Data tidak boleh kosong !',
+            'mutu_pks_ffa_alb.required' => 'Data tidak boleh kosong !',
+            'mutu_pks_ka.required' => 'Data tidak boleh kosong !',
+            'mutu_bongkar_ffa_alb.required' => 'Data tidak boleh kosong !',
+            'mutu_bongkar_ka.required' => 'Data tidak boleh kosong !',
+        ]);
     
         $rekap_fusoDetail = Rekap_fuso_detail::findOrFail($id);
         

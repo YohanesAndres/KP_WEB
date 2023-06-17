@@ -19,4 +19,5 @@ class Data_tonase extends Model
     {
         return $this->belongsTo(tujuan::class, 'id_tujuan');
     }
+
 }

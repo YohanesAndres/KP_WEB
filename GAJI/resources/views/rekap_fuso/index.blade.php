@@ -40,7 +40,7 @@
                 <td>{{ $rekap_fusoData->dataTonase->tonase_actual}}</td>
             </tr>
         </table> -->
-            <h3>No              :{{ ++$key }}</h3>
+            <h3>No              :{{ $loop->index + 1 }}</h3>
             <p>Alamat&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $rekap_fusoData->alamat }}</p>
             <p>NO DO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $rekap_fusoData->dataTonase->no_do }}</p>
             <p>NO SPK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $rekap_fusoData->dataTonase->no_spk }}</p>
@@ -110,7 +110,7 @@
                     @foreach($rekap_fusoDetail as $key => $rekap_fuso_detailData)
                         @if($rekap_fuso_detailData->rekap_fuso_id == $rekap_fusoData->id)
                             <tr>
-                                <td>{{ ++$key }}</td>
+                                <td>{{ $loop->index + 1 }}</td>
                                 <td>{{ date('Y-m-d',strtotime($rekap_fuso_detailData->UangJalan->tanggal)) }}</td>
                                 <td>
                                     @if ($rekap_fuso_detailData->UangJalan->update_mobil->status == 'selesai')

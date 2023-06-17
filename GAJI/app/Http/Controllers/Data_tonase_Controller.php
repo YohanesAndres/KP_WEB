@@ -37,6 +37,18 @@ class Data_tonase_Controller extends Controller
 
     public function store(Request $request)
     {
+        $validation = $request->validate([
+            'no_spk' => 'required',
+            'no_do' => 'required',
+            'tonase_actual' => 'required',
+            'id_tujuan' => 'required',
+        ],
+        [
+            'no_spk.required' => 'Data tidak boleh kosong !', 
+            'no_do.required' => 'Data tidak boleh kosong !',
+            'tonase_actual.required' => 'Data tidak boleh kosong !',
+            'id_tujuan.required' => 'Silahkan pilih tujuan !',
+        ]);
         
         $data_tonase = new Data_tonase;
        
@@ -63,6 +75,18 @@ class Data_tonase_Controller extends Controller
 
     public function update(Request $request, $id)
     {
+        $validation = $request->validate([
+            'no_spk' => 'required',
+            'no_do' => 'required',
+            'tonase_actual' => 'required',
+            'id_tujuan' => 'required',
+        ],
+        [
+            'no_spk.required' => 'Data tidak boleh kosong !', 
+            'no_do.required' => 'Data tidak boleh kosong !',
+            'tonase_actual.required' => 'Data tidak boleh kosong !',
+            'id_tujuan.required' => 'Silahkan pilih tujuan !',
+        ]);
         
         $data_tonase = Data_tonase::findOrFail($id);
     

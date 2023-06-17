@@ -30,7 +30,7 @@
             <label for="alamat" class="col-sm-3 col-form-label">Alamat</label>
             <div class="col-sm-9">
                 <input type="text" name="alamat" id="alamat" class="form-control" value="{{$rekap_fuso->alamat}}">
-                @error('alamat')
+                @error('id_dataTonase')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
@@ -55,7 +55,7 @@
             <label for="no_spk" class="col-sm-3 col-form-label">NO SPK</label>
             <div class="col-sm-9">
                 <input type="text" name="no_spk" id="no_spk" class="form-control" value="{{ old('no_spk', $rekap_fuso->dataTonase->no_spk) }}" readonly>
-                @error('no_spk')
+                @error('id_dataTonase')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>

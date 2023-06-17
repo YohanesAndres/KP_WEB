@@ -39,6 +39,18 @@ class Kendaraan_Controller extends Controller
 
     public function store(Request $request)
     {
+        $validation = $request->validate([
+            'plat' => 'required',
+            'tonase' => 'required',
+            'id_namasopir' => 'required',
+            'id_kategori' => 'required',
+        ],
+        [
+            'plat.required' => 'Plat tidak boleh kosong !', 
+            'tonase.required' => 'Tonase tidak boleh kosong !',
+            'id_namasopir.required' => 'Silahkan pilih nama sopir !',
+            'id_kategori.required' => 'Silahkan pilih kategori !',
+        ]);
         
         $kendaraan = new Kendaraan;
        
@@ -69,6 +81,18 @@ class Kendaraan_Controller extends Controller
 
     public function update(Request $request, $id)
     {
+        $validation = $request->validate([
+            'plat' => 'required',
+            'tonase' => 'required',
+            'id_namasopir' => 'required',
+            'id_kategori' => 'required',
+        ],
+        [
+            'plat.required' => 'Plat tidak boleh kosong !', 
+            'tonase.required' => 'Tonase tidak boleh kosong !',
+            'id_namasopir.required' => 'Silahkan pilih nama sopir !',
+            'id_kategori.required' => 'Silahkan pilih kategori !',
+        ]);
         
         $kendaraan = Kendaraan::findOrFail($id);
     

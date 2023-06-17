@@ -44,7 +44,7 @@
             <label for="tanggal_bongkar" class="offset-sm-1 col-sm-3 col-form-label justify-content-center">Tanggal Bongkar</label>
             <div class="col-sm-9">
                 <input type="text" name="tanggal_bongkar" id="tanggal_bongkar" class="form-control" value="{{ old('tanggal_bongkar', date('Y-m-d',strtotime ($rekap_fusoDetail->UangJalan->update_mobil->tanggal_bongkar))) }}" placeholder="Tanggal Bongkar" readonly>
-                @error('tanggal_bongkar')
+                @error('id_uang_jalan')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
@@ -54,7 +54,7 @@
             <label for="plat" class="offset-sm-1 col-sm-3 col-form-label justify-content-center">Plat</label>
             <div class="col-sm-9">
                 <input type="text" name="plat" id="plat" class="form-control" value="{{ old('plat', $rekap_fusoDetail->UangJalan->kendaraan->plat) }}" placeholder="Plat" readonly>
-                @error('plat')
+                @error('id_uang_jalan')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
@@ -64,7 +64,7 @@
         <label for="nama_sopir" class="offset-sm-1 col-sm-3 col-form-label justify-content-center" >Nama Sopir</label>
             <div class="col-sm-9">
             <input type="text" name="nama_sopir" id="nama_sopir" class="form-control" value="{{ old('nama_sopir', $rekap_fusoDetail->UangJalan->kendaraan->namasopir->nama_sopir) }}" placeholder="Nama Sopir">
-                @error('nama_sopir')
+                @error('id_uang_jalan')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
@@ -74,7 +74,7 @@
             <label for="tonase" class="offset-sm-1 col-sm-3 col-form-label justify-content-center">Estimasi Tonase </label>
             <div class="col-sm-9">
                 <input type="text" name="tonase" id="tonase" class="form-control" value="{{ old('nama_sopir', $rekap_fusoDetail->UangJalan->kendaraan->tonase) }}" placeholder="Estimasi Tonase" readonly>
-                @error('tonase')
+                @error('id_uang_jalan')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
@@ -124,7 +124,7 @@
             <label for="mutu_pks_ffa_alb" class="offset-sm-1 col-sm-3 col-form-label justify-content-center">MUTU PKS (FFA/ALB)</label>
             <div class="col-sm-9">
                 <input type="number" step=0.01 name="mutu_pks_ffa_alb" id="mutu_pks_ffa_alb" class="form-control" value="{{ $rekap_fusoDetail->mutu_pks_ffa_alb }}" placeholder="isi MUTU PKS (FFA/ALB)">
-                @error('mutu_pks_ffa/alb')
+                @error('mutu_pks_ffa_alb')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
@@ -144,7 +144,7 @@
             <label for="mutu_bongkar_ffa_alb" class="offset-sm-1 col-sm-3 col-form-label justify-content-center">MUTU BONGKAR (FFA/ALB)</label>
             <div class="col-sm-9">
                 <input type="number" step=0.01 name="mutu_bongkar_ffa_alb" id="mutu_bongkar_ffa_alb" class="form-control" value="{{ $rekap_fusoDetail->mutu_bongkar_ffa_alb }}" placeholder="isi MUTU BONGKAR (FFA/ALB)">
-                @error('mutu_bongkar_ffa/alb')
+                @error('mutu_bongkar_ffa_alb')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
@@ -164,7 +164,7 @@
             <label for="uang_jalan" class="offset-sm-1 col-sm-3 col-form-label justify-content-center">Uang Jalan </label>
             <div class="col-sm-9">
                 <input type="text" name="uang_jalan" id="uang_jalan" class="form-control" value="{{ old('uang_jalan', $rekap_fusoDetail->UangJalan->muatbongkar->uang_jalan) }}" placeholder="Estimasi Tonase" readonly>
-                @error('uang_jalan')
+                @error('id_uang_jalan')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>

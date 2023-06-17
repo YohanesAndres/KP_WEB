@@ -28,6 +28,16 @@ class Kas_uj_Controller extends Controller
     }
     public function store_daribos(Request $request)
     {
+        $validation = $request->validate([
+            'tanggal' => 'required',
+            'expenses' => 'required',
+            'jumlah_uang' => 'required',
+        ],
+        [
+            'tanggal.required' => 'Tanggal tidak boleh kosong !', 
+            'expenses.required' => 'Silahkan pilih expenses !',
+            'jumlah_uang.required' => 'Data tidak boleh kosong !',
+        ]);
         
         $kas_uj = new Kas_uj;
        
@@ -48,6 +58,16 @@ class Kas_uj_Controller extends Controller
     }
     public function store_credit(Request $request)
     {
+        $validation = $request->validate([
+            'tanggal' => 'required',
+            'expenses' => 'required',
+            'jumlah_uang' => 'required',
+        ],
+        [
+            'tanggal.required' => 'Tanggal tidak boleh kosong !', 
+            'expenses.required' => 'Silahkan pilih expenses !',
+            'jumlah_uang.required' => 'Data tidak boleh kosong !',
+        ]);
         
         $kas_uj = new Kas_uj;
        
@@ -68,6 +88,16 @@ class Kas_uj_Controller extends Controller
     }
     public function store_debit(Request $request)
     {
+        $validation = $request->validate([
+            'tanggal' => 'required',
+            'expenses' => 'required',
+            'jumlah_uang' => 'required',
+        ],
+        [
+            'tanggal.required' => 'Tanggal tidak boleh kosong !', 
+            'expenses.required' => 'Silahkan pilih expenses !',
+            'jumlah_uang.required' => 'Data tidak boleh kosong !',
+        ]);
         
         $kas_uj = new Kas_uj;
        

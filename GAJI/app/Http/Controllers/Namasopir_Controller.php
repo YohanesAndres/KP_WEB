@@ -21,7 +21,13 @@ class Namasopir_Controller extends Controller
 
     public function store(Request $request)
     {
-        
+        $validation = $request->validate([
+            'nama_sopir' => 'required',
+        ],
+        [
+            'nama_sopir.required' => 'Data tidak boleh kosong !'
+        ]);
+
         $namasopir = new Namasopir;
        
         $namasopir->nama_sopir = $request->nama_sopir; 
@@ -41,6 +47,12 @@ class Namasopir_Controller extends Controller
 
     public function update(Request $request, $id)
     {
+        $validation = $request->validate([
+            'nama_sopir' => 'required',
+        ],
+        [
+            'nama_sopir.required' => 'Data tidak boleh kosong !' 
+        ]);
         
         $namasopir = Namasopir::findOrFail($id);
     

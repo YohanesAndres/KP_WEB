@@ -43,6 +43,16 @@ class Muat_bongkar_Controller extends Controller
 
     public function store(Request $request)
     {
+        $validation = $request->validate([
+            'uang_jalan' => 'required',
+            'muatBongkar' => 'required',
+            'id_tujuan' => 'required',
+        ],
+        [
+            'uang_jalan.required' => 'Data tidak boleh kosong !', 
+            'muatBongkar.required' => 'Data tidak boleh kosong !',
+            'id_tujuan.required' => 'Silahkan pilih tujuan !',
+        ]);
         
         $muat_bongkar = new Muat_bongkar;
        
@@ -68,6 +78,16 @@ class Muat_bongkar_Controller extends Controller
 
     public function update(Request $request, $id)
     {
+        $validation = $request->validate([
+            'uang_jalan' => 'required',
+            'muatBongkar' => 'required',
+            'id_tujuan' => 'required',
+        ],
+        [
+            'uang_jalan.required' => 'Data tidak boleh kosong !', 
+            'muatBongkar.required' => 'Data tidak boleh kosong !',
+            'id_tujuan.required' => 'Silahkan pilih tujuan !',
+        ]);
         
         $muat_bongkar = Muat_bongkar::findOrFail($id);
     

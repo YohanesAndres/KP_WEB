@@ -21,6 +21,14 @@ class Tujuan_Controller extends Controller
 
     public function store(Request $request)
     {
+        $validation = $request->validate([
+            'tujuan' => 'required',
+            'alamat' => 'required',
+        ],
+        [
+            'tujuan.required' => 'Data tidak boleh kosong !', 
+            'alamat.required' => 'Data tidak boleh kosong !', 
+        ]);
         
         $tujuan = new tujuan;
        
@@ -42,6 +50,14 @@ class Tujuan_Controller extends Controller
 
     public function update(Request $request, $id)
     {
+        $validation = $request->validate([
+            'tujuan' => 'required',
+            'alamat' => 'required',
+        ],
+        [
+            'tujuan.required' => 'Data tidak boleh kosong !', 
+            'alamat.required' => 'Data tidak boleh kosong !', 
+        ]);
         
         $tujuan = tujuan::findOrFail($id);
     

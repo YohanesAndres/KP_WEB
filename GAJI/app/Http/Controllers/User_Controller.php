@@ -22,6 +22,18 @@ class User_Controller extends Controller
 
     public function store(Request $request)
     {
+        $validation = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required|min:8',
+        ],
+        [
+            'name.required' => 'Nama tidak boleh kosong !', 
+            'email.required' => 'Email tidak boleh kosong !',
+            'password.required' => 'Password tidak boleh kosong !',
+            'password.min' => 'Password harus memiliki minimal 8 karakter!',
+        ]);
+
         $user = new User();
         $user->name = $request->input('name');
         $user->email = $request->input('email');
@@ -42,6 +54,18 @@ class User_Controller extends Controller
 
     public function update(Request $request, $id)
     {
+        $validation = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required|min:8',
+        ],
+        [
+            'name.required' => 'Nama tidak boleh kosong !', 
+            'email.required' => 'Email tidak boleh kosong !',
+            'password.required' => 'Password tidak boleh kosong !',
+            'password.min' => 'Password harus memiliki minimal 8 karakter!',
+        ]);
+        
         $user = User::findOrFail($id);
         
 

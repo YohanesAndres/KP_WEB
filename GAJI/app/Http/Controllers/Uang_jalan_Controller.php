@@ -47,6 +47,16 @@ class Uang_jalan_Controller extends Controller
 
     public function store(Request $request)
     {
+        $validation = $request->validate([
+            'tanggal' => 'required',
+            'id_kendaraan' => 'required',
+            'id_muat_bongkar' => 'required',
+        ],
+        [
+            'tanggal.required' => 'Tanggal tidak boleh kosong !', 
+            'id_kendaraan.required' => 'Silahkan pilih plat !',
+            'id_muat_bongkar.required' => 'Silahkan pilih Muat bongkar !',
+        ]);
         
         $uang_jalan = new Uang_jalan;
         #$increment = DB::select("SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'db_kp' AND TABLE_NAME = 'uang_jalan'")[0]->AUTO_INCREMENT;
@@ -86,6 +96,16 @@ class Uang_jalan_Controller extends Controller
     
     public function update(Request $request, $id)
     {
+        $validation = $request->validate([
+            'tanggal' => 'required',
+            'id_kendaraan' => 'required',
+            'id_muat_bongkar' => 'required',
+        ],
+        [
+            'tanggal.required' => 'Tanggal tidak boleh kosong !', 
+            'id_kendaraan.required' => 'Silahkan pilih plat !',
+            'id_muat_bongkar.required' => 'Silahkan pilih Muat bongkar !',
+        ]);
         
         $uang_jalan =Uang_jalan::findOrFail($id);
     
