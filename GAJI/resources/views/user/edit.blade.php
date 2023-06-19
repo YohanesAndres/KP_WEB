@@ -14,14 +14,13 @@
 
 <div class="form-group row offset-sm-1 col-sm-4">
     @if (session()->has('info'))
-            {{ session()->get('info') }}
+        {{ session()->get('info') }}
     @endif
 </div>
 
-<br>
-</br>
+<br></br>
 
-<div class=formmarg>
+<div class="formmarg">
     <form action="{{ url('/user/update/'.$user->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('patch')
@@ -31,7 +30,7 @@
             <div class="col-sm-9">
                 <input type="text" name="name" id="name" class="form-control" value="{{ old('name', $user->name)}}" placeholder="Masukkan Nama Akun">
                 @error('name')
-                <span class="text-danger">{{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
         </div>
@@ -41,7 +40,7 @@
             <div class="col-sm-9">
                 <input type="text" name="email" id="email" class="form-control" value="{{ old('email', $user->email)}}" placeholder="Masukkan Nama Email">
                 @error('email')
-                <span class="text-danger">{{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
         </div>
@@ -49,9 +48,12 @@
         <div class="form-group row">
             <label for="password" class="col-sm-3 col-form-label">Password</label>
             <div class="col-sm-9">
-                <input type="password" name="password" id="password" class="form-control" placeholder="Masukkan Nama password">
+                <div class="password-wrapper">
+                    <input type="password" name="password" id="password" class="form-control"  placeholder="Masukkan Nama password">
+                    <span class="password-toggle" onclick="togglePasswordVisibility()">&#128065;</span>
+                </div>
                 @error('password')
-                <span class="text-danger">{{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
         </div>
@@ -62,4 +64,21 @@
             </div>
         </div>
     </form>
+</div>
+
+<script>
+    function togglePasswordVisibility() {
+        var passwordInput = document.getElementById("password");
+        var togglePassword = document.querySelector(".password-toggle");
+        
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            togglePassword.innerHTML = "&#128065;"; // Tampilkan mata terbuka
+        } else {
+            passwordInput.type = "password";
+            togglePassword.innerHTML = "&#128064;"; // Tampilkan mata tertutup
+        }
+    }
+</script>
+
 @endsection
