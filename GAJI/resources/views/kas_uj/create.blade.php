@@ -40,7 +40,7 @@
                 <select name="expenses" id="expenses" class="form-control">
                     <option value="Uang Jalan Per Tanggal">Uang Jalan Per Tanggal</option>
                 </select>  
-                @error('tanggal')
+                @error('expenses')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>

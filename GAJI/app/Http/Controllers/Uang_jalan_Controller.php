@@ -57,7 +57,7 @@ class Uang_jalan_Controller extends Controller
             'id_kendaraan.required' => 'Silahkan pilih plat !',
             'id_muat_bongkar.required' => 'Silahkan pilih Muat bongkar !',
         ]);
-        
+
         $uang_jalan = new Uang_jalan;
         #$increment = DB::select("SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'db_kp' AND TABLE_NAME = 'uang_jalan'")[0]->AUTO_INCREMENT;
         $increment = DB::select("SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA ='". env('DB_DATABASE') . "' AND TABLE_NAME ='" . $uang_jalan->getTable() . "'")[0]->AUTO_INCREMENT;
@@ -79,6 +79,7 @@ class Uang_jalan_Controller extends Controller
 
         $request->session()->flash("info", "Data Uang Jalan berhasil ditambahkan");
         return redirect()->route("uang_jalan.create");
+
     }
 
     public function edit(Request $request, $id)

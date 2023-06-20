@@ -110,23 +110,53 @@ class Kas_uj_Controller extends Controller
 
     public function store(Request $request)
     {
+
+        $validation = $request->validate([
+            'tanggal' => 'required',
+
+        ], [
+            'tanggal.required' => 'Tanggal tidak boleh kosong!',
+
+        ]);
+
+        $baseng = DB::table('kas_uj')->whereDate('tanggal', '=', date($request->tanggal))->where('dari_bos', 0)->first();    
+
         $totaluj = DB::table('uang_jalan')->whereDate('tanggal', $request->tanggal)->get();
         $sum = 0;
         foreach ($totaluj as $value) {
             $sum += $value->uang_Jalan;
         }
 
-  
+        // dd($baseng,$request->tanggal,DB::select("SELECT date (tanggal) from kas_uj WHERE DATE(tanggal) = date('".$request->tanggal."')") );
 
-        $kas_uj = new Kas_uj;
-       
-        $kas_uj->tanggal = $request->tanggal; 
-        $kas_uj->expenses = $request->expenses; 
-        $kas_uj->jumlah_uang = $sum*-1;
-        $kas_uj->dari_bos = 0; 
-        $kas_uj->save();
-        $request->session()->flash("info", "Data baru berhasil ditambahkan");
-        return redirect()->back();
+        if (isset($baseng)) {
+            
+            $kas_uj = Kas_uj::findOrFail($baseng->id);
+    
+            // dd($kas_uj);
+            $kas_uj->jumlah_uang = $sum*-1; 
+    
+            $kas_uj->save();
+    
+            $request->session()->flash("info", "Rekap PerTanggal berhasil diperbaharui!");
+            return redirect()->route("kas_uj.create");
+     
+        } 
+        else{
+
+         
+    
+            $kas_uj = new Kas_uj;
+           
+            $kas_uj->tanggal = $request->tanggal; 
+            $kas_uj->expenses = $request->expenses; 
+            $kas_uj->jumlah_uang = $sum*-1;
+            $kas_uj->dari_bos = 0; 
+            $kas_uj->save();
+            $request->session()->flash("info", "Rekap PerTanggal baru berhasil ditambahkan");
+            return redirect()->back();
+        }
+
     }
 
     public function edit(Request $request, $id)
