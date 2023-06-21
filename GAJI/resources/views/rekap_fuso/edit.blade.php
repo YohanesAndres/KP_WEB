@@ -64,7 +64,7 @@
         <div class="form-group row">
             <label for="tujuan" class="col-sm-3 col-form-label">Tujuan</label>
             <div class="col-sm-9">
-                <input type="text" name="tujuan" id="tujuan" class="form-control" value="{{ old('tujuan', $rekap_fuso->dataTonase->tujuan->tujuan) }}" readonly>
+                <input type="text" name="tujuan_fake" id="tujuan_fake" class="form-control" value="{{ old('tujuan', $rekap_fuso->dataTonase->tujuan->tujuan) }}" readonly>
                 @error('id_dataTonase')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -116,6 +116,7 @@
                     //dd(response);
                     $('#no_spk').val(response.Tonase.no_spk);
                     $('#tujuan').val(response.Tonase.id_tujuan);
+                    $('#tujuan_fake').val(response.Tonase.tujuan.tujuan);
                     $('#tonase_actual').val(response.Tonase.tonase_actual);
                 }
             });
