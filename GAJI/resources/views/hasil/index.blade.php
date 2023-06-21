@@ -28,6 +28,7 @@
         <th scope="col">OVER TOLERANSI</th>
         <th scope="col">SISA SUSUT</th>
         <th scope="col">UPAH (RP/KG)</th>
+        <th scope="col">TOTAL BONGKAR</th>
         <th scope="col">JUMLAH</th>
         <th scope="col">UANG JALAN</th>
         <th scope="col">HASIL</th>
@@ -42,6 +43,8 @@
             $totalNettoBongkar = 0;
             $totalSusut = 0;
             $totalUangJalan = 0;
+            $totalBongkar = 0;
+            $totalJumlah = 0;
         @endphp
         @foreach($hasil as $key => $rekap_fuso_detailData)
         <tr>
@@ -119,11 +122,20 @@
                 {{ number_format($upah, 0, ",", "." ) }}
             </td>
             <td>
-                {{ number_format($upah * ($rekap_fuso_detailData->quantity_bongkar_bruto - $rekap_fuso_detailData->quantity_bongkar_tarra), 0, ",", ".")  }}
+                @php
+                    $totalBongkar = ($rekap_fuso_detailData->quantity_bongkar_bruto - $rekap_fuso_detailData->quantity_bongkar_tarra ) - $sisaSusut;
+                @endphp
+                {{ number_format($totalBongkar, 0, ",", ".")  }}
+            </td>
+            <td>
+                @php
+                    $totalJumlah = $upah * $totalBongkar;
+                @endphp
+                {{ number_format($totalJumlah, 0, ",", ".")  }}
             </td>
             <td>{{ number_format($rekap_fuso_detailData->UangJalan->uang_Jalan, 0, ",", ".") }}</td>
             <td>
-                {{ number_format($upah * ($rekap_fuso_detailData->quantity_bongkar_bruto - $rekap_fuso_detailData->quantity_bongkar_tarra) - ($rekap_fuso_detailData->UangJalan->uang_Jalan), 0, ",", ".") }}
+                {{ number_format($totalJumlah - ($rekap_fuso_detailData->UangJalan->uang_Jalan), 0, ",", ".") }}
             </td>
             <td>
                 @php

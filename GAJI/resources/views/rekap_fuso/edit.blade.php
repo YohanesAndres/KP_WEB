@@ -29,7 +29,7 @@
         <div class="form-group row">
             <label for="alamat" class="col-sm-3 col-form-label">Alamat</label>
             <div class="col-sm-9">
-                <input type="text" name="alamat" id="alamat" class="form-control" value="{{$rekap_fuso->alamat}}">
+                <input type="text" name="alamat" id="alamat" class="form-control" value="{{$rekap_fuso->alamat}}" readonly>
                 @error('id_dataTonase')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror

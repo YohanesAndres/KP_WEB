@@ -99,7 +99,7 @@
             <label for="quantity_muat_pks_tarra" class="offset-sm-1 col-sm-3 col-form-label justify-content-center">TARRA PKS</label>
             <div class="col-sm-9">
                 <input type="number" name="quantity_muat_pks_tarra" id="quantity_muat_pks_tarra" class="form-control" placeholder="isi TARRA PKS">
-                @error('quantity_muat_pks_bruto')
+                @error('quantity_muat_pks_tarra')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
@@ -119,7 +119,7 @@
             <label for="quantity_bongkar_tarra" class="offset-sm-1 col-sm-3 col-form-label justify-content-center">TARRA BONGKAR</label>
             <div class="col-sm-9">
                 <input type="number" name="quantity_bongkar_tarra" id="quantity_bongkar_tarra" class="form-control" placeholder="isi TARRA BONGKAR">
-                @error('quantity_muat_pks_bruto')
+                @error('quantity_bongkar_tarra')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
