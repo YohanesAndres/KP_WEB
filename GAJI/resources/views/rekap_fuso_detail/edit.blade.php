@@ -31,7 +31,9 @@
                 <select name="id_uang_jalan" id="id_uang_jalan" class="form-control">
                     <option value="">Pilih Tanggal Muat</option>
                     @foreach ($update_mobil as $item)
-                    <option value="{{ $item->id }}">{{ substr($item->uangjalan->tanggal,0,10) }} ({{$item->id}}#{{$item->uangjalan->muatbongkar->tujuan->tujuan}})</option>
+                        <option value="{{ $item->id }}" {{ $item->id == $rekap_fusoDetail->id_uang_jalan ? 'selected' : '' }}>
+                            {{ substr($item->uangjalan->tanggal, 0, 10) }} ({{$item->id}}#{{$item->uangjalan->muatbongkar->tujuan->tujuan}})
+                        </option>
                     @endforeach
                 </select>
                 @error('id_uang_jalan')

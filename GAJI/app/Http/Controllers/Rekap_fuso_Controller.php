@@ -124,8 +124,16 @@ class Rekap_fuso_Controller extends Controller
     public function edit(Request $request, $id)
     {
         $selectedDoIds = Rekap_fuso::pluck('id_dataTonase')->toArray();
-        $tableDatatonase = Data_tonase::whereNotIn('id', $selectedDoIds)->get();
         $rekap_fuso = Rekap_fuso::find($id);
+
+        $tableDatatonase = Data_tonase::whereNotIn('id', $selectedDoIds);
+
+        if ($rekap_fuso->id_dataTonase) {
+            $tableDatatonase->orWhere('id', $rekap_fuso->id_dataTonase);
+        }
+
+        $tableDatatonase = $tableDatatonase->get();
+
         return view("rekap_fuso.edit", compact('rekap_fuso'), [
             'tableDatatonase' => $tableDatatonase,
         ]);
@@ -134,11 +142,17 @@ class Rekap_fuso_Controller extends Controller
     public function editDetail(Request $request, $id)
     {
         $rekap_fuso_id = $_GET['rekap_fuso_id'] ?? null;
-        $rekap_fuso = Rekap_fuso::find($rekap_fuso_id);
         $selectedUangJalanIds = Rekap_fuso_detail::pluck('id_uang_jalan')->toArray();
+        $rekap_fuso = Rekap_fuso::find($rekap_fuso_id);
         $tableUangJalan = Uang_jalan::all();
         $rekap_fusoDetail = Rekap_fuso_detail::find($id);
-        $update_mobil= update_mobil::where('tanggal_bongkar','<>','')->with('uangjalan')->whereNotIn('id', $selectedUangJalanIds)->get();
+        $update_mobil= update_mobil::where('tanggal_bongkar','<>','')->with('uangjalan')->whereNotIn('id', $selectedUangJalanIds);
+        if ($rekap_fusoDetail->id_uang_jalan) {
+            $update_mobil->orWhere('id', $rekap_fusoDetail->id_uang_jalan);
+        }
+
+        $update_mobil = $update_mobil->get();
+
         return view("rekap_fuso_detail.edit", compact('rekap_fusoDetail'), [
             'tableUangJalan' => $tableUangJalan,
             'update_mobil' =>$update_mobil,
