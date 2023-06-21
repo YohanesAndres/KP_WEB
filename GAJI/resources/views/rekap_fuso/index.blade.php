@@ -174,7 +174,7 @@
                                             @csrf
                                             @method('delete')
                                             <input type="hidden" name="_method" value="delete">
-                                            <button type="submit" class="btn btn-danger">Hapus</button>
+                                            <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus Rekap Detail ini?')">Hapus</button>
                                         </form>
                                     </div>
                                 </div>
