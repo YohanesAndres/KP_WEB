@@ -35,16 +35,16 @@
           <td>{{ $kendaraanData->plat }}</td>
           <td>{{ number_format($kendaraanData->tonase,0,",","."); }}</td>
           <td>{{ $kendaraanData->namasopir->nama_sopir }}</td>
-          <td>{{ $kendaraanData->kategori->nama}}</td>
+          <td>{{ $kendaraanData->kategori}}</td>
           <td style="display:flex">
               <a href="/kendaraan/edit/{{ $kendaraanData->id }}" class="btn btn-edit">Edit</a>
-              <form action="{{ url('/kendaraan/delete/'.$kendaraanData->id) }}" method="post">
+              <!-- <form action="{{ url('/kendaraan/delete/'.$kendaraanData->id) }}" method="post">
                   @csrf
                   @method('delete')
                   <input type="hidden" name="_method" value="delete">
                   <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus Kendaraan ini?')">Hapus</button>
 
-              </form>
+              </form> -->
           </td>
       </tr>
       @endforeach

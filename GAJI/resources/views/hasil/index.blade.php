@@ -21,7 +21,7 @@
         <th scope="col">Tanggal Bongkar</th>
         <th scope="col">Plat Kendaraan</th>
         <th scope="col">Nama Sopir</th>
-        <th scope="col">PKS</th>
+        <th scope="col">Tujuan</th>
         <th scope="col">NETTO PKS</th>
         <th scope="col">NETTO BONGKAR</th>
         <th scope="col">SUSUT (KG)</th>
@@ -29,10 +29,10 @@
         <th scope="col">SISA SUSUT</th>
         <th scope="col">UPAH (RP/KG)</th>
         <th scope="col">TOTAL BONGKAR</th>
-        <th scope="col">JUMLAH</th>
+        <th scope="col">PENDAPATAN TOTAL</th>
         <th scope="col">UANG JALAN</th>
-        <th scope="col">HASIL</th>
-        <th scope="col">FEE</th>
+        <th scope="col">PENDAPATAN BERSIH</th>
+        <th scope="col">FEE PERUSAHAAN</th>
         <!-- <th scope="col">Action</th> -->
       </tr>
     </thead>

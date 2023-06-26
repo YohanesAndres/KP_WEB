@@ -36,12 +36,12 @@
           <td>{{  number_format($muat_bongkarData->uang_jalan,0,",","."); }}</td>
           <td style="display:flex">
               <a href="/muat_bongkar/edit/{{ $muat_bongkarData->id }}" class="btn btn-edit">Edit</a>
-              <form action="{{ url('/muat_bongkar/delete/'.$muat_bongkarData->id) }}" method="post">
+              <!-- <form action="{{ url('/muat_bongkar/delete/'.$muat_bongkarData->id) }}" method="post">
                   @csrf
                   @method('delete')
                   <input type="hidden" name="_method" value="delete">
                   <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus Muat-Bongkar ini?')">Hapus</button>
-              </form>
+              </form> -->
 
           </td>
       </tr>

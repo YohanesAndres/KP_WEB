@@ -21,7 +21,11 @@
     <thead>
       <tr>
         <th scope="col">No</th>
+        <th scope="col">ID Sopir</th>
         <th scope="col">Nama Sopir</th>
+        <th scope="col">Alamat</th>
+        <th scope="col">NIK</th>
+        <th scope="col">Foto Sopir</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -29,15 +33,21 @@
         @foreach($namasopir as $key => $namasopirData)
       <tr>
           <td>{{ ++$key }}</td>
+          <td>{{ $namasopirData->idSopir }}</td>
           <td>{{ $namasopirData->nama_sopir }}</td>
+          <td>{{ $namasopirData->alamat }}</td>
+          <td>{{ $namasopirData->NIK }}</td>
+          <td>
+              <img src="{{ asset('storage/' . $namasopirData->foto) }}" alt="Foto Sopir" width="200" height="200">
+          </td>
           <td style="display:flex">
               <a href="/namasopir/edit/{{ $namasopirData->id }}" class="btn btn-edit" >Edit</a>
-              <form action="{{ url('/namasopir/delete/'.$namasopirData->id) }}" method="post">
+              <!-- <form action="{{ url('/namasopir/delete/'.$namasopirData->id) }}" method="post">
                   @csrf
                   @method('delete')
                   <input type="hidden" name="_method" value="delete">
                   <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus Nama Sopir ini?')">Hapus</button>
-              </form>
+              </form> -->
           </td>
       </tr>
       @endforeach

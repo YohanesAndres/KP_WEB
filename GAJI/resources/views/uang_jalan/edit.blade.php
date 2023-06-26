@@ -54,7 +54,7 @@
         <div class="form-group row">
             <label for="kategori" class="col-sm-3 col-form-label">Kategori</label>
                 <div class="col-sm-9">
-                    <input type="text" name="kategori" id="kategori" class="form-control" value="{{ old('kategori', $uang_jalan->kendaraan->kategori->nama) }}" readonly>
+                    <input type="text" name="kategori" id="kategori" class="form-control" value="{{ old('kategori', $uang_jalan->kendaraan->kategori) }}" readonly>
                     @error('id_kendaraan')
                     <span class="text-danger">{{ $message }}</span>
                     @enderror

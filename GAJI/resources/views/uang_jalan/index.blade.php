@@ -40,7 +40,7 @@
         <td>{{ ++$key }}</td>
             <td>{{ date('Y-m-d',strtotime($uang_jalanData->tanggal)) }}</td>
             <td>{{ $uang_jalanData->kendaraan->plat }}</td>
-            <td>{{ $uang_jalanData->kendaraan->kategori->nama }}</td>
+            <td>{{ $uang_jalanData->kendaraan->kategori }}</td>
             <!-- <td>{{ $uang_jalanData->barcode }}</td> -->
             <td>{{ $uang_jalanData->muatbongkar->muatBongkar }}</td>
             <td>{{ $uang_jalanData->muatbongkar->tujuan->tujuan }}</td>

@@ -15,7 +15,11 @@ return new class extends Migration
     {
         Schema::create('namasopir', function (Blueprint $table) {
             $table->id();
+            $table->string('idSopir')->unique();
             $table->string('nama_sopir', 50);
+            $table->string('alamat', 50);
+            $table->string('NIK')->unique();
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

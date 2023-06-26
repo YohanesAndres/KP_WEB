@@ -38,13 +38,13 @@
           <td>{{ $data_tonaseData->tujuan->tujuan }}</td>
           <td style="display:flex">
               <a href="/data_tonase/edit/{{ $data_tonaseData->id }}" class="btn btn-edit">Edit</a>
-              <form action="{{ url('/data_tonase/delete/'.$data_tonaseData->id) }}" method="post">
+              <!-- <form action="{{ url('/data_tonase/delete/'.$data_tonaseData->id) }}" method="post">
                   @csrf
                   @method('delete')
                   <input type="hidden" name="_method" value="delete">
                   <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus Data Tonase ini?')">Hapus</button>
 
-              </form>
+              </form> -->
           </td>
       </tr>
       @endforeach

@@ -63,16 +63,10 @@
         </div>
 
         <div class="form-group row">
-            <label for="id_kategori" class="col-sm-3 col-form-label">Kategori</label>
+            <label for="kategori" class="col-sm-3 col-form-label">Kategori</label>
             <div class="col-sm-9">
-                <select name="id_kategori" id="id_kategori" class="form-control">
-                    @foreach ($tablekategoriData as $item)
-                        <option value="{{ $item->id }}" {{ $item->id == $kendaraan->id_kategori ? 'selected' : '' }}>
-                            {{ $item->nama }}
-                        </option>
-                    @endforeach
-                </select>
-                @error('id_kategori')
+                <input type="text" name="kategori" id="kategori" class="form-control" value="{{$kendaraan->kategori}}" placeholder="Masukkan Kategori" >
+                @error('kategori')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>

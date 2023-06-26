@@ -145,7 +145,7 @@
                     //console.log(response);
                     //alert(JSON.stringify(response));
                     //dd(response);
-                    $('#kategori').val(response.kategori.nama);
+                    $('#kategori').val(response.kategori);
                 }
             });
         });

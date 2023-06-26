@@ -27,6 +27,16 @@
       @csrf
 
       <div class="form-group row">
+            <label for="idSopir" class="col-sm-3 col-form-label">ID Sopir</label>
+            <div class="col-sm-9">
+                <input type="number" name="idSopir" id="idSopir" class="form-control" placeholder="Masukkan ID Sopir">
+                @error('idSopir')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+      </div>
+
+      <div class="form-group row">
             <label for="nama_sopir" class="col-sm-3 col-form-label">Nama Sopir</label>
             <div class="col-sm-9">
                 <input type="text" name="nama_sopir" id="nama_sopir" class="form-control" placeholder="Masukkan Nama Sopir">
@@ -34,7 +44,45 @@
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
-        </div>
+      </div>
+
+      <div class="form-group row">
+            <label for="alamat" class="col-sm-3 col-form-label">Alamat Sopir</label>
+            <div class="col-sm-9">
+                <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Masukkan Alamat Sopir">
+                @error('alamat')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+      </div>
+
+      <div class="form-group row">
+            <label for="NIK" class="col-sm-3 col-form-label">NIK Sopir</label>
+            <div class="col-sm-9">
+                <input type="text" name="NIK" id="NIK" class="form-control" placeholder="Masukkan NIK Sopir">
+                @error('NIK')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+      </div>
+
+      <div class="form-group row">
+          <label for="foto" class="col-sm-3 col-form-label">Foto</label>
+          <div class="col-sm-9">
+              <input type="file" name="foto" id="foto" class="form-control-file">
+              @error('foto')
+              <span class="text-danger">{{ $message }}</span>
+              @enderror
+          </div>
+      </div>
+
+      <div class="form-group row">
+          <label for="previewFoto" class="col-sm-3 col-form-label">Preview Foto</label>
+          <div class="col-sm-9">
+              <img id="previewFoto" src="#" alt="Preview Foto" style="max-width: 200px;">
+          </div>
+      </div>
+
 
       <div class="form-group row">
           <div class="offset-sm-3 col-sm-9" >
@@ -44,4 +92,25 @@
   </form>
 </div>
 
+@endsection
+
+@section('script')
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#previewFoto')
+                    .attr('src', e.target.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#foto").change(function () {
+        readURL(this);
+    });
+</script>
 @endsection

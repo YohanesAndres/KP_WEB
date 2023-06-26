@@ -85,11 +85,11 @@
                         <i class="fa fa-kendaraan"></i> <span>Kendaraan</span>
                     </a>
                 </li>
-                <li class="{{ Request::is('kategori*') ? 'active' : '' }}">
+                <!-- <li class="{{ Request::is('kategori*') ? 'active' : '' }}">
                     <a href="{{ route('kategori.index') }}">
                         <i class="fa fa-kategori"></i> <span>Kategori</span>
                     </a>
-                </li> 
+                </li>  -->
                 <li class="{{ Request::is('tujuan*') ? 'active' : '' }}">
                     <a href="{{ route('tujuan.index') }}">
                         <i class="fa fa-tujuan"></i> <span>Tujuan</span>

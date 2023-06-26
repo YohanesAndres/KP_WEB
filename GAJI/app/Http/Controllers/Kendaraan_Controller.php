@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Kendaraan;
 use App\Models\Namasopir;
 use App\Models\Kategori;
+use Illuminate\Validation\Rule;
 
 class Kendaraan_Controller extends Controller
 {
@@ -40,16 +41,17 @@ class Kendaraan_Controller extends Controller
     public function store(Request $request)
     {
         $validation = $request->validate([
-            'plat' => 'required',
+            'plat' => 'required|unique:kendaraan,plat',
             'tonase' => 'required',
             'id_namasopir' => 'required',
-            'id_kategori' => 'required',
+            'kategori' => 'required',
         ],
         [
             'plat.required' => 'Plat tidak boleh kosong !', 
+            'plat.unique' => 'Plat sudah ada, harap masukkan plat yang berbeda !',
             'tonase.required' => 'Tonase tidak boleh kosong !',
             'id_namasopir.required' => 'Silahkan pilih nama sopir !',
-            'id_kategori.required' => 'Silahkan pilih kategori !',
+            'kategori.required' => 'Kategori tidak boleh kosong !',
         ]);
         
         $kendaraan = new Kendaraan;
@@ -57,7 +59,7 @@ class Kendaraan_Controller extends Controller
         $kendaraan->plat = $request->plat; 
         $kendaraan->tonase = $request->tonase; 
         $kendaraan->id_namasopir = $request->id_namasopir; 
-        $kendaraan->id_kategori = $request->id_kategori; 
+        $kendaraan->kategori = $request->kategori; 
         $kendaraan->save();
 
         $request->session()->flash("info", "Data Kendaraan berhasil ditambahkan");
@@ -82,16 +84,22 @@ class Kendaraan_Controller extends Controller
     public function update(Request $request, $id)
     {
         $validation = $request->validate([
-            'plat' => 'required',
+            'plat' => [
+                'sometimes',
+                'required',
+                Rule::unique('kendaraan', 'plat')->ignore($request->id),
+            ],
+        
             'tonase' => 'required',
             'id_namasopir' => 'required',
-            'id_kategori' => 'required',
+            'kategori' => 'required',
         ],
         [
             'plat.required' => 'Plat tidak boleh kosong !', 
+            'plat.unique' => 'Plat sudah ada, harap masukkan plat yang berbeda !',
             'tonase.required' => 'Tonase tidak boleh kosong !',
             'id_namasopir.required' => 'Silahkan pilih nama sopir !',
-            'id_kategori.required' => 'Silahkan pilih kategori !',
+            'kategori.required' => 'Kategori tidak boleh kosong !',
         ]);
         
         $kendaraan = Kendaraan::findOrFail($id);
@@ -99,7 +107,7 @@ class Kendaraan_Controller extends Controller
         $kendaraan->plat = $request->plat; 
         $kendaraan->tonase = $request->tonase; 
         $kendaraan->id_namasopir = $request->id_namasopir; 
-        $kendaraan->id_kategori = $request->id_kategori; 
+        $kendaraan->kategori = $request->kategori; 
         $kendaraan->save();
 
         $request->session()->flash("info", "Data kendaraan berhasil diupdate!");
