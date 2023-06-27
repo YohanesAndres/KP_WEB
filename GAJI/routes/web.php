@@ -19,11 +19,25 @@ use App\Http\Controllers\User_Controller;
 */
 Route::middleware(['auth', 'auth.session'])->group(function () {
 
-    Route::get('/', function () {
-       return view('welcome');
-    });
-    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     
+
+    // Route::get('/', function () {
+    //    return view('welcome');
+    // });
+    
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    Route::get("/", function () {
+        if (Auth::check()) {
+            if (Auth::user()->role === 'Sopir') {
+                return redirect('/rekapsopir');
+            } else if (Auth::user()->role === 'Administrator') {
+                return redirect('/home');
+            } else if (Auth::user()->role === 'boss') {
+                return redirect('/home');
+            }
+        }
+    })->middleware(['auth', 'verified']);
 
     Route::get('/data_tonase', [App\Http\Controllers\Data_tonase_Controller::class, 'index'])->name('data_tonase.index');
     Route::get('/data_tonase/create', [App\Http\Controllers\Data_tonase_Controller::class, 'create'])->name('data_tonase.create');
@@ -66,12 +80,12 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
     Route::patch('/muat_bongkar/update/{id}', [App\Http\Controllers\Muat_bongkar_Controller::class, 'update'])->name('muat_bongkar.update');
     Route::delete('/muat_bongkar/delete/{id}', [App\Http\Controllers\Muat_bongkar_Controller::class, 'delete'])->name('muat_bongkar.delete');
     
-    Route::get('/namasopir', [App\Http\Controllers\Namasopir_Controller::class, 'index'])->name('namasopir.index');
-    Route::get('/namasopir/create', [App\Http\Controllers\Namasopir_Controller::class, 'create'])->name('namasopir.create');
-    Route::post('/namasopir/store', [App\Http\Controllers\Namasopir_Controller::class, 'store'])->name('namasopir.store');
-    Route::get('/namasopir/edit/{id}', [App\Http\Controllers\Namasopir_Controller::class, 'edit'])->name('namasopir.edit');
-    Route::patch('/namasopir/update/{id}', [App\Http\Controllers\Namasopir_Controller::class, 'update'])->name('namasopir.update');
-    Route::delete('/namasopir/delete/{id}', [App\Http\Controllers\Namasopir_Controller::class, 'delete'])->name('namasopir.delete');
+    Route::get('/namasopir', [App\Http\Controllers\User_Controller::class, 'indexSopir'])->name('namasopir.index');
+    Route::get('/namasopir/create', [App\Http\Controllers\User_Controller::class, 'create'])->name('namasopir.create');
+    Route::post('/namasopir/store', [App\Http\Controllers\User_Controller::class, 'store'])->name('namasopir.store');
+    Route::get('/namasopir/edit/{id}', [App\Http\Controllers\User_Controller::class, 'editSopir'])->name('namasopir.edit');
+    Route::patch('/namasopir/update/{id}', [App\Http\Controllers\User_Controller::class, 'updateSopir'])->name('namasopir.update');
+    Route::delete('/namasopir/delete/{id}', [App\Http\Controllers\User_Controller::class, 'delete'])->name('namasopir.delete');
     
     Route::get('/rekap', [App\Http\Controllers\Rekap_Controller::class, 'index'])->name('rekap.index');
     Route::get('/rekap/create', [App\Http\Controllers\Rekap_Controller::class, 'create'])->name('rekap.create');
@@ -121,6 +135,7 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
     Route::delete('/tujuan/delete/{id}', [App\Http\Controllers\tujuan_Controller::class, 'delete'])->name('tujuan.delete');
 
     Route::get('/hasil', [App\Http\Controllers\Rekap_fuso_Controller::class, 'hasil'])->name('hasil.index');
+    Route::middleware('sopir')->get('/rekapsopir', [App\Http\Controllers\Rekap_fuso_Controller::class, 'hasilSopir'])->name('hasil.indexSopir');
     Route::post('/logout', [User_Controller::class, 'logout'])->name('logout');
 
     Gate::define('view-user', [UserPolicy::class, 'viewAny']);
@@ -131,6 +146,7 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
         Route::post('/user/store', [App\Http\Controllers\User_Controller::class, 'store'])->name('user.store');
         Route::get('/user/edit/{id}', [App\Http\Controllers\User_Controller::class, 'edit'])->name('user.edit');
         Route::patch('/user/update/{id}', [App\Http\Controllers\User_Controller::class, 'update'])->name('user.update');
+        Route::patch('/user/updateSopir/{id}', [App\Http\Controllers\User_Controller::class, 'updateSopir'])->name('user.update');
         Route::delete('/user/delete/{id}', [App\Http\Controllers\User_Controller::class, 'delete'])->name('user.delete');
     });
     

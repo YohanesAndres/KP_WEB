@@ -4,9 +4,6 @@
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 <div class="top-title no-space" style="margin-bottom:-15px">
   <div>
-    <a href="{{ route('home') }}"><img src="{{ asset('back.svg')}}" alt=""></a> 
-  </div>
-  <div>
     <div class="text-white text-center text-title"> Hasil</div>
   </div>
 </div>
@@ -32,7 +29,6 @@
         <th scope="col">PENDAPATAN TOTAL</th>
         <th scope="col">UANG JALAN</th>
         <th scope="col">PENDAPATAN BERSIH</th>
-        <th scope="col">FEE PERUSAHAAN</th>
         <!-- <th scope="col">Action</th> -->
       </tr>
     </thead>
@@ -137,7 +133,7 @@
             <td>
                 {{ number_format($totalJumlah - ($rekap_fuso_detailData->UangJalan->uang_Jalan), 0, ",", ".") }}
             </td>
-            <td>
+            <!-- <td>
                 @php
                     $fee = 0;
                     $uangjalans = ($rekap_fuso_detailData->UangJalan->uang_Jalan);
@@ -158,7 +154,7 @@
                     }
                 @endphp
                 {{ number_format($fee, 0, ",", "." ) }}
-            </td>
+            </td> -->
             <!-- <td>
                 <a href="/rekap_fusoDetail/edit/{{ $rekap_fuso_detailData->id }}" class="btn btn-primary">Edit</a>
                 <form action="{{ url('/rekap_fusoDetail/delete/'.$rekap_fuso_detailData->id) }}" method="post">

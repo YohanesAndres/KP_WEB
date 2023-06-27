@@ -65,9 +65,9 @@
         </div>
 
         <div class="form-group row">
-            <label for="nama_sopir" class="offset-sm-1 col-sm-3 col-form-label justify-content-center">Nama Sopir</label>
+            <label for="name" class="offset-sm-1 col-sm-3 col-form-label justify-content-center">Nama Sopir</label>
             <div class="col-sm-9">
-                <input type="text" name="nama_sopir" id="nama_sopir" class="form-control" placeholder="Nama Sopir" readonly>
+                <input type="text" name="name" id="name" class="form-control" placeholder="Nama Sopir" readonly>
                 @error('id_uang_jalan')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -205,7 +205,7 @@ $(document).ready(function() {
                 //dd(response);
                 var muatBongkar = response.Datajalan.uangjalan.uang_Jalan;
                 var kendaraan = response.Datajalan.uangjalan.kendaraan;
-                var namaSopir = response.Datajalan.uangjalan.kendaraan.namasopir.nama_sopir;
+                var namaSopir = response.Datajalan.uangjalan.kendaraan.namasopir.name;
                 const tanggal = response.Datajalan.tanggal_bongkar;
 
                 //console.log(namaSopir);
@@ -214,7 +214,7 @@ $(document).ready(function() {
                 $('#tanggal_bongkar').val(tanggal);
                 $('#plat').val(kendaraan.plat);
                 $('#tonase').val(kendaraan.tonase);
-                $('#nama_sopir').val(namaSopir);
+                $('#name').val(namaSopir);
                 $('#uang_jalan').val(muatBongkar);
             }
         });

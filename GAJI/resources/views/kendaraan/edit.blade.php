@@ -50,9 +50,9 @@
             <label for="id_namasopir" class="col-sm-3 col-form-label">Nama Sopir</label>
             <div class="col-sm-9">
             <select name="id_namasopir" id="id_namasopir" class="form-control">
-                @foreach ($tablenamasopirData as $item)
+                @foreach ($tableUserData as $item)
                     <option value="{{ $item->id }}" {{ $item->id == $kendaraan->id_namasopir ? 'selected' : '' }}>
-                        {{ $item->nama_sopir }}
+                        {{ $item->name }}
                     </option>
                 @endforeach
             </select>

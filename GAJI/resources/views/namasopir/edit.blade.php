@@ -23,14 +23,14 @@
 </br>
     
 <div class=formmarg>
-  <form action="{{ url('namasopir/update/'.$namasopir->id) }}" method="POST" enctype="multipart/form-data">
+  <form action="{{ url('namasopir/update/'.$user->id) }}" method="POST" enctype="multipart/form-data">
       @csrf
       @method('patch')
 
       <div class="form-group row">
             <label for="idSopir" class="col-sm-3 col-form-label">ID Sopir</label>
             <div class="col-sm-9">
-                <input type="number" name="idSopir" id="idSopir" class="form-control" value="{{$namasopir->idSopir}}" placeholder="Masukkan ID Sopir">
+                <input type="number" name="idSopir" id="idSopir" class="form-control" value="{{$user->idSopir}}" placeholder="Masukkan ID Sopir">
                 @error('idSopir')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -38,10 +38,10 @@
       </div>
 
       <div class="form-group row">
-            <label for="nama_sopir" class="col-sm-3 col-form-label">Nama Sopir</label>
+            <label for="name" class="col-sm-3 col-form-label">Nama Sopir</label>
             <div class="col-sm-9">
-                <input type="text" name="nama_sopir" id="nama_sopir" class="form-control" value="{{$namasopir->nama_sopir}}">
-                @error('nama_sopir')
+                <input type="text" name="name" id="name" class="form-control" value="{{$user->name}}">
+                @error('name')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
@@ -50,7 +50,7 @@
         <div class="form-group row">
             <label for="alamat" class="col-sm-3 col-form-label">Alamat Sopir</label>
             <div class="col-sm-9">
-                <input type="text" name="alamat" id="alamat" class="form-control" value="{{$namasopir->alamat}}">
+                <input type="text" name="alamat" id="alamat" class="form-control" value="{{$user->alamat}}">
                 @error('alamat')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -60,7 +60,7 @@
       <div class="form-group row">
             <label for="NIK" class="col-sm-3 col-form-label">NIK Sopir</label>
             <div class="col-sm-9">
-                <input type="text" name="NIK" id="NIK" class="form-control" value="{{$namasopir->NIK}}">
+                <input type="text" name="NIK" id="NIK" class="form-control" value="{{$user->NIK}}">
                 @error('NIK')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Kendaraan;
 use App\Models\Namasopir;
 use App\Models\Kategori;
+use App\Models\User;
 use Illuminate\Validation\Rule;
 
 class Kendaraan_Controller extends Controller
@@ -20,11 +21,11 @@ class Kendaraan_Controller extends Controller
     public function create()
     {
         $tablekategoriData = Kategori::all();
-        $tablenamasopirData = Namasopir::all();
+        $tableUserData = User::where('role', 'Sopir')->get();
 
         return view('kendaraan.create', [
             'tablekategoriData' => $tablekategoriData,
-            'tablenamasopirData' => $tablenamasopirData,
+            'tableUserData' => $tableUserData,
         ]);
     }
 
@@ -72,12 +73,12 @@ class Kendaraan_Controller extends Controller
        
         $kendaraan = Kendaraan::find($id);
         $tablekategoriData = Kategori::all();
-        $tablenamasopirData = Namasopir::all();
+        $tableUserData = User::where('role', 'Sopir')->get();
 
         return view('kendaraan.edit', [
             'kendaraan' => $kendaraan,
             'tablekategoriData' => $tablekategoriData,
-            'tablenamasopirData' => $tablenamasopirData,
+            'tableUserData' => $tableUserData,
         ]);
     }
 

@@ -15,6 +15,13 @@ class User_Controller extends Controller
         return view('user.index', compact('akun'));
     }
 
+    public function indexSopir()
+    {
+        $akun = User::where('role', 'Sopir')->get();
+
+        return view('namasopir.index', compact('akun'));
+    }
+
     public function create()
     {
         return view('user.create');
@@ -44,11 +51,19 @@ class User_Controller extends Controller
         return redirect()->route('user.index')->with('success', 'Akun berhasil ditambahkan');
     }
 
+
     public function edit($id)
     {
         $user = User::findOrFail($id);
     
         return view('user.edit', compact('user'));
+    }
+
+    public function editSopir($id)
+    {
+        $user = User::findOrFail($id);
+    
+        return view('namasopir.edit', compact('user'));
     }
 
     public function update(Request $request, $id)
@@ -74,6 +89,38 @@ class User_Controller extends Controller
         $user->save();
             
         return redirect()->route('user.index')->with('success', 'Akun berhasil diperbarui'); // Ganti 'dashboard' dengan rute yang sesuai
+        
+    }
+
+    public function updateSopir(Request $request, $id)
+    {
+        $validation = $request->validate([
+            'name' => 'required',
+            'idSopir' => 'required',
+            'alamat' => 'required|min:8',
+        ],
+        [
+            'name.required' => 'Nama tidak boleh kosong !', 
+            'idSopir.required' => 'ID Sopir tidak boleh kosong !',
+            'alamat.required' => 'Password tidak boleh kosong !',
+            // 'password.required' => 'Password tidak boleh kosong !',
+            // 'password.min' => 'Password harus memiliki minimal 8 karakter!',
+        ]);
+        
+        
+        $ext = $request->foto->getClientOriginalExtension();
+        $nama_file = $request->idSopir.'-'.time().".".$ext;
+        $path = $request->foto->storeAs("public",$nama_file);
+
+        $user = User::findOrFail($id);
+        $user->idSopir = $request->idSopir;
+        $user->name = $request->input('name');
+        $user->alamat = $request->alamat; 
+        $user->NIK = $request->NIK; 
+        $user->foto = $nama_file; // Menyimpan nama file foto ke dalam kolom 'foto'
+        $user->save();
+            
+        return redirect()->route('namasopir.index')->with('success', 'Data berhasil diperbarui'); // Ganti 'dashboard' dengan rute yang sesuai
         
     }
 

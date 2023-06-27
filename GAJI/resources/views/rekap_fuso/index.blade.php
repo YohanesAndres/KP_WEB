@@ -54,12 +54,12 @@
                     <a href="/rekap_fuso/edit/{{ $rekap_fusoData->id }}" class="btn btn-edit btn-lg text-center">Edit</a>
                 </div>
 
-                <form action="{{ url('/rekap_fuso/delete/'.$rekap_fusoData->id) }}" method="post" class = "d-flex justify-content-center">
+                <!-- <form action="{{ url('/rekap_fuso/delete/'.$rekap_fusoData->id) }}" method="post" class = "d-flex justify-content-center">
                     @csrf
                     @method('delete')
                     <input type="hidden" name="_method" value="delete">
                     <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus Rekap ini?')">Hapus</button>
-                </form>
+                </form> -->
             </div>
             </div>
 
@@ -119,7 +119,7 @@
                                 </td>
                                 
                                 <td>{{ $rekap_fuso_detailData->UangJalan->kendaraan->plat }}</td>
-                                <td>{{ $rekap_fuso_detailData->UangJalan->namaSopir->nama_sopir }}</td>
+                                <td>{{ $rekap_fuso_detailData->UangJalan->kendaraan->namasopir->name }}</td>
                                 <td>{{ $rekap_fuso_detailData->UangJalan->kendaraan->tonase }}</td>
                                 <td>{{ $rekap_fuso_detailData->quantity_muat_pks_bruto }}</td>
                                 <td>{{ $rekap_fuso_detailData->quantity_muat_pks_tarra }}</td>

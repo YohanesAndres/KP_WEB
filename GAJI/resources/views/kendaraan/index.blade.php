@@ -34,7 +34,7 @@
           <td>{{ ++$key }}</td>
           <td>{{ $kendaraanData->plat }}</td>
           <td>{{ number_format($kendaraanData->tonase,0,",","."); }}</td>
-          <td>{{ $kendaraanData->namasopir->nama_sopir }}</td>
+          <td>{{ $kendaraanData->namasopir->name }}</td>
           <td>{{ $kendaraanData->kategori}}</td>
           <td style="display:flex">
               <a href="/kendaraan/edit/{{ $kendaraanData->id }}" class="btn btn-edit">Edit</a>

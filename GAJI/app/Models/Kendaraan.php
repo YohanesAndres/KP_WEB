@@ -17,7 +17,7 @@ class Kendaraan extends Model
 
     public function namasopir()
     {
-        return $this->belongsTo(Namasopir::class, 'id_namasopir', 'id');
+        return $this->belongsTo(User::class, 'id_namasopir', 'id');
     }
 
     public function kategori()

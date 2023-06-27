@@ -50,8 +50,8 @@
             <div class="col-sm-9">
                 <select name="id_namasopir" id="id_namasopir" class="form-control">
                     <option value="">Pilih Nama Sopir</option>
-                    @foreach ($tablenamasopirData as $item)
-                    <option value="{{ $item->id }}">{{ $item->nama_sopir }}</option>
+                    @foreach ($tableUserData as $item)
+                    <option value="{{ $item->id }}">{{ $item->name }}</option>
                     @endforeach
                 </select>
                 @error('id_namasopir')
