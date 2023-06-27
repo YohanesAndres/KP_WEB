@@ -23,6 +23,7 @@
     <tr>
       <th scope="col">Nama</th>
       <th scope="col">Email</th>
+      <th scope="col">Role</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
@@ -31,6 +32,7 @@
     <tr>
         <td>{{ $account->name }}</td>
         <td>{{ $account->email }}</td>
+        <td>{{ $account->role }}</td>
         <td style="display:flex">   
           <a href="/user/edit/{{ $account->id }}" class="btn btn-edit">Edit</a>
           @if(auth()->user()->id !== $account->id || auth()->user()->role !== 'boss')

@@ -56,6 +56,19 @@
                 @enderror
             </div>
         </div>
+
+        <div class="form-group row">
+            <label for="role" class="col-sm-3 col-form-label">Role</label>
+            <div class="col-sm-9">
+                <select name="role" id="role" class="form-control">
+                    <option>Administrator</option>
+                    <option>Sopir</option>
+                </select>   
+                @error('role')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+        </div>
         
         <div class="form-group row">
             <div class="offset-sm-3 col-sm-9" >
