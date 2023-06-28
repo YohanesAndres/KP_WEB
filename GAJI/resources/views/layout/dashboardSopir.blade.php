@@ -28,8 +28,8 @@
         }
         .logout-container {
             display: flex;
-            margin-top: 190px;
-            margin-left: 30px;
+            margin-top: 50px;
+
         }
         .text-logout {
             margin-top: 10px;

@@ -11,7 +11,8 @@ class Data_tonase_Controller extends Controller
 {
     public function index()
     {
-     
+        #kalo descending
+        //$data_tonase = Data_tonase::orderByDesc('id')->get();
         $data_tonase = Data_tonase::all();
         return view('data_tonase.index', compact('data_tonase'));
     }
