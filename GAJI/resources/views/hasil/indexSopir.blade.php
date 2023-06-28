@@ -1,10 +1,10 @@
-@extends('layout.dashboard')
+@extends('layout.dashboardSopir')
 @section('content')
 
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 <div class="top-title no-space" style="margin-bottom:-15px">
   <div>
-    <div class="text-white text-center text-title"> Hasil</div>
+    <div class="text-white text-center text-title"> Detail Pendapatan Sopir</div>
   </div>
 </div>
 <hr>

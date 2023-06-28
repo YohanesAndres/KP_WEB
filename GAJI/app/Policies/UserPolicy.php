@@ -42,7 +42,12 @@ class UserPolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->role === 'boss' || $user->role === 'Administrator' ;
+    }
+
+    public function sopir(User $user)
+    {
+        return $user->role === 'Sopir';
     }
 
     /**
@@ -54,9 +59,7 @@ class UserPolicy
      */
     public function update(User $user, User $model)
     {
-        if($user->role == 'boss'){
-            return true;
-        }
+
     }
 
     /**
