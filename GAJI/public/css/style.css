@@ -420,3 +420,39 @@ table th {
     width: 620px;
     height: 300px;
   }
+
+  /* dash admin */
+  .sub-contentadmin{
+    background-color: white;
+    height: 60px;
+    width: 313px;
+    display: flex;
+    padding: 5px 10px;
+    align-items: center;
+  }
+  .subbadmin{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  
+  .subb2admin{
+    font-size: 14px;
+  }
+  
+  .lingkaranadmin{
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 100%;
+    margin-right: 35px;
+    margin-left: 15px;
+  }
+  
+  .souradmin{
+    width: 23px;
+    display: flex;
+    margin: 12px;
+  }

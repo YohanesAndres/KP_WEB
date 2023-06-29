@@ -42,45 +42,36 @@ foreach ($rekap_fusoDetail as $rekap_fuso_detailData) {
 
     <div style="margin-left:-35px">
     <div class="content-dash">
-        <div class="sub-content"> 
-            <div class="lingkaran border-green">
-                <img class="sour" src="Profit.png" alt="">
+        <div class="sub-contentadmin"> 
+            <div class="lingkaranadmin border-blue">
+                <img class="souradmin" src="man.png" alt="">
             </div>
-            <div class="subb">
+            <div class="subbadmin">
                 <div>Jumlah Sopir</div>
-                <div class="subb2">{{ $jumlahSopir }}</div>
+                <div class="subb2admin">{{ $jumlahSopir }}</div>
             </div>
         </div>
         
-        <div class="sub-content">
-            <div class="lingkaran border-ungu">
-                <img class="sour" src="locate.png" alt="">
+        <div class="sub-contentadmin">
+            <div class="lingkaranadmin border-ungu">
+                <img class="souradmin" src="locate.png" alt="">
             </div>
-            <div class="subb">
+            <div class="subbadmin">
                 <div>Kendaraan Digunakan</div>
-                <div class="subb2">{{count($update_mobil)}}</div>
+                <div class="subb2admin">{{count($update_mobil)}}</div>
             </div>
         </div>
 
-        <div class="sub-content">
-            <div class="lingkaran border-red">
-                <img class="sour" src="truk.png" alt="">
+        <div class="sub-contentadmin">
+            <div class="lingkaranadmin border-red">
+                <img class="souradmin" src="truk.png" alt="">
             </div>
-            <div class="subb">
+            <div class="subbadmin">
                 <div>Jumlah Kendaraan</div>
-                <div class="subb2">{{count($kendaraan)}}</div>
+                <div class="subb2admin">{{count($kendaraan)}}</div>
             </div>
         </div>
 
-        <div class="sub-content">
-            <div class="lingkaran border-blue ">
-                <img class="sour" src="money.png" alt="">
-            </div>
-            <div class="subb">
-                <div>Sisa Kas Uang Jalan</div>
-                <div class="subb2">{{number_format($hasil,0,",",".");}}</div>
-            </div>
-        </div>
     </div>
 
     <div class="content1">

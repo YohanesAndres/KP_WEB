@@ -43,8 +43,8 @@ foreach ($rekap_fusoDetail as $rekap_fuso_detailData) {
     <div style="margin-left:-35px">
     <div class="content-dash">
         <div class="sub-content"> 
-            <div class="lingkaran border-green">
-                <img class="sour" src="Profit.png" alt="">
+            <div class="lingkaran border-blue">
+                <img class="sour" src="man.png" alt="">
             </div>
             <div class="subb">
                 <div>Jumlah Sopir</div>
