@@ -32,7 +32,7 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
             if (Auth::user()->role === 'Sopir') {
                 return redirect('/rekapsopir');
             } else if (Auth::user()->role === 'Administrator') {
-                return redirect('/home');
+                return redirect('/home2');
             } else if (Auth::user()->role === 'boss') {
                 return redirect('/home');
             }
@@ -41,7 +41,9 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
 
     Gate::define('view-all', [UserPolicy::class, 'create']);
     Route::middleware('can:view-all')->group(function () {
-        Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+        
+        Route::get('/home2', [App\Http\Controllers\HomeController::class, 'indexAdmin'])->name('home2');
+        
         
         Route::get('/data_tonase', [App\Http\Controllers\Data_tonase_Controller::class, 'index'])->name('data_tonase.index');
         Route::get('/data_tonase/create', [App\Http\Controllers\Data_tonase_Controller::class, 'create'])->name('data_tonase.create');
@@ -144,6 +146,7 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
         Gate::define('view-user', [UserPolicy::class, 'viewAny']);
 
         Route::middleware('can:view-user')->group(function () {
+            Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
             Route::get('/user', [App\Http\Controllers\User_Controller::class, 'index'])->name('user.index');
             Route::get('/user/create', [App\Http\Controllers\User_Controller::class, 'create'])->name('user.create');
             Route::post('/user/store', [App\Http\Controllers\User_Controller::class, 'store'])->name('user.store');

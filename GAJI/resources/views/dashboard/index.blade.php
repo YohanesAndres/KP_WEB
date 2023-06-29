@@ -6,6 +6,8 @@ foreach ($kas_uj as $kas_ujData) {
 $hasil += $kas_ujData->jumlah_uang;
 }
 
+$jumlahSopir = $users ? count($users) : 0;
+
 
 $fee = 0;
 foreach ($rekap_fusoDetail as $rekap_fuso_detailData) {
@@ -45,6 +47,48 @@ foreach ($rekap_fusoDetail as $rekap_fuso_detailData) {
                 <img class="sour" src="Profit.png" alt="">
             </div>
             <div class="subb">
+                <div>Jumlah Sopir</div>
+                <div class="subb2">{{ $jumlahSopir }}</div>
+            </div>
+        </div>
+        
+        <div class="sub-content">
+            <div class="lingkaran border-ungu">
+                <img class="sour" src="locate.png" alt="">
+            </div>
+            <div class="subb">
+                <div>Kendaraan dijalan</div>
+                <div class="subb2">{{count($update_mobil)}}</div>
+            </div>
+        </div>
+
+        <div class="sub-content">
+            <div class="lingkaran border-red">
+                <img class="sour" src="truk.png" alt="">
+            </div>
+            <div class="subb">
+                <div>Jumlah Kendaraan</div>
+                <div class="subb2">{{count($kendaraan)}}</div>
+            </div>
+        </div>
+
+        <div class="sub-content">
+            <div class="lingkaran border-blue ">
+                <img class="sour" src="money.png" alt="">
+            </div>
+            <div class="subb">
+                <div>Sisa Kas Uang Jalan</div>
+                <div class="subb2">{{number_format($hasil,0,",",".");}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-dash">
+        <div class="sub-content"> 
+            <div class="lingkaran border-green">
+                <img class="sour" src="Profit.png" alt="">
+            </div>
+            <div class="subb">
                 <div>Fee Perusahaan</div>
                 <div class="subb2">{{ number_format(ceil($fee), 0, ",", "." ) }}</div>
             </div>
@@ -55,7 +99,7 @@ foreach ($rekap_fusoDetail as $rekap_fuso_detailData) {
                 <img class="sour" src="locate.png" alt="">
             </div>
             <div class="subb">
-                <div>Update Mobil</div>
+                <div>Kendaraan dijalan</div>
                 <div class="subb2">{{count($update_mobil)}}</div>
             </div>
         </div>
@@ -65,7 +109,7 @@ foreach ($rekap_fusoDetail as $rekap_fuso_detailData) {
                 <img class="sour" src="truk.png" alt="">
             </div>
             <div class="subb">
-                <div>Kendaraan</div>
+                <div>Jumlah Kendaraan</div>
                 <div class="subb2">{{count($kendaraan)}}</div>
             </div>
         </div>
@@ -89,32 +133,52 @@ foreach ($rekap_fusoDetail as $rekap_fuso_detailData) {
   <tr>
   <th scope="col">No</th>
     <th scope="col">Tanggal Muat</th>
-    <th scope="col">Plat </th>
-    <th scope="col">Kategori </th>
-    <!-- <th scope="col">Barcode</th> -->
-    <th scope="col">Muat Bongkar </th>
-    <th scope="col">Tujuan </th>
-    <th scope="col">Uang Jalan </th>
-    <th scope="col">Tanggal Bongkar </th>
-    <th scope="col">Keterangan</th>
+    <th scope="col">Tanggal Bongkar</th>
+    <th scope="col">Plat Kendaraan</th>
+    <th scope="col">Nama Sopir</th>
+    <th scope="col">Tujuan</th>
+    <th scope="col">PKS</th>
+    <th scope="col">Bongkar</th>
+    <th scope="col">Fee Perusahaan</th>
   </tr>
 </thead>
 <tbody>
-    @foreach($uang_jalan as $key => $uang_jalanData)
+    @foreach($rekap_fusoDetail as $key => $hasilData)
   <tr>
       <td>{{ ++$key }}</td>
-          <td>{{ date('Y-m-d',strtotime($uang_jalanData->tanggal)) }}</td>
-          <td>{{ $uang_jalanData->kendaraan->plat }}</td>
-          <td>{{ $uang_jalanData->kendaraan->kategori }}</td>
-          <!-- <td>{{ $uang_jalanData->barcode }}</td> -->
-          <td>{{ $uang_jalanData->muatbongkar->muatBongkar }}</td>
-          <td>{{ $uang_jalanData->muatbongkar->tujuan->tujuan }}</td>
-          <td>{{ number_format($uang_jalanData->uang_Jalan,0,",","."); }}</td>
-          <td>
-            @if ($uang_jalanData->update_mobil->status == 'selesai')
-              {{ $uang_jalanData->update_mobil->tanggal_bongkar ?? '' }}
+        <td>{{ date('Y-m-d',strtotime($hasilData->UangJalan->tanggal)) }}</td>
+        <td>
+            @if ($hasilData->UangJalan->update_mobil->status == 'selesai')
+                {{ $hasilData->UangJalan->update_mobil->tanggal_bongkar ?? '' }}
             @endif
-          <td>{{ $uang_jalanData->keterangan }}</td>
+        </td>
+        <td>{{ $hasilData->UangJalan->kendaraan->plat }}</td>
+        <td>{{ $hasilData->UangJalan->kendaraan->namasopir->name }}</td>
+        <td>{{ $hasilData->UangJalan->muatbongkar->tujuan->tujuan }}</td>
+        <td>{{ $hasilData->quantity_muat_pks_bruto - $hasilData->quantity_muat_pks_tarra }}</td>
+        <td>{{ $hasilData->quantity_bongkar_bruto - $hasilData->quantity_bongkar_tarra }}</td>
+        <td>
+            @php
+                $fee = 0;
+                $uangjalans = ($hasilData->UangJalan->uang_Jalan);
+                if ($uangjalans < 0){
+                    $fee = 0;
+                }
+                elseif ($uangjalans < 200000) {
+                    $fee = 8 * ($hasilData->quantity_bongkar_bruto - $hasilData->quantity_bongkar_tarra);
+                }
+                elseif ($uangjalans >= 200001 && $uangjalans <= 1000000) {
+                    $fee = 15 * ($hasilData->quantity_bongkar_bruto - $hasilData->quantity_bongkar_tarra);
+                }
+                elseif ($uangjalans >= 1000001 && $uangjalans <= 2999999) {
+                    $fee = 24 * ($hasilData->quantity_bongkar_bruto - $hasilData->quantity_bongkar_tarra);;
+                }
+                else {
+                    $fee = 30 * ($hasilData->quantity_bongkar_bruto - $hasilData->quantity_bongkar_tarra);;
+                }
+            @endphp
+            {{ number_format($fee, 0, ",", "." ) }}
+        </td>
   </tr>
   @endforeach
 </tbody>

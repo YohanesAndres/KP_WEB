@@ -30,21 +30,11 @@
                     <div>PT. Alam Wijaya Logistik</div>
             </div>
             <ul class="sidebar-menu" style="overflow-y: scroll">
-                @if (Auth::check())
-                    @if (Auth::user()->role === 'Administrator')
-                        <li class="{{ Request::is('home2*') ? 'active' : '' }}">
-                            <a href="{{ route('home2') }}">
-                                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                            </a>
-                        </li>
-                    @elseif (Auth::user()->role === 'boss')
-                        <li class="{{ Request::is('home*') ? 'active' : '' }}">
-                            <a href="{{ route('home') }}">
-                                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                            </a>
-                        </li>
-                    @endif
-                @endif
+                <li class="{{ Request::is('home2*') ? 'active' : '' }}">
+                    <a href="{{ route('home2') }}">
+                        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                    </a>
+                </li>
                 <li class="{{ Request::is('uang_jalan*') ? 'active' : '' }}">
                     <a href="{{ route('uang_jalan.index') }}">
                         <i class="fa fa-uang_jalan"></i> <span>Uang Jalan</span>

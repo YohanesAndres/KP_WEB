@@ -47,7 +47,7 @@ class UserPolicy
 
     public function sopir(User $user)
     {
-        return $user->role === 'Sopir';
+        return $user->role === 'Administrator';
     }
 
     /**
