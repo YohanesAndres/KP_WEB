@@ -97,13 +97,13 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
         Route::get('/rekap/edit/{id}', [App\Http\Controllers\Rekap_Controller::class, 'edit'])->name('rekap.edit');
         Route::patch('/rekap/update/{id}', [App\Http\Controllers\Rekap_Controller::class, 'update'])->name('rekap.update');
         Route::delete('/rekap/delete/{id}', [App\Http\Controllers\Rekap_Controller::class, 'delete'])->name('rekap.delete');
-        
+        // Tidak gunaa
         Route::get('/rekap_detail/create', [App\Http\Controllers\Rekap_Controller::class, 'createDetail'])->name('rekap_detail.create');
         Route::post('/rekap_detail/store', [App\Http\Controllers\Rekap_Controller::class, 'storeDetail'])->name('rekap_detail.store');
         Route::get('/rekap_detail/edit/{id}', [App\Http\Controllers\Rekap_Controller::class, 'edit'])->name('rekap_detail.edit');
         Route::patch('/rekap_detail/update/{id}', [App\Http\Controllers\Rekap_Controller::class, 'update'])->name('rekap_detail.update');
         Route::delete('/rekap_detail/delete/{id}', [App\Http\Controllers\Rekap_Controller::class, 'delete'])->name('rekap_detail.delete');
-        
+        // Berguna
         Route::get('/rekap_fuso', [App\Http\Controllers\Rekap_fuso_Controller::class, 'index'])->name('rekap_fuso.index');
         Route::get('/rekap_fuso/create', [App\Http\Controllers\Rekap_fuso_Controller::class, 'create'])->name('rekap_fuso.create');
         Route::post('/rekap_fuso/store', [App\Http\Controllers\Rekap_fuso_Controller::class, 'store'])->name('rekap_fuso.store');

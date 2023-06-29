@@ -13,10 +13,10 @@ class Rekap_fuso_Controller extends Controller
 {
     public function index()
     {
-     
+        $sopirId = auth()->user()->id; // Mendapatkan ID sopir yang sedang login
+    
         $rekap_fuso = Rekap_fuso::all();
         $rekap_fusoDetail = Rekap_fuso_detail::all();
-
         
         return view('rekap_fuso.index', compact('rekap_fuso', 'rekap_fusoDetail'));
     }
@@ -31,7 +31,6 @@ class Rekap_fuso_Controller extends Controller
     public function hasilSopir()
     {
         $sopirId = auth()->user()->id; // Mendapatkan ID sopir yang sedang login
-        
         $hasil = Rekap_fuso_detail::whereHas('UangJalan.kendaraan.namasopir', function ($query) use ($sopirId) {
             $query->where('users.id', $sopirId);
         })->get();

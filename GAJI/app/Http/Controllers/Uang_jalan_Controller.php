@@ -15,7 +15,7 @@ class Uang_jalan_Controller extends Controller
 {
     public function index()
     {
-     
+        
         $uang_jalan = Uang_jalan::all();
         return view('uang_jalan.index', compact('uang_jalan'));
     }
