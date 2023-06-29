@@ -39,14 +39,16 @@ class Data_tonase_Controller extends Controller
     public function store(Request $request)
     {
         $validation = $request->validate([
-            'no_spk' => 'required',
-            'no_do' => 'required',
+            'no_spk' => 'required|unique:data_tonase,no_spk,idExcept',
+            'no_do' => 'required|unique:data_tonase,no_do,idExcept',
             'tonase_actual' => 'required',
             'id_tujuan' => 'required',
         ],
         [
             'no_spk.required' => 'Data tidak boleh kosong !', 
             'no_do.required' => 'Data tidak boleh kosong !',
+            'no_spk.unique' => 'NO SPK sudah ada di database !', 
+            'no_do.unique' => 'NO DO sudah ada di database !',
             'tonase_actual.required' => 'Data tidak boleh kosong !',
             'id_tujuan.required' => 'Silahkan pilih tujuan !',
         ]);
@@ -77,14 +79,16 @@ class Data_tonase_Controller extends Controller
     public function update(Request $request, $id)
     {
         $validation = $request->validate([
-            'no_spk' => 'required',
-            'no_do' => 'required',
+            'no_spk' => 'required|unique:data_tonase,no_spk,'.$id,
+            'no_do' => 'required|unique:data_tonase,no_do,'.$id,
             'tonase_actual' => 'required',
             'id_tujuan' => 'required',
         ],
         [
             'no_spk.required' => 'Data tidak boleh kosong !', 
             'no_do.required' => 'Data tidak boleh kosong !',
+            'no_spk.unique' => 'NO SPK sudah ada di database !', 
+            'no_do.unique' => 'NO DO sudah ada di database !',
             'tonase_actual.required' => 'Data tidak boleh kosong !',
             'id_tujuan.required' => 'Silahkan pilih tujuan !',
         ]);

@@ -22,12 +22,13 @@ class Tujuan_Controller extends Controller
     public function store(Request $request)
     {
         $validation = $request->validate([
-            'tujuan' => 'required',
+            'tujuan' => 'required|unique:tujuans,tujuan,idExcept',
             'alamat' => 'required',
         ],
         [
             'tujuan.required' => 'Data tidak boleh kosong !', 
             'alamat.required' => 'Data tidak boleh kosong !', 
+            'tujuan.unique' => 'Tujuan sudah ada di database !', 
         ]);
         
         $tujuan = new tujuan;
@@ -51,12 +52,13 @@ class Tujuan_Controller extends Controller
     public function update(Request $request, $id)
     {
         $validation = $request->validate([
-            'tujuan' => 'required',
+            'tujuan' => 'required|unique:tujuans,tujuan,'.$id,
             'alamat' => 'required',
         ],
         [
             'tujuan.required' => 'Data tidak boleh kosong !', 
             'alamat.required' => 'Data tidak boleh kosong !', 
+            'tujuan.unique' => 'Tujuan sudah ada di database !', 
         ]);
         
         $tujuan = tujuan::findOrFail($id);

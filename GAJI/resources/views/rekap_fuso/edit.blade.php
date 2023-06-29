@@ -26,15 +26,7 @@
     <form action="{{ url('rekap_fuso/update/'.$rekap_fuso->id) }}" method="POST">
         @csrf
         @method('patch')
-        <div class="form-group row">
-            <label for="alamat" class="col-sm-3 col-form-label">Alamat</label>
-            <div class="col-sm-9">
-                <input type="text" name="alamat" id="alamat" class="form-control" value="{{$rekap_fuso->alamat}}" readonly>
-                @error('id_dataTonase')
-                <span class="text-danger">{{ $message }}</span>
-                @enderror
-            </div>
-        </div>
+        
 
         <div class="form-group row">
             <label for="id_dataTonase" class="col-sm-3 col-form-label">NO DO</label>
@@ -45,6 +37,16 @@
                         <option value="{{ $item->id }}" {{ $item->id == $rekap_fuso->id_dataTonase ? 'selected' : '' }}>{{ $item->no_do }}</option>
                     @endforeach
                 </select>
+                @error('id_dataTonase')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="alamat" class="col-sm-3 col-form-label">Alamat</label>
+            <div class="col-sm-9">
+                <input type="text" name="alamat" id="alamat" class="form-control" value="{{$rekap_fuso->alamat}}" readonly>
                 @error('id_dataTonase')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror

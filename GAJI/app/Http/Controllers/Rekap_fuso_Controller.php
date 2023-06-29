@@ -68,9 +68,10 @@ class Rekap_fuso_Controller extends Controller
     {
         $validation = $request->validate([
             'id_dataTonase' => 'required',
-            'no_kontrak' => 'required',
+            'no_kontrak' => 'required|unique:rekap_fuso,no_kontrak,idExcept',
         ],
         [
+            'no_kontrak.unique' => 'NO Kontrak sudah ada di database !',
             'no_kontrak.required' => 'Data tidak boleh kosong !',
             'id_dataTonase.required' => 'Silahkan pilih No DO !',
         ]);
@@ -174,9 +175,10 @@ class Rekap_fuso_Controller extends Controller
     {
         $validation = $request->validate([
             'id_dataTonase' => 'required',
-            'no_kontrak' => 'required',
+            'no_kontrak' => 'required|unique:rekap_fuso,no_kontrak,'.$id,
         ],
         [
+            'no_kontrak.unique' => 'NO Kontrak sudah ada di database !',
             'no_kontrak.required' => 'Data tidak boleh kosong !',
             'id_dataTonase.required' => 'Silahkan pilih No DO !',
         ]);
