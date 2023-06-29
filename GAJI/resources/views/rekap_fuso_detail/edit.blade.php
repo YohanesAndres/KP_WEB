@@ -62,10 +62,12 @@
             </div>
         </div>
 
+        
+
         <div class="form-group row">
         <label for="nama_sopir" class="offset-sm-1 col-sm-3 col-form-label justify-content-center" >Nama Sopir</label>
             <div class="col-sm-9">
-            <input type="text" name="nama_sopir" id="nama_sopir" class="form-control" value="{{ old('nama_sopir', $rekap_fusoDetail->UangJalan->kendaraan->namasopir->nama_sopir) }}" placeholder="Nama Sopir">
+            <input type="text" name="nama_sopir" id="nama_sopir" class="form-control" value="{{ old('nama_sopir', $rekap_fusoDetail->UangJalan->kendaraan->namasopir->name) }}" placeholder="Nama Sopir">
                 @error('id_uang_jalan')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror

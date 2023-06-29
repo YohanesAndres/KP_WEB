@@ -57,33 +57,11 @@ foreach ($rekap_fusoDetail as $rekap_fuso_detailData) {
                 <img class="sour" src="locate.png" alt="">
             </div>
             <div class="subb">
-                <div>Kendaraan dijalan</div>
+                <div>Kendaraan Digunakan</div>
                 <div class="subb2">{{count($update_mobil)}}</div>
             </div>
         </div>
 
-        <div class="sub-content">
-            <div class="lingkaran border-red">
-                <img class="sour" src="truk.png" alt="">
-            </div>
-            <div class="subb">
-                <div>Jumlah Kendaraan</div>
-                <div class="subb2">{{count($kendaraan)}}</div>
-            </div>
-        </div>
-
-        <div class="sub-content">
-            <div class="lingkaran border-blue ">
-                <img class="sour" src="money.png" alt="">
-            </div>
-            <div class="subb">
-                <div>Sisa Kas Uang Jalan</div>
-                <div class="subb2">{{number_format($hasil,0,",",".");}}</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="content-dash">
         <div class="sub-content"> 
             <div class="lingkaran border-green">
                 <img class="sour" src="Profit.png" alt="">
@@ -91,26 +69,6 @@ foreach ($rekap_fusoDetail as $rekap_fuso_detailData) {
             <div class="subb">
                 <div>Fee Perusahaan</div>
                 <div class="subb2">{{ number_format(ceil($fee), 0, ",", "." ) }}</div>
-            </div>
-        </div>
-        
-        <div class="sub-content">
-            <div class="lingkaran border-ungu">
-                <img class="sour" src="locate.png" alt="">
-            </div>
-            <div class="subb">
-                <div>Kendaraan dijalan</div>
-                <div class="subb2">{{count($update_mobil)}}</div>
-            </div>
-        </div>
-
-        <div class="sub-content">
-            <div class="lingkaran border-red">
-                <img class="sour" src="truk.png" alt="">
-            </div>
-            <div class="subb">
-                <div>Jumlah Kendaraan</div>
-                <div class="subb2">{{count($kendaraan)}}</div>
             </div>
         </div>
 

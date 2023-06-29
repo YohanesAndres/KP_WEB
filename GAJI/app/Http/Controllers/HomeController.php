@@ -33,7 +33,10 @@ class HomeController extends Controller
         $kas_uj = Kas_uj::all();
         $rekap_fusoDetail = Rekap_fuso_detail::all();
         $hasil = Rekap_fuso_detail::all();
-        $update_mobil= update_mobil::where('tanggal_bongkar','<>','')->get();
+        $update_mobil = update_mobil::where(function ($query) {
+            $query->orWhereNull('tanggal_bongkar');
+        })
+        ->get();
         $kendaraan = Kendaraan::all();
         $users = User::where('role', 'Sopir')->get();
         $uang_jalan=uang_jalan::latest()->limit(20)->get();
@@ -44,9 +47,13 @@ class HomeController extends Controller
     {
         $kas_uj = Kas_uj::all();
         $rekap_fusoDetail = Rekap_fuso_detail::all();
-        $update_mobil= update_mobil::where('tanggal_bongkar','<>','')->get();
+        $update_mobil = update_mobil::where(function ($query) {
+            $query->orWhereNull('tanggal_bongkar');
+        })
+        ->get();
+        $users = User::where('role', 'Sopir')->get();
         $kendaraan = Kendaraan::all();
         $uang_jalan=uang_jalan::latest()->limit(20)->get();
-        return view('dashboard.indexAdmin', compact('kas_uj', 'rekap_fusoDetail','update_mobil','kendaraan','uang_jalan'));
+        return view('dashboard.indexAdmin', compact('kas_uj', 'rekap_fusoDetail','update_mobil','kendaraan','uang_jalan','users'));
     }
 }

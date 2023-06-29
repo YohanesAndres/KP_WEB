@@ -6,6 +6,8 @@ foreach ($kas_uj as $kas_ujData) {
 $hasil += $kas_ujData->jumlah_uang;
 }
 
+$jumlahSopir = $users ? count($users) : 0;
+
 
 $fee = 0;
 foreach ($rekap_fusoDetail as $rekap_fuso_detailData) {
@@ -45,8 +47,8 @@ foreach ($rekap_fusoDetail as $rekap_fuso_detailData) {
                 <img class="sour" src="Profit.png" alt="">
             </div>
             <div class="subb">
-                <div>Fee Perusahaan</div>
-                <div class="subb2">{{ number_format(ceil($fee), 0, ",", "." ) }}</div>
+                <div>Jumlah Sopir</div>
+                <div class="subb2">{{ $jumlahSopir }}</div>
             </div>
         </div>
         
@@ -55,7 +57,7 @@ foreach ($rekap_fusoDetail as $rekap_fuso_detailData) {
                 <img class="sour" src="locate.png" alt="">
             </div>
             <div class="subb">
-                <div>Update Mobil</div>
+                <div>Kendaraan Digunakan</div>
                 <div class="subb2">{{count($update_mobil)}}</div>
             </div>
         </div>
@@ -65,7 +67,7 @@ foreach ($rekap_fusoDetail as $rekap_fuso_detailData) {
                 <img class="sour" src="truk.png" alt="">
             </div>
             <div class="subb">
-                <div>Kendaraan</div>
+                <div>Jumlah Kendaraan</div>
                 <div class="subb2">{{count($kendaraan)}}</div>
             </div>
         </div>
@@ -89,31 +91,18 @@ foreach ($rekap_fusoDetail as $rekap_fuso_detailData) {
   <tr>
   <th scope="col">No</th>
     <th scope="col">Tanggal Muat</th>
+    <th scope="col">Status </th>
     <th scope="col">Plat </th>
-    <th scope="col">Kategori </th>
-    <!-- <th scope="col">Barcode</th> -->
-    <th scope="col">Muat Bongkar </th>
-    <th scope="col">Tujuan </th>
-    <th scope="col">Uang Jalan </th>
-    <th scope="col">Tanggal Bongkar </th>
-    <th scope="col">Keterangan</th>
+    <th scope="col">Keterangan </th>
   </tr>
 </thead>
 <tbody>
-    @foreach($uang_jalan as $key => $uang_jalanData)
+    @foreach($update_mobil as $key => $uang_jalanData)
   <tr>
       <td>{{ ++$key }}</td>
           <td>{{ date('Y-m-d',strtotime($uang_jalanData->tanggal)) }}</td>
-          <td>{{ $uang_jalanData->kendaraan->plat }}</td>
-          <td>{{ $uang_jalanData->kendaraan->kategori }}</td>
-          <!-- <td>{{ $uang_jalanData->barcode }}</td> -->
-          <td>{{ $uang_jalanData->muatbongkar->muatBongkar }}</td>
-          <td>{{ $uang_jalanData->muatbongkar->tujuan->tujuan }}</td>
-          <td>{{ number_format($uang_jalanData->uang_Jalan,0,",","."); }}</td>
-          <td>
-            @if ($uang_jalanData->update_mobil->status == 'selesai')
-              {{ $uang_jalanData->update_mobil->tanggal_bongkar ?? '' }}
-            @endif
+          <td>{{ $uang_jalanData->status }}</td>
+          <td>{{ $uang_jalanData->uangjalan->kendaraan->plat }}</td>
           <td>{{ $uang_jalanData->keterangan }}</td>
   </tr>
   @endforeach
