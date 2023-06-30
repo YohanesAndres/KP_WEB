@@ -4,7 +4,13 @@
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 <div class="top-title no-space" style="margin-bottom:-15px">
   <div>
-    <a href="{{ route('home') }}"><img src="{{ asset('back.svg')}}" alt=""></a> 
+    @if (Auth::check())
+        @if (Auth::user()->role === 'Administrator')
+                <a href="{{ route('home2') }}"><img src="{{ asset('back.svg')}}" alt=""></a> 
+        @elseif (Auth::user()->role === 'boss')
+                <a href="{{ route('home') }}"><img src="{{ asset('back.svg')}}" alt=""></a>   
+        @endif
+    @endif
   </div>
   <div>
     <div class="text-white text-center text-title"> Muat-Bongkar</div>
