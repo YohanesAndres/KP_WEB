@@ -96,17 +96,12 @@ class User_Controller extends Controller
     {
         $validation = $request->validate([
             'name' => 'required',
-            'idSopir' => 'required|min:4|max:4|unique:users,idSopir,'.$id,
             'alamat' => 'required',
             'foto' => 'required',
             'NIK' => 'required|min:16|unique:users,NIK,'.$id,
         ],
         [
             'name.required' => 'Nama tidak boleh kosong !', 
-            'idSopir.required' => 'ID Sopir tidak boleh kosong !',
-            'idSopir.unique' => 'ID Sopir sudah terdaftar !',
-            'idSopir.min' => 'ID Sopir harus memiliki minimal 4 karakter !',
-            'idSopir.max' => 'ID Sopir harus memiliki maksimal 4 karakter !',
             'alamat.required' => 'Alamat tidak boleh kosong !',
             'NIK.required' => 'NIK tidak boleh kosong !',
             'NIK.min' => 'NIK harus memiliki minimal 16 karakter!',
