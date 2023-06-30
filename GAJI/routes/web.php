@@ -40,7 +40,7 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
     })->middleware(['auth', 'verified']);
 
     Gate::define('view-all', [UserPolicy::class, 'create']);
-    Route::middleware('can:view-all')->group(function () {
+    Route::middleware('can:view-all','preventBackHistory','admin')->group(function () {
         
         Route::get('/home2', [App\Http\Controllers\HomeController::class, 'indexAdmin'])->name('home2');
         
@@ -142,19 +142,18 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
 
         Route::get('/hasil', [App\Http\Controllers\Rekap_fuso_Controller::class, 'hasil'])->name('hasil.index');
         
+    });
+    Gate::define('view-user', [UserPolicy::class, 'viewAny']);
 
-        Gate::define('view-user', [UserPolicy::class, 'viewAny']);
-
-        Route::middleware('can:view-user')->group(function () {
-            Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-            Route::get('/user', [App\Http\Controllers\User_Controller::class, 'index'])->name('user.index');
-            Route::get('/user/create', [App\Http\Controllers\User_Controller::class, 'create'])->name('user.create');
-            Route::post('/user/store', [App\Http\Controllers\User_Controller::class, 'store'])->name('user.store');
-            Route::get('/user/edit/{id}', [App\Http\Controllers\User_Controller::class, 'edit'])->name('user.edit');
-            Route::patch('/user/update/{id}', [App\Http\Controllers\User_Controller::class, 'update'])->name('user.update');
-            Route::patch('/user/updateSopir/{id}', [App\Http\Controllers\User_Controller::class, 'updateSopir'])->name('user.update');
-            Route::delete('/user/delete/{id}', [App\Http\Controllers\User_Controller::class, 'delete'])->name('user.delete');
-        });
+    Route::middleware('can:view-user','preventBackHistory','boss')->group(function () {
+        Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+        Route::get('/user', [App\Http\Controllers\User_Controller::class, 'index'])->name('user.index');
+        Route::get('/user/create', [App\Http\Controllers\User_Controller::class, 'create'])->name('user.create');
+        Route::post('/user/store', [App\Http\Controllers\User_Controller::class, 'store'])->name('user.store');
+        Route::get('/user/edit/{id}', [App\Http\Controllers\User_Controller::class, 'edit'])->name('user.edit');
+        Route::patch('/user/update/{id}', [App\Http\Controllers\User_Controller::class, 'update'])->name('user.update');
+        Route::patch('/user/updateSopir/{id}', [App\Http\Controllers\User_Controller::class, 'updateSopir'])->name('user.update');
+        Route::delete('/user/delete/{id}', [App\Http\Controllers\User_Controller::class, 'delete'])->name('user.delete');
     });
 
     Route::get('/kendaraan/get-kategori/{id}', [App\Http\Controllers\Kendaraan_Controller::class, 'getKategori']);
