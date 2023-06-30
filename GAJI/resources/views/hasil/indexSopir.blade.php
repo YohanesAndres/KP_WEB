@@ -46,7 +46,7 @@
         @foreach($hasil as $key => $rekap_fuso_detailData)
         <tr>
             <!-- <td>{{ ++$key }}</td> -->
-            <td>{{ $rekap_fuso_detailData->UangJalan->nomorUJ }}</td>
+            <td>{{ sprintf('%06d', $rekap_fuso_detailData->UangJalan->nomorUJ) }}</td>
             <td>{{ date('Y-m-d',strtotime($rekap_fuso_detailData->UangJalan->tanggal)) }}</td>
             <td>
                 @if ($rekap_fuso_detailData->UangJalan->update_mobil->status == 'selesai')
