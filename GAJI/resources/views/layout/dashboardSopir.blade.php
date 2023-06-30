@@ -57,7 +57,7 @@
                 <hr>
                 <div class="profile-info">
                     <h4>Nama&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ Auth::user()->name }}</h4>
-                    <h4>ID Sopir&nbsp;&nbsp;: {{ Auth::user()->idSopir }}</h4>
+                    <!-- <h4>ID Sopir&nbsp;&nbsp;: {{ Auth::user()->idSopir }}</h4> -->
                     <p>Alamat&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ Auth::user()->alamat }}</p>
                     <p>Nomor NIK&nbsp;: {{ Auth::user()->NIK }}</p>
                 </div>

@@ -23,7 +23,7 @@
 <table id="tabel-data" class="table table-striped table-bordered" width="100%" cellspacing="0">
   <thead>
     <tr>
-      <th scope="col">ID Sopir</th>
+      <!-- <th scope="col">ID Sopir</th> -->
       <th scope="col">Nama</th>
       <th scope="col">Alamat</th>
       <th scope="col">NIK</th>
@@ -34,7 +34,7 @@
   <tbody>
       @foreach($akun as $account)
     <tr>
-        <td>{{ $account->idSopir }}</td>
+        <!-- <td>{{ $account->idSopir }}</td> -->
         <td>{{ $account->name }}</td>
         <td>{{ $account->alamat }}</td>
         <td>{{ $account->NIK }}</td>
