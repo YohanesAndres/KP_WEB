@@ -27,7 +27,7 @@
       @csrf
       @method('patch')
 
-      <div class="form-group row">
+      <!-- <div class="form-group row">
             <label for="idSopir" class="col-sm-3 col-form-label">ID Sopir</label>
             <div class="col-sm-9">
                 <input type="number" name="idSopir" id="idSopir" class="form-control" value="{{$user->idSopir}}" placeholder="Masukkan ID Sopir" oninput="validateIDSOPIRLength(this)">
@@ -35,7 +35,7 @@
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
-      </div>
+      </div> -->
 
       <div class="form-group row">
             <label for="name" class="col-sm-3 col-form-label">Nama Sopir</label>
