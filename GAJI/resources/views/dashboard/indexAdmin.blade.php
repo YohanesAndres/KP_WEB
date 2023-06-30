@@ -81,6 +81,7 @@ foreach ($rekap_fusoDetail as $rekap_fuso_detailData) {
 <thead>
   <tr>
   <th scope="col">No</th>
+    <th scope="col">ID Uang Jalan</th>
     <th scope="col">Tanggal Muat</th>
     <th scope="col">Status </th>
     <th scope="col">Plat </th>
@@ -91,7 +92,8 @@ foreach ($rekap_fusoDetail as $rekap_fuso_detailData) {
     @foreach($update_mobil as $key => $uang_jalanData)
   <tr>
       <td>{{ ++$key }}</td>
-          <td>{{ date('Y-m-d',strtotime($uang_jalanData->tanggal)) }}</td>
+          <td>{{ $uang_jalanData->uangjalan->nomorUJ }}</td>
+          <td>{{ date('Y-m-d',strtotime($uang_jalanData->uangjalan->tanggal)) }}</td>
           <td>{{ $uang_jalanData->status }}</td>
           <td>{{ $uang_jalanData->uangjalan->kendaraan->plat }}</td>
           <td>{{ $uang_jalanData->keterangan }}</td>

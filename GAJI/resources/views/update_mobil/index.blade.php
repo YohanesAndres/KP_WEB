@@ -26,6 +26,7 @@
     <thead>
       <tr>
         <th scope="col">No</th>
+        <th scope="col">ID UangJalan</th>
         <th scope="col">Tanggal Muat</th>
         <th scope="col">Status</th>
         <th scope="col">Plat</th>
@@ -38,6 +39,7 @@
           @foreach($update_mobil as $key => $update_mobilData)
         <tr>
             <td>{{ ++$key }}</td>
+            <td>{{ $update_mobilData->uangjalan->nomorUJ }}</td>
             <td>{{ date('Y-m-d',strtotime($update_mobilData->uangjalan->tanggal)) }}</td>
             <td>{{ $update_mobilData->status }}</td>
             <td>{{ $update_mobilData->uangjalan->kendaraan->plat }}</td>

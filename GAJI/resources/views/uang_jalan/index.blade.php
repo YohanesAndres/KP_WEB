@@ -28,8 +28,10 @@
   <thead>
     <tr>
     <th scope="col">No</th>
+      <th scope="col">ID UangJalan</th>
       <th scope="col">Tanggal Muat</th>
       <th scope="col">Plat </th>
+      <th scope="col">Nama Sopir </th>
       <th scope="col">Kategori </th>
       <!-- <th scope="col">Barcode</th> -->
       <th scope="col">Muat Bongkar </th>
@@ -44,8 +46,10 @@
       @foreach($uang_jalan as $key => $uang_jalanData)
     <tr>
         <td>{{ ++$key }}</td>
+            <td>{{ $uang_jalanData->nomorUJ }}</td>
             <td>{{ date('Y-m-d',strtotime($uang_jalanData->tanggal)) }}</td>
             <td>{{ $uang_jalanData->kendaraan->plat }}</td>
+            <td>{{ $uang_jalanData->kendaraan->namasopir->name }}</td>
             <td>{{ $uang_jalanData->kendaraan->kategori }}</td>
             <!-- <td>{{ $uang_jalanData->barcode }}</td> -->
             <td>{{ $uang_jalanData->muatbongkar->muatBongkar }}</td>
@@ -60,13 +64,13 @@
               
                 <a href="/uang_jalan/edit/{{ $uang_jalanData->id }}" class="btn btn-edit">Edit</a>
 
-                <form action="{{ url('/uang_jalan/delete/'.$uang_jalanData->id) }}" method="post">
+                <!-- <form action="{{ url('/uang_jalan/delete/'.$uang_jalanData->id) }}" method="post">
                     @csrf
                     @method('delete')
                     <input type="hidden" name="_method" value="delete">
                     <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus Uang Jalan ini?')">Hapus</button>
 
-                </form>
+                </form> -->
 
             </td>
     </tr>

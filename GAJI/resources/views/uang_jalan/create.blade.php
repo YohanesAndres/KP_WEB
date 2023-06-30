@@ -23,6 +23,16 @@
 <div class=formmarg>
     <form action="{{ url('uang_jalan/store/') }}" method="POST" enctype="multipart/form-data" >
         @csrf
+
+        <div class="form-group row">
+            <label for="nomorUJ" class="col-sm-3 col-form-label">ID Uang Jalan</label>
+            <div class="col-sm-9">
+                <input type="text" name="nomorUJ" id="nomorUJ" class="form-control" placeholder="ID Uang Jalan" oninput="validateIDUJLength(this)">
+                @error('nomorUJ')
+                <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+        </div>
         <div class="form-group row">
             <label for="tanggal" class="col-sm-3 col-form-label">Tanggal</label>
             <div class="col-sm-9">
@@ -185,6 +195,12 @@
         //     });
         // });
     });
+
+    function validateIDUJLength(input) {
+        if (input.value.length > 6) {
+            input.value = input.value.slice(0, 6); // Menghapus karakter setelah 16 digit
+        }
+    }
     
 </script>
 

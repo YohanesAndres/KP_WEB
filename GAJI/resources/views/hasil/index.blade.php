@@ -23,6 +23,7 @@
     <thead>
       <tr>
         <th scope="col">No</th>
+        <th scope="col">ID UangJalan</th>
         <th scope="col">Tanggal Muat</th>
         <th scope="col">Tanggal Bongkar</th>
         <th scope="col">Plat Kendaraan</th>
@@ -55,6 +56,7 @@
         @foreach($hasil as $key => $rekap_fuso_detailData)
         <tr>
             <td>{{ ++$key }}</td>
+            <td>{{ $rekap_fuso_detailData->UangJalan->nomorUJ }}</td>
             <td>{{ date('Y-m-d',strtotime($rekap_fuso_detailData->UangJalan->tanggal)) }}</td>
             <td>
                 @if ($rekap_fuso_detailData->UangJalan->update_mobil->status == 'selesai')

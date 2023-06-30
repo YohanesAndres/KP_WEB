@@ -49,19 +49,24 @@ class Uang_jalan_Controller extends Controller
     {
         $validation = $request->validate([
             'tanggal' => 'required',
+            'nomorUJ' => 'required|min:6|unique:uang_jalan,nomorUJ,idExcept',
             'id_kendaraan' => 'required',
             'id_muat_bongkar' => 'required',
         ],
         [
             'tanggal.required' => 'Tanggal tidak boleh kosong !', 
+            'nomorUJ.required' => 'ID tidak boleh kosong !', 
+            'nomorUJ.unique' => 'ID sudah terdaftar !', 
             'id_kendaraan.required' => 'Silahkan pilih plat !',
             'id_muat_bongkar.required' => 'Silahkan pilih Muat bongkar !',
+            'nomorUJ.min' => 'ID harus memiliki minimal 6 karakter !', 
         ]);
 
         $uang_jalan = new Uang_jalan;
         #$increment = DB::select("SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'db_kp' AND TABLE_NAME = 'uang_jalan'")[0]->AUTO_INCREMENT;
         $increment = DB::select("SELECT AUTO_INCREMENT FROM information_schema.TABLES WHERE TABLE_SCHEMA ='". env('DB_DATABASE') . "' AND TABLE_NAME ='" . $uang_jalan->getTable() . "'")[0]->AUTO_INCREMENT;
         $uang_jalan->tanggal = $request->tanggal; 
+        $uang_jalan->nomorUJ = $request->nomorUJ; 
         $uang_jalan->id_kendaraan = $request->id_kendaraan; 
         // $uang_jalan->barcode = $request->barcode; 
         $uang_jalan->id_muat_bongkar = $request->id_muat_bongkar; 
@@ -101,15 +106,20 @@ class Uang_jalan_Controller extends Controller
             'tanggal' => 'required',
             'id_kendaraan' => 'required',
             'id_muat_bongkar' => 'required',
+            'nomorUJ' => 'required|min:6|unique:uang_jalan,nomorUJ,'.$id,
         ],
         [
             'tanggal.required' => 'Tanggal tidak boleh kosong !', 
             'id_kendaraan.required' => 'Silahkan pilih plat !',
             'id_muat_bongkar.required' => 'Silahkan pilih Muat bongkar !',
+            'nomorUJ.required' => 'ID tidak boleh kosong !', 
+            'nomorUJ.unique' => 'ID sudah terdaftar !', 
+            'nomorUJ.min' => 'ID harus memiliki minimal 6 karakter !', 
         ]);
         
         $uang_jalan =Uang_jalan::findOrFail($id);
     
+        $uang_jalan->nomorUJ = $request->nomorUJ; 
         $uang_jalan->tanggal = $request->tanggal; 
         $uang_jalan->id_kendaraan = $request->id_kendaraan; 
         // $uang_jalan->barcode = $request->barcode; 

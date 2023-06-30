@@ -83,7 +83,8 @@
             <table class="table text-white table-dark table-bordered mt-4">
                 <thead>
                     <tr>
-                        <th scope="col">No</th>
+                        <!-- <th scope="col">No</th> -->
+                        <th scope="col">ID UangJalan</th>
                         <th scope="col">Tanggal Muat</th>
                         <th scope="col">Tanggal Bongkar</th>
                         <th scope="col">Plat Kendaraan</th>
@@ -117,7 +118,8 @@
                     @foreach($rekap_fusoDetail as $key => $rekap_fuso_detailData)
                         @if($rekap_fuso_detailData->rekap_fuso_id == $rekap_fusoData->id)
                             <tr>
-                                <td>{{ $loop->index + 1 }}</td>
+                                <!-- <td>{{ $loop->index + 1 }}</td> -->
+                                <td>{{ $rekap_fuso_detailData->UangJalan->nomorUJ }}</td>
                                 <td>{{ date('Y-m-d',strtotime($rekap_fuso_detailData->UangJalan->tanggal)) }}</td>
                                 <td>
                                     @if ($rekap_fuso_detailData->UangJalan->update_mobil->status == 'selesai')

@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('uang_jalan', function (Blueprint $table) {
             $table->id();
             $table->dateTime('tanggal');
+            $table->integer('nomorUJ')->unique();
             $table->unsignedBigInteger('id_kendaraan');
             $table->foreign('id_kendaraan')->references('id')->on('kendaraan')->onDelete('cascade');
             // $table->string('barcode', 50);

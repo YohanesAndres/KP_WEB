@@ -30,7 +30,7 @@
       <div class="form-group row">
             <label for="idSopir" class="col-sm-3 col-form-label">ID Sopir</label>
             <div class="col-sm-9">
-                <input type="number" name="idSopir" id="idSopir" class="form-control" value="{{$user->idSopir}}" placeholder="Masukkan ID Sopir">
+                <input type="number" name="idSopir" id="idSopir" class="form-control" value="{{$user->idSopir}}" placeholder="Masukkan ID Sopir" oninput="validateIDSOPIRLength(this)">
                 @error('idSopir')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -60,7 +60,7 @@
       <div class="form-group row">
             <label for="NIK" class="col-sm-3 col-form-label">NIK Sopir</label>
             <div class="col-sm-9">
-                <input type="text" name="NIK" id="NIK" class="form-control" value="{{$user->NIK}}">
+                <input type="number" name="NIK" id="NIK" class="form-control" value="{{$user->NIK}}" oninput="validateNIKLength(this)">
                 @error('NIK')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -112,5 +112,17 @@
     $("#foto").change(function () {
         readURL(this);
     });
+
+    function validateNIKLength(input) {
+        if (input.value.length > 16) {
+            input.value = input.value.slice(0, 16); // Menghapus karakter setelah 16 digit
+        }
+    }
+
+    function validateIDSOPIRLength(input) {
+        if (input.value.length > 4) {
+            input.value = input.value.slice(0, 4); // Menghapus karakter setelah 16 digit
+        }
+    }
 </script>
 @endsection
