@@ -196,3 +196,14 @@
   </table>
 </div>
 @endsection
+
+@section('script')
+<script>
+    // Menghapus riwayat kembali saat halaman dimuat
+    window.onload = function() {
+    if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+    };
+</script>
+@endsection

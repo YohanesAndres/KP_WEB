@@ -59,6 +59,7 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.bundle.min.js">
+        
         // // Hapus cache
         // window.onunload = function () {};
 
@@ -66,6 +67,15 @@
         // setTimeout(function () {
         //     location.replace('/login');
         // }, 0);
+        // Menghapus riwayat kembali saat halaman dimuat
+        
+    </script>
+    <script>
+        window.onload = function() {
+            if (window.history && window.history.replaceState) {
+                window.history.replaceState(null, null, window.location.href);
+            }
+        };
     </script>
 </body>
 </html>

@@ -45,8 +45,9 @@
                 <td>{{ $rekap_fusoData->no_kontrak }}</td>
                 <td>{{ $rekap_fusoData->dataTonase->tonase_actual}}</td>
             </tr>
+            <td>{{ ++$key }}</td>
         </table> -->
-            <h3>No              :{{ $loop->index + 1 }}</h3>
+            <h3>No              :{{ $rekap_fusoData->id }}</h3>
             <p>Alamat&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $rekap_fusoData->alamat }}</p>
             <p>NO DO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $rekap_fusoData->dataTonase->no_do }}</p>
             <p>NO SPK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;{{ $rekap_fusoData->dataTonase->no_spk }}</p>
