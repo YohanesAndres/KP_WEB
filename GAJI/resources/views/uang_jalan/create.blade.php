@@ -27,7 +27,7 @@
         <div class="form-group row">
             <label for="nomorUJ" class="col-sm-3 col-form-label">ID Uang Jalan</label>
             <div class="col-sm-9">
-                <input type="text" name="nomorUJ" id="nomorUJ" class="form-control" placeholder="ID Uang Jalan" oninput="validateIDUJLength(this)">
+                <input type="number" name="nomorUJ" id="nomorUJ" class="form-control" placeholder="ID Uang Jalan" oninput="validateIDUJLength(this)">
                 @error('nomorUJ')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror

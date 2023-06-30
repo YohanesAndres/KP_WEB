@@ -60,7 +60,7 @@
       <div class="form-group row">
             <label for="NIK" class="col-sm-3 col-form-label">NIK Sopir</label>
             <div class="col-sm-9">
-                <input type="number" name="NIK" id="NIK" class="form-control" value="{{$user->NIK}}" oninput="validateNIKLength(this)">
+                <input type="text" name="NIK" id="NIK" class="form-control" value="{{$user->NIK}}" oninput="validateNIKLength(this)">
                 @error('NIK')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
