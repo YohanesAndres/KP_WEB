@@ -164,6 +164,7 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
 
     Route::middleware('sopir')->get('/rekapsopir', [App\Http\Controllers\Rekap_fuso_Controller::class, 'hasilSopir'])->name('hasil.indexSopir');
     Route::middleware('sopir')->get('/rekapsopirdetail', [App\Http\Controllers\Rekap_fuso_Controller::class, 'hasilSopirDetail'])->name('hasil.indexSopirDetail');
+    Route::middleware('sopir')->get('/rekapsopir/{id}', [App\Http\Controllers\Rekap_fuso_Controller::class, 'hasilSopirDetail2'])->name('hasil.indexSopirDetail2');
     Route::post('/logout', [User_Controller::class, 'logout'])->name('logout');
 
 });

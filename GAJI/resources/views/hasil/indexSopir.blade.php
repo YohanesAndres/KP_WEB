@@ -15,7 +15,7 @@ $jumlahHasil = $hasil ? count($hasil) : 0;
     <div class="text-white text-title"> Banyak Data = {{  $jumlahHasil  }}</div>
     <br>
     <div>
-        <a href="/rekapsopirdetail" class="btn btn-edit">Lihat Detail</a>
+        <a href="/rekapsopirdetail" class="btn btn-edit">Lihat Seluruh Detail</a>
     </div>
   </div>
 </div>
@@ -30,6 +30,7 @@ $jumlahHasil = $hasil ? count($hasil) : 0;
         <th scope="col">Tanggal Muat</th>
         <th scope="col">Tanggal Bongkar</th>
         <th scope="col">PENDAPATAN BERSIH</th>
+        <th scope="col">Detail</th>
         <!-- <th scope="col">Action</th> -->
       </tr>
     </thead>
@@ -104,6 +105,9 @@ $jumlahHasil = $hasil ? count($hasil) : 0;
             </td>
             <td>
                 {{ number_format($totalJumlah - ($rekap_fuso_detailData->UangJalan->uang_Jalan), 0, ",", ".") }}
+            </td>
+            <td>
+                <a href="/rekapsopir/{{ $rekap_fuso_detailData->id }}" class="btn btn-edit btn-lg text-center">Detail</a>
             </td>
             <!-- <td>
                 @php

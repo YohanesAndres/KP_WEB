@@ -48,6 +48,15 @@ class Rekap_fuso_Controller extends Controller
         return view('hasil.indexSopirDetail', compact('hasil'));
     }
 
+    public function hasilSopirDetail2(Request $request, $id)
+    {
+        
+        $sopirId = auth()->user()->id; // Mendapatkan ID sopir yang sedang login
+        $hasil = Rekap_fuso_detail::find($id);;
+        
+        return view('hasil.indexSopirDetail2', compact('hasil'));
+    }
+
     public function create()
     {
         // Mendapatkan ID nomor DO yang sudah dipilih sebelumnya

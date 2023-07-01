@@ -1,0 +1,84 @@
+/* style.css */
+
+/* Gaya umum */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table th,
+  table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  table th {
+    background-color: #f2f2f2;
+  }
+  
+  /* Gaya khusus untuk tabel detail */
+  .detail-list {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .detail-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .detail-list li {
+    margin-bottom: 10px;
+    display: flex;
+  }
+  
+  .detail-list .label {
+    font-weight: bold;
+    width: 150px;
+  }
+  
+  .detail-list .value {
+    flex-grow: 1;
+  }
+  
+  /* Tombol kembali */
+  .back-button {
+    margin-bottom: 20px;
+  }
+  
+  .back-button a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ccc;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  
+  .back-button a:hover {
+    background-color: #999;
+  }
+
+  .text-title{
+    font-weight: 600;
+    font-size: 2.5rem;
+  }
