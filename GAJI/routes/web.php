@@ -163,6 +163,7 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
     Route::get('/uang_jalan/get-dataJalan/{id}', [App\Http\Controllers\Uang_jalan_Controller::class, 'getDatajalan']);
 
     Route::middleware('sopir')->get('/rekapsopir', [App\Http\Controllers\Rekap_fuso_Controller::class, 'hasilSopir'])->name('hasil.indexSopir');
+    Route::middleware('sopir')->get('/rekapsopirdetail', [App\Http\Controllers\Rekap_fuso_Controller::class, 'hasilSopirDetail'])->name('hasil.indexSopirDetail');
     Route::post('/logout', [User_Controller::class, 'logout'])->name('logout');
 
 });

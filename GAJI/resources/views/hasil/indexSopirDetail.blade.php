@@ -9,14 +9,9 @@ $jumlahHasil = $hasil ? count($hasil) : 0;
 
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 <div class="top-title no-space" style="margin-bottom:-15px">
+    <a href="{{ route('hasil.indexSopir') }}"><img src="{{ asset('back.svg')}}" alt=""></a> 
   <div>
-    <div class="text-white text-center text-title"> Rekap Pendapatan Sopir</div>
-    <br>
-    <div class="text-white text-title"> Banyak Data = {{  $jumlahHasil  }}</div>
-    <br>
-    <div>
-        <a href="/rekapsopirdetail" class="btn btn-edit">Lihat Detail</a>
-    </div>
+    <div class="text-white text-center text-title"> Detail Pendapatan Sopir</div>
   </div>
 </div>
 <hr>
@@ -29,14 +24,24 @@ $jumlahHasil = $hasil ? count($hasil) : 0;
         <th scope="col">ID UangJalan</th>
         <th scope="col">Tanggal Muat</th>
         <th scope="col">Tanggal Bongkar</th>
+        <th scope="col">Plat Kendaraan</th>
+        <th scope="col">Nama Sopir</th>
+        <th scope="col">Tujuan</th>
+        <th scope="col">NETTO PKS</th>
+        <th scope="col">NETTO BONGKAR</th>
+        <th scope="col">SUSUT (KG)</th>
+        <th scope="col">OVER TOLERANSI</th>
+        <th scope="col">SISA SUSUT</th>
+        <th scope="col">UPAH (RP/KG)</th>
+        <th scope="col">TOTAL BONGKAR</th>
+        <th scope="col">PENDAPATAN TOTAL</th>
+        <th scope="col">UANG JALAN</th>
         <th scope="col">PENDAPATAN BERSIH</th>
         <!-- <th scope="col">Action</th> -->
       </tr>
     </thead>
     <tbody>
-        @foreach($hasil as $key => $rekap_fuso_detailData)
-        <tr>
-            @php
+        @php
             $totalTonase = 0;
             $totalNettoPKS = 0;
             $totalNettoBongkar = 0;
@@ -44,56 +49,9 @@ $jumlahHasil = $hasil ? count($hasil) : 0;
             $totalUangJalan = 0;
             $totalBongkar = 0;
             $totalJumlah = 0;
-
-            $result = ($rekap_fuso_detailData->quantity_muat_pks_bruto - $rekap_fuso_detailData->quantity_muat_pks_tarra) - ($rekap_fuso_detailData->quantity_bongkar_bruto - $rekap_fuso_detailData->quantity_bongkar_tarra);
-            if ($result < 0) {
-                $result = 0;
-            }
-
-            $uangjalans = ($rekap_fuso_detailData->UangJalan->uang_Jalan);
-            if ($uangjalans < 0){
-                $uangjalans = 0;
-            }
-            elseif ($uangjalans < 200000) {
-                $uangjalans = 0.002*($rekap_fuso_detailData->quantity_muat_pks_bruto - $rekap_fuso_detailData->quantity_muat_pks_tarra);
-            }
-            elseif ($uangjalans >= 200001 && $uangjalans <= 1000000) {
-                $uangjalans = 0.003*($rekap_fuso_detailData->quantity_muat_pks_bruto - $rekap_fuso_detailData->quantity_muat_pks_tarra);
-            }
-            elseif ($uangjalans >= 1000001 && $uangjalans <= 2999999) {
-                $uangjalans = 0.003*($rekap_fuso_detailData->quantity_muat_pks_bruto - $rekap_fuso_detailData->quantity_muat_pks_tarra);
-            }
-            else {
-                $uangjalans = 0.002*($rekap_fuso_detailData->quantity_muat_pks_bruto - $rekap_fuso_detailData->quantity_muat_pks_tarra);
-            }
-
-            $sisaSusut = ($result - ceil($uangjalans));
-            if ($sisaSusut < 0) {
-                $sisaSusut = 0;
-            }
-
-            $upah = 0;
-            $uangjalans = ($rekap_fuso_detailData->UangJalan->uang_Jalan);
-            if ($uangjalans < 0){
-                $upah = 0;
-            }
-            elseif ($uangjalans < 200000) {
-                $upah = 65;
-            }
-            elseif ($uangjalans >= 200001 && $uangjalans <= 1000000) {
-                $upah = 140;
-            }
-            elseif ($uangjalans >= 1000001 && $uangjalans <= 2999999) {
-                $upah = 220;
-            }
-            else {
-                $upah = 335;
-            }
-
-            $totalBongkar = ($rekap_fuso_detailData->quantity_bongkar_bruto - $rekap_fuso_detailData->quantity_bongkar_tarra ) - $sisaSusut;
-
-            $totalJumlah = $upah * $totalBongkar;
-            @endphp
+        @endphp
+        @foreach($hasil as $key => $rekap_fuso_detailData)
+        <tr>
             <!-- <td>{{ ++$key }}</td> -->
             <td>{{ sprintf('%06d', $rekap_fuso_detailData->UangJalan->nomorUJ) }}</td>
             <td>{{ date('Y-m-d',strtotime($rekap_fuso_detailData->UangJalan->tanggal)) }}</td>
@@ -102,6 +60,85 @@ $jumlahHasil = $hasil ? count($hasil) : 0;
                     {{ $rekap_fuso_detailData->UangJalan->update_mobil->tanggal_bongkar ?? '' }}
                 @endif
             </td>
+            <td>{{ $rekap_fuso_detailData->UangJalan->kendaraan->plat }}</td>
+            <td>{{ $rekap_fuso_detailData->UangJalan->kendaraan->namasopir->name }}</td>
+            <td>{{ $rekap_fuso_detailData->UangJalan->muatbongkar->tujuan->tujuan }}</td>
+            <td>{{ $rekap_fuso_detailData->quantity_muat_pks_bruto - $rekap_fuso_detailData->quantity_muat_pks_tarra }}</td>
+            <td>{{ $rekap_fuso_detailData->quantity_bongkar_bruto - $rekap_fuso_detailData->quantity_bongkar_tarra }}</td>
+            <td>
+                @php
+                    $result = ($rekap_fuso_detailData->quantity_muat_pks_bruto - $rekap_fuso_detailData->quantity_muat_pks_tarra) - ($rekap_fuso_detailData->quantity_bongkar_bruto - $rekap_fuso_detailData->quantity_bongkar_tarra);
+                    if ($result < 0) {
+                        $result = 0;
+                    }
+                @endphp
+                {{ $result }}
+            </td>
+            <td>
+                @php
+                    $uangjalans = ($rekap_fuso_detailData->UangJalan->uang_Jalan);
+                    if ($uangjalans < 0){
+                        $uangjalans = 0;
+                    }
+                    elseif ($uangjalans < 200000) {
+                        $uangjalans = 0.002*($rekap_fuso_detailData->quantity_muat_pks_bruto - $rekap_fuso_detailData->quantity_muat_pks_tarra);
+                    }
+                    elseif ($uangjalans >= 200001 && $uangjalans <= 1000000) {
+                        $uangjalans = 0.003*($rekap_fuso_detailData->quantity_muat_pks_bruto - $rekap_fuso_detailData->quantity_muat_pks_tarra);
+                    }
+                    elseif ($uangjalans >= 1000001 && $uangjalans <= 2999999) {
+                        $uangjalans = 0.003*($rekap_fuso_detailData->quantity_muat_pks_bruto - $rekap_fuso_detailData->quantity_muat_pks_tarra);
+                    }
+                    else {
+                        $uangjalans = 0.002*($rekap_fuso_detailData->quantity_muat_pks_bruto - $rekap_fuso_detailData->quantity_muat_pks_tarra);
+                    }
+                @endphp
+                {{ number_format(ceil($uangjalans), 0, ",", "." ) }}
+            </td>
+            <td>
+                @php
+                    $sisaSusut = ($result - ceil($uangjalans));
+                    if ($sisaSusut < 0) {
+                        $sisaSusut = 0;
+                    }
+                @endphp
+                {{ number_format($sisaSusut, 0, ",", "." )}}
+            </td>
+            <td>
+                @php
+                    $upah = 0;
+                    $uangjalans = ($rekap_fuso_detailData->UangJalan->uang_Jalan);
+                    if ($uangjalans < 0){
+                        $upah = 0;
+                    }
+                    elseif ($uangjalans < 200000) {
+                        $upah = 65;
+                    }
+                    elseif ($uangjalans >= 200001 && $uangjalans <= 1000000) {
+                        $upah = 140;
+                    }
+                    elseif ($uangjalans >= 1000001 && $uangjalans <= 2999999) {
+                        $upah = 220;
+                    }
+                    else {
+                        $upah = 335;
+                    }
+                @endphp
+                {{ number_format($upah, 0, ",", "." ) }}
+            </td>
+            <td>
+                @php
+                    $totalBongkar = ($rekap_fuso_detailData->quantity_bongkar_bruto - $rekap_fuso_detailData->quantity_bongkar_tarra ) - $sisaSusut;
+                @endphp
+                {{ number_format($totalBongkar, 0, ",", ".")  }}
+            </td>
+            <td>
+                @php
+                    $totalJumlah = $upah * $totalBongkar;
+                @endphp
+                {{ number_format($totalJumlah, 0, ",", ".")  }}
+            </td>
+            <td>{{ number_format($rekap_fuso_detailData->UangJalan->uang_Jalan, 0, ",", ".") }}</td>
             <td>
                 {{ number_format($totalJumlah - ($rekap_fuso_detailData->UangJalan->uang_Jalan), 0, ",", ".") }}
             </td>

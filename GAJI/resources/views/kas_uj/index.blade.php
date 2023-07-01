@@ -80,13 +80,13 @@
           
 
               <a href="/kas_uj/edit/{{ $kas_ujData->id }}" class="btn btn-edit">Edit</a>
-              <form action="{{ url('/kas_uj/delete/'.$kas_ujData->id) }}" method="post">
+              <!-- <form action="{{ url('/kas_uj/delete/'.$kas_ujData->id) }}" method="post">
                   @csrf
                   @method('delete')
                   <input type="hidden" name="_method" value="delete">
                   <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus Kas Uang Jalan ini?')">Hapus</button>
 
-              </form>
+              </form> -->
           </td>
       </tr>
       @endforeach
