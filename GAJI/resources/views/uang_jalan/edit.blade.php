@@ -29,7 +29,7 @@
         <div class="form-group row">
             <label for="nomorUJ" class="col-sm-3 col-form-label">ID Uang Jalan</label>
             <div class="col-sm-9">
-                <input type="number" name="nomorUJ" id="nomorUJ" class="form-control" value="{{ sprintf('%06d', $uang_jalan->nomorUJ) }}" oninput="validateIDUJLength(this)">
+                <input type="text" name="nomorUJ" id="nomorUJ" class="form-control" value="{{ sprintf($uang_jalan->nomorUJ) }}"  readonly>
                 @error('nomorUJ')
                 <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -147,7 +147,7 @@
                 type: 'GET',
                 dataType: 'json',
                 success: function(response) {
-                    $('#kategori').val(response.kategori.nama);
+                    $('#kategori').val(response.kategori);
                 }
             });
         });
@@ -191,6 +191,46 @@
             input.value = input.value.slice(0, 6); // Menghapus karakter setelah 16 digit
         }
     }
+
+    function generateUniqueID() {
+        var tanggalElement = document.getElementById('tanggal');
+        var tanggal = formatDate(tanggalElement.value);
+        var platElement = document.getElementById('id_kendaraan');
+        var plat = platElement.options[platElement.selectedIndex].text;
+        var muatBongkarElement = document.getElementById('id_muat_bongkar');
+        var muatBongkarId = muatBongkarElement.value;
+
+        if (tanggal && plat) {
+            // Mengambil 2 huruf paling belakang dari plat kendaraan
+            var platCode = plat.substr(plat.length - 2);
+
+            // Menggabungkan tanggal dan platCode menjadi nomorUJ
+            var nomorUJ = tanggal + platCode + muatBongkarId;
+
+            // Mengisi nilai nomorUJ pada input field
+            document.getElementById('nomorUJ').value = nomorUJ;
+        } else {
+            // Kosongkan nilai nomorUJ jika tanggal atau plat kendaraan tidak diisi
+            document.getElementById('nomorUJ').value = '';
+        }
+    }
+
+    function formatDate(date) {
+    if (date.length === 10) {
+        var year = date.substring(8);
+        var month = date.substring(5, 7);
+        var day = date.substring(0, 4);
+
+        return year  + month + day;
+    }
+
+    return '';
+    }
+
+    // Memanggil generateUniqueID setiap kali tanggal atau plat kendaraan berubah
+    document.getElementById('tanggal').addEventListener('change', generateUniqueID);
+    document.getElementById('id_kendaraan').addEventListener('change', generateUniqueID);
+    document.getElementById('id_muat_bongkar').addEventListener('change', generateUniqueID);
     
 </script>
 <script>

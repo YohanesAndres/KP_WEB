@@ -39,7 +39,7 @@
           @foreach($update_mobil as $key => $update_mobilData)
         <tr>
             <td>{{ ++$key }}</td>
-            <td>{{ sprintf('%06d', $update_mobilData->uangjalan->nomorUJ)  }}</td>
+            <td>{{ sprintf($update_mobilData->uangjalan->nomorUJ)  }}</td>
             <td>{{ date('Y-m-d',strtotime($update_mobilData->uangjalan->tanggal)) }}</td>
             <td>{{ $update_mobilData->status }}</td>
             <td>{{ $update_mobilData->uangjalan->kendaraan->plat }}</td>

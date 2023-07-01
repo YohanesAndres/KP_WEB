@@ -28,6 +28,7 @@
         <th scope="col">Tanggal Bongkar</th>
         <th scope="col">Plat Kendaraan</th>
         <th scope="col">Nama Sopir</th>
+        <th scope="col">Muat Bongkar</th>
         <th scope="col">Tujuan</th>
         <th scope="col">NETTO PKS</th>
         <th scope="col">NETTO BONGKAR</th>
@@ -56,7 +57,7 @@
         @foreach($hasil as $key => $rekap_fuso_detailData)
         <tr>
             <td>{{ ++$key }}</td>
-            <td>{{ sprintf('%06d', $rekap_fuso_detailData->UangJalan->nomorUJ) }}</td>
+            <td>{{ $rekap_fuso_detailData->UangJalan->nomorUJ }}</td>
             <td>{{ date('Y-m-d',strtotime($rekap_fuso_detailData->UangJalan->tanggal)) }}</td>
             <td>
                 @if ($rekap_fuso_detailData->UangJalan->update_mobil->status == 'selesai')
@@ -65,6 +66,7 @@
             </td>
             <td>{{ $rekap_fuso_detailData->UangJalan->kendaraan->plat }}</td>
             <td>{{ $rekap_fuso_detailData->UangJalan->kendaraan->namasopir->name }}</td>
+            <td>{{ $rekap_fuso_detailData->UangJalan->muatbongkar->muatBongkar }}</td>
             <td>{{ $rekap_fuso_detailData->UangJalan->muatbongkar->tujuan->tujuan }}</td>
             <td>{{ $rekap_fuso_detailData->quantity_muat_pks_bruto - $rekap_fuso_detailData->quantity_muat_pks_tarra }}</td>
             <td>{{ $rekap_fuso_detailData->quantity_bongkar_bruto - $rekap_fuso_detailData->quantity_bongkar_tarra }}</td>

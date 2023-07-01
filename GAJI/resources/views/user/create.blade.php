@@ -37,7 +37,7 @@
         <div class="form-group row">
             <label for="email" class="col-sm-3 col-form-label">Email</label>
             <div class="col-sm-9">
-                <input type="text" name="email" id="email" class="form-control" placeholder="Masukkan Nama Email">
+                <input type="text" name="email" id="email" class="form-control" placeholder="Masukkan Email">
                 @error('email')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
@@ -48,7 +48,7 @@
             <label for="password" class="col-sm-3 col-form-label">Password</label>
             <div class="col-sm-9">
                 <div class="password-wrapper">
-                    <input type="password" name="password" id="password" class="form-control" placeholder="Masukkan Nama password">
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Masukkan password">
                     <span class="password-toggle" onclick="togglePasswordVisibility()">&#128065;</span>
                 </div>
                 @error('password')

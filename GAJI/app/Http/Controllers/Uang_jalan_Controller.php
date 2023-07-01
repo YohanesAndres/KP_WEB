@@ -49,7 +49,7 @@ class Uang_jalan_Controller extends Controller
     {
         $validation = $request->validate([
             'tanggal' => 'required',
-            'nomorUJ' => 'required|min:6|unique:uang_jalan,nomorUJ,idExcept',
+            'nomorUJ' => 'required|unique:uang_jalan,nomorUJ,idExcept',
             'id_kendaraan' => 'required',
             'id_muat_bongkar' => 'required',
         ],
@@ -59,7 +59,7 @@ class Uang_jalan_Controller extends Controller
             'nomorUJ.unique' => 'ID sudah terdaftar !', 
             'id_kendaraan.required' => 'Silahkan pilih plat !',
             'id_muat_bongkar.required' => 'Silahkan pilih Muat bongkar !',
-            'nomorUJ.min' => 'ID harus memiliki minimal 6 karakter !', 
+            // 'nomorUJ.min' => 'ID harus memiliki minimal 6 karakter !', 
         ]);
 
         $uang_jalan = new Uang_jalan;
@@ -106,7 +106,7 @@ class Uang_jalan_Controller extends Controller
             'tanggal' => 'required',
             'id_kendaraan' => 'required',
             'id_muat_bongkar' => 'required',
-            'nomorUJ' => 'required|min:6|unique:uang_jalan,nomorUJ,'.$id,
+            'nomorUJ' => 'required|unique:uang_jalan,nomorUJ,'.$id,
         ],
         [
             'tanggal.required' => 'Tanggal tidak boleh kosong !', 
@@ -114,7 +114,7 @@ class Uang_jalan_Controller extends Controller
             'id_muat_bongkar.required' => 'Silahkan pilih Muat bongkar !',
             'nomorUJ.required' => 'ID tidak boleh kosong !', 
             'nomorUJ.unique' => 'ID sudah terdaftar !', 
-            'nomorUJ.min' => 'ID harus memiliki minimal 6 karakter !', 
+            // 'nomorUJ.min' => 'ID harus memiliki minimal 6 karakter !', 
         ]);
         
         $uang_jalan =Uang_jalan::findOrFail($id);

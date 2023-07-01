@@ -95,7 +95,7 @@ $jumlahHasil = $hasil ? count($hasil) : 0;
             $totalJumlah = $upah * $totalBongkar;
             @endphp
             <!-- <td>{{ ++$key }}</td> -->
-            <td>{{ sprintf('%06d', $rekap_fuso_detailData->UangJalan->nomorUJ) }}</td>
+            <td>{{ $rekap_fuso_detailData->UangJalan->nomorUJ }}</td>
             <td>{{ date('Y-m-d',strtotime($rekap_fuso_detailData->UangJalan->tanggal)) }}</td>
             <td>
                 @if ($rekap_fuso_detailData->UangJalan->update_mobil->status == 'selesai')
@@ -145,25 +145,6 @@ $jumlahHasil = $hasil ? count($hasil) : 0;
             $totalUangJalan += $rekap_fuso_detailData->UangJalan->uang_Jalan;
         @endphp -->
         @endforeach
-        <!-- <tr>
-            <td>TOTAL</td>
-            <td colspan="4"></td>
-            <td>{{ number_format($totalTonase, 0, ",", ".") }}</td>
-            <td></td>
-            <td></td>
-            <td>{{ number_format($totalNettoPKS, 0, ",", ".") }}</td>
-            <td></td>
-            <td></td>
-            <td>{{ number_format($totalNettoBongkar, 0, ",", ".") }}</td>
-            <td>{{ number_format($totalSusut, 0, ",", ".") }}</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>{{ number_format($totalUangJalan, 0, ",", ".") }}</td>
-            <td></td>
-        </tr> -->
     </tbody>
   </table>
 </div>

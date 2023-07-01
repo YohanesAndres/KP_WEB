@@ -26,7 +26,7 @@
   <table id="tabel-data" class="table table-striped table-bordered" width="100%" cellspacing="0">
     <thead>
       <tr>
-        <th scope="col">No</th>
+        <th scope="col">ID</th>
         <th scope="col">Muat Bongkar</th>
         <th scope="col">Tujuan</th>
         <th scope="col">Uang Jalan</th>

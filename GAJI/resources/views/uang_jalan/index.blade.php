@@ -46,7 +46,7 @@
       @foreach($uang_jalan as $key => $uang_jalanData)
     <tr>
         <td>{{ ++$key }}</td>
-            <td>{{ sprintf('%06d', $uang_jalanData->nomorUJ) }}</td>
+            <td>{{ $uang_jalanData->nomorUJ }}</td>
             <td>{{ date('Y-m-d',strtotime($uang_jalanData->tanggal)) }}</td>
             <td>{{ $uang_jalanData->kendaraan->plat }}</td>
             <td>{{ $uang_jalanData->kendaraan->namasopir->name }}</td>
