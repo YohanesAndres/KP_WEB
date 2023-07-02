@@ -9,19 +9,18 @@ $jumlahHasil = $hasil ? count($hasil) : 0;
 
 <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 <div class="top-title no-space" style="margin-bottom:-15px">
-  <div>
-    <div class="text-white text-center text-title"> Rekap Pendapatan Sopir</div>
-    <br>
-    <div class="text-white text-title"> Banyak Data = {{  $jumlahHasil  }}</div>
-    <br>
     <div>
-        <a href="/rekapsopirdetail" class="btn btn-edit">Lihat Seluruh Detail</a>
+        <div class="text-white text-center text-title" > Rekap Pendapatan Sopir</div>
     </div>
-  </div>
 </div>
 <hr>
 
-<div class="bgtbl-container" style="margin-top:10px; margin-bottom:20px " >
+<div class="text-white text-title" style="font-size: 18px; margin-left:1px"> Banyak Data = {{  $jumlahHasil  }}</div>
+    <div>
+        <a href="/rekapsopirdetail" class="btn btn-edit">Lihat Seluruh Detail</a>
+    </div>
+
+<div class="bgtbl-container-1" style="margin-top:10px; margin-bottom:20px " >
   <table id="tabel-data"  width="100%" cellspacing="0" style=margin-right:200px>
     <thead>
       <tr>

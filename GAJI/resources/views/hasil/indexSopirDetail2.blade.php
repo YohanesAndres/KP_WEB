@@ -5,24 +5,24 @@
 <div class="top-title no-space" style="margin-bottom:-15px">
     <a href="{{ route('hasil.indexSopir') }}"><img src="{{ asset('back.svg')}}" alt=""></a> 
   <div>
-    <div class="text-white text-center text-title"> Detail Pendapatan Sopir</div>
+    <div class="text-white text-center text-title" style="font-size: 27px;"> Detail Pendapatan Sopir</div>
   </div>
 </div>
 <hr>
 
-<div class="bgtbl-container" style="margin-top:10px; margin-bottom:20px " >
+<div class="bgtbl-container-1" style="margin-top:10px; margin-bottom:20px "  >
   <table class="table-detail">
-    <tbody>
+    <tbody class="style-detail">
       <tr>
-        <th>ID UangJalan:</th>
+        <th>ID UANG JALAN</th>
         <td>{{ $hasil->UangJalan->nomorUJ }}</td>
       </tr>
       <tr>
-        <th>Tanggal Muat:</th>
+        <th>TANGGAK MUAT</th>
         <td>{{ date('Y-m-d',strtotime($hasil->UangJalan->tanggal)) }}</td>
       </tr>
       <tr>
-        <th>Tanggal Bongkar:</th>
+        <th>TANGGAL BONGKAR</th>
         <td>
           @if ($hasil->UangJalan->update_mobil->status == 'selesai')
             {{ $hasil->UangJalan->update_mobil->tanggal_bongkar ?? '' }}
@@ -30,31 +30,31 @@
         </td>
       </tr>
       <tr>
-        <th>Plat Kendaraan:</th>
+        <th>PLAT KENDARAAN</th>
         <td>{{ $hasil->UangJalan->kendaraan->plat }}</td>
       </tr>
       <tr>
-        <th>Nama Sopir:</th>
+        <th>NAMA SOPIR</th>
         <td>{{ $hasil->UangJalan->kendaraan->namasopir->name }}</td>
       </tr>
       <tr>
-        <th>Muat Bongkar:</th>
+        <th>MUAT BONGKAR</th>
         <td>{{ $hasil->UangJalan->muatbongkar->muatBongkar }}</td>
       </tr>
       <tr>
-        <th>Tujuan:</th>
+        <th>TUJUAN</th>
         <td>{{ $hasil->UangJalan->muatbongkar->tujuan->tujuan }}</td>
       </tr>
       <tr>
-        <th>NETTO PKS:</th>
+        <th>NETTO PKS</th>
         <td>{{ $hasil->quantity_muat_pks_bruto - $hasil->quantity_muat_pks_tarra }}</td>
       </tr>
       <tr>
-        <th>NETTO BONGKAR:</th>
+        <th>NETTO BONGKAR</th>
         <td>{{ $hasil->quantity_bongkar_bruto - $hasil->quantity_bongkar_tarra }}</td>
       </tr>
       <tr>
-        <th>SUSUT (KG):</th>
+        <th>SUSUT (KG)</th>
         <td>
           @php
             $result = ($hasil->quantity_muat_pks_bruto - $hasil->quantity_muat_pks_tarra) - ($hasil->quantity_bongkar_bruto - $hasil->quantity_bongkar_tarra);
@@ -66,7 +66,7 @@
         </td>
       </tr>
       <tr>
-        <th>OVER TOLERANSI:</th>
+        <th>OVER TOLERANSI</th>
         <td>
           @php
             $uangjalans = ($hasil->UangJalan->uang_Jalan);
@@ -90,7 +90,7 @@
         </td>
       </tr>
       <tr>
-        <th>SISA SUSUT:</th>
+        <th>SISA SUSUT</th>
         <td>
           @php
             $uangjalans = ($hasil->UangJalan->uang_Jalan);
@@ -103,7 +103,7 @@
         </td>
       </tr>
       <tr>
-        <th>UPAH (RP/KG):</th>
+        <th>UPAH (RP/KG)</th>
         <td>
           @php
             $upah = 0;
@@ -128,7 +128,7 @@
         </td>
       </tr>
       <tr>
-        <th>TOTAL BONGKAR:</th>
+        <th>TOTAL BONGKAR</th>
         <td>
           @php
             $totalBongkar = ($hasil->quantity_bongkar_bruto - $hasil->quantity_bongkar_tarra ) - $sisaSusut;
@@ -137,7 +137,7 @@
         </td>
       </tr>
       <tr>
-        <th>PENDAPATAN TOTAL:</th>
+        <th>PENDAPATAN TOTAL</th>
         <td>
           @php
             $totalJumlah = $upah * $totalBongkar;
@@ -146,11 +146,11 @@
         </td>
       </tr>
       <tr>
-        <th>UANG JALAN:</th>
+        <th>UANG JALAN</th>
         <td>{{ number_format($hasil->UangJalan->uang_Jalan, 0, ",", ".") }}</td>
       </tr>
       <tr>
-        <th>PENDAPATAN BERSIH:</th>
+        <th>PENDAPATAN BERSIH</th>
         <td>
           {{ number_format($totalJumlah - ($hasil->UangJalan->uang_Jalan), 0, ",", ".") }}
         </td>
